@@ -1,0 +1,69 @@
+// Activities Slide Tabs
+$(document).ready(function() {
+	var swiper = new Swiper('#expOnGo', {
+		slidesPerView: 7,
+		freeMode: true,
+		spaceBetween: 10,
+		navigation: {
+	        nextEl: '.icon-arrow02',
+	        prevEl: '.icon-arrow01',
+	      },
+	      breakpoints: {
+	    	  320: {
+			      slidesPerView: 5
+	    	  	},
+	    	  430: {
+				      slidesPerView: 4
+				},
+		        480: {
+		          slidesPerView: 3
+		        },
+		   }
+    });
+	
+    var viewportWidth = $(window).width();
+    var limit = 661;
+    if(viewportWidth > limit){
+        var maxLength = 200;
+        $('textarea').keyup(function() {
+          var length = $(this).val().length;
+          var length = maxLength-length;
+          $('#chars').text(length);
+        });
+
+        (function ($) { 
+            // $('.tab ul.tabs').addClass('active').find('> li:eq(0)').addClass('current');
+            
+            $('.tab ul.tabs li a').click(function (g) { 
+                var tab = $(this).closest('.tab'), 
+                    index = $(this).closest('li').index();
+                
+                tab.find('ul.tabs > li').removeClass('current');
+                $(this).closest('li').addClass('current');
+                
+                tab.find('.tab__content').find('div.tab__items').not('div.tab__items:eq(' + index + ')').slideUp();
+                tab.find('.tab__content').find('div.tab__items:eq(' + index + ')').slideDown();
+                
+                g.preventDefault();
+                } );
+            })(jQuery);
+        }
+
+    	var viewportWidth = $(window).width();
+    	var limit = 660;
+	    if(viewportWidth < limit){
+	        $(".tab__buttons li.nav-item").removeClass("current");
+	    }
+       
+        
+    });
+//************************analytics start***********************************
+//for link clicks
+function analyticsExperience(linkName){
+	var typeOfLink1 = "Navigation";
+	if((linkName=='Next Prev Icon')){
+		 typeOfLink1 = "Carousel";
+	}
+	customLinkClickAnalytics('Home : Experiences On The Go : '+linkName, typeOfLink1);
+}
+//**********************analytics end************************************

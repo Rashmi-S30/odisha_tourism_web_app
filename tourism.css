@@ -1,0 +1,177 @@
+* { margin: 0;
+   padding: 0; 
+   box-sizing: border-box;
+   }
+body {
+   font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+     background: #f9f9f9;
+     }
+     
+     
+     
+
+/* Navbar */
+nav {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(0,0,0,0.7);
+  padding: 15px 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+}
+nav .logo { color: whitesmoke; font-size: 24px; font-weight: 700; }
+nav ul { display: flex; list-style: none; }
+nav ul li { margin-left: 30px; }
+nav ul li a {
+  color: whitesmoke;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+nav ul li a:hover {
+   color: #00c853; 
+  }
+ 
+
+/* Hero Section */
+.hero {
+  height: 100vh;
+  background: url("/for2.jpg") no-repeat center center/cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+  text-align: center;
+  color: white;
+  padding: 0 20px;
+}
+.hero h1 { font-size: 3.5rem; text-shadow: 2px 2px 8px rgba(0,0,0,0.7); }
+.hero p { font-size: 1.2rem; margin: 20px 0; }
+.btn {
+  display: inline-block;
+  padding: 12px 25px;
+  background: #00c853;
+  color: white;
+  font-weight: 600;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+.btn:hover { background: #009624; }
+
+/* Section */
+section { padding: 80px 50px; text-align: center; }
+section h2 { font-size: 2.5rem; margin-bottom: 20px; color: #333; }
+section p { color: #555; max-width: 700px; margin: 0 auto 40px; }
+#about{
+    /* background: url("/forest.jpg"); */
+}
+
+/* Destinations Grid */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+.card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+}
+.card:hover { transform: translateY(-10px); }
+.card img { width: 100%; height: 200px; object-fit: cover; }
+.card h3 { margin: 15px; color: #333; }
+.card p { margin: 0 15px 20px; color: #666; font-size: 0.9rem; }
+
+/* Slider */
+.slider {
+  position: relative;
+  max-width: 100%;
+  height: 400px;
+  overflow: hidden;
+  border-radius: 12px;
+}
+.slides {
+  display: flex;
+  width: 300%;
+  animation: slide 12s infinite;
+}
+.slides img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+}
+@keyframes slide {
+  0% { transform: translateX(0%); }
+  33% { transform: translateX(-100%); }
+  66% { transform: translateX(-200%); }
+  100% { transform: translateX(0%); }
+}
+
+/* Footer */
+footer {
+  background: #222;
+  color: #aaa;
+  padding: 20px;
+  text-align: center;
+}
+/* BookTrip Form */
+.booking-form {
+  max-width: 600px;
+  margin: 0 auto;
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  text-align: left;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  outline: none;
+  transition: border 0.3s;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  border: 1px solid #00c853;
+}
+
+.booking-form .btn {
+  width: 100%;
+  padding: 14px;
+  background: #00c853;
+  color: white;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.booking-form .btn:hover {
+  background: #009624;
+}

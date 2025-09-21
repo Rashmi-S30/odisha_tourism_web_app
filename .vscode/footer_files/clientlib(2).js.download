@@ -1,0 +1,20 @@
+$(document).ready(function(){
+	var swiper = new Swiper('#travelEssentialSlider', {
+	    slidesPerView: 3,
+	    spaceBetween: 30,
+	    simulateTouch: false,
+	    freeMode: true,
+	  breakpoints: {
+		  300: {
+	          slidesPerView: 3,
+	        },
+		  376: {
+	          slidesPerView: 2,
+	        },  
+		  768: {
+	          slidesPerView: 'auto',
+	          spaceBetween: 10,
+	        },
+	      }
+	  });
+})

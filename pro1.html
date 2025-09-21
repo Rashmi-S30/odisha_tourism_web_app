@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eco Tour Odisha</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" rel="stylesheet">
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: Arial, sans-serif; background: #f9f9f9; color: #333; line-height: 1.6; }
+
+    header { background: #2e7d32; color: #fff; padding: 15px; text-align: center; font-size: 24px; font-weight: bold; }
+    header i { margin-right: 10px; }
+
+    .hero { background: url('/eco-tour-bg.jpg') center/cover no-repeat; padding: 80px 20px; text-align: center; color: white; }
+    .hero h1 { font-size: 36px; margin-bottom: 10px; }
+    .hero p { font-size: 18px; }
+
+    .search-box { margin: 20px auto; text-align: center; }
+    .search-box input { padding: 10px; width: 250px; border: 1px solid #ccc; border-radius: 5px; }
+    .search-box button { padding: 10px 20px; border: none; background: #2e7d32; color: white; border-radius: 5px; cursor: pointer; }
+
+    .destinations { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; padding: 20px; }
+    .card { background: #fff; padding: 15px; border-radius: 10px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); cursor: pointer; transition: 0.3s; }
+    .card:hover { transform: scale(1.05); box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
+    .card img { width: 100%; border-radius: 10px; height: 150px; object-fit: cover; }
+    .card h3 { margin: 10px 0; color: #2e7d32; }
+
+    /* Modal Styles */
+    .modal { display: none; position: fixed; z-index: 1000; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); justify-content: center; align-items: center; }
+    .modal-content { background: #fff; padding: 20px; border-radius: 10px; width: 90%; max-width: 600px; position: relative; max-height: 90vh; overflow-y: auto; }
+    .modal-content img { width: 100%; border-radius: 10px; margin-top: 10px; }
+    .close { position: absolute; top: 10px; right: 15px; font-size: 24px; cursor: pointer; color: red; }
+    .btn { background: #2e7d32; color: white; padding: 10px 15px; border: none; border-radius: 5px; cursor: pointer; }
+    .btn:hover { background: #1b5e20; }
+
+    footer { background: #2e7d32; color: white; padding: 15px; text-align: center; margin-top: 20px; }
+  </style>
+</head>
+<body>
+  <header><i class="fas fa-leaf"></i> Eco Tour Odisha</header>
+
+  <section class="hero">
+    <h1>EXPLORE ODISHA WHERE CULTURE MEETS NATURE</h1>
+    <p>Pristine beaches, lush forests, mountains, lakes – every turn is a new adventure.</p>
+  </section>
+
+  <div class="search-box">
+    <input type="text" id="searchInput" placeholder="Search destinations...">
+    <button id="searchBtn"><i class="fas fa-search"></i> Search</button>
+  </div>
+
+  <section class="destinations">
+    <div class="card"><img src="/similipal.jpg"><h3>Simlipal National Park</h3></div>
+    <div class="card"><img src="/satokosia.jpg"><h3>Satkosia Gorge</h3></div>
+    <div class="card"><img src="/debri.jpg"><h3>Debrigarh Sanctuary</h3></div>
+    <div class="card"><img src="/jagannath2.jpg"><h3>Jagannath Temple</h3></div>
+    <div class="card"><img src="/konark.webp"><h3>Sun Temple</h3></div>
+    <div class="card"><img src="/chillika.png"><h3>Chilika lake</h3></div>
+    <div class="card"><img src="/nandan.avif"><h3>Nandankanan</h3></div>
+    <div class="card"><img src="/hirakud.jpg"><h3>Hirakud Dam</h3></div>
+    <div class="card"><img src="/lingaraj.jpg"><h3>Lingraj Temple</h3></div>
+  </section>
+
+  <!-- Destination Modal -->
+  <div class="modal" id="destinationModal">
+    <div class="modal-content">
+      <span class="close" id="closeDestinationModal">&times;</span>
+      <h2 id="destinationTitle"></h2>
+      <p id="destinationInfo"></p>
+      <div id="destinationImage"></div>
+    </div>
+  </div>
+
+  <!-- BookTrip Modal -->
+  <div class="modal" id="bookTripModal">
+    <div class="modal-content">
+      <span class="close" id="closeBookTripModal">&times;</span>
+      <h2>Book Your Trip</h2>
+      <form id="bookingForm">
+        <label>Full Name</label>
+        <input type="text" id="name" required><br><br>
+        <label>Email</label>
+        <input type="email" id="email" required><br><br>
+        <label>Destination</label>
+        <input type="text" id="destination" readonly><br><br>
+        <label>Date</label>
+        <input type="date" id="date" required><br><br>
+        <button type="submit" class="btn">Save Booking</button>
+      </form>
+      <h3>My Bookings</h3>
+      <ul id="bookingList"></ul>
+    </div>
+  </div>
+
+  <footer>© 2025 Eco Tour Odisha | All Rights Reserved</footer>
+
+  <script>
+    // Destination Data
+    const destinationsData = {
+      "Simlipal National Park": { info: "Home to tigers, elephants, and lush forests.", images: ["/similipal.jpg","/similipal.jpg","/similipal.jpg"], activities: "Safari tours, Bird watching", bestTime: "Oct–Jun" },
+      "Satkosia Gorge": { info: "A stunning river gorge and crocodile habitat.", images:["/satokosia.jpg","/satokosia.jpg"], activities:"Boating, Photography", bestTime:"Nov–Feb" },
+      "Debrigarh Sanctuary": { info: "Biodiversity by Hirakud Reservoir.", images:["/debri.jpg"], activities:"Bird watching, Trekking", bestTime:"Oct–Mar" },
+      "Jagannath Temple": { info: "Sacred temple in Puri, famous Rath Yatra.", images:["/jagannath2.jpg"], activities:"Temple visit", bestTime:"Jun–Feb" },
+      "Sun Temple": { info: "UNESCO heritage site at Konark.", images:["/konark.webp"], activities:"Photography", bestTime:"Oct–Mar" },
+      "Chilika lake": { info: "Asia’s largest brackish lagoon.", images:["/chillika.png"], activities:"Boating, Bird watching", bestTime:"Nov–Feb" },
+      "Nandankanan": { info: "Zoo with white tigers and botanical garden.", images:["/nandan.avif"], activities:"Zoo visit", bestTime:"Oct–Mar" },
+      "Hirakud Dam": { info: "World’s longest dam, scenic views.", images:["/hirakud.jpg"], activities:"Sightseeing", bestTime:"Oct–Feb" },
+      "Lingraj Temple": { info: "Ancient Shiva temple, Kalinga architecture.", images:["/lingaraj.jpg"], activities:"Temple visit", bestTime:"Oct–Mar" }
+    };
+
+    const destinationModal = document.getElementById("destinationModal");
+    const closeDestinationModal = document.getElementById("closeDestinationModal");
+    const destinationTitle = document.getElementById("destinationTitle");
+    const destinationInfo = document.getElementById("destinationInfo");
+    const destinationImage = document.getElementById("destinationImage");
+    const bookTripModal = document.getElementById("bookTripModal");
+    const closeBookTripModal = document.getElementById("closeBookTripModal");
+
+    function openDestinationModal(title) {
+      const data = destinationsData[title];
+      if (!data) return;
+      destinationTitle.innerText = title;
+      destinationInfo.innerHTML = `<strong>Description:</strong> ${data.info}<br>
+      <strong>Activities:</strong> ${data.activities}<br>
+      <strong>Best Time:</strong> ${data.bestTime}<br>
+      <button id="bookNowBtn" class="btn" style="margin-top:10px;">Book Now</button>`;
+      destinationImage.innerHTML = data.images.map(img=>`<img src="${img}">`).join("");
+      destinationModal.style.display = "flex";
+      document.getElementById("bookNowBtn").addEventListener("click", ()=>{
+        destinationModal.style.display="none";
+        bookTripModal.style.display="flex";
+        document.getElementById("destination").value=title;
+      });
+    }
+
+    document.querySelectorAll(".card").forEach(card=>{
+      card.addEventListener("click",()=>openDestinationModal(card.querySelector("h3").innerText));
+    });
+
+    document.getElementById("searchBtn").addEventListener("click",()=>{
+      const q=document.getElementById("searchInput").value.trim().toLowerCase();
+      if(!q) return;
+      let found=false;
+      document.querySelectorAll(".card").forEach(card=>{
+        const t=card.querySelector("h3").innerText.toLowerCase();
+        if(!found && t.includes(q)){ found=true;
+          card.scrollIntoView({behavior:"smooth",block:"center"});
+          card.style.border="3px solid #00c853";
+          setTimeout(()=>card.style.border="",2000);
+          openDestinationModal(card.querySelector("h3").innerText);
+        }
+      });
+      if(!found) alert("No matching destination found.");
+    });
+
+    document.getElementById("searchInput").addEventListener("keypress",e=>{
+      if(e.key==="Enter"){ e.preventDefault(); document.getElementById("searchBtn").click(); }
+    });
+
+    closeDestinationModal.onclick=()=>destinationModal.style.display="none";
+    closeBookTripModal.onclick=()=>bookTripModal.style.display="none";
+    window.onclick=e=>{
+      if(e.target===destinationModal) destinationModal.style.display="none";
+      if(e.target===bookTripModal) bookTripModal.style.display="none";
+    };
+
+    // Booking system
+    const bookingForm=document.getElementById("bookingForm");
+    const bookingList=document.getElementById("bookingList");
+    let bookings=[];
+    bookingForm.addEventListener("submit",e=>{
+      e.preventDefault();
+      const name=document.getElementById("name").value;
+      const email=document.getElementById("email").value;
+      const dest=document.getElementById("destination").value;
+      const date=document.getElementById("date").value;
+      const booking={name,email,dest,date};
+      bookings.push(booking);
+      renderBookings();
+      bookingForm.reset();
+      bookTripModal.style.display="none";
+    });
+
+    function renderBookings(){
+      bookingList.innerHTML="";
+      bookings.forEach((b,i)=>{
+        const li=document.createElement("li");
+        li.textContent=`${b.name} - ${b.dest} (${b.date}) `;
+        const del=document.createElement("button");
+        del.textContent="Delete";
+        del.className="btn";
+        del.onclick=()=>{ bookings.splice(i,1); renderBookings(); };
+        li.appendChild(del);
+        bookingList.appendChild(li);
+      });
+    }
+  </script>
+</body>
+</html>

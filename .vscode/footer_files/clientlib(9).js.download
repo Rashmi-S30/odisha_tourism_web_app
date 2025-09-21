@@ -1,0 +1,63 @@
+// window.onpaint = preLoadFunction();
+function preLoadFunction() {
+  var customWarningbox = getCookie('custom-warningbox');
+  if (customWarningbox == '') {
+    $("#warningBox").show();
+  } else {
+    $("#warningBox").hide();
+  }
+}
+
+$(document).ready(function () {
+  // Optionally control COVID alert visibility
+  // var customWarningbox = getCookie('custom-warningbox');
+  // if (customWarningbox == '') {
+  //     $("#warningBox").show();
+  //     setCookie("custom-warningbox", 'shown', 1);
+  // } else {
+  //     $("#warningBox").hide();
+  // }
+
+  // NEW: Manual Carousel Indicator Handling
+  var $carouselItems = $('#banner-carousel .carousel-inner .carousel-item');
+  var $indicators = $('#banner-carousel .carousel-indicators li');
+
+  $indicators.on('click', function () {
+    var index = $(this).data('slide-to');
+
+    // Remove active class from all items and indicators
+    $carouselItems.removeClass('active');
+    $indicators.removeClass('active');
+
+    // Add active to clicked indicator and matching item
+    $(this).addClass('active');
+    $carouselItems.eq(index+1).addClass('active');
+  });
+});
+
+function getCookie(c_name) {
+  if (document.cookie.length > 0) {
+    let c_start = document.cookie.indexOf(c_name + "=");
+    if (c_start != -1) {
+      c_start = c_start + c_name.length + 1;
+      let c_end = document.cookie.indexOf(";", c_start);
+      if (c_end == -1) {
+        c_end = document.cookie.length;
+      }
+      return unescape(document.cookie.substring(c_start, c_end));
+    }
+  }
+  return "";
+}
+
+function setCookie(name, value, days) {
+  var expires;
+  if (days) {
+    var date = new Date();
+    date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+    expires = "; expires=" + date.toGMTString();
+  } else {
+    expires = "";
+  }
+  document.cookie = name + "=" + value + expires + "; path=/";
+}

@@ -1,0 +1,277 @@
+/*Explore Odisha*/
+.explore--odisha{background: linear-gradient(to bottom,#592f5f 35%,#766fb2 85%);}
+.explore--odisha__container{position: relative;}
+.explore--odisha__content{}
+.content__heading{
+    color: #f6b417;
+    width: 700px;
+    position: relative;
+    left: -9em;
+}
+.heading__icon{
+    display: inline-grid;
+    height: 75px;
+    width: 65px;
+    background-color: #4a2c5c;
+    box-shadow: 0px 0px 30px #821498;
+    margin: .5rem .8rem 0 0;
+    line-height: 0;
+    text-align: center;
+    align-items: center;
+}
+.heading__icon .icon-sports-new{color: #7670b3;}
+.heading__icon .icon-beach-lat{color: #13a89e;}
+.heading__icon .icon-beach-icon{color: #f58220;}
+.heading__icon .icon-culture-icon{color: #ef413d;}
+.heading__icon .icon-lake-icon{color: #008dd0;}
+.heading__icon .icon-temple-new{color: #F48120;}
+.heading__icon .icon-askoka-chakra-icon{color: #4464c1;}
+.heading__icon span{font-size: 2.8rem;}
+.heading__counter {
+    font-size: 6rem;
+    font-weight: bold;
+    line-height: .85;
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+    z-index: 1;
+}
+.heading__counter:before{content: "";position: absolute;left: 50%;height: 500px;top: -60px;width: 2px;background-color: #f6b417;z-index: -1;}
+.content__heading h3{
+    display: inline-block;
+    font-size: 1.6rem;
+    vertical-align: top;
+    font-weight: normal;
+    line-height: 1;
+    margin: 0 0 0 .3em;
+}
+.heading__counter span {
+    background: linear-gradient(to bottom,#552e5e,#5e3a6d);;
+}
+
+.content__heading h3 span{
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 3rem;
+    display: block;
+}
+.content__details{
+    color: #fff;
+    margin: 2em 0 0 0;
+    min-height: 140px;
+}
+.content__details h4{}
+.content__details p{}
+
+.tab-img{
+    position: absolute;
+    right: 0;
+    top: -42%;
+}
+.tab-img img{
+    width: 144%;
+}
+.mobile-show {display: none;}
+
+.explore--odisha__tab{position: absolute;right: -14%;top: 10%;z-index: 1;width: 65px;}
+.explore--odisha__tab li a{width: 40px;height: 40px;border: 2px solid #ccc;display: grid;align-items: center;border-radius: 50%;padding: 0;margin: 0 0 1em 0;opacity: .4;font-size: 1.5rem;text-align: center;color: #fff;}
+.explore--odisha__tab li a:hover,.explore--odisha__tab li a.active{opacity: 1;transition: .5s;border-color: #f6b417;color: #f6b417;}
+.explore--odisha__tab li a img{display: block;margin: auto;}
+
+.explore--odisha__numberTab{position: absolute;left: -7%;top: 36%;z-index: 1;width: 10px;}
+.explore--odisha__numberTab li a{
+        color: #fff;
+    position: relative;
+    padding: .2rem .7rem;
+    display: block;
+    margin: 0 0 .5rem 0;
+    font-size: 1rem;
+}
+.explore--odisha__numberTab li a:before {
+    content: "";
+    position: absolute;
+    left: -35px;
+    top: 17px;
+    height: 2px;
+    width: 20px;
+    background-color: #f6b417;
+    opacity: 0;
+}
+.explore--odisha__numberTab li a:hover,.explore--odisha__numberTab li a.active{color: #f6b417;}
+.explore--odisha__numberTab li a.active {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+.explore--odisha__numberTab li a.active:before{opacity: 1;left: -27px;transition: .5s}
+.tab-img{position: absolute;right: 0;top: -26%;}
+.tab-img img{width: 160%;}
+.img__caption{position: absolute;bottom: 8%;left: 33%;right: 0;width: 100%;text-align: left;color: #fff;min-height: 50px}
+.mobile-show {display: none;}
+/*Explore Odisha End*/
+
+@media (max-width :1366px){
+.explore--odisha__container {width: 70%;margin: auto;padding: 2rem 0 0 0;}
+.explore--odisha__tab {right: -18%;top: 27%;}
+.explore--odisha__tab li a {width: 35px;height: 35px;}
+.content__details {margin: 1em 0 0 0;}
+.heading__counter {font-size: 5rem;}
+.heading__counter:before{height: 430px;top: -30px;}
+.heading__counter span {background: linear-gradient(to bottom,#582f5f,#5b3466);}
+.content__heading h3 {font-size: 1.8rem;}
+.content__heading h3 span{font-size: 2.8rem}
+.heading__icon {font-size: 3em;height: 60px;width: 50px;}
+.tab-img {top: 3%;}
+.tab-img img {width: 175%;}
+.explore--odisha__numberTab {left: -16%;top: 30%;}
+.img__caption {
+    bottom: 7%;
+    left: 36%;
+    width: 85%;
+}
+.content__details p {font-size: .9rem;}
+.heading__icon span {font-size: 2.5rem;}
+}
+
+@media (max-width :1152px){
+.content__heading h3 {font-size: 1.5rem;}
+.content__heading h3 span{font-size: 2.5rem}
+.heading__counter {font-size: 4.5rem;}
+.heading__icon{margin: 0 1rem 0 0;}
+.content__details {margin: 2em 0 0 0;}
+.heading__counter:before{height: 400px;top: -35px;}
+.tab-img {top: 5%;}
+.img__caption{bottom: 0;font-size: .9rem;}
+}
+@media (max-width :1024px){
+.heading__counter {font-size: 4.5rem;}
+.heading__counter:before {height: 400px;top: -40px;}
+.heading__counter span {background: #3c377c;}
+.heading__icon {height: 60px;font-size: 3rem;}
+.heading__icon img{width: 75%}
+.content__heading h3 {font-size: 1.5rem;line-height: 1.2;}
+.content__heading h3 span{font-size: 2rem}
+.content__details {margin: 1em 0 0 0;}
+.content__details p {font-size: .9rem;}
+.tab-img {top: 1%;}
+.explore--odisha__numberTab {top: 32%;}
+}
+@media (max-width: 992px){
+.explore--odisha {padding: 2.5em 0;margin-top: -1px}
+.explore--odisha__container{width: 83%;}
+.explore--odisha__content {padding: 4em 0;}
+.content__heading {width: 500px;left: -6em;}
+.content__details {margin: 1em 0 0 2em;}
+.heading__counter:before {height: 310px;top: -40px;}
+.tab-img img {width: 120%;}
+.explore--odisha__tab {right: -8%;width: 40px;top: 24%;}
+.explore--odisha__numberTab {left: -3%;top: 17%;}
+.tab-img {top: 0;position: relative;}
+.heading__counter span {background: #4a336f;}
+.img__caption {bottom: 12%;left: 7%;font-size: .9rem;text-align: center;min-height: auto;}
+
+}
+@media (max-width: 768px){
+.explore--odisha{padding: 3em 0;}
+.explore--odisha__container{width: auto;}
+.content__details {margin: 1em 0 0 0;}
+.explore--odisha__content {padding: 0;}
+.tab-img {top: 0;position: relative;overflow: hidden;}
+.content__heading {width: auto;left: 0;}
+.heading__counter:before{display: none;}
+.heading__counter span {background: transparent;}
+.heading__icon {height: 65px;font-size: 2.5rem;}
+.explore--odisha__tab{top: 9%}
+.tab-img img {width: 100%;}
+.img__caption {bottom: 9%;left: 20%;text-align: left;}
+.explore--odisha__numberTab {
+    left: auto;
+    top: auto;
+    right: 20px;
+    bottom: -10px;
+    display: flex;
+    flex-flow: row;
+    width: auto;
+}
+.explore--odisha__numberTab li a.active {
+    font-size: 1.8rem;
+    line-height: .85;
+}
+.explore--odisha__numberTab li {
+    margin: 0 6px;
+}
+.explore--odisha__numberTab li a.active:before{display: none}
+.explore--odisha__tab{display: none;}
+}
+@media (max-width :660px){
+.explore--odisha__tab {right: 9%;}
+.heading__counter {font-size: 3.5rem;}
+.content__heading h3 {font-size: 1.2rem;}
+.content__heading h3 span {font-size: 1.5rem;}
+.heading__icon {height: 50px;width: 40px;font-size: 2rem;}
+.content__details h4 {font-size: 1.2rem;min-height: auto;}
+.content__details {min-height: auto;}
+.content__details p { margin: 0;}
+}
+@media (max-width :576px){
+.content__details {
+    margin-bottom: 2rem;
+}
+.content__details .btn:after{content: '\f105'; margin-left: 5px; font-family:'FontAwesome';}
+.content__details h4 {font-size: 0.8rem;color: #b5a47c;font-weight: normal;margin-bottom: 1rem;}
+.content__details h5{font-weight: normal;}
+.img__caption {color: #bab6f5;}
+.explore--odisha__numberTab {
+    left: 50%;
+    top: auto;
+    right: auto;
+    bottom: -30px;
+    transform: translate(-50%, 0%);
+    display: flex;
+    flex-flow: row;
+    width: auto;
+}
+
+}
+@media (max-width :480px){
+.tab-img{height: 300px;margin: 0 0 2rem 0;}
+.img__caption {width: 70%}
+.explore--odisha__tab {right: 22%;width: auto;top: auto;bottom: -11%;}
+.explore--odisha__tab li {margin: 0 0 0 .7em;}
+.explore--odisha__container{width: 90%;}
+}
+@media (max-width :430px){
+.heading__icon{display: none}
+.explore--odisha__numberTab li { margin: 0 .25rem;}
+.tab-img {
+    height: 245px;
+    margin: 0;
+    text-align: center;
+}
+.tab-img img {width: 110%;}
+.img__caption {
+    width: 100%;
+    left: 0;
+    font-size: 12px;
+    text-align: center;
+}
+.content__details h5{font-size: 1rem;}
+.content__details h4{    margin-bottom: .5rem;}
+}
+@media (max-width: 375px){
+.heading__icon{display: none;}
+.tab-img {overflow: hidden;}
+.tab-img img {width: 114%;}
+.heading__counter {font-size: 3rem;}
+.content__heading h3 {font-size: 1rem;}
+.content__details p{display: none}
+}
+@media (max-width: 320px){
+
+.heading__counter {font-size: 3rem;}
+.content__heading h3 {font-size: 1rem;}
+
+.explore--odisha__tab li a {width: 30px;height: 30px;margin: 0;}
+.explore--odisha__tab li a img{width: 65%}
+.explore--odisha__tab{bottom: 0%;}
+.explore--odisha__numberTab li {margin: 0 .2rem;}
+}

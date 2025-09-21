@@ -1,0 +1,1990 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<title>Odisha Tourism : </title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0 minimum-scale=1.0, user-scalable=no" />
+<meta name="keywords" content="Odisha Tourism" />
+<meta name="description" content="Odisha Tourism" />
+<meta name="author" content="Odisha Tourism" />
+<link href="/error" rel="canonical">
+<link rel="icon" href="https://apps.odishatourism.gov.in/images/favicon.png" />
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"> -->
+<link rel="stylesheet" href="https://apps.odishatourism.gov.in/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://apps.odishatourism.gov.in/css/common.css?ver=1.17">
+<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700" rel="stylesheet">
+<link href="https://apps.odishatourism.gov.in/css/daterange.min.css" rel="stylesheet"/>
+<link rel="stylesheet" type="text/css" href="https://apps.odishatourism.gov.in/css/custom.css?ver=1.26">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<meta name="robots" content="index, follow" />
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+<script src="https://apps.odishatourism.gov.in/js/jquery.min.js"></script>
+<script src="https://apps.odishatourism.gov.in/Application/js/loadComponent.js?ver=1.18"></script>
+
+        <title>Odisha Tourism : Error</title>
+        <script>
+                    </script>
+        <style type="text/css">
+            .breadcrumbdiv{margin:7em 0 0 0;}
+            #inner-banner{display: none;}
+        </style>
+		<link rel="stylesheet" type="text/css" href="https://apps.odishatourism.gov.in/css/error.css">
+    </head>
+    <body>
+        <!--Banner Section Start-->
+        <script src="https://apps.odishatourism.gov.in/js/fb_google_login.js"></script>
+<script src="https://apps.odishatourism.gov.in/Application/js/md5.js"></script>
+<link rel="stylesheet/text" href="../css/footer.css">
+
+<script src="https://apps.odishatourism.gov.in/Application/js/jquery.blockUI.js"></script>
+<script src="https://apis.google.com/js/api:client.js"></script>
+<!-- <script src="https://apis.google.com/js/client:platform.js?onload=renderButton" async defer></script>
+<meta name="google-signin-client_id" content="834405499774-sb6p2uu2gepe29rbgs1mdk6hj980iqbu.apps.googleusercontent.com"> -->
+<!-- <script src="js/fblogin.js"></script> -->
+<div class="primary-nav fixed-top nav--small">
+    <div class="toplink">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="d-flex justify-content-end"> 
+                    <div class="float-left mr-md-3">
+                        <ul class="d-sm-block d-none">
+                           <!--  <li><a class="screen-reader" href="https://apps.odishatourism.gov.in/travel-agent-registration" title="Click for Registration">Travel Agency/Tour Operator</a></li> -->
+                            <!-- <li><a class="screen-reader" style="color: #fdd45a;"  href="https://apps.odishatourism.gov.in/images/Puri_Travel_Advisory_till_15th_June.jpeg" title="Click to view">Puri Travel Advisory till 15th June</a></li> -->
+                            <!-- <li><a class="screen-reader" style="color: #fdd45a;"  href="https://odishatourism.gov.in/content/dam/tourism/advisory.pdf" title="Covid-19 Registration Portal">COVID-19 Advisory</a></li> -->
+                            <!-- <li><a class="screen-reader" style="color: #fdd45a;"  href="https://covid19.odisha.gov.in/" title="COVID-19 Registration">COVID-19 Registration</a></li> -->
+                            <!-- <li><a class="screen-reader" href="https://apps.odishatourism.gov.in/travel-agent-registration" title="Click for Registration">Travel Agency/Tour Operator Registration</a></li> -->
+                            <!-- <li><a class="screen-reader" href="https://apps.odishatourism.gov.in/hotelerRegistration" title="Click to Register">Register Your Hotel</a></li> -->
+                            <!-- <li><a class="screen-reader" data-toggle="modal" data-eModal" href="javascript:void(0)" title="Cyclone Fani CM Relief Fund">Cyclone Fani CM Relief Fund</a></li> -->
+                        </ul>
+                    </div>
+                    <div class="float-left font-type">
+                        <a href="javascript:decreaseFontSize();" class="screen-reader d-inline mr-1 fontresize" title="Decrease Font Size"><span class="increase">A-</span></a>
+                        <a href="javascript:reSetFontSize();" class="screen-reader d-inline mr-1 fontresize" title="Auto Font Size"><span class="increase">A</span></a>
+                        <a href="javascript:increaseFontSize();" class="screen-reader d-inline fontresize" title="Increase Font Size"><span class="increase">A+</span></a>
+                    </div>
+                    <div class="contrastview" id="sw-color">
+                    <!-- <a href="javascript:void(0)" onClick="chooseStyle('black-theme', 60);" class="black-box" title="" data-toggle="tooltip" data-placement="bottom" data-original-title="High contrast view" tabindex="0">&nbsp;</a> 
+                    <a href="javascript:void(0)" onclick="chooseStyle('none', 60);" class="white-box screenReader " title="" data-toggle="tooltip" data-placement="bottom" data-original-title="Low contrast view" tabindex="1">&nbsp;</a>  -->
+                        
+                        <a href="javascript:void(0);" title="Dark theme" class="black-box screen-reader" data-path="https://apps.odishatourism.gov.in/css/contrast-view.css"></a>
+                        <a href="javascript:void(0);" title="Light theme" class="white-box screen-reader" data-path="https://apps.odishatourism.gov.in/css/light-theme.css"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+            <div id="logo-menudiv">
+        <span class="bg-danger alpha">
+            <!-- <a title="Beta Version" class="screen-reader" href="https://apps.odishatourism.gov.in/beta">BETA</a> -->
+        </span>
+            <div class="row justify-content-between">
+                <div class="col-3">
+                    <h1 class="logo">
+                        &nbsp;<a href="https://odishatourism.gov.in/content/tourism/en.html" title="Odisha Tourism" class="screen-reader" id="logoid"></a>
+                    </h1>
+                </div>
+                <div class="col-5">
+                <div class="menu-utility-icons">
+                    <div class="signin " id="divSignIn">
+                                                    <a class="signin-icon screen-reader" data-toggle="collapse" href="#signin" id="visitorNameMenu" role="button" title="Sign In">
+                                <span class="icon-user"></span>
+                            </a>
+                                                <div class="signinboxList collapse multi-collapse" id="AgentList">
+                            <div class="card card-body-list text-left">
+                                <ul>
+                                    <li><a href="javascript:void(0)" onclick="window.location.href='https://apps.odishatourism.gov.in/travelAgent/dashboard'" title="Dashboard" class="screen-reader"> Dashboard</a></li>
+                                    <li><a href="javascript:void(0)" onclick="window.location.href='https://apps.odishatourism.gov.in/travelAgent/change-password'" title="Change Password" class=" screen-reader"> Change Password</a></li>
+                                    <li><a title="Logout" href="javascript:void(0)" onclick="travelAgentLogOut()" class="screen-reader"> Log Out</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="signinboxList collapse multi-collapse" id="HotelerList">
+                            <div class="card card-body-list text-left">
+                                <ul>
+                                    <li><a href="javascript:void(0)" onclick="window.location.href='https://apps.odishatourism.gov.in/hoteler/dashboard'" title="Dashboard" class="screen-reader"> Dashboard</a></li>
+                                    <li><a href="javascript:void(0)" onclick="window.location.href='https://apps.odishatourism.gov.in/hoteler/changePassword'" title="Change Password" class="screen-reader"> Change Password</a></li>
+                                    <li><a title="Logout" href="javascript:void(0)" onclick="travelAgentLogOut()" class="screen-reader"> Log Out</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="signinboxList collapse multi-collapse" id="VisitorList">
+                            <div class="card card-body-list text-left">
+                                <ul>
+                                    <li><a title="Profile" href="javascript:void(0)" onclick="window.location.href='https://apps.odishatourism.gov.in/user-profile'" class="screen-reader"> <span class="icon-user"></span>  My Profile</a></li>
+                                    <li><a title="My Favorites" href="javascript:void(0)" onclick="window.location.href='https://apps.odishatourism.gov.in/my-favorites'" class="screen-reader"> <span class="icon-heart"></span> My Favorites</a></li>
+                                    <li><a title="My Contribution" href="javascript:void(0)" onclick="window.location.href='https://apps.odishatourism.gov.in/create-user-contribute'" class="screen-reader"> <span class="icon-email-line"></span> My Contribution</a></li>
+                                    <li style=""><a title="Notifications" href="javascript:void(0)" onclick="window.location.href='https://apps.odishatourism.gov.in/my-notifications'" class="screen-reader"> <span class="icon-notification"></span> Notifications </a></li>
+                                    <li><a title="Change Password" href="javascript:void(0)" onclick="window.location.href='https://apps.odishatourism.gov.in/changePwdForVisitors'" class="screen-reader"> <span class="icon-key"></span> Change Password</a></li>
+                                    <li><a title="Log out" href="javascript:void(0)" onclick="travelAgentLogOut()" class="screen-reader"> <span class="icon-exit"></span> Log Out</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="signinbox collapse multi-collapse" id="signin">
+                            <div class="card card-body text-left">
+                                <form method="POST" id="loginForm">
+                                <input type="hidden" id="typeOfLogin" class="login" name="hdnPrevSessionId" value="a5v6pgldng37vimdadmf62t3mk" />
+                                <input type="hidden" name="7909932750" value="6f134b3f775f2e8147f53a16280e92b90a83eab09b4d29e15ab9164b7da7c54b"/>
+                                <h4 class="loginfirstbx screen-reader">Login</h4>
+                                <h4 class="forgotpasswordbx screen-reader">Forgot Password?</h4>
+                                <h4 class="signupbox screen-reader">Sign Up</h4>
+                                <span class="small loginfirstbx text-red" id="loginError"></span>
+                                <!-- <div class="center" style="font-size:24px;"></div> -->
+                                <span class="small forgotpasswordbx text-red" id="forgotError"></span>
+                                <span class="small signupbox text-red" id="signUpError"></span>
+                                <div class="form-group usertype">
+                                    <div class="form-check-inline screen-reader">
+                                        <input type="radio" id="Agent" value="1" checked="checked" name="UserType" onclick="showSignUp(2)">
+                                        <label class="form-check-label" for="Agent"> Agent/Hotelier</label>
+                                    </div>
+                                    <div class="form-check-inline screen-reader">
+                                        <input type="radio" id="Visitor" value="2" name="UserType" onclick="showSignUp(1)">
+                                        <label class="form-check-label" for="Visitor"> Visitor</label>
+                                    </div>
+                                </div>
+                                <div class="signupbox">
+                                    <div class="form-group">
+                                        <div class="main_input_box">
+                                            <span class="add-on screen-reader"><span class="icon-user"></span></span><input type="text" id="varVisitorName" name="varVisitorName" onkeypress="formSubmit(event)"  placeholder="Your Name">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="main_input_box">
+                                            <span class="add-on screen-reader"><span class="icon-email-line"></span></span><input type="text" id="varVisitorEmail" name="varVisitorEmail" onkeypress="formSubmit(event)"  placeholder="Your Email">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="main_input_box">
+                                            <span class="add-on screen-reader"><span class="icon-key"></span></span><input type="text" id="varVPhone" name="varVPhone" onkeypress="isNumberKey(event),formSubmit(event)" placeholder="Your Phone No." maxlength="10">
+                                        </div>
+                                    </div>
+                                   
+                                </div>
+                                <div class="form-group loginfirstbx">
+                                    <div class="main_input_box">
+                                        <span class="add-on"><span class="icon-man-user"></span>
+                                        </span><input type="text" placeholder="User Name"  maxlength="50" onkeypress="formSubmit(event)" name="vchUserName" id="vchUserName">
+                                    </div>
+                                </div>
+                                <div class="form-group loginfirstbx">
+                                    <div class="main_input_box">
+                                        <span class="add-on screen-reader"><span class="icon-key"></span></span><input type="password" onkeypress="formSubmit(event)" placeholder="Password" maxlength="16" name="vchPassword" id="vchPassword">
+                                    </div>
+                                </div>
+                                <div class="main_input_box forgotpasswordbx">
+                                    <span class="add-on screen-reader"><span class="icon-envelope"></span></span><input type="text" onkeypress="formSubmit(event)" placeholder="Email ID" name="vchEmailId" id="vchEmailId">
+                                </div>    
+                                <div class="form-group ">
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <div class="main_input_box">
+                                                <input type="text" class="pl-2" onkeypress="return isNumberKey(event), formSubmit(event);" maxlength="6" placeholder="Enter Captcha" name="vchLoginCaptcha" id="vchLoginCaptcha">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="row">
+                                                <div class="col-sm-9 col-8 signinboxcatcha pr-0 pl-sm-0 screen-reader">
+                                                    <img src="https://apps.odishatourism.gov.in/includes/captcha.php" alt="captcha image" id="captchaImageLogin" />
+                                                </div>
+                                                <div class="col-sm-3 col-4 pl-0">
+                                                    <span class="refresh-captcha1"><a title="Captcha code" href="javascript:void(0)" onclick="reloadCaptihaLogin();"><span class="icon-refresh"></span></a></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                 <div class="row">
+                                    <div class="col-sm-6">
+                                        <span class="loginfirstbx"><a title="Login" onclick="loginTravelVender()" id="btnLogin" class="btn btn-radius btn-red hvr-rectangle-out text-white screen-reader">Login</a></span>
+                                        <span class="forgotpasswordbx"><a title="Submit" class="btn btn-radius btn-red hvr-rectangle-out text-white screen-reader" id="forgotPass" onclick="forgotTravelVender()">Submit</a></span>
+                                        <span class="signupbox"><a title="Submit" onclick="SignupVisitor()" id="btnSignUp" class="btn btn-radius btn-red hvr-rectangle-out text-white screen-reader">Submit</a></span>
+                                     </div>
+                                    <div class="col-sm-6">
+                                        <a data-toggle="collapse" href="#forgotpass" title="Forgot Password" class="forgotflip loginfirstbx screen-reader mt-2">Forgot Password?</a>
+                                        <a title="Back to Login" href="javascript:void(0);" class="backlogin forgotpasswordbx screen-reader"><span class="icon-arrow01"></span> Back to Login</a>
+                                    </div>
+                                </div>
+                                
+
+
+                                <div class="sociallogin" style="display: none;">
+                                    <span class="socialtext">OR Login with</span>
+                                    <div class="fblogin">
+                                       <a href="javascript:void(0);" onclick="fbLogin()" id="fbLink" class="disabled" ><img src="https://apps.odishatourism.gov.in/images/fb-social-icon.png" title="Facebook"  > Facebook</a>
+                                       <!-- <fb:login-button scope="public_profile,email" onlogin="checkLoginState();"> -->
+                                        <!-- </fb:login-button> -->
+                                    </div>
+                                    <div id="gSignIn"></div>
+                                    <div class="gpluslogin">
+                             <!-- <a href="javascript:void(0);" class="gpluslogin" title="Sign in with Google" id='customBtn'><img src="images/gp-social-icon.png" title="Google"> Google </a>
+ -->                             <a href="javascript:void(0);"  id='customBtn' onclick="waitingSpin()"><img src="https://apps.odishatourism.gov.in/images/gp-social-icon.png" title="Google"> Google </a>
+                                    </div>
+                                </div>
+                                <div class="baseline signupflip loginfirstbx" style="display: none;">
+                                    Don't have an account? <a data-toggle="collapse" title="Create New Account" class="screen-reader mt-2" href="javascript:void(0);">Sign Up</a>
+                                </div>
+                                
+                                <!-- <div class="row" id="signupLink">
+                                    <div class="col-sm-12 text-center">
+                                         <a data-toggle="collapse" href="#forgotpass" title="Forgot Password" class="forgotflip loginfirstbx screen-reader mt-2 text-primary">Sign up</a>
+                                    </div>
+                                </div> -->
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                        <!-- Search Section Start -->
+                        <div class="topsearch">
+                            <a class="searchbtn screen-reader" href="javascript:void(0);" title="Search..."><i class="icon-searchicon"></i></a>
+                            <form method="post" id="searchForm">
+                                <input type="hidden" name="hdnPrevSessionId" value="a5v6pgldng37vimdadmf62t3mk" />
+                                <input type="hidden" name="7909932750" value="6f134b3f775f2e8147f53a16280e92b90a83eab09b4d29e15ab9164b7da7c54b"/>
+                                <div id="topsearch">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-10 text-left">
+                                                <!-- <i class="icon-search mt-2"></i><input type="text" name="txtSearch" id="txtSearch" placeholder="Type Your Search Here..." class="ml-2" value=""> -->
+                                                <i class="icon-search mt-2"></i><input type="text" name="txtSearch" id="txtSearch" placeholder="Explore Odisha! Search for Beaches, Monuments, Temples, Buddhist Sites &amp; much more" class="ml-2" value="">
+
+                                            </div>
+                                            <div class="col-2 text-right pl-0"><a title="Close" href="javascript:void(0);" class="hidesearchbar"><i class="icon-close"></i></a></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <!-- Search Section End -->
+                        <!--Menu Handle Icon  -->
+                        <div class="menu-toggle-icon">
+                          <span></span>
+                          <span></span>
+                          <span></span>
+                        </div>
+                        
+                    </div>
+
+                        <!-- Overlay Main Menu Start -->
+                            
+                            
+                        <!-- Curtain menu Start -->
+                        <div class="curtain-menu ">
+                              <div class="menu-left-section">
+                                <ul >
+                                    <li class="screen-reader showmedia">
+                                        <img src="https://apps.odishatourism.gov.in/images/menu-item-img1.jpg" alt="Discover Odisha"> 
+                                        <span class="photo-caption">
+                                            <span>Discover Odisha</span> 
+                                        </span>
+                                    </li>
+                                     <li class="screen-reader">
+                                        <img src="https://apps.odishatourism.gov.in/images/menu-item-img2.jpg" alt="Experience Odisha"> 
+                                        <span class="photo-caption">
+                                            <span>Experience Odisha</span>
+                                        </span>
+                                    </li>
+                                    <li class="screen-reader">
+                                        <img src="images/menu-item-img2.jpg" alt="Plan a Tour">
+                                        <span class="photo-caption"> 
+                                            <span>Plan a Tour</span> 
+                                        </span>
+                                    </li>
+                                    <li class="screen-reader">
+                                        <img src="images/menu-item-img2.jpg" alt="Shop">
+                                        <span class="photo-caption"> 
+                                            <span>Shop</span> 
+                                        </span>
+                                    </li>
+                                    <li class="screen-reader">
+                                        <img src="images/menu-item-img2.jpg" alt="DOT">
+                                        <span class="photo-caption"> 
+                                            <span>Department of Tourism</span> 
+                                        </span>
+                                    </li> 
+                                </ul>
+                            </div>
+                           <!--  <div class="menu-left-section">
+                                <ul>
+                                    <li><img src="https://apps.odishatourism.gov.in/images/menu-item-img1.jpg" alt="Discover Odisha">
+                                            <span class="photo-caption">
+                                            <span class="screen-reader">Discover Odisha</span>
+                                        </span>
+                                    </li>
+                                    <li><img src="https://apps.odishatourism.gov.in/images/menu-item-img2.jpg" alt="Experience Odisha">
+                                        <span class="photo-caption">
+                                            <span class="screen-reader">Experience Odisha</span>
+                                        </span>
+                                    </li>
+                                    <li><img src="https://apps.odishatourism.gov.in/images/menu-item-img3.jpg" alt="Plan a Tour">
+                                        <span class="photo-caption">
+                                            <span class="screen-reader">Plan a Tour</span>
+                                        </span>
+                                    </li>
+                                </ul>
+                            </div> -->
+                            <div class="menu-right-section">
+                                <a href="javascript:void(0);" title="Close Menu" class="menu-close-icon screen-reader"><i class="icon-close"></i></a>
+
+                                <nav>
+                                <ul class="main-menu" id="main_menu">
+        
+                                    <li class="menu__theme screen-reader active" tabindex="16">
+                                        <input type="hidden" id="currentPageDepth" value="6" class="screen-reader" tabindex="17">
+                                        <a class="screen-reader" rel="dofollow" href="javascript:void(0);" id="menudiscover" tabindex="18">Discover</a>     
+                                            
+                                        <div class="menu__dropdown">
+                                            
+                                                <div class="menu__dropdown__column">
+                                                    <h3 class="dropdown__column__title screen-reader" id="about-odisha" tabindex="19">About Odisha</h3>
+                                                    <ul class="dropdown__column__items">
+                                                        
+                                                        <li>
+                                                            <a rel="dofollow" class="headerMenuNav screen-reader" href="https://odishatourism.gov.in/content/tourism/en/discover/about-odisha/glimpses-of-odisha.html" id="glimpses-of-odisha">Glimpses of Odisha</a>
+                                                        </li>
+<li>
+                                                            <a rel="dofollow" class="headerMenuNav screen-reader" href="https://odishatourism.gov.in/content/tourism/en/discover/about-odisha/events-of-odisha.html" id="events-of-odisha">Events of Odisha</a>
+                                                        </li>
+<li>
+                                                            <a rel="dofollow" class="headerMenuNav screen-reader" href="https://odishatourism.gov.in/content/tourism/en/discover/about-odisha/blogs.html" id="blogs">Insider Stories Via Travelogues</a>
+                                                        </li>
+<li>
+                                                            <a rel="dofollow" class="headerMenuNav screen-reader" href="https://odishatourism.gov.in/content/tourism/en/discover/about-odisha/media-wall.html" id="media-wall">Social Wall</a>
+															
+															
+                                                        </li>
+														<li>
+                                                            <a rel="dofollow" class="headerMenuNav screen-reader" href="https://odishatourism.gov.in/content/tourism/en/discover/about-odisha/faq.html" id="faq">FAQs</a>
+															
+															
+                                                        </li>
+
+                                                        
+                                                    </ul>
+                                                </div>
+                                            
+                                                <div class="menu__dropdown__column">
+                                                    <h3 class="dropdown__column__title screen-reader" id="attractions" tabindex="24">Attractions</h3>
+                                                    <ul class="dropdown__column__items">
+                                                        
+                                                        <li>
+                                                            <a rel="dofollow" class="headerMenuNav screen-reader" href="https://odishatourism.gov.in/content/tourism/en/discover/attractions/temples-monuments.html" id="temples-monuments">Temples &amp; Monuments</a>
+                                                        </li>
+<li>
+                                                            <a rel="dofollow" class="headerMenuNav screen-reader" href="https://odishatourism.gov.in/content/tourism/en/discover/attractions/buddhist-sites.html" id="buddhist-sites">Buddhist Sites</a>
+                                                        </li>
+<li>
+                                                            <a rel="dofollow" class="headerMenuNav screen-reader" href="https://odishatourism.gov.in/content/tourism/en/discover/attractions/beaches.html" id="beaches">Beaches</a>
+                                                        </li>
+<li>
+                                                            <a rel="dofollow" class="headerMenuNav screen-reader" href="https://odishatourism.gov.in/content/tourism/en/discover/attractions/museums.html" id="museums">Museums</a>
+                                                        </li>
+<li>
+                                                            <a rel="dofollow" class="headerMenuNav screen-reader" href="https://odishatourism.gov.in/content/tourism/en/discover/attractions/forest-wildlife.html" id="forest-wildlife">Forest &amp; Wildlife</a>
+                                                        </li>
+<li>
+                                                            <a rel="dofollow" class="headerMenuNav screen-reader"  href="https://odishatourism.gov.in/content/tourism/en/discover/attractions/lakes-waterfalls.html" id="lakes-waterfalls">Lakes &amp; Waterfalls</a>
+                                                        </li>
+<li>
+                                                            <a rel="dofollow" class="headerMenuNav screen-reader"  href="https://odishatourism.gov.in/content/tourism/en/discover/attractions/arts-crafts.html" id="arts-crafts">Arts &amp; Crafts</a>
+                                                        </li>
+
+                                                        
+                                                    </ul>
+                                                </div>
+                                            
+                                                <div class="menu__dropdown__column">
+                                                    <h3 class="dropdown__column__title screen-reader" id="major-cities" tabindex="32">Major Cities</h3>
+                                                    <ul class="dropdown__column__items">
+                                                        
+                                                        <li>
+                                                            <a rel="dofollow" class="headerMenuNav screen-reader"  href="https://odishatourism.gov.in/content/tourism/en/discover/major-cities/bhubaneswar.html" id="bhubaneswar">Bhubaneswar</a>
+                                                        </li>
+<li>
+                                                            <a rel="dofollow" class="headerMenuNav screen-reader"  href="https://odishatourism.gov.in/content/tourism/en/discover/major-cities/cuttack.html" id="cuttack">Cuttack</a>
+                                                        </li>
+<li>
+                                                            <a rel="dofollow" class="headerMenuNav screen-reader"  href="https://odishatourism.gov.in/content/tourism/en/discover/major-cities/brahmapur.html" id="brahmapur">Brahmapur</a>
+                                                        </li>
+<li>
+                                                            <a rel="dofollow" class="headerMenuNav screen-reader"  href="https://odishatourism.gov.in/content/tourism/en/discover/major-cities/angul.html" id="angul">Angul</a>
+                                                        </li>
+<li>
+                                                            <a rel="dofollow" class="headerMenuNav screen-reader"  href="https://odishatourism.gov.in/content/tourism/en/discover/major-cities/puri.html" id="puri">Puri</a>
+                                                        </li>
+<li>
+                                                            <a rel="dofollow" class="headerMenuNav screen-reader"  href="https://odishatourism.gov.in/content/tourism/en/discover/major-cities/rourkela.html" id="rourkela">Rourkela</a>
+                                                        </li>
+<li>
+                                                            <a rel="dofollow" class="headerMenuNav screen-reader"  href="https://odishatourism.gov.in/content/tourism/en/discover/major-cities/sambalpur.html" id="sambalpur">Sambalpur</a>
+                                                        </li>
+<li>
+                                                            <a rel="dofollow" class="headerMenuNav screen-reader"  href="https://odishatourism.gov.in/content/tourism/en/discover/major-cities/balasore.html" id="balasore">Balasore</a>
+                                                        </li>
+<li>
+                                                            <a rel="dofollow" class="headerMenuNav screen-reader"  href="https://odishatourism.gov.in/content/tourism/en/discover/major-cities/baripada.html" id="baripada">Baripada</a>
+                                                        </li>
+
+                                                        
+                                                    </ul>
+                                                </div>
+                                            
+                                        </div>
+                                        
+                                    </li>
+                                    <li class="menu__theme screen-reader" tabindex="42">
+                                        <input type="hidden" id="currentPageDepth" value="6" class="screen-reader" tabindex="43">
+                                        <a class="screen-reader" rel="dofollow" href="javascript:void(0);" id="menuexperience" tabindex="44">Experience</a>     
+                                            
+                                        <div class="menu__dropdown">
+                                            
+                                                <div class="menu__dropdown__column">
+                                                    <h3 class="dropdown__column__title screen-reader" id="activities" tabindex="45">Activities</h3>
+                                                    <ul class="dropdown__column__items">
+                                                        
+                                                        <li class="active">
+                                                            <a rel="dofollow" class="headerMenuNav screen-reader"  href="https://odishatourism.gov.in/content/tourism/en/experience/activities/bird-watching.html" id="bird-watching">Bird Watching</a>
+                                                        </li>
+<li>
+                                                            <a rel="dofollow" class="headerMenuNav screen-reader"  href="https://odishatourism.gov.in/content/tourism/en/experience/activities/boat-riding.html" id="boat-riding">Boating</a>
+                                                        </li>
+<li>
+                                                            <a rel="dofollow" class="headerMenuNav screen-reader"  href="https://odishatourism.gov.in/content/tourism/en/experience/activities/trekking.html" id="trekking">Trekking</a>
+                                                        </li>
+<li>
+                                                            <a rel="dofollow" class="headerMenuNav screen-reader"  href="https://odishatourism.gov.in/content/tourism/en/experience/activities/folk-dance.html" id="folk-dance">Folk Dance</a>
+                                                        </li>
+<li>
+                                                            <a rel="dofollow" class="headerMenuNav screen-reader"  href="https://odishatourism.gov.in/content/tourism/en/experience/activities/photography.html" id="photography">Photography</a>
+                                                        </li>
+<li>
+                                                            <a rel="dofollow" class="headerMenuNav screen-reader"  href="https://odishatourism.gov.in/content/tourism/en/experience/activities/water-sports.html" id="water-sports">Water Sports</a>
+                                                        </li>
+
+                                                        
+                                                    </ul>
+                                                </div>
+                                            
+                                                <div class="menu__dropdown__column">
+                                                    <h3 class="dropdown__column__title screen-reader" id="themes" tabindex="52">Themes</h3>
+                                                    <ul class="dropdown__column__items">
+                                                        
+                                                        <li>
+                                                            <a rel="dofollow" class="headerMenuNav screen-reader"  href="https://odishatourism.gov.in/content/tourism/en/experience/themes/city-life.html" id="city-life">City Life</a>
+                                                        </li>
+<li>
+                                                            <a rel="dofollow" class="headerMenuNav screen-reader"  href="https://odishatourism.gov.in/content/tourism/en/experience/themes/handloom.html" id="handloom">Handloom</a>
+                                                        </li>
+<li>
+                                                            <a rel="dofollow" class="headerMenuNav screen-reader"  href="https://odishatourism.gov.in/content/tourism/en/experience/themes/spirituality.html" id="spirituality">Spirituality</a>
+                                                        </li>
+<li>
+                                                            <a rel="dofollow" class="headerMenuNav screen-reader"  href="https://odishatourism.gov.in/content/tourism/en/experience/themes/sports.html" id="sports">Sports</a>
+                                                        </li>
+<li>
+                                                            <a rel="dofollow" class="headerMenuNav screen-reader"  href="https://odishatourism.gov.in/content/tourism/en/experience/themes/ethinic.html" id="ethinic">Ethnic</a>
+                                                        </li>
+<li>
+                                                            <a rel="dofollow" class="headerMenuNav screen-reader"  href="https://odishatourism.gov.in/content/tourism/en/experience/themes/music.html" id="music">Music</a>
+                                                        </li>
+<li>
+                                                            <a rel="dofollow" class="headerMenuNav screen-reader"  href="https://odishatourism.gov.in/content/tourism/en/experience/themes/odissi-dance.html" id="odissi-dance">Odissi Dance</a>
+                                                        </li>
+<li>
+                                                            <a rel="dofollow" class="headerMenuNav screen-reader"  href="https://odishatourism.gov.in/content/tourism/en/experience/themes/festivals.html" id="festivals">Festivals</a>
+                                                        </li>
+<li>
+                                                            <a rel="dofollow" class="headerMenuNav screen-reader"  href="https://odishatourism.gov.in/content/tourism/en/experience/themes/nature-walk.html" id="nature-walk">Nature Walk</a>
+                                                        </li>
+<li>
+                                                            <a rel="dofollow" class="headerMenuNav screen-reader"  href="https://odishatourism.gov.in/content/tourism/en/experience/themes/theatrics.html" id="theatrics">Theatrics</a>
+                                                        </li>
+
+                                                        
+                                                    </ul>
+                                                </div>
+												
+												<div class="menu__dropdown__column">
+                                                    <h3 class="dropdown__column__title screen-reader" id="events" tabindex="53">Events</h3>
+                                                    <ul class="dropdown__column__items">
+                                                        
+                                                        <li>
+                                                            <a rel="dofollow" class="headerMenuNav screen-reader"  href="https://odishatourism.gov.in/content/tourism/en/experience/event/konark-dance-festival2.html" id="konark-dance-festival">Konark Dance Festival</a>
+                                                        </li>
+<li>
+                                                            <a rel="dofollow" class="headerMenuNav screen-reader"  href="https://odishatourism.gov.in/content/tourism/en/experience/event/sand-art-festival2.html" id="sand-art-festival">Sand Art Festival</a>
+                                                        </li>
+<li>
+                                                            <a rel="dofollow" class="headerMenuNav screen-reader"  href="https://odishatourism.gov.in/content/tourism/en/experience/event/mukteswar-dance-festival-2021.html" id="mukteswar-dance-festival-2021">Mukteswar Dance festival 2021</a>
+                                                        </li>
+<li>
+                                                            <a rel="dofollow" class="headerMenuNav screen-reader"  href="https://odishatourism.gov.in/content/tourism/en/experience/event/rajarani-music-festival-2021.html" id="rajarani-music-festival-2021">Rajarani Music Festival 2021</a>
+                                                        </li>
+<li>
+                                                            <a rel="dofollow" class="headerMenuNav screen-reader"  href="https://odishatourism.gov.in/content/tourism/en/experience/event/dhauli-kalinga-mahostav-2021.html" id="dhauli-kalinga-mahostav-2021">Dhauli Kalinga Mahostav 2021</a>
+                                                        </li>
+<li>
+                                                            <a rel="dofollow" class="headerMenuNav screen-reader"  href="https://odishatourism.gov.in/content/tourism/en/experience/event/Vrindaban-Mahotsav-2021.html" id="vrindaban-mahotsav-2021">Vrindaban Mahotsav 2021</a>
+                                                        </li>
+<li>
+                                                            <a rel="dofollow" class="headerMenuNav screen-reader"  href="https://odishatourism.gov.in/content/tourism/en/experience/event/holiday-calendar.html" id="holiday-calendar">Holiday Calendar</a>
+                                                        </li>
+
+                                                        
+                                                    </ul>
+                                                </div>
+                                            
+                                        </div>
+                                        
+                                    </li>
+                                    <li class="menu__theme screen-reader" tabindex="63">
+                                        <input type="hidden" id="currentPageDepth" value="6" class="screen-reader" tabindex="64">
+                                        <a class="screen-reader" rel="dofollow" href="javascript:void(0);" id="menuplan" tabindex="65">Plan</a>     
+                                            
+                                        <div class="menu__dropdown">
+                                            
+                                                <div class="menu__dropdown__column">
+                                                    <h3 class="dropdown__column__title screen-reader" id="trip-organizer" tabindex="66">Trip Organizer</h3>
+                                                    <ul class="dropdown__column__items">
+                                                        
+                                                        <li>
+                                                            <a rel="dofollow" class="headerMenuNav screen-reader"   href="https://odishatourism.gov.in/content/tourism/en/plan/trip-organizer/find-a-roadtrip.html" id="find-a-roadtrip">Odisha By Road</a>
+                                                        </li>
+                                                        <li>
+                                                            <a rel="dofollow" class="headerMenuNav screen-reader"  href="https://odishatourism.gov.in/content/tourism/en/plan/trip-organizer/find-trail.html" id="find-trail">Find a Trail</a>
+                                                        </li>
+                                                        <li>
+                                                            <a rel="dofollow" class="headerMenuNav screen-reader"  href="https://odishatourism.gov.in/content/tourism/en/plan/trip-organizer/find-on-map.html" id="find-on-map">Find On Map</a>
+                                                        </li>
+                                                        <li>
+                                                            <a rel="dofollow" class="headerMenuNav screen-reader"  href="https://odishatourism.gov.in/content/tourism/en/plan/trip-organizer/find-travelAgent.html" id="find-travelAgent">Find a Travel Agent</a>
+                                                        </li>
+<li>
+                                                            <a rel="dofollow" class="headerMenuNav screen-reader"  href="https://odishatourism.gov.in/content/tourism/en/plan/trip-organizer/tour-guide.html" id="tour-guide">Get a Tour Guide</a>
+                                                        </li>
+<li>
+                                                            <a rel="dofollow" class="headerMenuNav screen-reader"  href="https://odishatourism.gov.in/content/tourism/en/plan/trip-organizer/deals-offers.html" id="deals-offers">Deals and Offers</a>
+                                                        </li>
+<li>
+                                                            <a rel="dofollow" class="headerMenuNav screen-reader"  href="https://odishatourism.gov.in/content/tourism/en/plan/trip-organizer/booking.html" id="booking">Booking</a>
+                                                        </li>
+<li>
+                                                            <a rel="dofollow" class="headerMenuNav screen-reader"  href="https://odishatourism.gov.in/content/tourism/en/plan/trip-organizer/find-a-safety-first-hotel.html" id="find-a-safety-first-hotel">Find a Safety First Hotel</a>
+                                                        </li>
+
+                                                        
+                                                    </ul>
+                                                </div>
+                                            
+                                                <div class="menu__dropdown__column">
+                                                    <h3 class="dropdown__column__title screen-reader" id="food-accommodation" tabindex="75">Food and Accomodation</h3>
+                                                    <ul class="dropdown__column__items">
+                                                        
+                                                        <li>
+                                                            <a rel="dofollow" class="headerMenuNav screen-reader"  href="https://odishatourism.gov.in/content/tourism/en/plan/food-accommodation/otdc.html" id="otdc">OTDC Hotels</a>
+                                                        </li>
+<li>
+                                                            <a rel="dofollow" class="headerMenuNav screen-reader"  href="https://odishatourism.gov.in/content/tourism/en/plan/food-accommodation/naturecamps.html" id="naturecamps">Nature Camps</a>
+                                                        </li>
+<li>
+                                                            <a rel="dofollow" class="headerMenuNav screen-reader"  href="https://odishatourism.gov.in/content/tourism/en/plan/food-accommodation/resorts-heritage-properties.html" id="resorts-heritage-properties">Resorts &amp; Heritage Properties</a>
+                                                        </li>
+<li>
+                                                            <a rel="dofollow" class="headerMenuNav screen-reader"  href="https://odishatourism.gov.in/content/tourism/en/plan/food-accommodation/hotels.html" id="hotels">Hotels</a>
+                                                        </li>
+<li>
+                                                            <a rel="dofollow" class="headerMenuNav screen-reader"  href="https://odishatourism.gov.in/content/tourism/en/plan/food-accommodation/oyo.html" id="oyo">OYO</a>
+                                                        </li>
+<li>
+                                                            <a rel="dofollow" class="headerMenuNav screen-reader"  href="https://odishatourism.gov.in/content/tourism/en/plan/food-accommodation/way-side-ammenities.html" id="way-side-ammenities">Way Side Amenities</a>
+                                                        </li>
+
+                                                        
+                                                    </ul>
+                                                </div>
+                                            
+                                                <div class="menu__dropdown__column">
+                                                    <h3 class="dropdown__column__title screen-reader" id="Important-Information" tabindex="82">Important Information</h3>
+                                                    <ul class="dropdown__column__items">
+                                                        
+                                                        <li>
+                                                            <a rel="dofollow" class="headerMenuNav screen-reader"  href="https://odishatourism.gov.in/content/tourism/en/plan/Important-Information/visitor-information-centers.html" id="visitor-information-centres">Visitor Information Centers</a>
+                                                        </li>
+														 <li>
+                                                            <a rel="dofollow" class="headerMenuNav screen-reader"  href="https://odishatourism.gov.in/content/tourism/en/plan/Important-Information/tourist-police-cell.html" id="tourist-police-cell">Tourist Police cell</a>
+                                                        </li>
+<li>
+                                                            <a rel="dofollow" class="headerMenuNav screen-reader"  href="https://odishatourism.gov.in/content/tourism/en.html?url=tourism#" id="get-in-touch">Get In Touch</a>
+                                                        </li>
+<li>
+                                                            <a rel="dofollow" class="headerMenuNav screen-reader"  href="https://odishatourism.gov.in/content/tourism/en/plan/Important-Information/getting-around.html" id="getting-around">Getting Around</a>
+                                                        </li>
+<li>
+                                                            <a rel="dofollow" class="headerMenuNav screen-reader"  href="https://odishatourism.gov.in/content/tourism/en/plan/Important-Information/weather-climate.html" id="weather-climate">Weather &amp; Climate</a>
+                                                        </li>
+
+                                                        
+                                                    </ul>
+                                                </div>
+                                            
+                                        </div>
+                                        
+                                    </li>
+<li class="menu__theme screen-reader" tabindex="87">
+                                        <input type="hidden" id="currentPageDepth" value="6" class="screen-reader" tabindex="88">
+                                        <a class="screen-reader" rel="dofollow" href="javascript:void(0);" id="menushopping" tabindex="89">Shop</a>     
+                                            
+                                        <div class="menu__dropdown">
+                                            
+                                                <div class="menu__dropdown__column">
+                                                    <h3 class="dropdown__column__title screen-reader" id="onlineStore" tabindex="90">Online Store</h3>
+                                                    <ul class="dropdown__column__items">
+                                                        
+                                                        <li>
+                                                            <a rel="dofollow" class="headerMenuNav screen-reader"  href="https://shop.odishatourism.gov.in/content/tourism/en.html#services" id="shopClothing" >Clothing</a>
+                                                        </li>
+<li>
+                                                            <a rel="dofollow" class="headerMenuNav screen-reader"  href="https://shop.odishatourism.gov.in/content/tourism/en.html#decorforyou" id="shopDecor" >Decor</a>
+                                                        </li>
+<li>
+                                                            <a rel="dofollow" class="headerMenuNav screen-reader"  href="https://shop.odishatourism.gov.in/content/tourism/en.html#fineryforyou" id="shopJewellery">Jewellery</a>
+                                                        </li>
+<li>
+                                                            <a rel="dofollow" class="headerMenuNav screen-reader"  href="https://shop.odishatourism.gov.in/content/tourism/en.html" id="shopWebsite">All</a>
+                                                        </li>
+
+                                                        
+                                                    </ul>
+                                                </div>
+                                            
+                                                <div class="menu__dropdown__column">
+                                                    <h3 class="dropdown__column__title screen-reader" id="brickMortarStores" tabindex="95">Brick &amp; Mortar Stores</h3>
+                                                    <ul class="dropdown__column__items">
+                                                        
+                                                        <li>
+                                                            <a rel="dofollow" class="headerMenuNav screen-reader"  href="https://shop.odishatourism.gov.in/content/tourism/en.html#locatestore" id="shopStoreLocator">Store Locator</a>
+                                                        </li>
+<li>
+                                                            <a rel="dofollow" class="headerMenuNav screen-reader"  href="https://shop.odishatourism.gov.in/content/tourism/en.html#artisanstories" id="shopArtisanStories">Artisan Stories</a>
+                                                        </li>
+
+                                                        
+                                                    </ul>
+                                                </div>
+                                            
+                                        </div>
+                                        
+                                    </li>
+<li class="menu__theme screen-reader" tabindex="98">
+                                        <input type="hidden" id="currentPageDepth" value="6" class="screen-reader" tabindex="99">
+                                        <a class="screen-reader" rel="dofollow" href="javascript:void(0);" id="menudot" tabindex="100">Department of Tourism</a>        
+                                            
+                                        <div class="menu__dropdown">
+                                            
+                                                <div class="menu__dropdown__column">
+                                                    <h3 class="dropdown__column__title screen-reader" id="quickLinks" tabindex="101">Quick Links</h3>
+                                                    <ul class="dropdown__column__items">
+                                                        
+                                                        <li>
+                                                            <a rel="dofollow" class="headerMenuNav screen-reader"  href="https://dot.odishatourism.gov.in/" id="dotWebsite">Website</a>
+                                                        </li>
+														<li>
+                                                            <a rel="dofollow" class="headerMenuNav screen-reader"  href="https://odishatourism.gov.in/content/tourism/en/dot/quickLinks/tender.html" id="tender">Tender</a>
+                                                        </li>
+<li>
+                                                            <a rel="dofollow" class="headerMenuNav screen-reader"  href="https://odishatourism.gov.in/content/tourism/en/dot/quickLinks/travel-agent-registration.html" id="travel-agent-registration">Travel Agent Registration</a>
+                                                        </li>
+<li>
+                                                            <a rel="dofollow" class="headerMenuNav screen-reader"  href="https://odishatourism.gov.in/content/tourism/en/dot/quickLinks/hotelier-registration.html" id="hotelier-registration">Hotelier Registration</a>
+                                                        </li>
+<li>
+                                                            <a rel="dofollow" class="headerMenuNav screen-reader"  href="https://odishatourism.gov.in/content/tourism/en/dot/quickLinks/newsletter.html" id="newsletter">Newsletter</a>
+                                                        </li>
+														<li>
+                                                            <a rel="dofollow" class="headerMenuNav screen-reader"  href="https://odishatourism.gov.in/content/tourism/en/dot/quickLinks/disclaimer.html" id="disclaimer">Disclaimer</a>
+                                                        </li>
+                                                        
+                                                    </ul>
+                                                </div>
+                                            
+                                        </div>
+                                        
+                                    </li>
+<li class="menu__theme screen-reader" tabindex="105">
+                                        <input type="hidden" id="currentPageDepth" value="6" class="screen-reader" tabindex="106">
+                                                
+                                            
+                                        <div class="menu__dropdown">
+                                            
+                                        </div>
+                                        
+                                    </li>
+<li class="menu__theme screen-reader" tabindex="107">
+                                        <input type="hidden" id="currentPageDepth" value="6" class="screen-reader" tabindex="108">
+                                                
+                                            
+                                        <div class="menu__dropdown">
+                                            
+                                        </div>
+                                        
+                                    </li>
+<li class="menu__theme screen-reader" tabindex="109">
+                                        <input type="hidden" id="currentPageDepth" value="6" class="screen-reader" tabindex="110">
+                                                
+                                            
+                                        <div class="menu__dropdown">
+                                            
+                                        </div>
+                                        
+                                    </li>
+<li class="menu__theme screen-reader" tabindex="111">
+                                        <input type="hidden" id="currentPageDepth" value="6" class="screen-reader" tabindex="112">
+                                                
+                                            
+                                        <div class="menu__dropdown">
+                                            
+                                        </div>
+                                        
+                                    </li>
+<li class="menu__theme screen-reader" tabindex="113">
+                                        <input type="hidden" id="currentPageDepth" value="6" class="screen-reader" tabindex="114">
+                                                
+                                            
+                                        <div class="menu__dropdown">
+                                            
+                                        </div>
+                                        
+                                    </li>
+<li class="menu__theme screen-reader" tabindex="115">
+                                        <input type="hidden" id="currentPageDepth" value="6" class="screen-reader" tabindex="116">
+                                                
+                                            
+                                        <div class="menu__dropdown">
+                                            
+                                        </div>
+                                        
+                                    </li>
+<li class="menu__theme screen-reader" tabindex="117">
+                                        <input type="hidden" id="currentPageDepth" value="6" class="screen-reader" tabindex="118">
+                                                
+                                            
+                                        <div class="menu__dropdown">
+                                            
+                                        </div>
+                                        
+                                    </li>
+<li class="menu__theme screen-reader" tabindex="119">
+                                        <input type="hidden" id="currentPageDepth" value="6" class="screen-reader" tabindex="120">
+                                                
+                                            
+                                        <div class="menu__dropdown">
+                                            
+                                        </div>
+                                        
+                                    </li>
+<li class="menu__theme screen-reader" tabindex="121">
+                                        <input type="hidden" id="currentPageDepth" value="6" class="screen-reader" tabindex="122">
+                                                
+                                            
+                                        <div class="menu__dropdown">
+                                            
+                                        </div>
+                                        
+                                    </li>
+<li class="menu__theme screen-reader" tabindex="123">
+                                        <input type="hidden" id="currentPageDepth" value="6" class="screen-reader" tabindex="124">
+                                                
+                                            
+                                        <div class="menu__dropdown">
+                                            
+                                        </div>
+                                        
+                                    </li>
+<li class="menu__theme screen-reader" tabindex="125">
+                                        <input type="hidden" id="currentPageDepth" value="6" class="screen-reader" tabindex="126">
+                                                
+                                            
+                                        <div class="menu__dropdown">
+                                            
+                                        </div>
+                                        
+                                    </li>
+<li class="menu__theme screen-reader" tabindex="127">
+                                        <input type="hidden" id="currentPageDepth" value="6" class="screen-reader" tabindex="128">
+                                                
+                                            
+                                        <div class="menu__dropdown">
+                                            
+                                        </div>
+                                        
+                                    </li>
+<li class="menu__theme screen-reader" tabindex="129">
+                                        <input type="hidden" id="currentPageDepth" value="6" class="screen-reader" tabindex="130">
+                                                
+                                            
+                                        <div class="menu__dropdown">
+                                            
+                                        </div>
+                                        
+                                    </li>
+<li class="menu__theme screen-reader" tabindex="131">
+                                        <input type="hidden" id="currentPageDepth" value="6" class="screen-reader" tabindex="132">
+                                                
+                                            
+                                        <div class="menu__dropdown">
+                                            
+                                        </div>
+                                        
+                                    </li>
+<li class="menu__theme screen-reader" tabindex="133">
+                                        <input type="hidden" id="currentPageDepth" value="6" class="screen-reader" tabindex="134">
+                                                
+                                            
+                                        <div class="menu__dropdown">
+                                            
+                                        </div>
+                                        
+                                    </li>
+<li class="menu__theme screen-reader" tabindex="135">
+                                        <input type="hidden" id="currentPageDepth" value="6" class="screen-reader" tabindex="136">
+                                                
+                                            
+                                        <div class="menu__dropdown">
+                                            
+                                        </div>
+                                        
+                                    </li>
+<li class="menu__theme screen-reader" tabindex="137">
+                                        <input type="hidden" id="currentPageDepth" value="6" class="screen-reader" tabindex="138">
+                                                
+                                            
+                                        <div class="menu__dropdown">
+                                            
+                                        </div>
+                                        
+                                    </li>
+<li class="menu__theme screen-reader" tabindex="139">
+                                        <input type="hidden" id="currentPageDepth" value="6" class="screen-reader" tabindex="140">
+                                                
+                                            
+                                        <div class="menu__dropdown">
+                                            
+                                        </div>
+                                        
+                                    </li>
+<li class="menu__theme screen-reader" tabindex="141">
+                                        <input type="hidden" id="currentPageDepth" value="6" class="screen-reader" tabindex="142">
+                                                
+                                            
+                                        <div class="menu__dropdown">
+                                            
+                                        </div>
+                                        
+                                    </li>
+<li class="menu__theme screen-reader" tabindex="143">
+                                        <input type="hidden" id="currentPageDepth" value="6" class="screen-reader" tabindex="144">
+                                                
+                                            
+                                        <div class="menu__dropdown">
+                                            
+                                        </div>
+                                        
+                                    </li>
+<li class="menu__theme screen-reader" tabindex="145">
+                                        <input type="hidden" id="currentPageDepth" value="6" class="screen-reader" tabindex="146">
+                                                
+                                            
+                                        <div class="menu__dropdown">
+                                            
+                                        </div>
+                                        
+                                    </li>
+<li class="menu__theme screen-reader" tabindex="147">
+                                        <input type="hidden" id="currentPageDepth" value="6" class="screen-reader" tabindex="148">
+                                                
+                                            
+                                        <div class="menu__dropdown">
+                                            
+                                        </div>
+                                        
+                                    </li>
+<li class="menu__theme screen-reader" tabindex="149">
+                                        <input type="hidden" id="currentPageDepth" value="6" class="screen-reader" tabindex="150">
+                                                
+                                            
+                                        <div class="menu__dropdown">
+                                            
+                                        </div>
+                                        
+                                    </li>
+<li class="menu__theme screen-reader" tabindex="151">
+                                        <input type="hidden" id="currentPageDepth" value="6" class="screen-reader" tabindex="152">
+                                                
+                                            
+                                        <div class="menu__dropdown">
+                                            
+                                        </div>
+                                        
+                                    </li>
+<li class="menu__theme screen-reader" tabindex="153">
+                                        <input type="hidden" id="currentPageDepth" value="6" class="screen-reader" tabindex="154">
+                                                
+                                            
+                                        <div class="menu__dropdown">
+                                            
+                                        </div>
+                                        
+                                    </li>
+<li class="menu__theme screen-reader" tabindex="155">
+                                        <input type="hidden" id="currentPageDepth" value="6" class="screen-reader" tabindex="156">
+                                                
+                                            
+                                        <div class="menu__dropdown">
+                                            
+                                        </div>
+                                        
+                                    </li>
+<li class="menu__theme screen-reader" tabindex="157">
+                                        <input type="hidden" id="currentPageDepth" value="6" class="screen-reader" tabindex="158">
+                                                
+                                            
+                                        <div class="menu__dropdown">
+                                            
+                                        </div>
+                                        
+                                    </li>
+<li class="menu__theme screen-reader" tabindex="159">
+                                        <input type="hidden" id="currentPageDepth" value="6" class="screen-reader" tabindex="160">
+                                                
+                                            
+                                        <div class="menu__dropdown">
+                                            
+                                        </div>
+                                        
+                                    </li>
+<li class="menu__theme screen-reader" tabindex="161">
+                                        <input type="hidden" id="currentPageDepth" value="6" class="screen-reader" tabindex="162">
+                                                
+                                            
+                                        <div class="menu__dropdown">
+                                            
+                                        </div>
+                                        
+                                    </li>
+<li class="menu__theme screen-reader" tabindex="163">
+                                        <input type="hidden" id="currentPageDepth" value="6" class="screen-reader" tabindex="164">
+                                                
+                                            
+                                        <div class="menu__dropdown">
+                                            
+                                        </div>
+                                        
+                                    </li>
+<li class="menu__theme screen-reader" tabindex="165">
+                                        <input type="hidden" id="currentPageDepth" value="6" class="screen-reader" tabindex="166">
+                                                
+                                            
+                                        <div class="menu__dropdown">
+                                            
+                                        </div>
+                                        
+                                    </li>
+                                                            
+                                </ul>
+                            </nav>
+
+
+                                <!-- <nav>
+                                                                    <ul class="main-menu">
+                                                                            <li id="menu_210" class="menu__theme " data-menupos="1">
+                                            <a title="" class="screen-reader" href="javascript:void(0);" > 
+                                        Discover                                            </a>
+                                            <div class="menu__dropdown">
+                                                                                    <div class="menu__dropdown__column">
+                                                                                                <h3 id="menu_213" class="screen-reader dropdown__column__title ">About Odisha</h3>
+                                                    <ul class="dropdown__column__items">
+                                                                                                            <li id="menu_215"  ><a title="" class="screen-reader" href="https://apps.odishatourism.gov.in/glimpses-of-odisha" >Glimpses Of Odisha</a></li>
+                                                                                                                        <li id="menu_216"  ><a title="" class="screen-reader" href="https://apps.odishatourism.gov.in/events-of-odisha" >Events of Odisha</a></li>
+                                                                                                                        <li id="menu_232"  ><a title="" class="screen-reader" href="https://apps.odishatourism.gov.in/insider-stories-via-travelouges" >Insider Stories Via Travelogues</a></li>
+                                                                                                                </ul>
+                                                                                                            </div>
+                                                                                                <div class="menu__dropdown__column">
+                                                                                                <h3 id="menu_214" class="screen-reader dropdown__column__title ">Attractions</h3>
+                                                    <ul class="dropdown__column__items">
+                                                                                                            <li id="menu_217"  ><a title="" class="screen-reader" href="https://apps.odishatourism.gov.in/temples-monuments" >Temples &amp; Monuments</a></li>
+                                                                                                                        <li id="menu_261"  ><a title="" class="screen-reader" href="https://apps.odishatourism.gov.in/buddhist-sites" >Buddhist Sites</a></li>
+                                                                                                                        <li id="menu_219"  ><a title="" class="screen-reader" href="https://apps.odishatourism.gov.in/beaches" >Beaches</a></li>
+                                                                                                                        <li id="menu_222"  ><a title="" class="screen-reader" href="https://apps.odishatourism.gov.in/museums" >Museums</a></li>
+                                                                                                                        <li id="menu_221"  ><a title="" class="screen-reader" href="https://apps.odishatourism.gov.in/forest-wildlife" >Forest &amp; Wildlife</a></li>
+                                                                                                                        <li id="menu_220"  ><a title="" class="screen-reader" href="https://apps.odishatourism.gov.in/lakes-waterfalls" >Lakes &amp; Waterfalls</a></li>
+                                                                                                                        <li id="menu_223"  ><a title="" class="screen-reader" href="https://apps.odishatourism.gov.in/arts-crafts" >Arts &amp; Crafts</a></li>
+                                                                                                                </ul>
+                                                                                                            </div>
+                                                                                                <div class="menu__dropdown__column">
+                                                                                                <h3 id="menu_273" class="screen-reader dropdown__column__title ">Major Cities</h3>
+                                                    <ul class="dropdown__column__items">
+                                                                                                            <li id="menu_296"  ><a title="" class="screen-reader" href="https://apps.odishatourism.gov.in/bhubaneswar" >Bhubaneswar</a></li>
+                                                                                                                        <li id="menu_274"  ><a title="" class="screen-reader" href="https://apps.odishatourism.gov.in/cuttack" >Cuttack</a></li>
+                                                                                                                        <li id="menu_302"  ><a title="" class="screen-reader" href="https://apps.odishatourism.gov.in/puri" >Puri</a></li>
+                                                                                                                        <li id="menu_303"  ><a title="" class="screen-reader" href="https://apps.odishatourism.gov.in/angul" >Angul</a></li>
+                                                                                                                        <li id="menu_305"  ><a title="" class="screen-reader" href="https://apps.odishatourism.gov.in/baripada" >Baripada</a></li>
+                                                                                                                        <li id="menu_306"  ><a title="" class="screen-reader" href="https://apps.odishatourism.gov.in/brahmapur" >Brahmapur</a></li>
+                                                                                                                        <li id="menu_307"  ><a title="" class="screen-reader" href="https://apps.odishatourism.gov.in/rourkela" >Rourkela</a></li>
+                                                                                                                        <li id="menu_308"  ><a title="" class="screen-reader" href="https://apps.odishatourism.gov.in/sambalpur" >Sambalpur</a></li>
+                                                                                                                        <li id="menu_304"  ><a title="" class="screen-reader" href="https://apps.odishatourism.gov.in/balasore" >Balasore</a></li>
+                                                                                                                </ul>
+                                                                                                            </div>
+                                                                                                    </div>
+                                            </li>
+                                                                                    <li id="menu_211" class="menu__theme " data-menupos="2">
+                                            <a title="" class="screen-reader" href="javascript:void(0);" > 
+                                        Experience                                            </a>
+                                            <div class="menu__dropdown">
+                                                                                    <div class="menu__dropdown__column">
+                                                                                                <h3 id="menu_224" class="screen-reader dropdown__column__title ">Activities</h3>
+                                                    <ul class="dropdown__column__items">
+                                                                                                            <li id="menu_229"  ><a title="" class="screen-reader" href="https://apps.odishatourism.gov.in/bird-watching" >Bird Watching</a></li>
+                                                                                                                        <li id="menu_227"  ><a title="" class="screen-reader" href="https://apps.odishatourism.gov.in/boating" >Boating</a></li>
+                                                                                                                        <li id="menu_228"  ><a title="" class="screen-reader" href="https://apps.odishatourism.gov.in/trekking" >Trekking</a></li>
+                                                                                                                        <li id="menu_255"  ><a title="" class="screen-reader" href="https://apps.odishatourism.gov.in/folk-dance" >Folk Dance</a></li>
+                                                                                                                        <li id="menu_271"  ><a title="" class="screen-reader" href="https://apps.odishatourism.gov.in/photography" >Photography</a></li>
+                                                                                                                        <li id="menu_256"  ><a title="" class="screen-reader" href="https://apps.odishatourism.gov.in/water-sports" >Water Sports</a></li>
+                                                                                                                </ul>
+                                                                                                            </div>
+                                                                                                <div class="menu__dropdown__column">
+                                                                                                <h3 id="menu_225" class="screen-reader dropdown__column__title ">Themes</h3>
+                                                    <ul class="dropdown__column__items">
+                                                                                                            <li id="menu_254"  ><a title="" class="screen-reader" href="https://apps.odishatourism.gov.in/sports" >Sports</a></li>
+                                                                                                                        <li id="menu_262"  ><a title="" class="screen-reader" href="https://apps.odishatourism.gov.in/ethnic" >Ethnic</a></li>
+                                                                                                                        <li id="menu_263"  ><a title="" class="screen-reader" href="https://apps.odishatourism.gov.in/city-life" >City-life</a></li>
+                                                                                                                        <li id="menu_264"  ><a title="" class="screen-reader" href="https://apps.odishatourism.gov.in/handloom" >Handloom</a></li>
+                                                                                                                        <li id="menu_265"  ><a title="" class="screen-reader" href="https://apps.odishatourism.gov.in/spirituality" >Spirituality</a></li>
+                                                                                                                </ul>
+                                                                                                            </div>
+                                                                                                    </div>
+                                            </li>
+                                                                                    <li id="menu_235" class="menu__theme " data-menupos="3">
+                                            <a title="" class="screen-reader" href="javascript:void(0);" > 
+                                        Plan                                            </a>
+                                            <div class="menu__dropdown">
+                                                                                    <div class="menu__dropdown__column">
+                                                                                                <h3 id="menu_279" class="screen-reader dropdown__column__title ">Trip Organizer</h3>
+                                                    <ul class="dropdown__column__items">
+                                                                                                            <li id="menu_283"  ><a title="" class="screen-reader" href="https://apps.odishatourism.gov.in/find-trail" >Find a Trail</a></li>
+                                                                                                                        <li id="menu_280"  ><a title="" class="screen-reader" href="https://apps.odishatourism.gov.in/travel-agent-listing" >Find a Travel Agent</a></li>
+                                                                                                                        <li id="menu_285"  ><a title="" class="screen-reader" href="https://www.odishatourism.gov.in/#bookNatureCamp" >Booking</a></li>
+                                                                                                                        <li id="menu_281"  ><a title="" class="screen-reader" href="https://apps.odishatourism.gov.in/find-tour-guide" >Get a Tour Guide</a></li>
+                                                                                                                        <li id="menu_282"  ><a title="" class="screen-reader" href="https://apps.odishatourism.gov.in/find-on-map" >Find on the Map</a></li>
+                                                                                                                        <li id="menu_297"  ><a title="" class="screen-reader" href="https://apps.odishatourism.gov.in/deals-and-offers" >Deals and Offers</a></li>
+                                                                                                                </ul>
+                                                                                                            </div>
+                                                                                                <div class="menu__dropdown__column">
+                                                                                                <h3 id="menu_246" class="screen-reader dropdown__column__title ">Food &amp; Accommodation</h3>
+                                                    <ul class="dropdown__column__items">
+                                                                                                            <li id="menu_286"  ><a title="" class="screen-reader" href="https://apps.odishatourism.gov.in/otdc-hotels" >OTDC Hotels</a></li>
+                                                                                                                        <li id="menu_251"  ><a title="" class="screen-reader" href="https://apps.odishatourism.gov.in/naturecamps" >Nature Camps</a></li>
+                                                                                                                        <li id="menu_287"  ><a title="" class="screen-reader" href="https://apps.odishatourism.gov.in/heritage-properties" >Resorts &amp; Heritage Properties</a></li>
+                                                                                                                        <li id="menu_239"  ><a title="" class="screen-reader" href="https://apps.odishatourism.gov.in/hotels" >Hotels</a></li>
+                                                                                                                </ul>
+                                                                                                            </div>
+                                                                                                <div class="menu__dropdown__column">
+                                                                                                <h3 id="menu_247" class="screen-reader dropdown__column__title ">Important Information</h3>
+                                                    <ul class="dropdown__column__items">
+                                                                                                            <li id="menu_242"  ><a title="" class="screen-reader" href="https://apps.odishatourism.gov.in/visitor-information-centers" >Visitor Information Centers</a></li>
+                                                                                                                        <li id="menu_241"  ><a title="" class="screen-reader" href="https://apps.odishatourism.gov.in/weather-and-climate" >Weather &amp; Climate</a></li>
+                                                                                                                        <li id="menu_290"  ><a title="" class="screen-reader" href="https://www.odishatourism.gov.in/#getInTouch" >Get in Touch</a></li>
+                                                                                                                        <li id="menu_310"  ><a title="" class="screen-reader" href="https://apps.odishatourism.gov.in/getting-around" >Getting Around</a></li>
+                                                                                                                </ul>
+                                                                                                            </div>
+                                                                                                    </div>
+                                            </li>
+                                                                                        <li  data-menupos="4"><a title="" class="screen-reader" href="http://dot.odishatourism.gov.in/"  > Dept of Tourism</a></li>
+                                                                                </ul>
+                                                                        </nav> --> 
+                            </div>
+                        </div>
+                        <!-- Curtain menu End -->
+                        <!-- Overlay Main Menu End -->
+                </div>
+            </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function(){
+        startApp();
+        $('#signupLink').hide();
+        $('input[name=UserType]').click(function(){
+        var loginType   = $('input[name=UserType]:checked').val();
+        if(loginType==2){
+            $('#signupLink').show();
+        }
+        else {
+            $('#signupLink').hide();   
+        }
+     })
+        
+    })
+
+    function loginTravelVender(){
+        
+        //console.log('asdasd');
+        
+        var outMessage  = '';
+        var flag        = 0;
+        var loginType   = $('input[name=UserType]:checked').val();
+        var vchUserName = $('#vchUserName').val();
+        var vchPassword = $('#vchPassword').val();
+        var vchLoginCaptcha  = $('#vchLoginCaptcha').val();
+        
+        if(loginType == '' && loginType != 1 && loginType != 2){
+            outMessage  = 'Please Select Login Type';
+            flag        = 1;
+            $('#loginError').text(outMessage);
+        }
+        else if(vchUserName == ''){
+            outMessage  = 'Please Enter User Name';
+            flag        = 1;
+            $('#vchUserName').focus();
+            $('#loginError').text(outMessage);
+        }
+        else if(vchPassword == ''){
+            outMessage  = 'Please Enter Password';
+            flag        = 1;
+            $('#vchPassword').focus();
+            $('#loginError').text(outMessage);
+        }
+        else if(vchLoginCaptcha == ''){
+            outMessage  = 'Please Enter Captcha';
+            flag        = 1;
+            $('#vchLoginCaptcha').focus();
+            $('#loginError').text(outMessage);
+        }
+        else{
+            $('#btnLogin').html('<span class="icon-refresh spin"></span>');
+            $('#btnLogin').attr("disabled", true);
+            $('#loginError').text('');
+            var str = hex_md5($("#vchPassword").val()) + "543";
+            $("#vchPassword").val(hex_md5(str));
+            var frmTCP = document.getElementById("loginForm");
+            var fd = new FormData(frmTCP );
+            fd.append('method','loginTravelVender');
+            $.ajax({
+                url: appURL + '/proxy',
+                dataType: "json",
+                method: "POST",
+                data: fd,
+                contentType: false,
+                processData: false,
+                success:function(data){
+                    $('#btnLogin').html('Login');
+                    $('#btnLogin').attr("disabled", false);
+                    // console.log(data);
+                    // return false;
+                    if(data.flag == 1){
+                        flag        = 1;
+                        outMessage  = data.outMsg;
+                    }else if(data.flag == 0 && data.intUserType == 2){
+                        flag        = 2;
+                        outMessage  = 'Login Success';
+                    }
+                    else if(data.flag == 0 && data.intUserType == 1){
+                        flag        = 3;
+                        outMessage  = 'Login Success';
+                    }else if(data.flag == 0 && data.intUserType == 4){
+                        flag        = 4;
+                        outMessage  = 'Login Success';
+                    }else{
+                        flag        = 1;
+                        outMessage  = 'Something Was Wrong!';
+                    }
+                    //console.log(data.outMsg);
+                    if(flag == 1){
+                        reloadCaptihaLogin();
+                        $('#vchLoginCaptcha').val('');
+                        $('#vchPassword').val('');
+                        $('#loginError').text(outMessage);
+                        $('#loginError').css('color','red');
+                    }
+                    else if(flag == 2){
+                        $('#loginError').text(outMessage);
+                        $('#loginError').css('color','green');
+                        window.location.reload();
+                    }
+                    else if(flag == 3){
+                        $('#loginError').text(outMessage);
+                        $('#loginError').css('color','green');
+                        window.location.href='https://apps.odishatourism.gov.in/travelAgent/dashboard';
+                    }
+                    else if(flag == 4){
+                        $('#loginError').text(outMessage);
+                        $('#loginError').css('color','green');
+                        window.location.href='https://apps.odishatourism.gov.in/hoteler/dashboard';
+                    }
+                    else{
+                        $('#loginError').text('');
+                    }
+                }
+            })
+        }
+    }
+
+    function forgotTravelVender(){
+        var outMessage      = '';
+        var flag            = 0;
+        var loginType       = $('input[name=UserType]:checked').val();
+        var vchEmailId      = $('#vchEmailId').val();
+        var vchLoginCaptcha = $('#vchLoginCaptcha').val();
+        if(loginType == '' && loginType != 1 && loginType != 2){
+            outMessage  = 'Please Select User Type';
+            flag        = 1;
+            $('#forgotError').text(outMessage);
+        }
+        else if(vchEmailId == ''){
+            outMessage  = 'Please Enter Email Id';
+            flag        = 1;
+            $('#vchEmailId').focus();
+            $('#forgotError').text(outMessage);
+        }
+        else if(vchLoginCaptcha == ''){
+            outMessage  = 'Please Enter Captcha';
+            flag        = 1;
+            $('#vchLoginCaptcha').focus();
+            $('#forgotError').text(outMessage);
+        }
+        else{
+            $('#forgotPass').html('<span class="icon-refresh spin"></span>');
+            $('#forgotPass').attr("disabled", true);
+            $('#forgotError').text('');
+            var frmTCP = document.getElementById("loginForm");
+            var fd = new FormData(frmTCP );
+            fd.append('method','forgotTravelVender');
+            $.ajax({
+                url: appURL + '/proxy',
+                dataType: "json",
+                method: "POST",
+                data: fd,
+                contentType: false,
+                processData: false,
+                success:function(data){
+                    console.log(data);
+                    $('#forgotPass').html('Submit');
+                    $('#forgotPass').attr("disabled", false);
+                    if(data.flag == 1){
+                        flag        = 1;
+                        outMessage  = data.outMsg;
+                    }else{
+                        flag        = 2;
+                        outMessage  = data.outMsg;
+                        to          = data.to;
+                        name        = data.name;
+                        sub         = data.sub;
+                        message     = data.message;
+                    }
+                    //console.log(data.outMsg);
+                    if(flag == 1){
+                        reloadCaptihaLogin();
+                        $('#vchLoginCaptcha').val('');
+                        $('#forgotError').text(outMessage);
+                        $('#forgotError').css('color','red');
+                    }
+                    else if(flag == 2){
+                        reloadCaptihaLogin();
+                        $('#vchLoginCaptcha').val('');
+                        $('#vchEmailId').val('');
+                        $('#forgotError').text(outMessage);
+                        $('#forgotError').css('color','green');
+                        allMailsending(message,sub,name,to);
+                        
+                        //window.location.href='travelAgent/dashboard';
+                    }
+                    else{
+                        $('#forgotError').text('');
+                    }
+                }
+            })
+        }
+    }
+    function SignupVisitor(){
+        //var vchURL      = $('#URLredirect').val();
+        var currentURL  = window.location.href;
+        var outMessage      = '';
+        var flag            = 0;
+        var varVisitorName  = $('#varVisitorName').val();
+        var varVisitorEmail = $('#varVisitorEmail').val();
+        var varVPhone       = $('#varVPhone').val();
+        var vchLoginCaptcha = $('#vchLoginCaptcha').val();
+        var pattern = new RegExp(/^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/);
+
+        if(varVisitorName == ''){
+            outMessage  = 'Please Enter Your Name';
+            flag        = 1;
+            $('#varVisitorName').focus();
+            $('#signUpError').text(outMessage);
+        }
+        else if(varVisitorEmail == ''){
+            outMessage  = 'Please Enter Email Id';
+            flag        = 1;
+            $('#varVisitorEmail').focus();
+            $('#signUpError').text(outMessage);
+        }else if(pattern.test(varVisitorEmail)!=true){
+            outMessage  = 'Please Enter a Valid Email Id';
+            flag        = 1;
+            $('#varVisitorEmail').focus();
+            $('#signUpError').text(outMessage);
+        }
+        else if(vchLoginCaptcha == ''){
+            outMessage  = 'Please Enter Captchapa';
+            flag        = 1;
+            $('#vchLoginCaptcha').focus();
+            $('#signUpError').text(outMessage);
+            return false;
+        }
+        // else if(vchVPhone == ''){
+        //     outMessage  = 'Please Enter Phone Number';
+        //     flag        = 1;
+        //     $('#vchVPhone').focus();
+        //     $('#signUpError').text(outMessage);
+        // }
+        else{
+            $('#btnSignUp').html('<span class="icon-refresh spin"></span>');
+            $('#btnSignUp').attr("disabled", true);
+            $('#signUpError').text('');
+            var frmTCP = document.getElementById("loginForm");
+            var fd = new FormData(frmTCP );
+            fd.append('method','SignUpVisitor');
+            $.ajax({
+                url: appURL + '/proxy',
+                dataType: "json",
+                method: "POST",
+                data: fd,
+                contentType: false,
+                processData: false,
+                success:function(data){
+                    console.log(data);
+                    $('#btnSignUp').html('Submit');
+                    $('#btnSignUp').attr("disabled", false);
+                    if(data.flag == 1){
+                        flag        = 1;
+                        outMessage  = data.outMsg;
+                        errFlag     = data.errFlag;
+                    }else{
+                        flag        = 2;
+                        outMessage  = data.outMsg;
+                        to          = data.to;
+                        name        = data.name;
+                        sub         = data.sub;
+                        message     = data.message;
+                        preExist    = data.VpreExist;
+                    }
+                    //console.log(data.outMsg);
+
+                    if(flag == 1){
+                        $('#signUpError').text(outMessage);
+                        $('#signUpError').css('color','red');
+                        if(errFlag==2){
+                            $('#vchVisitorEmail').val('');   
+                        }
+                    }
+                    else if(flag == 2){
+                        reloadCaptihaLogin();
+                        $('#vchLoginCaptcha').val('');
+                        $('#vchVisitorName').val('');
+                        $('#vchVisitorEmail').val('');
+                        $('#vchVPhone').val('');
+                        $('#signUpError').text(outMessage);
+                        $('#signUpError').css('color','green');
+                        if(preExist == 0){
+                        allMailsending(message,sub,name,to);
+                        }
+                        window.location.href=currentURL;
+                         
+                    }
+                    else{
+                        $('#signUpError').text('');
+                    }
+                }
+            })
+        }
+    }
+
+    function showSignUp(r){
+        if(r==1)
+        {$('.baseline ').css('display','block');
+         $('.sociallogin ').css('display','block');    }
+    else{$('.baseline ').css('display','none');
+         $('.sociallogin').css('display','none');   }
+
+    }
+     // This is called with the results from from FB.getLoginStatus().
+// Load the JavaScript SDK asynchronously
+
+
+</script>    <header id="inner-banner" >
+
+
+
+        <div class="container">
+            <div class="top-attractionheading ">
+
+                <h4>&nbsp;</h4>
+                <h2>
+                 &nbsp;
+                </h2>
+<!--                <div class="bottomline">
+                    <img src="https://apps.odishatourism.gov.in/images/white-after.png">
+                </div>-->
+
+
+            </div>
+        </div>
+    <img  src="https://apps.odishatourism.gov.in/images/about-banner.png" alt="" class="innerbannerimg">
+        <div class="next-back">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+
+                                        
+                                    </div>
+            </div>
+        </div>
+    </div>
+    
+</header>
+<!-- Floating Trip Planner Widget Start -->
+<div class="fixed-section dark-theme">
+    <div class="trip-planner-widget">
+        <div class="widget-handle">
+            <a title="Click to Open" href="javascript:void(0);"></a>
+        </div>
+        <div class="widget-content screen-reader">
+            <ul class="social-icons">
+                <li><a href="https://twitter.com/odisha_tourism" class="screen-reader twitter--bgColor" target="_blank" title="Twitter"><span class="icon-twitter"></span></a></li>
+                <li><a href="https://www.facebook.com/OdishaTourismOfficial/" class="screen-reader fb--bgColor" target="_blank" title="Facebook"><span class="icon-facebook"></span></a></li>
+                <li><a href="https://www.youtube.com/user/TOURISMORISSA/" class="screen-reader youtube--bgColor" target="_blank" title="Youtube"> <span class="icon-youtube"></span></a></li>
+                <li><a href="https://www.instagram.com/odishatourismofficial/" class="screen-reader instagram--bgColor" target="_blank" title="Instagram"><span class="icon-instagram1"></span></a></li>
+                <li><a href="https://in.pinterest.com/oditour/odisha-tourism/" class="screen-reader pinterest--bgColor" target="_blank" title="Pinterest"><span class="icon-pinterest"></span></a></li>
+            </ul>
+            <h3>Trip Planner</h3>
+            <a title="Close" href="javascript:void(0);" class="widget-close"><i class="icon-close"></i></a>
+            <ul class="imp-links">
+                <li><a class="screen-reader" title="Find Tour Operator" href="https://apps.odishatourism.gov.in/travel-agent-listing">Find Tour Operator</a></li>
+                <li><a class="screen-reader" title="Find Accommodation" href="https://apps.odishatourism.gov.in/otdc-hotels">Find Accommodation</a></li>
+                <li><a class="screen-reader" title="Deals & Offers" href="https://apps.odishatourism.gov.in/deals-and-offers">Deals &amp; Offers</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- Floating Trip Planner Widget End-->
+
+
+    <div class="breadcrumbdiv" >
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-8">
+                <ul class="breadcrumb">
+                    <li><a href="https://apps.odishatourism.gov.in/">Home</a></li>
+
+                                            <li class="brdcum-item cursor-pointer" data-menuid="~"></li>
+                    
+                </ul> 
+            </div>
+                    
+			<div class="col-sm-4">
+            <span>
+                        <!-- <a href="javascript:void(0)" onclick="goBack();" title="" id="backIcon" data-toggle="tooltip" data-placement="top" class="br-backbtn" data-original-title="Back"><i class="fa fa-arrow-left"></i> Back</a> -->
+                    </span>
+                    
+				 <ul class="pageicon3">
+
+                                     
+                         				</ul>
+
+               
+
+			</div>
+                  
+        </div>
+    </div>
+</div>
+
+<script>
+    
+ $(document).ready(function () {
+          
+        
+
+ $(".sharing1").each(function() {
+            $(this).jsSocials({ 
+                url : $(this).data('url'),
+                text: $(this).data('heading'),
+                shares: [
+                     { share: "twitter", via: "odisha_tourism" }, 
+                    "facebook", "googleplus", "linkedin", "pinterest","whatsapp"
+                ],
+                showLabel: false,
+                showCount: "inside",
+                shareIn: "popup"
+            });
+  }); 
+
+$('.printlink').click(function()
+            {
+                   window.print();
+           })
+ });
+
+</script>
+ <script src="https://apps.odishatourism.gov.in/js/jssocials.min.js?ver=1.1" defer></script>
+        <!--Banner Section Start-->
+        <!--Contact Section Start-->
+        <div id="innercontent">
+            <section>
+            <div class="container" id="skiptocontent">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="errorPage">
+							<h2>OOPS!<small>Something went Wrong</small></h2>
+							<img src="https://apps.odishatourism.gov.in/images/errorimg.png">
+							<p>An Error Occurred In The Application And Your Page Could Not Be Served.</p>
+							<a href="https://apps.odishatourism.gov.in/" class="btn btn-radius btn-red waves-effect waves-light">Go Back</a>
+						</div>
+                    </div>
+
+                </div>
+				
+
+            </div>
+            </section>
+        </div>
+
+        <!--Contact Section End-->
+        <!--Footer Section Start-->
+        <section class="vertical-scrolling fp-section fp-table"
+	id="footer" data-anchor="footerSection">
+	<input type="hidden" value="${currentPage.name}" id="currentPageNameFooter"> 
+		<div class="footer-social social-btns">
+			<div class="social-icon twitter screen-reader">
+				<a href="https://twitter.com/odisha_tourism" rel="dofollow"  title="Twitter" data-original-title="Twitter"></a>
+				<svg class="icon__circle"> <circle cx="27" cy="27" r="22"></circle></svg>
+				<svg class="icon__circle icon__circle--hover"> <circle cx="27" cy="27" r="26"></circle></svg>
+				<span class="icon-twitter"></span>
+			</div>
+			<div class="social-icon facebook screen-reader">
+				<a href="https://www.facebook.com/OdishaTourismOfficial/"  rel="dofollow"   title="Facebook" data-original-title="Facebook"></a>
+				<svg class="icon__circle"> <circle cx="27" cy="27" r="22"></circle></svg>
+				<svg class="icon__circle icon__circle--hover"> <circle cx="27" cy="27" r="26"></circle></svg>
+				<span class="icon-facebook"></span>
+			</div>
+			<div class="social-icon youtube screen-reader">
+				<a href="https://www.youtube.com/user/TOURISMORISSA/" rel="dofollow"  title="Youtube" data-original-title="Youtube"></a>
+				<svg class="icon__circle"> <circle cx="27" cy="27" r="22"></circle></svg>
+				<svg class="icon__circle icon__circle--hover"> <circle cx="27" cy="27" r="26"></circle></svg>
+				<span class="icon-youtube"></span>
+			</div>
+			<div class="social-icon instagram1 screen-reader">
+				<a href="https://www.instagram.com/odishatourismofficial/" rel="dofollow"  title="Instagram" data-original-title="Instagram"></a>
+				<svg class="icon__circle"> <circle cx="27" cy="27" r="22"></circle></svg>
+				<svg class="icon__circle icon__circle--hover"> <circle cx="27" cy="27" r="26"></circle></svg>
+				<span class="icon-instagram1"></span>
+			</div>
+			<div class="social-icon pinterest screen-reader">
+				<a href="https://in.pinterest.com/oditour/odisha-tourism/" rel="dofollow"  title="Pinterest" data-original-title="Pinterest"></a>
+				<svg class="icon__circle"> <circle cx="27" cy="27" r="22"></circle></svg>
+				<svg class="icon__circle icon__circle--hover"> <circle cx="27" cy="27" r="26"></circle></svg>
+				<span class="icon-pinterest"></span>
+			</div>
+		</div>
+		
+	
+		
+		<div class="footer-link">
+			<div class="container-fluid">
+				<div class="footer-linktop">
+					<ul class="row">
+						<li class="col">
+							<div class="row justify-content-center align-items-center h-100">
+								<div class="col footer--logo">
+									<a href="https://odishatourism.gov.in/" rel="dofollow"><img src="./images/Logo1.png" alt="Odisha Tourism" Title="Odisha Tourism"></a>
+								</div>
+							</div>
+						</li>
+						<li class="col">
+							<h5 class="title screen-reader" tabindex="184">Department of Tourism</h5>
+							<ul>
+								<li><a href="https://dot.odishatourism.gov.in/" rel="dofollow" class="screen-reader">Website</a></li>
+								<li><a href="https://odishatourism.gov.in/content/tourism/en/dot/quickLinks/travel-agent-registration.html" rel="dofollow" class="screen-reader">Travel Agents Registration</a></li>
+								<li><a href="https://odishatourism.gov.in/content/tourism/en/dot/quickLinks/hotelier-registration.html" rel="dofollow" class="screen-reader">Hotelier Registration</a></li>
+								<li><a href="https://dot.odishatourism.gov.in/?q=tender" class="screen-reader" rel="dofollow" >Tenders</a></li>
+								<!-- <li><a href="https://dot.odishatourism.gov.in/?q=node/641" class="screen-reader" rel="dofollow" target="_blank">Tourism Policy</a></li>
+								<li><a href="https://dot.odishatourism.gov.in/?q=notification" class="screen-reader" rel="dofollow" target="_blank">Notification</a></li> -->
+								<li><a href="https://dot.odishatourism.gov.in/#contact" class="screen-reader" rel="dofollow" >Contact</a></li>
+                                <li><a href="https://odishatourism.gov.in/content/dam/tourism/home/newsletter/Newsletter.pdf" class="screen-reader" rel="dofollow">Newsletter</a></li>
+							</ul>
+						</li>
+						<li class="col">
+							<h5 class="title screen-reader" tabindex="184">Quick Links</h5>
+							<ul>
+								<li><a href="https://odishatourism.gov.in/content/tourism/en/plan/trip-organizer/find-trail.html" rel="dofollow" class="screen-reader">Find A Trail</a></li>
+								<li><a href="https://odishatourism.gov.in/content/tourism/en/plan/trip-organizer/find-travelAgent.html" rel="dofollow" class="screen-reader">Find a Travel Agent</a></li>
+								<li><a href="https://odishatourism.gov.in/content/tourism/en/plan/trip-organizer/deals-offers.html" rel="dofollow" class="screen-reader">Deals & Offers</a></li>
+								<li><a href="https://apps.odishatourism.gov.in/map-view" class="screen-reader" rel="dofollow">Map</a></li>
+								<li><a href="https://odishatourism.gov.in/content/tourism/en/discover/about-odisha/blogs.html" rel="dofollow" class="screen-reader">Insider Stories</a></li>
+								<li><a href="https://odishatourism.gov.in/content/dam/tourism/advisory.pdf"  rel="dofollow" title="Advisory on COVID-19"  >Advisory on COVID-19</a></li>
+                                <li><a href="https://saathi.qcin.org"   rel="dofollow" title="SAATHI-Ministry of Tourism"  >SAATHI-Ministry of Tourism</a></li>
+							</ul>
+						</li>
+						<li class="col">
+							<h5 class="title screen-reader" tabindex="184">Activities</h5>
+							<ul>
+								<li><a href="https://odishatourism.gov.in/content/tourism/en/experience/activities/bird-watching.html" rel="dofollow" class="screen-reader" rel="nofollow">Bird Watching</a></li>
+								<li><a href="https://odishatourism.gov.in/content/tourism/en/experience/activities/boat-riding.html" rel="dofollow" class="screen-reader" rel="nofollow">Boating</a></li>
+								<li><a href="https://odishatourism.gov.in/content/tourism/en/experience/activities/trekking.html" rel="dofollow" class="screen-reader">Trekking</a></li>
+								<li><a href="https://odishatourism.gov.in/content/tourism/en/experience/activities/folk-dance.html" rel="dofollow" class="screen-reader">Folk Dance</a></li>
+								<li><a href="https://odishatourism.gov.in/content/tourism/en/experience/activities/photography.html" rel="dofollow" class="screen-reader">Photography</a></li>
+								<li><a href="https://odishatourism.gov.in/content/tourism/en/experience/activities/water-sports.html" rel="dofollow" class="screen-reader">Water Sports</a></li>
+							</ul>
+						</li>
+						<li class="col">
+							<h5 class="title screen-reader" tabindex="184">Attraction</h5>
+							<ul>
+								<li><a href="https://odishatourism.gov.in/content/tourism/en/discover/attractions/temples-monuments.html" rel="dofollow" class="screen-reader">Temples & Monuments</a></li>
+								<li><a href="https://odishatourism.gov.in/content/tourism/en/discover/attractions/buddhist-sites.html" rel="dofollow" class="screen-reader">Buddhist Sites</a></li>
+								<li><a href="https://odishatourism.gov.in/content/tourism/en/discover/attractions/beaches.html" rel="dofollow" class="screen-reader">Beaches</a></li>
+								<li><a href="https://odishatourism.gov.in/content/tourism/en/discover/attractions/museums.html" rel="dofollow" class="screen-reader">Museums</a></li>
+								<li><a href="https://odishatourism.gov.in/content/tourism/en/discover/attractions/forest-wildlife.html" rel="dofollow" class="screen-reader">Forest & Wildlife</a></li>
+								<li><a href="https://odishatourism.gov.in/content/tourism/en/discover/attractions/lakes-waterfalls.html" rel="dofollow" class="screen-reader">Lakes & Waterfalls</a></li>
+								<li><a href="https://odishatourism.gov.in/content/tourism/en/discover/attractions/arts-crafts.html" rel="dofollow" class="screen-reader">Arts & Crafts</a></li>
+							</ul>
+						</li>
+					</ul>
+					<div class="clearfix"></div>
+				</div>
+				<div class="d-sm-none d-block mt-2 mb-2">
+					<ul class="covidlicktext"> 
+                        <!-- <li><a href="https://odishatourism.gov.in/content/dam/tourism/advisory.pdf" rel="dofollow" title="COVID-19 Advisory">COVID-19 Advisory</a></li>  -->
+                        <li><a href="https://saathi.qcin.org" rel="dofollow" title="SAATHI-Ministry of Tourism"  >SAATHI-Ministry of Tourism</a></li>
+					</ul>
+				</div>
+				<div class="footer-linkbottom">
+					<div class="row">
+						<div class="col-sm-6">
+							<ul>
+								<li><a href="https://odishatourism.gov.in/content/tourism/en/privacy-policies.html" title="Privacy Policy" rel="dofollow" onclick="analyticsFooter1(this.innerHTML)" class="screen-reader">Privacy</a></li>
+								<li><a href="https://odishatourism.gov.in/content/tourism/en/privacy-policies.html" title="Terms of Use" rel="dofollow" onclick="analyticsFooter1(this.innerHTML)" class="screen-reader">Terms of Use</a></li>
+							</ul>
+						</div>
+						<div class="col-sm-6 allrights">
+						Copyright &copy; 2020 <a href="https://odishatourism.gov.in/" title="Odisha Tourism"  class="screen-reader" rel="nofollow">Odisha Tourism</a>, All Rights Reserved
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="footerbottom"></div>
+</section>
+<!-- End tag validation for Fullpage scroll -->
+
+<!-- Code Snippet for OT Messenger Plugin -->
+<!-- <div id="fb-root"></div>
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      xfbml            : true,
+      version          : 'v3.2'
+    });
+  };
+ 
+  (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script> -->
+ 
+<!-- Your customer chat code -->
+<!-- <div class="fb-customerchat"
+  attribution=setup_tool
+  page_id="684563218309607"
+  logged_in_greeting="Welcome to Odisha Tourism! How can we help you?"
+  logged_out_greeting="Welcome to Odisha Tourism! How can we help you?">
+</div> -->
+<!-- end -->
+
+
+<div id="back2Top">
+    <a  href="javascript:void(0);" data-toggle="tooltip" data-placement="left" data-original-title="Go to Top"><span class="icon-chevron"></span></a>
+</div>
+
+<!-- Welcome Modal -->
+
+<!-- Welcome Modal -->
+
+<!--Cookies Start-->
+<!-- <div class="alert alert-info cooki-msg cookies-home d-none" id="cookie-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12"> 
+                <span class="close cookie-close add-cookeis" id="cookie-close-id" data-dismiss="alert"><i class="icon-close" aria-hidden="true"></i></span> 
+                <h4>Cookies</h4>
+                This website uses cookies to make your online experience easier and better. By using our website, you consent to our use of cookies. &nbsp; <a href="javascript:void(0);" class="btn btn-primary cookie-close add-cookeis" data-dismiss="alert" title="Continue" >I Understand</a> </div>
+        </div>
+    </div>
+</div> -->
+<!--Cookies End-->
+
+<div class="modal fade in" id="alertModal" tabindex="-1" role="dialog" >
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <h4 class="alertMessage center">&nbsp;</h4>
+                <div class="form-group">
+                    <div class="text-center"> <a class=" btn btn-info text-light btn-sm alert-message-footer" id="btnAlertOk" data-dismiss="modal">OK</a> </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade in" id="confirmModal" tabindex="-1" role="dialog" >
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <h4 class="confirmMessage center">&nbsp;</h4>
+                <div class="form-group">
+                    <div class="text-center"> 
+                        <a class=" btn btn-success text-light btn-sm confirm-button-footer" id="btnConfirmOk" data-dismiss="modal">Yes</a> 
+                        <a class=" btn btn-danger text-light btn-sm confirm-button-footer" id="btnConfirmCancel" data-dismiss="modal">No</a> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<link rel="stylesheet" id="color-switcher">
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script> -->
+<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script> -->
+<script src="https://apps.odishatourism.gov.in/js/popper.min.js"></script>
+<script src="https://apps.odishatourism.gov.in/js/bootstrap.min.js"></script>
+<script src="https://apps.odishatourism.gov.in/Application/js/loadAjax.js?ver=1.19" defer></script>
+<script src="https://apps.odishatourism.gov.in/js/loadJson.js?ver=1.19" defer></script>
+<script src="https://apps.odishatourism.gov.in/Application/js/validatorchklist.js?ver=1.19"></script>
+<script src="https://apps.odishatourism.gov.in/js/custom.js?ver=1.19" defer></script>
+<script src="https://apps.odishatourism.gov.in/js/daterange.min.js"></script>
+
+
+<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-129819645-1"></script> -->
+<script>
+    $(document).on('keydown', function(event) {
+        if (event.key == "Escape") {
+            $('#btnConfirmCancel').trigger("click");
+            $('#btnAlertOk').trigger("click");
+        }
+    });
+    $(document).ready(function () {
+                if ($.cookie('cookie_lod') == '1') {
+        } else {
+            setTimeout(function () {
+            // $('#hockeymodal').modal('show');
+            $.cookie('cookie_lod', '1');
+            }, 5000);
+        }
+    });
+
+    /*!
+     * jQuery Cookie Plugin v1.4.1
+     * https://github.com/carhartl/jquery-cookie
+     *
+     * Copyright 2006, 2014 Klaus Hartl
+     * Released under the MIT license
+     */
+    (function (factory) {
+        if (typeof define === 'function' && define.amd) {
+            // AMD (Register as an anonymous module)
+            define(['jquery'], factory);
+        } else if (typeof exports === 'object') {
+            // Node/CommonJS
+            module.exports = factory(require('jquery'));
+        } else {
+            // Browser globals
+            factory(jQuery);
+        }
+    }(function ($) {
+
+        var pluses = /\+/g;
+
+        function encode(s) {
+            return config.raw ? s : encodeURIComponent(s);
+        }
+
+        function decode(s) {
+            return config.raw ? s : decodeURIComponent(s);
+        }
+
+        function stringifyCookieValue(value) {
+            return encode(config.json ? JSON.stringify(value) : String(value));
+        }
+
+        function parseCookieValue(s) {
+            if (s.indexOf('"') === 0) {
+                // This is a quoted cookie as according to RFC2068, unescape...
+                s = s.slice(1, -1).replace(/\\"/g, '"').replace(/\\\\/g, '\\');
+            }
+
+            try {
+                // Replace server-side written pluses with spaces.
+                // If we can't decode the cookie, ignore it, it's unusable.
+                // If we can't parse the cookie, ignore it, it's unusable.
+                s = decodeURIComponent(s.replace(pluses, ' '));
+                return config.json ? JSON.parse(s) : s;
+            } catch (e) {
+            }
+        }
+
+        function read(s, converter) {
+            var value = config.raw ? s : parseCookieValue(s);
+            return $.isFunction(converter) ? converter(value) : value;
+        }
+
+        var config = $.cookie = function (key, value, options) {
+
+            // Write
+
+            if (arguments.length > 1 && !$.isFunction(value)) {
+                options = $.extend({}, config.defaults, options);
+
+                if (typeof options.expires === 'number') {
+                    var days = options.expires, t = options.expires = new Date();
+                    t.setMilliseconds(t.getMilliseconds() + days * 864e+5);
+                }
+
+                return (document.cookie = [
+                    encode(key), '=', stringifyCookieValue(value),
+                    options.expires ? '; expires=' + options.expires.toUTCString() : '', // use expires attribute, max-age is not supported by IE
+                    options.path ? '; path=' + options.path : '',
+                    options.domain ? '; domain=' + options.domain : '',
+                    options.secure ? '; secure' : ''
+                ].join(''));
+            }
+
+            // Read
+
+            var result = key ? undefined : {},
+                    // To prevent the for loop in the first place assign an empty array
+                    // in case there are no cookies at all. Also prevents odd result when
+                    // calling $.cookie().
+                    cookies = document.cookie ? document.cookie.split('; ') : [],
+                    i = 0,
+                    l = cookies.length;
+
+            for (; i < l; i++) {
+                var parts = cookies[i].split('='),
+                        name = decode(parts.shift()),
+                        cookie = parts.join('=');
+
+                if (key === name) {
+                    // If second argument (value) is a function it's a converter...
+                    result = read(cookie, value);
+                    break;
+                }
+
+                // Prevent storing a cookie that we couldn't decode.
+                if (!key && (cookie = read(cookie)) !== undefined) {
+                    result[name] = cookie;
+                }
+            }
+
+            return result;
+        };
+
+        config.defaults = {};
+
+        $.removeCookie = function (key, options) {
+            // Must not alter options, thus extending a fresh object...
+            $.cookie(key, '', $.extend({}, options, {expires: -1}));
+            return !$.cookie(key);
+        };
+
+    }));
+
+    // window.dataLayer = window.dataLayer || [];
+    // function gtag(){dataLayer.push(arguments);}
+    // gtag('js', new Date());
+
+    // gtag('config', 'UA-129819645-1');
+
+//   (function(h,o,t,j,a,r){
+//        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+//        h._hjSettings={hjid:1119122,hjsv:6};
+//        a=o.getElementsByTagName('head')[0];
+//        r=o.createElement('script');r.async=1;
+//        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+//        a.appendChild(r);
+//    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+
+
+    function viewAlert(msg, ctrlId, redLoc)
+    {
+        //alert("1");
+        $('#btnAlertOk').off('click');
+        if (typeof (ctrlId) == 'undefined')
+        {
+            ctrlId = '';
+        }
+        if (typeof (redLoc) == 'undefined')
+        {
+            redLoc = '';
+        }
+        $('#alertModal').modal({backdrop: 'static', keyboard: false});
+        $('.alertMessage').html(msg);
+        $('#btnAlertOk').on('click', function () {
+            if (ctrlId != '')
+            {
+                $('#' + ctrlId).focus();
+            }
+            if (redLoc != '')
+            {
+                window.location.href = redLoc;
+            }
+        });
+
+    }
+    function confirmAlert(msg)
+    {
+        $('#confirmModal').modal({backdrop: 'static', keyboard: false});
+        $('.confirmMessage').html(msg);
+    }
+
+    $(document).ready(function () {
+        $(".page-shareicon").click(function () {
+            $(".sharing1").toggle();
+        });
+    });
+
+
+</script> 
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content fani">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel" style="color: #fff;">Cyclone Fani CM Relief Fund</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" >
+        <img src="https://apps.odishatourism.gov.in/images/cmrf.png" style="width:100%">
+      </div>
+      <div class="modal-footer">
+        <a  class="btn btn-light" href="https://www.cmrfodisha.gov.in/" >Donate to CMRF</a>
+        <a class="btn btn-light" href="http://www.rebuild.odisha.gov.in/" >All Donation Options</a>
+      </div>
+    </div>
+  </div>
+</div>        <!--Footer Section End-->
+    </body>
+</html>

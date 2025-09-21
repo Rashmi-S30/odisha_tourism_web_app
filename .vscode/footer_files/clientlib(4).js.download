@@ -1,0 +1,628 @@
+$(document).ready(function(){
+	doLoadBlog();
+	
+	//Slide (Left-right) in mobile
+	$(".indicator__right").on('click', function(){
+		$(".traveler--experience #travelerExp").addClass("slide");
+		$(".indicator__left").removeClass("active");
+		$(".indicator__right").addClass("active");
+	});
+	$(".indicator__left").on('click', function(){
+		$(".traveler--experience #travelerExp").removeClass("slide");
+		$(".indicator__right").removeClass("active");
+		$(".indicator__left").addClass("active");
+	});
+	
+	$('#TravelExpLogInCaptcha').attr('src', location.origin+'/tourism/captcha');
+	$('#travellersECaptcha').attr('src', location.origin+'/tourism/captcha');
+	
+	if(localStorage.popupType!=undefined && localStorage.popupType=='publish'){
+		   
+	    var newpath = location.origin+"/content/tourism/en/myContributions.html";
+		window.location.href = newpath;
+		localStorage.removeItem("popupType");
+	
+		
+	}
+	
+});
+//*******************************************create common request for browser support*****************************//
+function createRequestw()
+{
+    var ro;
+    var browser = navigator.appName;
+    if(browser == "Microsoft Internet Explorer")
+    {
+        ro = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    else
+    {
+        ro = new XMLHttpRequest();
+    }
+    return ro;
+} 
+var httpreqTextNew = createRequestw();
+var paramTrav;
+//**********************************common ajax function**********************************************************//
+function callCommonAjaxw(callbackfunctionTraveller, url, Qstring)
+{
+	var contentType = "application/x-www-form-urlencoded;charset=UTF-8";
+	httpreqTextNew.open('POST',url+Qstring,true);
+	httpreqTextNew.setRequestHeader("Content-Type", contentType);
+	httpreqTextNew.onreadystatechange = callbackfunctionTraveller;
+	httpreqTextNew.send(Qstring);
+}
+//*******************************load tab details*****************************************************************//
+function doLoadBlog(){	
+	document.getElementById("travelerExp").innerHTML ="";
+	paramTrav = "travellers-experience";
+	var Qstring="?methodId="+paramTrav;
+	callCommonAjaxw(setBlogDetails,'/tourism/blog', Qstring);
+}
+//*****************************callback function to load tab detail**********************************************//
+function setBlogDetails()
+{ 
+    if(httpreqTextNew.readyState==4)
+     {
+         if(httpreqTextNew.status==200)
+         {
+             var rs=httpreqTextNew.responseText;
+             if(rs== ""){
+            	 
+             }else{
+                 if(rs=="sessionOut")
+                 {
+                    
+                 }else{
+   					var blogList = new Array();
+  					blogList = rs.split("<;;;;>");
+  					var details = new Array();
+   					for(var k=0;k<blogList.length-1;k++)
+					 { 	
+   						
+
+                        details=blogList[k].split("<@@>");
+
+                        var image = dynamicUrla(details[1]);
+   					    var path = location.origin+"/content/tourism/en/blog-details."+encodeURIComponent(details[3])+".html";
+                            console.log(path)
+   					    var lowerDes = details[0];//addDotss(details[0],38);
+   						var str = "";
+   						var name = "";
+   						if(details[2] == 'null'){
+   							name ="Anonymous";
+   						}else{
+   							name =details[2];
+   						}
+
+   						if(k == 1){
+   							str='<div class="feature-post swiper-slide" id="future'+k+'" onmouseover="mouseOver('+k+')";><div class="post-media"><img src='+ image +' loading="lazy" alt="Featured Blog" class="img-fluid screen-reader"></div><a class="screen-reader" title="'+details[0]+'" href='+ path +' onclick=analyticsTravellers("Blog")></a><div class="post-icon"><span class="icon-blog-blog screen-reader"></span><span class="screen-reader">Blog</span></div><div class="post-title"><p class="screen-reader">'+lowerDes+'</p><span class="screen-reader">By '+name+'</span></div></div>';
+   						}
+   						if(k == 2){
+   							str='<div class="feature-post swiper-slide" id="future'+k+'" onmouseover="mouseOver('+k+')";><div class="post-media"><img src='+ image +' loading="lazy" alt="Featured Blog" class="img-fluid screen-reader"></div><a class="screen-reader" title="'+details[0]+'" href='+ path +'  onclick=analyticsTravellers("Photo")></a><div class="post-icon"><span class="icon-blog-camera screen-reader"></span><span class="screen-reader">Photo</span></div><div class="post-title"><p class="screen-reader">'+lowerDes+'</p><span class="screen-reader">By '+name+'</span></div></div>';
+   						}
+    					if(k == 0){
+   							str='<div class="feature-post swiper-slide" id="future'+k+'" onmouseover="mouseOver('+k+')";><div class="post-media"><img src='+ image +' loading="lazy" alt="Featured Blog" class="img-fluid screen-reader"></div><a class="screen-reader" title="'+details[0]+'" href='+ path +'  onclick=analyticsTravellers("Video")></a><div class="post-icon"><span class="icon-blog-video screen-reader"></span><span class="screen-reader">Video</span></div><div class="post-title"><p class="screen-reader">'+lowerDes+'</p><span class="screen-reader">By '+name+'</span></div></div>';
+   						}
+   					   /*if(k == 3){
+   							str='<div class="feature-post" id="future'+k+'" onmouseover="mouseOver('+k+')";><div class="post-media"><img src='+ image +' alt="Featured Blog" class="img-fluid"></div><a title="'+details[0]+'" href='+ path +'></a><div class="post-icon"><span class="icon-blog-blog"></span><span>Photo</span></div><div class="post-title"><p>'+lowerDes+'</p><span>By '+name+'</span></div></div>';
+   						}*/
+
+   						var div = document.getElementById("travelerExp");
+	 	              	div.insertAdjacentHTML("beforeend", str);
+	 	              	if(k == 0){	 	              		
+	 	              		document.getElementById('future'+k).className = "feature-post swiper-slide item--active";
+   						}
+
+					 }
+   					var swiper = new Swiper('#travelExpSlider', {
+  					    slidesPerView: 3,
+  					    spaceBetween: 15,
+  					    simulateTouch: false,
+  					    freeMode: true,
+  					    pagination: {
+  					      el: '.swiper-pagination',
+  					      clickable: true,
+  					    },
+  					  breakpoints: {
+  						  768: {
+  							slidesPerView: 'auto'
+	  				        },
+//	  				      992: {
+//	  				          slidesPerView: 3,
+//	  				          spaceBetween: 10
+//	  				        },
+	  				      }
+  					  });
+                 }       
+             }
+             rs=null;
+         }
+         else
+         {
+            //'Error Code should be here';
+         }
+     }
+ }
+//**************************************************************************************************************//
+function mouseOver(rowid){
+	$(".feature-post").removeClass("item--active");
+}
+function addDotss(string, limit)
+{
+  var dots = "..";
+  if(string.length > limit)
+  {
+     string = string.substring(0,limit) + dots;
+  }
+  return string;
+}
+function dynamicUrla(imageName) {
+   var url = "https://apps.odishatourism.gov.in/Application/uploadDocuments/UserContribution/coverImg/"+imageName;
+   return url;
+}
+var checkUsera = function checkUsera(loginResponseData) {
+	var link = "/content/tourism/en/myContributions.html";
+	//window.open(link,"_self");
+	if(loginResponseData.responseStatus == "SUCCESS") {
+		loginSuccessa(loginResponseData);
+	} else if(loginResponseData.responseStatus == "FAILURE") {
+		$("#visitorNameMenu").hide();
+		$("#userLoginMenu").show();		
+	}
+}
+function loginSuccessa(loginResponseData) {
+	var userName = loginResponseData.userProfile.fullName;
+	if (userName.length > 8) {
+		userName = userName.substr(0,8) + "..";
+	}
+	var welcomeText = "Hello " + userName;
+	$("#visitorNameMenu").show();
+	$("#visitorNameMenu").text(welcomeText);
+	$("#userLoginMenu").hide();
+	$("#signinmodal").collapse('hide');
+	$("#captcha").val('');
+
+	$("loginChange").val("2");
+	$("loginChange").trigger('data-value-change');
+}
+
+// Travellers Experience
+$(".feature-post").hover(function(){
+	$(".feature-post").removeClass("item--active");
+	$(this).addClass("item--active");
+});
+$(".feature-post").click(function(){
+	$(".feature-post").removeClass("item--active");
+	$(this).addClass("item--active");
+});
+//Blog loop
+var bCount = 1;
+(function loop() {
+	$(".feature-post").removeClass("item--active");
+    $(".right-section .feature-post:nth-child("+bCount+")").addClass("item--active");
+    if(bCount==3){bCount=0}
+    if (++bCount <= 3) {
+        setTimeout(loop, 2500);
+    }
+})();
+/*$("#btnSignUpBlogHome").on('click', function (e) {
+	var isValid = validateFormBlogb($("#vchVisitorEmailHome").val(),$("#vchVPhoneHome").val(), $("#vchVisitorNameHome").val(),2)
+	if(isValid){
+		document.getElementById("signUpErrorHome").innerHTML = " ";
+		var uName = $("#vchVisitorNameHome").val();
+		var email = $("#vchVisitorEmailHome").val();
+		var phone = $("#vchVPhoneHome").val();
+		var captcha = $('#travelSignInEscaptcha').val();
+		
+		var registerData = {"methodId": "16","visitorName" :uName,"visitorEmail" :email,"visitorPhone" :phone, "captchaValue":captcha};
+		postAjaxContributionSignUpb(registerData, signUpRegd);
+	}
+});*/
+/*function doLoginHome(){
+	
+	/*var isValid = validateFormBlogb($("#vchVisitorHome").val(),"", "-",1);
+	if(isValid){
+		$('#userContributionModalHome').modal('hide');
+		var uName = $("#vchVisitorHome").val();
+		var password = $("#vchVPwdHome").val();
+		var encPassword = OnEncryptPasswordHome(password);		
+		$("#vchVPwdHome").val(encPassword);
+		password = $("#vchVPwdHome").val();		
+		var registerData = {"methodId": "12","userName" :uName,"password" :password};
+		postAjaxContributionLoginb(registerData, regdContribution);
+	}
+}*/
+
+/*$("#btnLoginBlogHome").on('click', function (e) {
+	delete digitalData.linkClick;
+	delete digitalData.internalSearch;
+	delete digitalData.filter;
+	var form =  {
+			"form"	:	{
+				"formName":"Home:Traveller's Experience:Get Featured", 
+				"formType":"Get Featured:Login"
+				}
+		}
+	 $.extend( digitalData, form );
+	
+	//var isValid = validateFormBlogb($("#vchVisitorHome").val(),"", "-",1);	
+	if($("#vchVisitorHomeblog").val() == ''){
+		
+		document.getElementById("loginErrorOneHome").innerHTML = "Enter your Email";
+		$("#vchVisitorHomeblog").focus();
+		var error =  {
+				"error"	:	[{
+					"errorType":"Field Error", 
+					"errorMessage":"Enter your Email"
+				},
+		  ]
+		}
+		$.extend( digitalData, error );
+		_satellite.track('formError');
+    	return false;
+	}
+    if($("#vchVPwdHomeblog").val() == ''){
+		
+		document.getElementById("loginErrorOneHome").innerHTML = "Enter your Password";
+		$("#vchVPwdHomeblog").focus();
+		var error =  {
+				"error"	:	[{
+					"errorType":"Field Error", 
+					"errorMessage":"Enter your Password"
+				},
+		  ]
+		}
+		$.extend( digitalData, error );
+		_satellite.track('formError');
+    	return false;
+	}	
+    if($("#TravelExLogInCaptcha").val() == ''){
+		
+		document.getElementById("loginErrorOneHome").innerHTML = "Enter captcha";
+		$("#TravelExLogInCaptcha").focus();
+		var error =  {
+				"error"	:	[{
+					"errorType":"Field Error", 
+					"errorMessage":"Enter captcha"
+				},
+		  ]
+		}
+		$.extend( digitalData, error );
+		_satellite.track('formError');
+    	return false;
+	}
+	var isValid = validateEmailab($("#vchVisitorHomeblog").val())	
+	if(isValid){
+		document.getElementById("loginErrorOneHome").innerHTML = " ";
+		var uName = $("#vchVisitorHomeblog").val();
+		var password = $("#vchVPwdHomeblog").val();
+		var captcha = $('#TravelExLogInCaptcha').val();
+		
+		var encPassword = OnEncryptPasswordHome(password);		
+		$("#vchVPwdHomeblog").val(encPassword);
+		password = $("#vchVPwdHomeblog").val();		
+		var registerData = {"methodId": "1","userName" :uName,"password" :password, "captchaValue":captcha};
+		postAjaxContributionLoginb(registerData, regdContribution);
+	}else{
+		document.getElementById("loginErrorOneHome").innerHTML = "Please Enter a valid Email Address";
+		delete digitalData.linkClick;
+		delete digitalData.internalSearch;
+		delete digitalData.filter;
+		var error =  {
+				"error"	:	[{
+					"errorType":"Field Error", 
+					"errorMessage":"Please Enter a valid Email Address"
+				},
+		  ]
+		}
+		$.extend( digitalData, error );
+		_satellite.track('formError'); 
+		return false;
+	}	
+});
+
+var regdContribution = function regdContribution(registerResponseData) {
+	
+	var form =  {
+			"form"	:	{
+				"formName":"Home:Traveller's Experience:Get Featured", 
+				"formType":"Get Featured:Login"
+				}
+		}
+	 $.extend( digitalData, form );
+	
+	if (registerResponseData.responseMessage == "INVALID_CAPTCHA") {
+		document.getElementById("loginErrorOneHome").innerHTML = "Invalid Captcha";
+		$("#vchVPwdHomeblog").val('');
+		$("#TravelExLogInCaptcha").val('');
+		
+		//analytics start
+		delete digitalData.linkClick;
+		delete digitalData.internalSearch;
+		delete digitalData.filter;
+		var error =  {
+				"error"	:	[{
+					"errorType":"Field Error", 
+					"errorMessage":"Invalid Captcha"
+				},
+		  ]
+		}
+		$.extend( digitalData, error );
+		_satellite.track('formError');
+    	return false;
+		//analytics end
+    	
+    	reloadCaptchaTravelEss1();
+    	
+	} else if (registerResponseData.responseMessage == "INVALID_USERNAME_PASSWORD") {
+		document.getElementById("loginErrorOneHome").innerHTML = "Invalid User Name or Password";
+		$("#vchVisitorHomeblog").val('');
+		$("#vchVPwdHomeblog").val('');
+		$("#TravelExLogInCaptcha").val('');
+		reloadCaptchaTravelEss1();
+		
+		//analytics start
+		delete digitalData.linkClick;
+		delete digitalData.internalSearch;
+		delete digitalData.filter;
+		var error =  {
+				"error"	:	[{
+					"errorType":"Field Error", 
+					"errorMessage":"Invalid User Name or Password."
+				},
+		  ]
+		}
+		$.extend( digitalData, error );
+		_satellite.track('formError');
+    	return false;
+		//analytics end
+		
+	} else {
+		document.getElementById("loginErrorOneHome").innerHTML = registerResponseData.responseMessage;
+		$("#vchVisitorHomeblog").val('');
+		$("#vchVPwdHomeblog").val('');
+		$("#TravelExLogInCaptcha").val('');
+		reloadCaptchaTravelEss1();
+		
+		//analytics start
+		delete digitalData.linkClick;
+		delete digitalData.internalSearch;
+		delete digitalData.filter;
+		var error =  {
+				"error"	:	[{
+					"errorType":"Field Error", 
+					"errorMessage":registerResponseData.responseMessage
+				},
+		  ]
+		}
+		$.extend( digitalData, error );
+		_satellite.track('formError');
+    	return false;
+		//analytics end
+	}
+	
+	
+	if(registerResponseData.responseStatus == "SUCCESS"){
+		$('#userContributionModalHome').modal('hide');
+		loginGenerateb(registerResponseData);
+	}
+	
+}
+var signUpRegd = function signUpRegd(registerResponseData) {
+	_satellite.track('registration_completed');//analytics
+	_satellite.track('login_starts');//analytics
+	signUpregd(registerResponseData);
+}
+function signUpregd(signupResponseData) {	
+	
+	if(signupResponseData.responseStatus == "FAILURE") {				
+		if (signupResponseData.responseMessage == "INVALID_CAPTCHA") {
+			document.getElementById("loginErrorOneHome").innerHTML = "Invalid Captcha";
+			$("#travelSignInEscaptcha").val('');			
+		} else if (signupResponseData.responseMessage == "USER_EXISTS") {
+			document.getElementById("loginErrorOneHome").innerHTML = "You are already registered with us. Switch to login or try with another email id.";
+			$("#vchVisitorNameHome").val('');
+			$("#vchVisitorEmailHome").val('');
+			$("#vchVPhoneHome").val('');
+			$("#travelSignInEscaptcha").val('');
+		} else {
+			document.getElementById("loginErrorOneHome").innerHTML =signupResponseData.responseMessage;
+			$("#vchVisitorNameHome").val('');
+			$("#vchVisitorEmailHome").val('');
+			$("#vchVPhoneHome").val('');
+			$("#travelSignInEscaptcha").val('');
+		}
+		reloadCaptchaTravelEss();
+	}
+	if(signupResponseData.responseStatus == "SUCCESS") {		
+		setTimeout(function() {
+			$("#loginErrorOneHome").css("color", "green");
+			document.getElementById("loginErrorOneHome").innerHTML = "Registration Successfull. Check your email for password.";	
+		}, 10000);	
+		
+		$('#userContributionModalHome').modal('hide');
+		
+		document.getElementById("VlogInHome").style.display = "none";
+		var userName = signupResponseData.userProfile.fullName;
+		if (userName.length > 8) {
+			userName = userName.substr(0,8) + "..";
+		}	
+		var welcomeText = "Hello " + userName;
+		$("#visitorNameMenu").show();
+		$("#visitorNameMenu").css("display", "inline");
+		$("#visitorNameMenu").text(welcomeText);
+		$("#userLoginMenu").hide();
+		$("#signin").collapse('hide');
+		$("#captcha").val('');
+		var path = location.origin+"/content/tourism/en/myContributions.html";
+		window.location.href = path;
+		_satellite.track('login_completed');
+	}
+	
+}
+function loginGenerateb(loginResponseData) {
+	var userName = loginResponseData.userProfile.fullName;
+	if (userName.length > 8) {
+		userName = userName.substr(0,8) + "..";
+	}
+	
+	var welcomeText = "Hello " + userName;
+	$("#visitorNameMenu").show();
+	$("#visitorNameMenu").css("display", "inline");
+	$("#visitorNameMenu").text(welcomeText);
+	$("#userLoginMenu").hide();
+	$("#signin").collapse('hide');
+	$("#captcha").val('');
+	var path1 = location.origin+"/content/tourism/en/myContributions.html";
+	window.location.href = path1;
+	_satellite.track('login_completed');
+
+}*/
+//common AJAX
+function postAjaxContributionLoginb(data, callback){
+	$.ajax({
+		type: 'POST',
+		url: '/tourism/auth',
+		data: data,
+		success: function(data) {
+            var jsonContributionResponse;
+			
+			if (data == '') {
+				//alert("FORWARD TO ERROR");
+			} else {
+				if (typeof data === 'string') {
+					jsonContributionResponse = JSON.parse(data);
+				} else {
+					jsonContributionResponse = data;
+				}
+			}		
+			callback(jsonContributionResponse);
+		},
+		error: function (xhr) {
+			console.log(xhr.status);
+			//alert("Technical Error");
+		}
+	});
+}
+
+function doLoadChangeHome(buttonName){
+	var linkName = 'Home : Travellers Experience : '+buttonName;	
+	customLinkClickAnalytics(linkName, "Pop Up");//analytics for linkclick
+	$("#userContributionModalHome").hide();
+	document.getElementById("vchVisitorNameHome").value="";
+	document.getElementById("vchVisitorEmailHome").value="";
+	document.getElementById("vchVPhoneHome").value="";
+	var data = {"methodId": "2"};
+	postAjaxContributionLoginb(data, checkUserBlogHome);
+}
+var checkUserBlogHome = function checkUserBlogHome(loginResponseData) {
+	if(loginResponseData.responseStatus == "SUCCESS") {
+		
+		var userName = loginResponseData.userProfile.fullName;
+		if (userName.length > 8) {
+			userName = userName.substr(0,8) + "..";
+		}
+		var welcomeText = "Hello " + userName;
+		$("#visitorNameMenu").show();
+		$("#visitorNameMenu").css("display", "inline");
+		$("#visitorNameMenu").text(welcomeText);
+		$("#userLoginMenu").hide();
+		$("#signin").collapse('hide');
+		$("#captcha").val('');
+		var newpath = location.origin+"/content/tourism/en/myContributions.html";
+		window.location.href = newpath;
+		_satellite.track('login_completed');
+
+	}else if(loginResponseData.responseStatus == "FAILURE") {
+		//To open the log in modal
+		$("#signinmodal").modal('show');
+		/* Set Properties for Modal Start */
+		$("#Visitor").prop('checked', true);
+		if( $('.forgotpasswordbx').css('display') == 'none' ) {
+			 $(".baseline").show();
+		 }
+        $(".signuptravelagent").hide();
+        $(".signuphotelier").hide();
+        $(".activateTravelBox").hide();
+        $(".loginWarningModal").hide();
+        /* Set Properties for Modal End */
+        localStorage.popupType="publish";
+	}
+}
+/*function OnEncryptPasswordHome(normalPass) {
+	var encPassword =makeId()+btoa(normalPass)+makeId();
+	return encPassword;
+}
+function makeId() {
+	var text = "";
+	var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+	for (var i = 0; i < 5; i++)
+		text += possible.charAt(Math.floor(Math.random() * possible.length));
+
+	return text;
+}
+var regexPhn = new RegExp(/^\d+$/);
+$('#vchVPhoneHome').keypress(function(event){
+	var key = String.fromCharCode(!event.charCode ? event.which : event.charCode);
+	if (!regexPhn.test(key)) {
+        event.preventDefault();
+        return false;
+    }
+});*/
+//*********************************analytics start*******************************
+function analyticsTravellers(buttonName){
+	var linkNameTravel = 'Home : Travellers Experience : '+buttonName;
+	customLinkClickAnalytics(linkNameTravel, "Navigation");
+}
+
+function analyticsLoginTExperience() {
+	delete digitalData.linkClick;
+	delete digitalData.internalSearch;
+	delete digitalData.form;
+	delete digitalData.filter;
+	delete digitalData.error;
+    var tExpUnamelength = $("#vchVisitorHomeblog").val().length;
+    var tExpPasslength = $("#vchVPwdHomeblog").val().length;
+
+    if((tExpUnamelength == 1 && tExpPasslength == 0) || (tExpUnamelength == 0 && tExpPasslength == 1)){
+    //console.log(tExpUnamelength);
+    _satellite.track('login_starts');
+    }
+}
+function analyticsRegistrationTExperience() {
+	delete digitalData.linkClick;
+	delete digitalData.internalSearch;
+	delete digitalData.form;
+	delete digitalData.filter;
+	delete digitalData.error;
+    var tVExpUnamelength = $("#vchVisitorNameHome").val().length;
+    var tVExpPasslength = $("#vchVisitorEmailHome").val().length;
+    var tVExpPhonelength = $("#vchVPhoneHome").val().length;
+
+    if((tVExpUnamelength == 1 && tVExpPasslength == 0 && tVExpPhonelength == 0) || (tVExpUnamelength == 0 && tVExpPasslength == 1 && tVExpPhonelength == 0) || (tVExpUnamelength == 0 && tVExpPasslength == 0 && tVExpPhonelength == 1)){
+    //console.log(tVExpUnamelength);
+    _satellite.track('registration_starts');
+    }
+}
+function analyticsFormTExperience() {
+	delete digitalData.linkClick;
+	delete digitalData.internalSearch;
+	delete digitalData.form;
+	delete digitalData.filter;
+	delete digitalData.error;
+    var tVExpEmaillength = $("#vchValidEmailHome").val().length;
+
+    if(tVExpEmaillength == 1){
+	    var form =  {
+			"form"	:	{
+				"formName":"Travellers Experience:Forget Password Form", 
+				"formType":"Forget Password"
+				}
+		}
+	   $.extend( digitalData, form );
+	   _satellite.track('formStart');
+	    }
+}
+//**********************************************analytics end********************************

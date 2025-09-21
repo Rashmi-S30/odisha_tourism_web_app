@@ -1,0 +1,899 @@
+/*=========================================================================================
+	File Name            : trailTours.js
+	Description          : this page includes all required functions for trailTours(home) section
+	Author Name          : anshuman.mishra
+	Date Created         : 01-Apr-2019
+	Developed By         : Anshuman Mishra
+	Developed On         : 01-Apr-2019
+	Updated By           : 
+	Updated On           : 
+	Updated Reason       : 
+===========================================================================================*/
+var userId,userType,agentId,agentType,tourId;
+var loginState;
+var linkNameTrail;//for analytics
+$(document).ready(function(){
+	doLoadTrailDetails("trending");
+	delete digitalData.filter;		
+	$("#loaderReg").hide();
+	$("#loaderSubmit").hide();
+	setTimeout(function() {
+		localStorage.removeItem("pageName");
+		localStorage.removeItem("agentid");
+		localStorage.removeItem("tourId");
+		localStorage.removeItem("message");
+  }, 200);
+});
+//*******************************************create common request for browser support*****************************//
+function createRequest()
+{
+    var ro;
+    var browser = navigator.appName;
+    if(browser == "Microsoft Internet Explorer")
+    {
+        ro = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    else
+    {
+        ro = new XMLHttpRequest();
+    }
+    return ro;
+}
+var httpreqTexta = createRequest();
+var param = "";
+var pageParam = "TRAIL_TOURS";
+//**********************************common ajax function**********************************************************//
+function callCommonAjaxa(callbackfunction, url, Qstring)
+{
+	var contentType = "application/x-www-form-urlencoded;charset=UTF-8";
+	httpreqTexta.open('POST',url+Qstring,true);
+	httpreqTexta.setRequestHeader("Content-Type", contentType);
+	httpreqTexta.onreadystatechange = callbackfunction;
+	httpreqTexta.send(Qstring);
+}
+//*******************************load tab details*****************************************************************//
+function doLoadTrailDetails(paramType){
+	delete digitalData.linkClick;
+	delete digitalData.form;
+	delete digitalData.filter;
+	delete digitalData.error;
+	var typeTrail1;
+	var typeTrail2;
+
+	if(paramType == 'trending'){
+		typeTrail1 = "Trending";
+		typeTrail2 = "NA"
+	}
+	if(paramType == 'dayTour'){
+		typeTrail1 = "Duration";
+		typeTrail2 = "Day Tour";
+	}	
+	if(paramType.indexOf('Day') > -1){
+		typeTrail1 = "Duration";
+		typeTrail2 = paramType
+	}
+	if(paramType == 25){
+		typeTrail1 = "Type";
+		typeTrail2 = "Buddhist Sites";
+	}
+	if((paramType == 11) || (paramType == 7)){
+		if((paramType == 11)){
+			typeTrail2 = "Forest & Wildlife";
+		}
+		if((paramType == 7)){
+			typeTrail2 = "Temples & Monuments";
+		}
+		typeTrail1 = "Type";
+		//typeTrail2 = "Buddhist Sites";
+	}
+	var filter =  {
+			"filter"	:	{
+				"filterType1":"Trail Tours "+typeTrail1, 
+				"filterType2":"Trail Tours "+typeTrail2
+				}
+		}
+	$.extend( digitalData, filter );
+	document.getElementById("trailTour").innerHTML ="";
+	
+	//if(paramType == 'new'){
+         //var path = 'https://ecoretreat.odishatourism.gov.in/itinerary.html';
+		 //var loadDetail = '<div class="trailtour-item trailtour-item-static bg--transparent swiper-slide"><div class="trailtour-item__media static-trailhome"><img alt="" src="/content/dam/tourism/home/trail-tours/eco-retreat1.jpg"></div><div class="info-text hasOffer"><h5>1 Night / 2 Days</h5><p>14th Dec 19 - 15th Feb 20</p></span></div><div class="trailtour-item__content"><p class="mobile-hide"><label>Accomodation</label><span>Luxury Tents on the Ramchandi Beach,Konark</span></p><p><label>Types</label><span>Presidential Villa,Royal Cottages,Premium Cottages,Deluxe Cottages</span></p><p class="mobile-hide"><label>Inclusions and Activities</label><span>All Meals,Day Tours,Jet Skiing,Parasailing,Zorbing,Beach Volleyball and much more...</span></p></div><a href="'+path+'" class="btn btn-radius waves-effect hvr-rectangle-out waves-light read-more btn--knowMore" title="Know more" taget="_blank">Know more</a></div>'
+		 //+'<div class="trailtour-item bg--transparent trailtour-item-static swiper-slide"><div class="trailtour-item__media static-trailhome"><img alt="" src="/content/dam/tourism/home/trail-tours/eco-retreat2.jpg"></div><div class="info-text hasOffer"><h5>2 Nights / 3 Days</h5><p>14th Dec 19 - 15th Feb 20</p></span></div><div class="trailtour-item__content"><p class="mobile-hide"><label>Accomodation</label><span>Luxury Tents on the Ramchandi Beach,Konark</span></p><p><label>Types</label><span>Presidential Villa,Royal Cottages,Premium Cottages,Deluxe Cottages</span></p><p class="mobile-hide"><label>Inclusions and Activities</label><span>All Meals,Day Tours,Jet Skiing,Parasailing,Zorbing,Beach Volleyball and much more...</span></p></div><a href="'+path+'" class="btn btn-radius waves-effect hvr-rectangle-out waves-light read-more btn--knowMore" title="Know more" taget="_blank">Know more</a></div>'
+		 //+'<div class="trailtour-item bg--transparent trailtour-item-static swiper-slide"><div class="trailtour-item__media static-trailhome"><img alt="" src="/content/dam/tourism/home/trail-tours/eco-retreat3.jpg"></div><div class="info-text hasOffer"><h5>3 Nights / 4 Days</h5><p>14th Dec 19 - 15th Feb 20</p></span></div><div class="trailtour-item__content"><p class="mobile-hide"><label>Accomodation</label><span>Luxury Tents on the Ramchandi Beach,Konark</span></p><p><label>Types</label><span>Presidential Villa,Royal Cottages,Premium Cottages,Deluxe Cottages</span></p><p class="mobile-hide"><label>Inclusions and Activities</label><span>All Meals,Day Tours,Jet Skiing,Parasailing,Zorbing,Beach Volleyball and much more...</span></p></div><a href="'+path+'" class="btn btn-radius waves-effect hvr-rectangle-out waves-light read-more btn--knowMore" title="Know more" taget="_blank">Know more</a></div>';
+
+		 //var divNew = document.getElementById("trailTour");
+		 //divNew.insertAdjacentHTML("beforeend", loadDetail);
+		 //var swiper = new Swiper('#trailSlider', {
+			   // slidesPerView: 3,
+			   // spaceBetween: 30,
+			   // simulateTouch: false,
+			   // pagination: {
+			   //   el: '.swiper-pagination',
+			   //   clickable: true,
+			   // },
+			  //breakpoints: {
+			      //  768: {
+			      //    slidesPerView: 'auto',
+			       //   spaceBetween: 10,
+			       //   freeMode: true,
+			       // },
+			     // }
+			  //});
+	//}else{
+		//var Qstring="?PAGE="+pageParam+"&methodParam="+paramType;
+		//callCommonAjaxa(setDataList,'/tourism/trailtour', Qstring);
+	//}
+    var Qstring="?PAGE="+pageParam+"&methodParam="+paramType;
+	callCommonAjaxa(setDataList,'/tourism/trailtour', Qstring);
+	
+}
+//*****************************callback function to load tab detail**********************************************//
+function setDataList()
+{
+    if(httpreqTexta.readyState==4)
+     {
+         if(httpreqTexta.status==200)
+         {
+             var rs=httpreqTexta.responseText;
+             if(rs== ""){
+            	 
+            	 /*loadDet = "<h2>No record found</h2>";
+            	 var div = document.getElementById("trailTour");
+	             div.insertAdjacentHTML("afterbegin", loadDet);*/    
+            	 
+            } else{
+                 if(rs=="sessionOut")
+                 {
+                     //window.location.target = "_parent";
+                    //window.location.href="AJAX SESSION OUT PAGE";
+                 }else{               	 					
+                	var loadDet ="";
+  					var loadList = new Array();
+  					loadList = rs.split("<;;;;>");
+  					var details = new Array();
+  					var det = new Array();
+  					var firstRowCount = 0;
+  					for(var k=0;k<loadList.length-1;k++)
+					 { 						
+  						 var check = true;
+				    	 details=loadList[k].split("<@!!@>");				    	
+						 for (var j=k+1;j<=loadList.length-1;j++){
+							   det=loadList[j].split("<@!!@>"); 
+	 					       if (details[0] == det[0]){
+	 					    	  check = false;	 					    	 
+	 					       }
+						 }
+						 
+						
+
+						 if(check == true){							 
+							 firstRowCount++;							 
+							 var image = dynamicUrlb(details[6]);
+							 var path = location.origin+"/content/tourism/en/trail-details.html?url="+details[31];
+							 var desc = addDots(details[3],40);
+							 
+							 var myVar2;
+							 var placeCovered =  new Array();  
+							 placeCovered = details[36].split("~~");
+							 var myVar2 = placeCovered.slice(0, 2);								 
+						     var coverCount = placeCovered.length-2;
+						     var placeCount = 0;
+						     var place="<span class=''></span>"; 
+						     if(coverCount > 0){
+						    	 placeCount = placeCovered.length-2;
+						    	 if(placeCount > 0){
+						    		 place="<span class='morecount screen-reader'>+"+placeCount+"</span>";
+						    	 }
+						     }
+							 var attaction =  new Array();
+							 attaction = details[35].split("~~"); 							 
+							 var myVar3 = attaction.slice(0,2);
+							 var attractionCount = attaction.length-2;
+						     var attrCount = 0;
+						     var attr="<span class=''></span>"; 
+							 if(attractionCount > 0){
+								 attrCount = attaction.length-2;
+								 if(attrCount > 0){
+									 attr="<span class='morecount'>+"+attrCount+"</span>";
+						    	 }
+						     }
+							 var offerBtn="";
+							 if(details[9] > 0){								 
+								 offerBtn="<span class='offerbtn screen-reader'><label class='screen-reader'>OFFERS</label><span class='trail__discount screen-reader'>Upto "+details[9]+"% off</span></span>"; 
+							 }else{
+								 offerBtn="<span class=''></span>";  
+							 }
+							 loadDet = '<input type="hidden" id="agentID'+k+'" value='+details[1]+'><input type="hidden" id="agentName'+k+'" value="'+details[39]+'"><input type="hidden" id="agentType'+k+'" value='+details[40]+'><input type="hidden" id="tourId'+k+'" value='+details[0]+'><div class="trailtour-item bg--transparent swiper-slide"><div class="trailtour-item__media"><img alt="" src="'+image+'" class="screen-reader"></div><div class="info-text hasOffer screen-reader"><h5 class="screen-reader">'+details[2]+'</h5><p class="screen-reader">'+details[38]+'</p>'+offerBtn+'</div><div class="trailtour-item__content"><p class="mobile-hide screen-reader"><label class="screen-reader">Covers</label><span class="screen-reader">'+myVar2+'</span>'+place+'</p><p class="mobile-hide screen-reader"><label class="screen-reader">Attractions</label><span class="screen-reader">'+myVar3+'</span>'+attr+'</p><p class="screen-reader">'+desc+'</p></div><a href="#" class="btn hvr-rectangle-out waves-effect waves-light btn--interested screen-reader" data-toggle="collapse"  onclick=ckeckSessVall('+k+',"'+details[31]+'")>Interested ?</a><a href='+ path +' class="btn btn-radius waves-effect hvr-rectangle-out waves-light read-more btn--knowMore screen-reader"  onclick="analyticsTrailKnowMore(\''+details[31]+'\');" title="Know more">Know more</a></div>';
+							 
+							 if(firstRowCount > 3){							 
+								 break;
+							 }else{
+								 var div = document.getElementById("trailTour");
+	 		 	              	 div.insertAdjacentHTML("beforeend", loadDet);
+								 continue;
+							 }
+						 }
+					 }
+  					 var swiper = new Swiper('#trailSlider', {
+  					    slidesPerView: 3,
+  					    spaceBetween: 30,
+  					    simulateTouch: false,
+  					    pagination: {
+  					      el: '.swiper-pagination',
+  					      clickable: true,
+  					    },
+  					  breakpoints: {
+	  				        768: {
+	  				          slidesPerView: 'auto',
+	  				          spaceBetween: 10,
+	  				          freeMode: true,
+	  				        },
+//	  				        660: {
+//	  				          slidesPerView: 1,
+//	  				          spaceBetween: 20,
+//	  				          freeMode: true,
+//	  				        },
+	  				      }
+  					  });
+                 }       
+             }
+             rs=null;
+         }
+         else
+         {
+            //'Error Code should be here';
+         }
+     }
+ }
+//**************************************************************************************************************//
+function dynamicUrlb(imageName) {
+   var url = "https://apps.odishatourism.gov.in/Application/uploadDocuments/TravelTrailDoc/"+imageName;
+   return url;
+}
+function addDots(string, limit)
+{
+  var dots = "......";
+  if(string.length > limit)
+  {
+     string = string.substring(0,limit) + dots;
+  }
+    return string;
+}
+//*******************************************************session activity start********************************************//
+function ckeckSessVall(rowId,rowName){
+	var trailRowName = "Interested "+rowName;
+	linkNameTrail = "Home : Trail Tours : "+trailRowName;
+	customLinkClickAnalytics(linkNameTrail, "Pop Up");//analytics for linkclick
+
+	$('#msg').hide();
+	userId = 0;
+	userType=0;
+	agentId=0;
+	agentType=0;
+	tourId=0;
+	document.getElementById("hdnInterested").innerHTML = "";
+	document.getElementById("hdnInterested").innerHTML = "<div class='col-sm-12 interested-message screen-reader'>The travel agent <span class='screen-reader'>"+document.getElementById("agentName"+rowId).value+"</span> will get in touch with you soon after you provide the below details.</div>";
+	agentId = document.getElementById("agentID"+rowId).value;
+	agentType = document.getElementById("agentType"+rowId).value;
+	tourId= document.getElementById("tourId"+rowId).value;
+	var loginData = {"methodId": "2"};
+	checkLoginDetails(loginData,checkUserTrail);
+}
+var checkUserTrail = function checkUserTrail(loginResponseData) {
+	if(loginResponseData.responseStatus == "SUCCESS"){
+		loginState='true';
+		document.getElementById("uNametrail").readOnly  = true;
+		document.getElementById("emailtrail").readOnly = true;
+		document.getElementById("phoneNumbertrail").readOnly = true;
+		document.getElementById("uNametrail").value=loginResponseData.userProfile.fullName;
+		document.getElementById("emailtrail").value=loginResponseData.userProfile.email;
+		document.getElementById("phoneNumbertrail").value=loginResponseData.userProfile.mobileNo;
+		userId = loginResponseData.userProfile.userId;
+		userType = 2;
+		$('#btn').text("Send");
+		$(".form-div").show();
+		$(".otp-div").hide();
+		$('#InterestedModal').modal('show');
+	}else if(loginResponseData.responseStatus == "FAILURE"){		
+		/*$("#signin").collapse('show');
+		$("#Visitor").prop('checked', true);
+		$(".baseline").show();*/
+		loginState='false';
+		document.getElementById("uNametrail").readOnly  = false;
+		document.getElementById("emailtrail").readOnly = false;
+		$('#InterestedModal').modal('show');
+	}
+}
+//common AJAX
+function postAjaxLoginTrail(data, callback,message){
+	$.ajax({
+		type: 'POST',
+		url: '/tourism/auth',
+		data: data,
+		success: function(data) {
+			var jsonResponse = JSON.parse(data);
+			//console.log(jsonResponse);
+			callback(jsonResponse,message);
+		},
+		error: function (xhr) {
+			console.log(xhr.status);
+			//alert("Technical Error");
+		}
+	});
+}
+//common AJAX
+function checkLoginDetails(loginData, callback){
+	$.ajax({
+		type: 'POST',
+		url: '/tourism/auth',
+		data: loginData,
+		success: function(data) {
+			var jsonResponse = JSON.parse(data);
+			callback(jsonResponse);
+		},
+		error: function (xhr) {
+			console.log(xhr.status);
+			//alert("Technical Error");
+		}
+	});
+}
+function loginUser() {
+	//analytics start
+	var interestedCardName = linkNameTrail+": Send";
+	customLinkClickAnalytics(interestedCardName,"Navigation");
+	//analytics end
+
+	document.getElementById("vstrUsrRegWarning").style.display = "none";
+	//document.getElementById("msg").style.display = "none";
+	var isValid = validateFormTrail($("#emailtrail").val(),$("#phoneNumbertrail").val(), $("#uNametrail").val(),$("#messagetrail").val())
+	
+	if(loginState=='true'){
+		userType = 2;
+		if($("#messagetrail").val().length==0)
+			{
+			document.getElementById("vstrUsrRegWarning").style.display = "block";
+	    	document.getElementById("vstrUsrRegWarning").innerHTML = "Message should not be empty";
+	    	return false;
+			}
+			
+		var data = {"userId" :userId,"userType" :userType,"agentId" :agentId,"agentType" :agentType,"tourId" :tourId, "PAGE" :"TRAIL_TOURS", "methodParam":"saveEnquiry","message":$("#messagetrail").val()};
+		postAjaxAfterSave(data, savedata);
+	}else{	
+		if(isValid){
+			/*document.getElementById("vstrUsrRegWarning").style.display = "none";
+			document.getElementById("visitorUserCheckOTP").style.display = "block";*/
+			//$('#InterestedModal').modal('hide');
+		  /*var uName = $("#uNametrail").val();
+			var email = $("#emailtrail").val();
+			var phoneNumber = $("#phoneNumbertrail").val();
+			var message = $("#messagetrail").val();*/
+			/*var sendEmail = {"methodId": "17","visitorName" :uName,"visitorEmail" :email,"visitorPhone" :phoneNumber};
+			postAjaxSendMailTrailHome(sendEmail);*/
+			//analytics start
+			formSubmitAnalytics("Home:Trail Tour Intrested Form", "Send:Trail Tour");
+			_satellite.track('registration_starts');
+			//analytics end
+			$('#InterestedModal').modal('hide');
+			var uName = $("#uNametrail").val();
+			var email = $("#emailtrail").val();
+			var phoneNumber = $("#phoneNumbertrail").val();
+			var message = $("#messagetrail").val();	
+			
+			//$("#userName").val(email);
+			if( $('.forgotpasswordbx').css('display') == 'none' ) {
+				 $(".baseline").show();
+			 }
+	        $(".signuptravelagent").hide();
+	        $(".signuphotelier").hide();
+	        $(".activateTravelBox").hide();
+	        $(".loginWarningModal").hide();
+	        userMailId = email;
+	        userNameSignUp=uName;
+	        userPhoneNo=phoneNumber;
+	        var data = {"PAGE": "MAILCHECK","visitorEmail" :email};
+	        postAjaxAgentData(data,isUserExist);
+		}
+	}
+}
+function postAjaxSendMailTrailHome(data){
+	$("#uNametrail").removeClass("focusred");
+	$("#emailtrail").removeClass("focusred");
+	$("#phoneNumbertrail").removeClass("focusred");
+	$("#messagetrail").removeClass("focusred");
+	
+	$("#loaderReg").show();
+    $("#btn").attr("disabled", "disabled");
+    setTimeout(function() {
+    	$.ajax({
+			type: 'POST',
+			url: '/tourism/auth',
+			data: data,
+			dataType: "json",
+			async: false,
+			success: function(data) {
+				$("#loaderReg").hide();
+				$("#btn").removeAttr("disabled");
+				var jsonResponse;			
+				if (data == '') {
+					//alert("FORWARD TO ERROR");
+				} else {
+					if (typeof data === 'string') {
+						jsonResponse = JSON.parse(data);
+						repeatValue =jsonResponse;
+						//console.log(repeatValue);
+					} else {
+						jsonResponse = data;
+						repeatValue =jsonResponse;
+					}
+
+					$("#vstrUsrOtpSuccess").show().text("OTP for registration is sent to your mail");
+					$(".form-div").hide();
+					$(".otp-div").show();
+				}		
+			},
+			error: function (xhr) {
+				$("#loaderReg").hide();
+				$("#btn").removeAttr("disabled");
+				console.log(xhr.status);
+				//alert("Technical Error");
+			}
+    	});
+    }, 100);
+	
+}
+
+function sendOTP() {
+	//analytics start
+	delete digitalData.linkClick;
+	delete digitalData.internalSearch;
+	delete digitalData.filter;
+	var form =  {
+			"form"	:	{
+				"formName":"Home:Trail Tour Intrested Form : Otp Verification", 
+				"formType":"Submit:Trail Tour"
+				}
+		}
+	 $.extend( digitalData, form );
+	//analytics end
+	$("#otpMessage").text('');
+	$("#alertModalMsg").modal('hide');
+	var otpValue = $("#otpInput").val();
+	 if($("#otpInput").val() == repeatValue){
+			var userName = $("#uNametrail").val();
+			var useremail = $("#emailtrail").val();
+			var userphoneNumber = $("#phoneNumbertrail").val();
+			var message = $("#messagetrail").val();
+			$("#opt").val('');
+			var registerData = {"methodId": "3","visitorName" :userName,"visitorEmail" :useremail,"visitorPhone" :userphoneNumber};
+			postAjaxLoginTrail(registerData, registration, message);
+			$("#loaderSubmit").show();
+
+	}else if($("#otpInput").val() == ''){
+			document.getElementById("vstrUsrOtpSuccess").style.display = "none";
+			document.getElementById("vstrUsrRegWarning").style.display = "";
+	    	document.getElementById("vstrUsrRegWarning").innerHTML = "Enter the OTP";
+	    	var error =  {
+					"error"	:	[{
+						"errorType":"Field Error", 
+						"errorMessage":"Enter the OTP"
+						}]
+				}
+			$.extend( digitalData, error );
+			_satellite.track('formError');
+	}else if(otpValue.length != 4){
+			//$("#alertModalMsg").modal('show');
+			document.getElementById("vstrUsrOtpSuccess").style.display = "none";
+			document.getElementById("vstrUsrRegWarning").style.display = "";
+	   	    document.getElementById("vstrUsrRegWarning").innerHTML = "OTP cannot be less than 4 digits";
+	   	 $("#otpInput").val('');
+			var error =  {
+					"error"	:	[{
+						"errorType":"Field Error", 
+						"errorMessage":"OTP cannot be less than 4 digits"
+					},]
+				}
+			$.extend( digitalData, error );
+			_satellite.track('formError');
+   	    return false;		
+	}else if($("#otpInput").val() != repeatValue){
+			//$("#alertModalMsg").modal('show');
+			document.getElementById("vstrUsrOtpSuccess").style.display = "none";
+			document.getElementById("vstrUsrRegWarning").style.display = "";
+	     	document.getElementById("vstrUsrRegWarning").innerHTML = "Invalid OTP. Try again";
+	     	$("#otpInput").val('');
+	     	var error =  {
+					"error"	:	[{
+						"errorType":"Field Error", 
+						"errorMessage":"Invalid OTP. Try again"
+						},
+					]
+				}
+			$.extend( digitalData, error );
+			_satellite.track('formError');
+	   	   	return false;	
+	   	
+	}
+}
+
+function sendAgain(){
+	document.getElementById("vstrUsrRegWarning").style.display = "none";
+	repeatValue ='';
+	$("#otpInput").val('');
+	var uName = $("#uNametrail").val();
+	var email = $("#emailtrail").val();
+	var phoneNumber = $("#phoneNumbertrail").val();
+	var sendEmail = {"methodId": "17","visitorName" :uName,"visitorEmail" :email,"visitorPhone" :phoneNumber};
+	postAjaxSendMailTrailHome(sendEmail);
+	//customLinkClickAnalytics('Home:Trail Tour Interested Form:Resend OTP ', 'Resend');
+}
+
+function changeEmail(){
+	customLinkClickAnalytics('Home:Trail Tour Interested Form:Change Email ', 'Navigation');
+	$("#loaderReg").hide();
+	document.getElementById("agencyId").style.display = "block";
+	document.getElementById("otpId").style.display = "none";
+}
+
+
+
+var registration = function registration(registerResponseData,message) {
+	_satellite.track('registration_completed');//analytics
+	_satellite.track('login_starts');//analytics
+	loginSuccessTrail(registerResponseData,message);
+}
+function loginSuccessTrail(loginResponseData,message) {
+	$("#InterestedModal").modal('hide');
+	var userName = loginResponseData.userProfile.fullName;
+	if (userName.length > 8) {
+		userName = userName.substr(0,8) + "..";
+	}
+	var userId=loginResponseData.userProfile.userId;
+	var userType = 2;
+	var welcomeText = "Hello " + userName;
+	$("#visitorNameMenu").show();
+	$("#visitorNameMenu").css("display", "inline");
+	$("#visitorNameMenu").text(welcomeText);
+	$("#userLoginMenu").hide();
+	$("#signin").collapse('hide');
+	$("#captcha").val('');
+	_satellite.track('login_completed');//analytics
+	//** function call to save enquiry list of trail**********************************************************//
+	var data = {"userId" :userId,"userType" :userType,"agentId" :agentId,"agentType" :agentType,"tourId" :tourId, "PAGE" :"TRAIL_TOURS", "methodParam":"saveEnquiry","message":message};
+	postAjaxAfterSave(data, savedata);
+}
+function postAjaxAfterSave(data, callback){
+	$.ajax({
+		type: 'POST',
+		url: '/tourism/trailtour',
+		data: data,
+		success: function(data) {
+			callback(data);
+		},
+		error: function (xhr) {
+			console.log(xhr.status);
+			//alert("Technical Error");
+		}
+	});
+}
+var savedata = function savedata(jsonResponse) {
+	if(jsonResponse=='SAVED'){
+		$('#InterestedModal').modal('hide');
+		$('#alertModalTrail').modal('show');
+	}
+}
+//*******************************************************session activity close********************************************//
+function validateFormTrail(emailField,phone, name,msg){
+	//analytics start
+	delete digitalData.internalSearch;
+	delete digitalData.filter;
+	var form =  {
+			"form"	:	{
+				"formName":"Home:Trail Tour Intrested Form", 
+				"formType":"Send:Trail Tour"
+				}
+		}
+	 $.extend( digitalData, form );
+	//analytics end
+	if(name != ""){
+		if(emailField != ""){
+			var isvalidemail = validateEmail(emailField);
+			if(!isvalidemail){
+				document.getElementById("vstrUsrRegWarning").style.display = "block";
+		    	document.getElementById("vstrUsrRegWarning").innerHTML = "Please Enter a valid Email Address";
+		     	var error =  {
+						"error"	:	[{
+							"errorType":"Field Error", 
+							"errorMessage":"Please Enter a valid Email Address"
+						},
+					  ]
+					}
+				$.extend( digitalData, error );
+				_satellite.track('formError');
+		    	return false;
+			}
+			 if(phone != ""){
+				 var isvalidphone = validatePhone(phone);
+				 if(!isvalidphone){
+					 document.getElementById("vstrUsrRegWarning").style.display = "block";
+				     document.getElementById("vstrUsrRegWarning").innerHTML = "Invalid Phone Number";
+				     	var error =  {
+								"error"	:	[{
+									"errorType":"Field Error", 
+									"errorMessage":"Invalid Phone number"
+								},
+							  ]
+							}
+						$.extend( digitalData, error );
+						_satellite.track('formError');
+				     return false;
+				}
+			 }else{
+				 document.getElementById("vstrUsrRegWarning").style.display = "block";
+			     document.getElementById("vstrUsrRegWarning").innerHTML = "Phone number should not be empty.";
+			     	var error =  {
+							"error"	:	[{
+								"errorType":"Field Error", 
+								"errorMessage":"Phone number should not be empty."
+							},
+							]
+						}
+					$.extend( digitalData, error );
+					_satellite.track('formError');
+			     return false;				 
+			 }
+		}else{
+			document.getElementById("vstrUsrRegWarning").style.display = "block";
+	    	document.getElementById("vstrUsrRegWarning").innerHTML = "Email address should not be empty.";	     
+	    	var error =  {
+					"error"	:	[{
+						"errorType":"Field Error", 
+						"errorMessage":"Email address should not be empty."
+					},
+				  ]
+				}
+			$.extend( digitalData, error );
+			_satellite.track('formError');
+	        return false;			
+		}
+	}else{
+			document.getElementById("vstrUsrRegWarning").style.display = "block";
+	    	document.getElementById("vstrUsrRegWarning").innerHTML = "Please Enter Name";	
+	    	var error =  {
+					"error"	:	[{
+						"errorType":"Field Error", 
+						"errorMessage":"Please Enter Name"
+					},
+				  ]
+				}
+			$.extend( digitalData, error );
+			_satellite.track('formError');
+	    	return false;
+	}
+	if(msg == ''){
+		 document.getElementById("vstrUsrRegWarning").style.display = "block";
+	     document.getElementById("vstrUsrRegWarning").innerHTML = "Message should not be empty";
+	 	 var error =  {
+					"error"	:	[{
+						"errorType":"Field Error", 
+						"errorMessage":"Message should not be empty"
+					},
+					]
+				}
+			$.extend( digitalData, error );
+			_satellite.track('formError');
+	     return false;
+	}
+	 $("#vstrUsrRegWarning").hide();
+	return true;	
+}
+$("#chnageEmail").click(function(){
+	$("#loaderTrail").hide();
+    $(".form-div").show();
+    $(".otp-div").hide();
+});
+var regexPhone = new RegExp(/^\d+$/);
+$('#phoneNumbertrail').keypress(function(event){
+	var key = String.fromCharCode(!event.charCode ? event.which : event.charCode);
+	if (!regexPhone.test(key)) {
+        event.preventDefault();
+        return false;
+    }
+});
+var regexName = new RegExp(/^[A-Za-z]+$/);
+$('#uNametrail').keypress(function(event){
+	var key = String.fromCharCode(!event.charCode ? event.which : event.charCode);
+	if (!regexName.test(key)) {
+        event.preventDefault();
+        return false;
+    }
+});
+function validateEmail(emailField) {
+	 var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+	  if (reg.test(emailField) == false) {
+	      return false;
+	  }
+	  return true;
+}
+function validatePhone(phone) {
+	var reg = /^\d{10}$/;
+	  if (reg.test(phone) == false) {
+	  	return false;
+	  }
+	  return true;
+}
+$('#messagetrail').keyup(function(){
+	 if(this.value.length > 200){
+      return false;
+  }
+  $("#lblChar2trail").text(200 - this.value.length);
+});
+
+$("#homeTrailFilter").button().click(function(){
+	customLinkClickAnalytics('Home :Trail Tours : View All','Navigation');//analytics for link click
+    window.location.href = location.origin+"/content/tourism/en/plan/trip-organizer/find-trail.html";
+});    
+
+function analyticsTrailKnowMore(trailName){
+	customLinkClickAnalytics("Home:Trail Tours:"+trailName+":know More", "Navigation");
+}
+
+//***********************added sections from trail-tour js**********************//
+function chnageTrailTour() {
+    $(".ab").mouseenter(function() {
+        $(this).addClass("active"), $(".ab").not(this).removeClass("active")
+    });
+}
+chnageTrailTour(), $(".dropdown-menu li a").click(function() {
+    $(this).addClass("active"), $(".dropdown-menu li a").not(this).removeClass("active");
+    var e = $(this.hash);
+    if ((e = e.length ? e : $("[name=" + this.hash.substr(1) + "]")).length) return $("html,body").animate({
+        scrollTop: e.offset().top - 160
+    }, 1e3), !1
+});
+
+
+$("#trendingTrails").click(function(){
+	doLoadTrailDetails('trending');
+	_satellite.track('filterApplied');
+	 
+});
+$("#newTrails").click(function(){
+	
+	doLoadTrailDetails('new');
+	_satellite.track('filterApplied');
+});
+
+$("#dayTourTrails").click(function(){
+	doLoadTrailDetails('dayTour');
+	_satellite.track('filterApplied');
+});
+
+$("#typeTrails").click(function(){
+	doLoadTrailDetails('25');
+	_satellite.track('filterApplied');
+});
+$("#dayTourTrails2").click(function(){
+	doLoadTrailDetails('dayTour');
+	_satellite.track('filterApplied');
+});
+$("#03DaysTrails").click(function(){
+	doLoadTrailDetails('03Days');
+	_satellite.track('filterApplied');
+});
+$("#05DaysTrails").click(function(){
+	doLoadTrailDetails('05Days');
+	_satellite.track('filterApplied');
+});
+$("#07DaysTrails").click(function(){
+	doLoadTrailDetails('07Days');
+	_satellite.track('filterApplied');
+});
+$("#buddhistSiteTrails").click(function(){
+	doLoadTrailDetails('25');
+	_satellite.track('filterApplied');
+});
+$("#forestWildlifeTrails").click(function(){
+	doLoadTrailDetails('11');
+	_satellite.track('filterApplied');
+});
+$("#templesMonumentsTrails").click(function(){
+	doLoadTrailDetails('7');
+	_satellite.track('filterApplied');
+});
+
+function postAjaxAgentData(data, callback){
+	$.ajax({
+		type: 'POST',
+		url: '/tourism/trailtour',
+		data: data,
+		success: function(data) {
+			callback(data);
+		},
+		error: function (xhr) {
+			console.log(xhr.status);
+		}
+	});
+}
+var isUserExist = function isUserExist(jsonResponse) {
+	if(jsonResponse=='YES'){				
+		 $("#signinmodal").modal('show');
+		 $("#Visitor").prop('checked', true);
+		 $("#userName").val(userMailId);	
+		 $(".signupbox").hide();
+		 $(".forgotpasswordbx").hide();
+	     $(".signupbox").hide();
+	     $(".loginfirstbx").slideDown();
+	     $(".loginfirstbx").show();
+	     $(".forgotheading").hide();
+	     $(".loginheading").show();
+	     $('#typeOfLogin').removeClass('forgot');
+	     $('#typeOfLogin').removeClass('signup');
+	     $('#typeOfLogin').addClass('login');
+	     $(".usertype").show();
+	     $(".signupfirstbx").hide();
+	     $('#loginError').text('');
+	     if($('#Agent').is(':checked')){
+	    	 $(".baseline").hide();
+	         $(".sociallogin").hide();
+	         $(".signuptravelagent").show();
+	     }
+	     if($('#Hotelier').is(':checked')){
+	    	 $(".baseline").hide();
+	         $(".sociallogin").hide();
+	         $(".signuphotelier").show();
+	     }
+	     $(".activateTravelBox").hide();
+	     
+	     $("#visitorEmail").val('');	
+		 $("#visitorName").val('');				
+		 $("#visitorPhone").val('');
+		 $("#captcha").val('');  
+		 $("#visitorPassword").val('');
+		 $("#visitorConfirmPassword").val('');
+		 localStorage.agentid = agentId; 
+		 localStorage.message = $("#messagetrail").val(); 
+		 localStorage.tourId = tourId; 
+		 localStorage.pageName = "TRAIL"; 
+	}else{
+		$("#signinmodal").modal('show');
+		$("#Visitor").prop('checked', true);
+		$('#typeOfLogin').removeClass('login');
+        $('#typeOfLogin').addClass('signup');
+        $(".signupbox").slideDown();
+        $(".loginfirstbx").hide();
+        $(".forgotpasswordbx").hide();
+        $(".usertype").hide();
+        $(".backlogin").show();
+        $(".sociallogin").show();
+        $(".signupfirstbx").show();
+        $('#loginError').text('');
+        $(".activateTravelBox").hide();
+		
+		$("#visitorEmail").val(userMailId);	
+		$("#visitorName").val(userNameSignUp);				
+		$("#visitorPhone").val(userPhoneNo);
+		$("#userName").val('');
+		$("#captcha").val('');
+		$("#visitorPassword").val('');
+		$("#visitorConfirmPassword").val('');	
+	}
+}
+
+$(document).ready(function(){
+    if(window.location.hash == '#signup') {
+	   $("#signinmodal").modal('show');
+        $('#typeOfLogin').removeClass('login');
+         $('#typeOfLogin').addClass('signup');
+         $(".signupbox").slideDown();
+         $(".loginfirstbx").hide();
+         $(".forgotpasswordbx").hide();
+         $(".usertype").hide();
+         $(".backlogin").show();
+         $(".sociallogin").show();
+         $(".signupfirstbx").show();
+         $('#loginError').text('');
+         $(".activateTravelBox").hide();
+         $(".signupall").hide();
+        window.location.hash="";
+}
+});

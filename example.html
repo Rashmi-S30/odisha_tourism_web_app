@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eco Tour Odisha</title>
+
+  <!-- Google Fonts & Icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" rel="stylesheet">
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Poppins', sans-serif; line-height: 1.6; background: #f9f9f9; }
+
+    nav {
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      background: rgba(0,0,0,0.7);
+      padding: 15px 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+    }
+    nav .logo { color: whitesmoke; font-size: 24px; font-weight: 700; }
+    nav ul { display: flex; list-style: none; }
+    nav ul li { margin-left: 30px; }
+    nav ul li a { color: whitesmoke; text-decoration: none; font-weight: 500; transition: color 0.3s; }
+    nav ul li a:hover { color: #00c853; }
+    .search-box { display: flex; align-items: center; background: white; border-radius: 20px; padding: 5px 10px; }
+    .search-box input { border: none; outline: none; padding: 5px; }
+    .search-box i { margin-left: 5px; cursor: pointer; }
+
+    .hero {
+      height: 100vh;
+      background: url("/for2.jpg") no-repeat center center/cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+      padding: 0 20px;
+    }
+    .hero h1 { font-size: 3.5rem; text-shadow: 2px 2px 8px rgba(0,0,0,0.7); }
+    .btn {
+      display: inline-block;
+      padding: 12px 25px;
+      background: #00c853;
+      color: white;
+      font-weight: 600;
+      border-radius: 30px;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+    .btn:hover { background: green; }
+
+    section { padding: 80px 50px; text-align: center; }
+    section h2 { font-size: 2.5rem; margin-bottom: 20px; color: #333; }
+    section p { color: #555; max-width: 700px; margin: 0 auto 40px; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    .card {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+      cursor: pointer;
+    }
+    .card:hover { transform: translateY(-10px); }
+    .card img { width: 100%; height: 200px; object-fit: cover; }
+    .card h3 { margin: 15px; color: #333; }
+    .card p { margin: 0 15px 20px; color: #666; font-size: 0.9rem; }
+
+    .slider {
+      position: relative;
+      max-width: 100%;
+      height: 400px;
+      overflow: hidden;
+      border-radius: 12px;
+    }
+    .slides {
+      display: flex;
+      width: 300%;
+      animation: slide 12s infinite;
+    }
+    .slides img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+    }
+    @keyframes slide {
+      0% { transform: translateX(0%); }
+      33% { transform: translateX(-100%); }
+      66% { transform: translateX(-200%); }
+      100% { transform: translateX(0%); }
+    }
+
+    footer {
+      background: #222;
+      color: #aaa;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 2000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.6);
+      justify-content: center;
+      align-items: center;
+    }
+    .modal-content {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      width: 90%;
+      max-width: 500px;
+      position: relative;
+      animation: pop 0.3s ease-in-out;
+    }
+    @keyframes pop {
+      from { transform: scale(0.7); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+    .close {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 24px;
+      cursor: pointer;
+      color: #555;
+    }
+
+    .booking-form { text-align: left; }
+    .form-group { margin-bottom: 15px; }
+    .form-group label { display: block; font-weight: 600; margin-bottom: 6px; }
+    .form-group input, .form-group select {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+    .form-group input:focus, .form-group select:focus {
+      border: 1px solid #00c853;
+      outline: none;
+    }
+    .booking-form .btn {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 30px;
+      background: #00c853;
+      color: white;
+      font-size: 1.1rem;
+      cursor: pointer;
+    }
+    .booking-form .btn:hover { background: #009624; }
+
+    #savedBookings { padding: 40px; background: #f4f4f4; }
+    .booking-item {
+      padding: 10px;
+      border-bottom: 1px solid #ccc;
+      text-align: left;
+    }
+    .delete-btn {
+      margin-top: 5px;
+      padding: 5px 10px;
+      background: red;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .delete-btn:hover { background: darkred; }
+  </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav>
+  <div class="logo">ODISHA TOURISM</div>
+  <div class="search-box">
+    <input type="text" id="searchInput" placeholder="Search destinations...">
+    <i class="fa-solid fa-magnifying-glass" id="searchBtn"></i>
+  </div>
+  <ul>
+    <li><a href="#home">Home</a></li>
+    <li><a href="#destinations">Destinations</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#" id="openBookTrip">BookTrip</a></li>
+  </ul>
+</nav>
+
+<!-- Hero -->
+<section class="hero" id="home">
+  <div>
+    <h1>DISCOVER THE WILD BEAUTY OF ODISHA</h1>
+    <p>Explore pristine beaches, lush forests, towering mountains, and tranquil lakes. With diverse landscapes, every turn promises a new adventure for nature lovers.</p>
+    <a href="#destinations" class="btn">Explore Now</a>
+  </div>
+</section>
+
+<!-- About -->
+<section id="about">
+  <h2>Welcome to Odisha tourism</h2>
+  <p>We bring you closer to Odisha's forests, wildlife, rivers, and culture. Our eco-tourism packages are designed to provide memorable experiences while preserving nature.</p>
+</section>
+
+<!-- Destinations -->
+<section id="destinations" style="background:#f4f4f4;">
+  <h2>Top Destinations</h2>
+  <div class="grid">
+    <div class="card">
+      <img src="/similipal.jpg" alt="Simlipal National Park">
+      <h3>Simlipal National Park</h3>
+      <p>Home to tigers, elephants, and lush forests.</p>
+    </div>
+    <div class="card">
+      <img src="/satokosia.jpg" alt="Satkosia Gorge">
+      <h3>Satkosia Gorge</h3>
+      <p>A stunning river gorge with crocodile habitats.</p>
+    </div>
+    <div class="card">
+      <img src="/debri.jpg" alt="Debrigarh Sanctuary">
+      <h3>Debrigarh Sanctuary</h3>
+      <p>Rich biodiversity by the Hirakud Reservoir.</p>
+    </div>
+    <div class="card">
+      <img src="/jagannath2.jpg" alt="Jagannath Temple">
+      <h3>Jagannath Temple</h3>
+      <p>The famous temple in Puri with grand Rath Yatra festival.</p>
+    </div>
+    <div class="card">
+      <img src="/konark.webp" alt="Sun Temple">
+      <h3>Sun Temple</h3>
+      <p>13th-century architectural marvel built as a colossal chariot for the Sun God, Surya.</p>
+      </div>
+       <div class="card">
+      <img src="/chillika.png" alt="Chilika lake">
+      <h3>Chilika lake</h3>
+      <p>A large, pear-shaped, brackish water lagoon on India's eastern coast in Odisha.</p>
+       </div>
+        <div class="card">
+      <img src="/nandan.avif" alt="nandankanan">
+      <h3>Nandankanan</h3>
+      <p>A unique combination zoological park and botanical garden.</p>
+        </div>
+        <div class="card">
+      <img src="/hirakud.jpg" alt="Hirakud Dam">
+      <h3>Hirakud Dam</h3>
+      <p>A multipurpose river project in Odisha, India, built on the Mahanadi River and inaugurated in 1957..</p>
+        </div>
+        <div class="card">
+      <img src="/lingaraj.jpg" alt="Lingraj Temple">
+      <h3>Lingraj Templ</h3>
+      <p>A historic and architecturally significant Hindu temple dedicated to Lord Shiva.</p>
+        </div>
+  </div>
+</section>
+
+<!-- Gallery -->
+<section id="gallery">
+  <h2>Gallery</h2>
+  <div class="slider">
+    <div class="slides">
+      <img src="/tiger.jpg" alt="Tiger">
+      <img src="/elephant.jpg" alt="Elephant">
+      <img src="/dear.jpg" alt="Deer">
+      <img src="/wolf.jpg" alt="wolf">
+      <img src="/forest.jpg" alt="Forest">
+      <img src="/hira.jpg" alt="Dam">
+      <img src="/sun.jpg" alt="Konark">
+      <img src="/lin.jpg" alt="Lingraj">
+      <img src="chii.jpg" alt="chillika">
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section id="contact">
+  <h2>Plan Your Journey</h2>
+  <p>Get in touch with us to book your eco-friendly travel experience in Odisha.</p>
+  <a href="mailto:info@ecotourodisha.com" class="btn">Contact Us</a>
+</section>
+
+<!-- Footer -->
+<footer>
+  <p>&copy; 2025 Eco Tour Odisha | Designed with ❤</p>
+</footer>
+
+<!-- (Modals, booking, and script logic remain unchanged except below) -->
+
+<script>
+  // BookTrip Modal logic ... (unchanged, already in your code)
+
+  // Search functionality
+  document.getElementById("searchBtn").addEventListener("click", () => {
+    const query = document.getElementById("searchInput").value.trim().toLowerCase();
+    if (!query) return;
+
+    let found = false;
+
+    document.querySelectorAll(".card").forEach(card => {
+      const title = card.querySelector("h3").innerText.toLowerCase();
+
+      if (title.includes(query)) {
+        found = true;
+
+        // Scroll into view
+        card.scrollIntoView({ behavior: "smooth", block: "center" });
+
+        // Highlight the matched card
+        card.style.border = "3px solid #00c853";
+        card.style.boxShadow = "0 0 15px rgba(0,200,83,0.8)";
+        setTimeout(() => {
+          card.style.border = "";
+          card.style.boxShadow = "";
+        }, 2000);
+      }
+    });
+
+    if (!found) {
+      alert("No matching destination found.");
+    }
+  });
+
+  document.getElementById("searchInput").addEventListener("keypress", function(e) {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      document.getElementById("searchBtn").click();
+    }
+  });
+  
+</script>
+<!-- BookTrip Modal -->
+<div class="modal" id="bookTripModal">
+  <div class="modal-content">
+    <span class="close" id="closeModal">&times;</span>
+    <h2>Book Your Trip</h2>
+    <form class="booking-form" id="bookingForm">
+      <div class="form-group">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" required>
+      </div>
+      <div class="form-group">
+        <label for="destination">Destination</label>
+        <select id="destination" required>
+          <option value="" disabled selected>Select destination</option>
+          <option>Simlipal National Park</option>
+          <option>Satkosia Gorge</option>
+          <option>Debrigarh Sanctuary</option>
+          <option>Jagannath Temple</option>
+          <option>Sun Temple</option>
+          <option>Chilika Lake</option>
+          <option>Nandankanan</option>
+          <option>Hirakud Dam</option>
+          <option>Lingraj Temple</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="date">Travel Date</label>
+        <input type="date" id="date" required>
+      </div>
+      <button type="submit" class="btn">Book Now</button>
+    </form>
+  </div>
+</div>
+
+
+<!-- Saved Bookings Section -->
+<section id="savedBookings">
+  <h2>Your Bookings</h2>
+  <div id="bookingList">
+    <p>No bookings yet.</p>
+  </div>
+</section>
+
+<script>
+  // Modal open/close
+  const openBookTripBtn = document.getElementById("openBookTrip");
+  const bookTripModal = document.getElementById("bookTripModal");
+  const closeModalBtn = document.getElementById("closeModal");
+
+  openBookTripBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    bookTripModal.style.display = "flex";
+  });
+
+  closeModalBtn.addEventListener("click", () => {
+    bookTripModal.style.display = "none";
+  });
+
+  window.addEventListener("click", (e) => {
+    if (e.target === bookTripModal) {
+      bookTripModal.style.display = "none";
+    }
+  });
+
+  // Booking form submission
+  const bookingForm = document.getElementById("bookingForm");
+  const bookingList = document.getElementById("bookingList");
+
+  function getBookings() {
+    return JSON.parse(localStorage.getItem("bookings")) || [];
+  }
+
+  function saveBooking(booking) {
+    const bookings = getBookings();
+    bookings.push(booking);
+    localStorage.setItem("bookings", JSON.stringify(bookings));
+  }
+
+  function deleteBooking(index) {
+    const bookings = getBookings();
+    bookings.splice(index, 1);
+    localStorage.setItem("bookings", JSON.stringify(bookings));
+    renderBookings();
+  }
+
+  function renderBookings() {
+    const bookings = getBookings();
+    if (bookings.length === 0) {
+      bookingList.innerHTML = "<p>No bookings yet.</p>";
+      return;
+    }
+    bookingList.innerHTML = "";
+    bookings.forEach((b, i) => {
+      const div = document.createElement("div");
+      div.className = "booking-item";
+      div.innerHTML = `
+        <strong>${b.name}</strong> - ${b.destination} - ${b.date}<br>
+        Email: ${b.email}
+        <br>
+        <button class="delete-btn" data-index="${i}">Delete</button>
+      `;
+      bookingList.appendChild(div);
+    });
+
+    // Add delete event listeners
+    document.querySelectorAll(".delete-btn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        deleteBooking(parseInt(btn.getAttribute("data-index")));
+      });
+    });
+  }
+
+  bookingForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const destination = document.getElementById("destination").value;
+    const date = document.getElementById("date").value;
+
+    if (!name || !email || !destination || !date) {
+      alert("Please fill in all fields.");
+      return;
+    }
+
+    const booking = { name, email, destination, date };
+    saveBooking(booking);
+
+    alert("Your trip has been booked successfully!");
+    bookingForm.reset();
+    bookTripModal.style.display = "none";
+    renderBookings();
+  });
+
+  // Render bookings on page load
+  renderBookings();
+</script>
+
+
+
+</body>
+</html>

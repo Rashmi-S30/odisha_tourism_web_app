@@ -1,0 +1,300 @@
+/*=========================================================================================
+File Name                  : getInTouch.js
+Description                : this page includes all javaScript & j-query required functions related to getInTouch section
+Author Name            	   : bikash.s
+Date Created               : 11-feb-2019
+Developed By           	   : Bikash Sao
+Developed On          	   : 11-feb-2019
+Updated By                 : 
+Updated On             	   : 
+Updated Reason       	   : 
+===========================================================================================*/
+$(document).ready(function(){
+	var data={"methodId":"3"};
+	postAjaxGetInTouch(data,getCountry);	
+});
+$('#enquiryMessage').keyup(function(){
+	 if(this.value.length > 200){
+       return false;
+   }
+   $("#chars").text(200 - this.value.length);
+});
+function postAjaxGetInTouch(data,callback){
+	$.ajax({
+		type:'post',
+	    url:'/tourism/simplyExotic',
+		data:data,
+		success: function (data) {
+			callback(data);
+			
+		}
+	});
+}
+function getCountry(countryData){
+	var countryObj=JSON.parse(countryData);
+	var intCountryCode = document.getElementById( 'intCountryCode' );
+	var str='';
+	
+	$.each(countryObj, function (i, obj) {
+		var countrycode='';
+		if(obj.nationalityCode.charAt(0) == '+')
+	    {
+			countrycode = obj.nationalityCode.substr(1);
+	    }else countrycode = obj.nationalityCode;
+		str+='<li><a href="javascript:void(0);" onclick="countryCode(this.id)" id="country'+i+'" value="+'+countrycode+'">'+obj.nationalityName+' (+'+countrycode+')</a></li>';
+	});
+	intCountryCode.insertAdjacentHTML( 'afterbegin', str );
+}
+
+function countryCode(id){
+	var val = $('#'+id).text();
+	$('#setId').text((val.substring(val.indexOf("(")+1,val.indexOf(")"))));
+	$('#countrycode').val((val.substring(val.indexOf("(")+1,val.indexOf(")"))));
+	
+}
+
+var regexEnquiryName = new RegExp(/^[A-Za-z_ ]+$/);
+$('#enquiryName').keypress(function(event){
+	var key = String.fromCharCode(!event.charCode ? event.which : event.charCode);
+	if (!regexEnquiryName.test(key)) {
+        event.preventDefault();
+        return false;
+    }
+	if (event.which === 32 && !this.value.length) {
+		event.preventDefault();
+	}
+});
+
+
+/*function submitEmail(){
+	formAnalytics("Get In Touch Newsletter","Submit:Newsletter");
+	$('#notificationS').removeClass('text-success');
+	var subEmail=$('#subEmail').val();
+	if(subEmail.length==0){ 
+		document.getElementById("notificationS").innerHTML="Please Enter Email Id";
+		formErrorAnalytics("Field Error","Please Enter Email Id");//analytics for error
+		return false;
+	}
+	else if(subEmail.length!=0){
+		var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+		if (reg.test(subEmail) == false) 
+        {
+        	document.getElementById("notificationS").innerHTML="Please Enter Valid Email Id";
+    		formErrorAnalytics("Field Error","Please Enter Valid Email Id");//analytics for error
+            return false;
+        }else
+        {
+        	document.getElementById("subEmail").innerHTML="";
+        }
+	}
+	var data={"methodId":"1", "subEmail":subEmail};
+	simplyExoticPostAjax(data,afterSubscribe);
+}*/
+
+function simplyExoticPostAjax(data,callback){
+	$.ajax({
+		type:'post',
+	    url:'/tourism/simplyExotic',
+		data:data,
+		beforeSend:function(){
+			$('#loaderEmailGetIn').show();
+		},
+		success: function (data) {
+			$('#loaderEmailGetIn').hide();
+			if(data=='Y' || data=='N'){
+				callback(data);
+			}else alert("Error In Submission");
+			
+		}
+	});
+}
+/*function afterSubscribe(){
+	$('#notificationS').removeClass('text-danger');
+	$('#notificationS').addClass('text-success');
+	document.getElementById("notificationS").innerHTML="Thank you for subscribing";
+	formSubmitAnalytics("Get In Touch Newsletter","Submit:Newsletter");
+	$('#subEmail').val('');
+}*/
+
+function submitEnquiry(){
+	customLinkClickAnalytics(currentPage+":Header:Get In Touch:Submit", "Navigation");
+	formAnalytics("Get In Touch","Submit:Get In Touch");
+	$('#notification').removeClass('text-success');
+	$('#notification').addClass('text-danger');
+	var enquiryName=$('#enquiryName').val();
+	var enquiryEmail=$('#enquiryEmail').val();
+	var enquiryPhone=$('#enquiryPhone').val();
+	var catId=$('#CatId').val();
+	var enquiryMessage=$('#enquiryMessage').val();
+	
+	if(enquiryName.length==0){ 
+		//document.getElementById("notification").innerHTML="Please Enter Name";
+		$("#enquiryNameRequired").show().delay(5000).fadeOut();
+		document.getElementById("enquiryName").focus();
+		formErrorAnalytics("Field Error","Please Enter Name");//analytics for error
+		return false;
+	}/*else if(enquiryName.length!=0){
+		document.getElementById("notification").innerHTML="";
+	}*/
+	if(enquiryEmail.length==0){ 
+		//document.getElementById("notification").innerHTML="Please Enter Email Id";
+		$("#enquiryEmailRequired").show().delay(5000).fadeOut();
+		document.getElementById("enquiryEmail").focus();
+		formErrorAnalytics("Field Error","Please Enter Email Id");//analytics for error
+		return false;
+	}
+	else if(enquiryEmail.length!=0){
+		var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+		if (reg.test(enquiryEmail) == false) 
+        {
+        	//document.getElementById("notification").innerHTML="Please Enter Valid Email Id";
+			$("#enquiryEmailRequired").show().delay(5000).fadeOut();
+    		document.getElementById("enquiryEmail").focus();
+			formErrorAnalytics("Field Error","Please Enter Valid Email Id");//analytics for error
+            return false;
+        }/*else
+        {
+        	document.getElementById("notification").innerHTML="";
+        }*/
+	}
+	if(enquiryPhone.length==0){ 
+		//document.getElementById("notification").innerHTML="Please Enter Phone No";
+		$("#enquiryPhoneRequired").show().delay(5000).fadeOut();
+		document.getElementById("enquiryPhone").focus();
+		formErrorAnalytics("Field Error","Please Enter Phone No");//analytics for error
+		return false;
+	}
+	else if(enquiryPhone.length!=0){
+		var reg = /^\d{10}$/;
+		if (reg.test(enquiryPhone) == false) 
+	        {
+	        	//document.getElementById("notification").innerHTML="Please Enter Valid Phone No";
+				$("#enquiryPhoneRequired").show().delay(5000).fadeOut();
+	    		document.getElementById("enquiryPhone").focus();
+	    		formErrorAnalytics("Field Error","Please Enter Valid Phone No");//analytics for error
+	            return false;
+	        } /*else{
+	        	document.getElementById("notification").innerHTML="";
+	        }*/
+	}
+	if(catId==0){ 
+		//document.getElementById("notification").innerHTML="Enquiry category must be selected";
+		$("#enquiryCategoryRequired").show().delay(5000).fadeOut();
+		document.getElementById("CatId").focus();
+		formErrorAnalytics("Field Error","Enquiry category must be selected");//analytics for error
+		return false;
+	}/*else if(catId!=0){
+		document.getElementById("notification").innerHTML="";
+	}*/
+	if(enquiryMessage.length==0){ 
+		//document.getElementById("notification").innerHTML="Please Enter Message";
+		$("#enquiryMessageRequired").show().delay(5000).fadeOut();
+		document.getElementById("enquiryMessage").focus();
+		formErrorAnalytics("Field Error","Please Enter Message");//analytics for error
+		return false;
+	}/*else if(name.length!=0){
+		document.getElementById("notification").innerHTML="";
+	}*/
+	var data={"methodId":"2", "enquiryName":enquiryName, "enquiryEmail":enquiryEmail, "enquiryPhone":$('#countrycode').val()+enquiryPhone, "catId":catId, "enquiryMessage":enquiryMessage };
+	simplyExoticPostAjax(data,afterEnquiry);
+	
+}
+//Validate Email on Keyup
+$("#enquiryEmail").keyup(function(){
+	var userName = $("#enquiryEmail").val();
+	if (userName != '') {
+		var isValid = validateEmail(userName);
+		
+		if (!isValid) {
+			$("#enquiryEmail").focus();
+			$("#enquiryEmailRequired").text("Invalid email format");
+			$("#enquiryEmailRequired").show().delay(5000).fadeOut();
+		} else {
+			$("#enquiryEmailRequired").hide();
+			$("#enquiryEmailRequired").text("* This field is required");
+		}
+	}
+});
+
+/* Email Validation */
+function validateEmail(emailField) {
+    var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+
+    if (reg.test(emailField) == false) {
+        return false;
+    }
+    return true;
+}
+
+function afterEnquiry(submitStatus){
+	if(submitStatus=='Y'){
+		$('#enquiryName').val('');
+		$('#enquiryEmail').val('');
+		$('#enquiryPhone').val('');
+		$('#CatId').val('0');
+		$('#enquiryMessage').val('');
+		/*$('#notification').removeClass('text-danger');
+		$('#notification').addClass('text-success');
+		document.getElementById("notification").innerHTML="Thank you for submitting your feedback";*/
+		
+		$('.contactSuccessModal').text('Thank you for submitting your feedback');
+		$('.contactSuccessModal').show().delay(5000).fadeOut();
+		formSubmitAnalytics("Get In Touch","Submit:Get In Touch");
+	}else if(submitStatus=='N'){
+		/*$('#notification').removeClass('text-danger');
+		$('#notification').addClass('text-success');
+		document.getElementById("notification").innerHTML="Thank you for submitting your feedback";*/
+		
+		$('.contactErrorModal').text('There was a error in submitting your feedback. Please Try agin');
+		$('.contactErrorModal').show().delay(5000).fadeOut();
+		formSubmitAnalytics("Get In Touch","Submit:Get In Touch");
+	}
+	
+	
+}
+
+var regexPhone = new RegExp(/^\d+$/);
+$('#enquiryPhone').keypress(function(event){
+	var key = String.fromCharCode(!event.charCode ? event.which : event.charCode);
+	if (!regexPhone.test(key)) {
+        event.preventDefault();
+        return false;
+    }
+});
+
+//**************************************Analytics Section Start*************************************
+function analyticsGetIn(){
+    var subEmailLength = $("#subEmail").val().length;
+	if(subEmailLength == 1){
+      formStartAnalytics("Get In Touch Newsletter","Submit:Newsletter");
+	}
+}
+
+function analyticsFormStart() {
+	delete digitalData.linkClick;
+	delete digitalData.internalSearch;
+	delete digitalData.filter;
+    var nameLength = $("#enquiryName").val().length;
+    var emailLength = $("#enquiryEmail").val().length;
+    var phoneLength = $("#enquiryPhone").val().length;
+    var msgLength = $("#enquiryMessage").val().length;
+    var dropdownVal = $("#CatId").val();
+    if((nameLength == 1 && emailLength == 0 && phoneLength == 0 && msgLength == 0 && dropdownVal == 0) || (nameLength == 0 && emailLength == 1 && phoneLength == 0 && msgLength == 0 && dropdownVal == 0) || (nameLength == 0 && emailLength == 0 && phoneLength == 1 && msgLength == 0 && dropdownVal == 0) || (nameLength == 0 && emailLength == 0 && phoneLength == 0 && msgLength == 1 && dropdownVal == 0)){
+       formStartAnalytics("Get In Touch","Submit:Get In Touch");
+    }
+}
+function analyticsFormStart1() {
+	delete digitalData.linkClick;
+	delete digitalData.internalSearch;
+	delete digitalData.filter;
+    var nameLength = $("#enquiryName").val().length;
+    var emailLength = $("#enquiryEmail").val().length;
+    var phoneLength = $("#enquiryPhone").val().length;
+    var msgLength = $("#enquiryMessage").val().length;
+    var dropdownVal = $("#CatId").val();
+    var dCountryCode = $("#country-codes").val();
+     if((dropdownVal > 0 && nameLength == 0 && emailLength == 0 && phoneLength == 0 && msgLength == 0)){ 
+       formStartAnalytics("Get In Touch","Submit:Get In Touch");
+     }
+}
+//***********************************Analytics Section End*************************************************

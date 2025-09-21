@@ -1,0 +1,108 @@
+
+<!-- Destination Info Modal -->
+<div id="destinationModal" class="modal">
+  <div class="modal-content">
+    <span id="closeDestinationModal" class="close">&times;</span>
+    <h2 id="destinationTitle"></h2>
+    <p id="destinationInfo"></p>
+    <img id="destinationImage" src="" alt="" style="width:100%;border-radius:12px;margin-top:15px;">
+  </div>
+</div>
+
+
+
+
+
+<script>
+  // Destination Info Modal
+  const destinationModal = document.getElementById("destinationModal");
+  const closeDestinationModal = document.getElementById("closeDestinationModal");
+  const destinationTitle = document.getElementById("destinationTitle");
+  const destinationInfo = document.getElementById("destinationInfo");
+  const destinationImage = document.getElementById("destinationImage");
+  const destinationsData = {
+  "Simlipal National Park": { 
+    info: "Simlipal is home to tigers, elephants, and lush forests. It’s a biodiversity hotspot in Odisha.",
+    image: "/similipal.jpg",
+    activities: "Safari tours, Bird watching, Jungle trekking",
+    bestTime: "October to June"
+  },
+  "Satkosia Gorge": { 
+    info: "Satkosia Gorge is a stunning river gorge and a natural habitat for crocodiles and migratory birds.",
+    image: "/satokosia.jpg",
+    activities: "Boating, Photography, Nature walks",
+    bestTime: "November to February"
+  },
+  "Debrigarh Sanctuary": { 
+    info: "Debrigarh Sanctuary offers rich biodiversity by the Hirakud Reservoir with opportunities for birdwatching.",
+    image: "/debri.jpg",
+    activities: "Bird watching, Trekking, Camping",
+    bestTime: "October to March"
+  },
+  "Jagannath Temple": { 
+    info: "Jagannath Temple in Puri is a sacred Hindu temple famous for its annual Rath Yatra festival.",
+    image: "/jagannath2.jpg",
+    activities: "Temple visit, Rath Yatra, Cultural sightseeing",
+    bestTime: "June to February"
+  },
+  "Konark Sun Temple": {
+    info: "The Sun Temple at Konark, also known as the Black Pagoda, is a UNESCO World Heritage site and an architectural marvel built in the 13th century.",
+    image: "/suntemple.jpg",
+    activities: "Temple visit, Architecture photography, Cultural exploration",
+    bestTime: "October to March"
+  },
+  "Chilika Lake": { 
+    info: "Chilika Lake is Asia’s largest brackish water lagoon, famous for migratory birds, dolphins, and scenic islands.",
+    image: "/chilika.jpg",
+    activities: "Boating, Bird watching, Island tours",
+    bestTime: "November to February"
+  },
+  "Nandankanan ": { 
+    info: "Nandankanan Zoo in Bhubaneswar is renowned for its white tigers and botanical garden, blending conservation with tourism.",
+    image: "/nandankanan.jpg",
+    activities: "Zoo visit, Wildlife photography, Nature walks",
+    bestTime: "October to March"
+  },
+  "Hirakud Dam": { 
+    info: "Hirakud Dam on the Mahanadi River is one of the world’s longest dams, offering scenic views and a vast reservoir.",
+    image: "/hirakud.jpg",
+    activities: "Sightseeing, Boating, Photography",
+    bestTime: "October to February"
+  },
+  "Lingaraj Temple": { 
+    info: "Lingaraj Temple in Bhubaneswar is one of the oldest temples in Odisha, dedicated to Lord Shiva, and an architectural masterpiece of Kalinga style.",
+    image: "/lingaraj.jpg",
+    activities: "Temple visit, Cultural sightseeing, Photography",
+    bestTime: "October to March"
+  }
+};
+
+
+
+document.querySelectorAll(".card").forEach(card => {
+  card.addEventListener("click", () => {
+    const title = card.querySelector("h3").innerText;
+    const data = destinationsData[title];
+
+    destinationTitle.innerText = title;
+    destinationInfo.innerHTML = `
+      <strong>Description:</strong> ${data.info} <br>
+      <strong>Activities:</strong> ${data.activities} <br>
+      <strong>Best Time to Visit:</strong> ${data.bestTime} <br>
+      <button id="bookNowBtn" class="btn" style="margin-top:10px;">Book Now</button>
+    `;
+    destinationImage.src = data.image;
+    destinationModal.style.display = "flex";
+
+    // Book Now button click opens BookTrip modal with pre-selected destination
+    document.getElementById("bookNowBtn").addEventListener("click", () => {
+      destinationModal.style.display = "none";
+      modal.style.display = "flex";
+      document.getElementById("destination").value = title;
+    });
+  });
+});
+
+closeDestinationModal.addEventListener("click", () => destinationModal.style.display = "none");
+window.addEventListener("click", (e) => { if (e.target === destinationModal) destinationModal.style.display = "none"; });
+</script> 

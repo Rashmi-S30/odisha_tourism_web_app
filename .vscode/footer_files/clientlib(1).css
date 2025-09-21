@@ -1,0 +1,278 @@
+/*Banner Slider Starts*/
+.top--banner{background-color: #333985;}
+.banner-carousel{position: relative; height: 100vh;}
+.banner-carousel .carousel-item img{width: 100%;}
+.banner-carousel .carousel-item .zoomOut{animation: zoomOutImage 20s linear;}
+.banner-carousel .carousel-item .zoomIn{animation: zoomInImage 20s linear;}
+.banner-carousel .carousel-indicators {
+    position: absolute;
+    bottom: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.26);
+    padding: 2.5em 0;
+    background-color: #000000;
+    overflow: hidden;
+    height: 100px;
+    width: 100%;
+    margin: 0;
+}
+.banner-carousel .carousel-indicators li{text-indent: 0;height: auto;width: auto;background: transparent;position: relative;text-align: center;width: 100%;}
+.banner-carousel .carousel-indicators li:before{content: "";position: absolute;left: -100%;top: -40px;height: 4px;transition: .5s;}
+.banner-carousel .carousel-indicators li.active:before{transition: .5s;left: 0;background-color: rgba(255, 255, 255, 0.81);}
+.banner-carousel .carousel-indicators li:nth-child(1).active:before{background-color: var(--web-color1);}
+.banner-carousel .carousel-indicators li:nth-child(2).active:before{background-color: var(--web-color2);}
+.banner-carousel .carousel-indicators li:nth-child(3).active:before{background-color: var(--web-color3);}
+.banner-carousel .carousel-indicators li:nth-child(4).active:before{background-color: var(--web-color4);}
+.banner-carousel .carousel-indicators li:nth-child(5).active:before{background-color: var(--web-color6);}
+.carousel-indicators .indicator__count,.carousel-indicators .indicator__text{display: inline-block;vertical-align: top;color: #fff}
+.carousel-indicators li .indicator__count{position: relative;width: 25px;margin: 0 1em 0 0;text-align: center;font-size: .9rem;}
+.carousel-indicators li .indicator__count:before{content: "";position: absolute;top: -2px;left: 0;height: 25px;width: 25px;border-radius: 50%;border: 2px solid rgba(255, 255, 255, 0.5);text-align: center;transform: rotate(45deg);}
+.carousel-indicators li:nth-child(1) .indicator__count:before{border-color: var(--web-color1);}
+.carousel-indicators li:nth-child(2) .indicator__count:before{border-color: var(--web-color2);}
+.carousel-indicators li:nth-child(3) .indicator__count:before{border-color: var(--web-color3);}
+.carousel-indicators li:nth-child(4) .indicator__count:before{border-color: var(--web-color4);}
+.carousel-indicators li:nth-child(5) .indicator__count:before{border-color: var(--web-color6);}
+
+
+.banner-carousel .carousel-item video{width: 100%;}
+.top--banner video {width: 100%;height: 100%;object-fit: cover;object-position: bottom;}
+.videoBanner__link{position: absolute;right: 9px;bottom: 85px;padding: .3rem 1.5rem;font-size: 1rem;background-color: rgba(255, 255, 255, 0.6);border-radius: 45px;z-index: 1;box-shadow: 0px 0px 15px 5px rgba(70, 65, 47, 0.5);}
+.videoBanner__link:hover{background-color:#ff9f88}
+
+.banner__caption {
+    position: absolute;
+    right: 7%;
+    bottom: 15%;
+    color: #ffffff;
+    background-image: url(../../../../../content/dam/tourism/home/structure/home/text-bg.png);
+    background-repeat: no-repeat;
+    background-size: 90%;
+    background-position: center;
+    width: 650px;
+    height: 250px;
+    border-radius: 10px 10px 150px 10px;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    padding:6rem 5rem 5rem 6rem;
+}
+.banner__caption p {
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+.banner__caption a.btn {
+    border-radius: 45px;
+    border: 1px solid rgba(199, 198, 198, 0.43);
+    background-color: rgba(0, 0, 0, 0.45);
+    color: #ffffff;
+    font-size: .8rem;
+    padding: .7em 0;
+    padding: 0.5em 2em;
+    width: fit-content;
+}
+
+
+
+@keyframes zoomOutImage {
+    from{transform: scale(1.2);}
+    to{transform: scale(1);}
+}
+@keyframes zoomInImage {
+    from{transform: scale(1);}
+    to{transform: scale(1.2);}
+}
+/*Banner Slider Ends*/
+
+/*Covid alert Start*/
+.custom-warningbox{
+	color: #fff;
+    background-color: #0370ac;
+    border-color: #ffeeba;
+    position: absolute;
+    top: 78px;
+    width: 600px;
+    z-index: 9;
+    margin-left: -300px;
+    left: 50%;
+    opacity: 1 !important;
+}
+.custom-warningbox .close{line-height: 77%;}
+/*Covid alert End*/
+
+@media (max-width: 1600px){
+
+.banner__caption {bottom: 16%;}
+}
+@media (max-width: 1366px){
+.banner-carousel .carousel-indicators{
+	padding: 1em 0;
+	height: 55px;
+}
+.banner__caption {
+  bottom: 11%;
+    background-size: 66%;
+    background-position: center;
+    right: 2%;
+
+    padding: 5rem 10rem 4rem 10rem;
+}
+.banner__caption p {
+    font-size: .9rem;
+    margin-bottom: 10px;
+}
+.banner-carousel .carousel-indicators li:before{top: -17px;}
+
+
+}
+  @media (max-width: 1280px){
+.banner__caption {bottom: 20%;}
+  }
+@media (max-width :1152px){
+.carousel-indicators li .indicator__count {margin: 0 .5em 0 0;}
+.carousel-indicators .indicator__text {font-size: .8rem;}
+.banner-carousel .carousel-item img {width: 120%;}
+}
+@media (max-width :1024px){
+/* .banner__caption h1 {font-size: 2.5rem;} */
+.carousel-indicators li .indicator__count {font-size: .8rem;display: block;margin: 0 auto .3em auto;}
+.carousel-indicators .indicator__text {font-size: .8rem;}
+.banner-carousel .carousel-indicators {padding: .9em 0;height: 70px;}
+.carousel-indicators li .indicator__count:before {top: -1px;left: 3px;height: 20px;width: 20px;}
+.banner-carousel .carousel-indicators li:before {top: -14px;}
+  #fp-nav.right {display: none;}
+.banner__caption {bottom: 2%;}
+.vertical-scrolling {
+ height: auto;
+}
+.banner-carousel {
+ height: auto;
+}
+}
+@media (max-width :992px){
+.banner-carousel {height: auto;}
+.explore--odisha{padding: 2.5em 0;}
+.explore--odisha__content { padding: 4em 0;}
+}
+@media (max-width: 768px){
+.custom-warningbox{
+    width: 90%;
+    margin: 0 auto;
+    left: 0;
+    position: relative;
+}
+.banner__caption {
+    bottom: 17%;
+    left: 6%;
+    background: none;
+    padding: 0;
+    width: 300px;
+}
+.banner__caption a.btn{
+	padding: .5em 0;
+    width: 125px;
+}
+.banner__caption h2 {font-size: 2rem;}
+.banner__caption p{font-size: .9rem}
+.banner-carousel .carousel-indicators {height: 85px;}
+.banner-carousel .carousel-indicators li{padding: 0 1em}
+}
+@media (max-width :660px){
+.carousel-indicators {display: none;}
+.banner__caption {bottom: 15%;}
+.banner__caption h2{width: 100%}
+.banner-carousel .carousel-indicators li {padding: 0; display: block;}
+
+}
+@media (max-width :576px){
+.banner-carousel.fp-slide {float: none;}
+.carousel-control-prev { left: -15%;}
+.carousel-control-next { right: -15%;}
+.banner-carousel .carousel-item img{width: 100%;height: 100%;object-fit: cover;}
+.banner__caption {
+    bottom: 16vh;
+    width: auto;
+    align-items: baseline;
+}
+.banner-carousel .carousel-indicators{all: unset;display:block;position: absolute;bottom: 13%;z-index: 1;width: 100%;right: 0;text-align: center;}
+.carousel-indicators .indicator__text,.carousel-indicators li::after,.banner-carousel .carousel-indicators li:before{display: none;}
+.banner-carousel .carousel-indicators li {
+    display: inline-block;
+    padding: 0;
+    width: 8px !important;
+    background: #fff;
+    height: 8px;
+    border-radius: 50%;
+    margin: 0 .1em;
+    opacity: .3;
+}
+.banner-carousel .carousel-indicators li.active{opacity: 1}
+.carousel-indicators li .indicator__count{display: none}
+}
+@media (max-width :480px){
+.banner__caption {bottom: 20%;}
+.banner__caption h2 {
+    width: auto;
+    font-size: 1.5rem;
+}
+.banner__caption a.btn {
+    font-size: .9rem;
+    margin: .5em 0 0 0;
+}
+
+}
+@media (max-width :430px){
+.banner__caption {
+    left: 0;
+    width: 100%;
+    text-align: center;
+    bottom: 125px;
+    padding: 1rem;
+    height: auto;
+    align-items: center;
+}
+   
+}
+
+@media (max-width :320px){
+.banner__caption {
+    bottom: 100px;
+ }
+}
+
+
+
+/*Covid alert Start*/
+.custom-warningbox{
+color: #fff;
+background-image:url("../../../../../content/dam/tourism/home/home-banner/Covidalert-bg.png");
+background-repeat:no-repeat;
+background-size:cover;
+    border-color: transparent;
+    position: absolute;
+    top: 85px;
+    font-size: 1.4rem;
+    width: 600px;
+    padding: 1.2rem;
+    border-radius: 0.5rem;
+    z-index: 9;
+    margin-left: -300px;
+    left: 50%;
+    opacity: 1 !important;
+}
+.custom-warningbox a{ color: #fff;}
+
+.custom-warningbox .close{line-height: 100%;z-index: 1;}
+@media (max-width: 768px){
+.custom-warningbox{
+    width: 90%;
+    margin: 0 auto;
+    left: 0;
+    position: relative;
+    font-size: 1rem;
+}
+.custom-warningbox .close {
+    line-height: 10%;
+    font-size: 1.5rem;
+    right: -12px;
+    top: -5px;
+}
+}

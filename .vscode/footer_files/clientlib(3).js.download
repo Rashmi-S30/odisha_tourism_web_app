@@ -1,0 +1,86 @@
+var totDiv;
+$(document).ready(function(){
+	totDiv = $('.eventClass').length;
+	
+	var udata = {"methodId": "21","totDiv":totDiv};
+	postAjaxUpcomingEventsHome(udata,upcomingEvents);
+});
+
+
+function postAjaxUpcomingEventsHome(udata,callback){
+
+	$.ajax({
+		type: 'POST',
+		url: '/tourism/util',
+		data: udata,
+		success: function(data) {
+		var jsonResponse;
+		if(data != ''){
+			jsonResponse=JSON.parse(data);
+		}
+		else {
+			
+		}			
+		  callback(jsonResponse);		
+		},
+		error: function (xhr) {
+			console.log(xhr.status);
+		}
+
+	});
+}
+
+function upcomingEvents(jsonresponse){
+	var j=0;
+	$.each(jsonresponse, function (i, obj) {
+		var fullDate="",d="",ye="",mo="",da="";
+		fullDate=obj.createdAt.split("T");
+		d = new Date(fullDate)
+		ye = new Intl.DateTimeFormat('en', { year: 'numeric' }).format(d);
+		mo = new Intl.DateTimeFormat('en', { month: 'short' }).format(d);
+		da = new Intl.DateTimeFormat('en', { day: '2-digit' }).format(d);
+		//$('#eventId'+i+'').find(".carousel__pop-sectionBottom").append(jsonresponse[i]);
+		$('#eventId'+j+'').find(".carousel__pop-sectionBottom1").append('<div>'
+        +'<div class="eventslivefyre-header">'
+        +'<div class="eventslivefyre-headtxt">'
+        +'<div class="content-author-name"><a class="screen-reader" href="'+obj.profileUrl+'" target="_blank" aria-label="'+obj.displayName+'">'+obj.displayName+'</a>'
+        +'</div>'
+        +'<div class="content-author-username">'
+        +'<a class="screen-reader" href="'+obj.profileUrl+'" target="_blank" aria-label="'+obj.handle+'" tabindex="-1">@'+obj.handle+'</a>'
+        +'</div>'
+        +'</div>'
+        +'<div class="eventslivefyre-twitter-timing">'
+        +'<i class="fa fa-twitter"></i>'
+        +'<div class="eventlivefyredate screen-reader">'+da+' '+mo+'</div>'
+        +'</div>'
+        +'</div>'
+        +'<div class="eventslivefyre-body">'
+        +'<p class="screen-reader">'+obj.eventBody+''
+        /*+'If we could see the miracle of a single flower clearly our whole life would change'
+        +'~ Buddha<br/>'
+        +'<br/>'
+        +'Checked <a target="_blank" href="https://twitter.com/search?q=%23EcotrailsOdisha" title="#EcotrailsOdisha" class="tweet-url hashtag" rel="nofollow">#EcotrailsOdisha</a> yet?<br />'
+        +'To book stays'
+        +'<a target="_blallnk" href="https://t.co/k9sGDvPSAx" title="https://bit.ly/2vSgROR" rel="nofollow">'
+        +'<span class="tco-ellipsis"><span style="position: absolute; left: -9999px;">&nbsp;</span></span><span style="position: absolute; left: -9999px;">https://</span><span class="js-display-url">bit.ly/2vSgROR</span>'
+        +'<span style="position: absolute; left: -9999px;"></span><span class="tco-ellipsis"><span style="position: absolute; left: -9999px;">&nbsp;</span></span>'
+        +'</a>'*/
+        +'</p>'
+        +'<div class="content-featured screen-reader">Featured</div>'
+        +'</div>'
+        +'<div class="eventslivefyre-footer">'
+        +'<div class="content-footer-left">'
+        +'<span class="content-control-list">'
+        +'<div class="hub-btn hub-content-action hub-content-action-reply"><a class="screen-reader" href="https://twitter.com/intent/tweet?in_reply_to=1265704984508878854" target="_blank" aria-label="reply" role="button"></a></div>'
+        +'<div class="hub-btn hub-content-action hub-content-action-retweet"><a class="screen-reader" href="https://twitter.com/intent/retweet?tweet_id=1265704984508878854" target="_blank" aria-label="retweet" role="button"></a></div>'
+        +'<div class="hub-btn hub-content-action hub-content-action-favorite"><a class="screen-reader" href="https://twitter.com/intent/favorite?tweet_id=1265704984508878854" target="_blank" aria-label="like" role="button"></a></div>'
+        +'</span>'
+        +'</div>'
+        +'<div class="content-footer-right">'
+        +'<span class="content-control-list"></span>'
+        +'</div>'
+        +'</div>'
+        +'</div>');
+		j++;
+	});
+}

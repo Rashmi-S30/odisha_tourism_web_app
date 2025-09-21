@@ -1,0 +1,69 @@
+/* =========================================================================================
+File Name                : get-in-touch.css
+Description              : this page includes all css functions related to get-in-touch.css section
+Author Name         	 : bikash.s
+Date Created           	 : 01-Jan-2019
+Designed By              : Sabyasachi
+Designed On              : 28-Dec-2018
+Developed By             : Sabyasachi
+Developed On             : 23-Dec-2018
+Updated On               : 
+Updated By               : 
+Updated Reason           : 
+=========================================================================================== */
+/*Get in touch (Exotic Section) Starts*/
+.exotic{background: #4580a1 url(../../../../../content/dam/tourism/home/structure/home/crocodile.png);background-repeat: no-repeat;background-position: bottom -2em left;background-size: cover;width: 100%;background-size: 100%;}
+.exotic-form {padding: 0 0 6em 0;}
+.exotic-form__enquiry{border-radius: 1px solid}
+.exotic-form__subscription,.exotic-form__enquiry{background-color: rgb(222, 231, 240);padding: 1.5em;border-radius: 4px;min-height: 235px;}
+.exotic-form__subscription{text-align: center;align-items: center;display: grid;padding: 3em 1.5em;}
+.subscription--icon{font-size: 2.5rem;margin: 0 0 1rem 0;color: var(--web-color4);}
+.exotic-form__subscription .form-control{font-size: .9rem;}
+.exotic-form__enquiry .form-control {font-size: .9rem;min-height: 40px;}
+.frm-warning-txt {font-size: .8rem;font-style: italic;}
+.country-code-list{padding: 1rem;height: 300px;width: 250px;overflow-y: scroll;}
+.country-code-list li{padding: .3rem 0}
+.btn-country-code{box-shadow: none;border-radius: 2px 0 0 2px;background-color: #ffffff;font-size: .9rem;border-color: #dee7f0;height: 100%;}
+.btn-country-code:hover,.btn-country-code:focus{box-shadow: none;outline: none;}
+.country-code-list li a{font-size: .9rem}
+.section-heading{color:#fff;font-family: var(--text-font);margin: 0 0 2.5em 0;}
+.section-heading h2:after{content: "";background-size: 100%;height: 25px;width: 100px;position: absolute;bottom: -31px;left: 45%;}
+.exotic-formdiv{margin: 0 auto;}
+.ExoticSend .spinner-grow{position: absolute; margin-left: 5px;}
+#ExoticForm .btn-radius{margin: 0 auto;width: 150px;display: block;}
+#ExoticForm  textarea{min-height: 100px;}
+.contactSuccessModal, .contactErrorModal {
+    width: 60%;
+    margin: 0 auto;
+    text-align: center;
+    margin-bottom: 10px;
+}
+/*Get in touch (Exotic Section) Ends*/
+@media (max-width:1366px){
+.exotic{padding-top: 4rem;}
+.exotic p {
+    width: 70%;
+    margin: 0 auto 2rem;
+}
+
+}
+
+@media (max-width: 1024px){
+.section-heading h2:after { width: 75px;}
+}
+@media (max-width: 992px){
+ .exotic {
+    padding: 2.5em 0;
+}
+}
+@media (max-width: 768px){
+.exotic {
+    padding: 3em 0;
+}
+}
+@media (max-width: 576px){
+.exotic {background-size: 140%; background-position: left bottom;background: #4580a1 !important;}
+.icon-newsletter{display: none;}.exotic-form__subscription{padding: 1.5em;display: block;min-height: auto;}
+.loginfirstbx{margin-bottom: 10px;}
+.exotic-form__subscription,.exotic-form__enquiry{padding: 1.5em;}
+}

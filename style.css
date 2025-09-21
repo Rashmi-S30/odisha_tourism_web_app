@@ -1,0 +1,217 @@
+बहुत बढ़िया 😊
+तो चलो अब मैं आपको वही code दूँगा जिसमें BookTrip form का data Local Storage में save होगा।
+
+👉 Local Storage का फायदा ये है कि user जो भी booking करेगा, वो ब्राउज़र में save रहेगा (भले page reload हो जाए)।
+
+
+---
+
+✅ Updated HTML + JS with Local Storage
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eco Tour Odisha</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; }
+    nav { background: #333; padding: 10px; }
+    nav ul { list-style: none; display: flex; }
+    nav ul li { margin-right: 20px; }
+    nav ul li a { color: white; text-decoration: none; }
+
+    /* Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.6);
+      justify-content: center;
+      align-items: center;
+    }
+    .modal-content {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      width: 90%;
+      max-width: 500px;
+      position: relative;
+    }
+    .close {
+      position: absolute;
+      top: 10px; right: 15px;
+      font-size: 22px;
+      cursor: pointer;
+    }
+    .form-group { margin-bottom: 15px; }
+    .form-group label { display: block; margin-bottom: 5px; }
+    .form-group input, .form-group select {
+      width: 100%; padding: 8px;
+      border: 1px solid #ccc; border-radius: 5px;
+    }
+    .btn {
+      background: green; color: white;
+      padding: 10px; border: none;
+      border-radius: 5px; cursor: pointer;
+      width: 100%;
+    }
+    .btn:hover { background: darkgreen; }
+
+    /* Saved bookings */
+    #savedBookings {
+      margin: 20px;
+      padding: 20px;
+      background: #f4f4f4;
+      border-radius: 10px;
+    }
+    #savedBookings h3 { margin-bottom: 15px; }
+    .booking-item {
+      background: white;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 6px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav>
+  <ul>
+    <li><a href="#">Home</a></li>
+    <li><a href="#" id="openBookTrip">BookTrip</a></li>
+  </ul>
+</nav>
+
+<!-- BookTrip Modal -->
+<div id="booktripModal" class="modal">
+  <div class="modal-content">
+    <span id="closeModal" class="close">&times;</span>
+    <h2>Book Your Trip</h2>
+    <form id="tripForm">
+      <div class="form-group">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" required>
+      </div>
+      <div class="form-group">
+        <label for="destination">Destination</label>
+        <select id="destination" required>
+          <option value="">-- Select --</option>
+          <option>Simlipal National Park</option>
+          <option>Satkosia Gorge</option>
+          <option>Debrigarh Sanctuary</option>
+          <option>Jagannath Temple</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="date">Travel Date</label>
+        <input type="date" id="date" required>
+      </div>
+      <div class="form-group">
+        <label for="members">Number of Members</label>
+        <input type="number" id="members" min="1" required>
+      </div>
+      <button type="submit" class="btn">Book Now</button>
+    </form>
+  </div>
+</div>
+
+<!-- Saved Bookings -->
+<div id="savedBookings">
+  <h3>Saved Bookings</h3>
+  <div id="bookingsList"></div>
+</div>
+
+<script>
+  // Modal functionality
+  const modal = document.getElementById("booktripModal");
+  const openBtn = document.getElementById("openBookTrip");
+  const closeBtn = document.getElementById("closeModal");
+
+  openBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    modal.style.display = "flex";
+  });
+  closeBtn.addEventListener("click", () => modal.style.display = "none");
+  window.addEventListener("click", (e) => {
+    if (e.target === modal) modal.style.display = "none";
+  });
+
+  // Booking Form
+  const tripForm = document.getElementById("tripForm");
+  const bookingsList = document.getElementById("bookingsList");
+
+  // Load saved bookings on page load
+  window.onload = () => {
+    const saved = JSON.parse(localStorage.getItem("bookings")) || [];
+    saved.forEach(showBooking);
+  };
+
+  tripForm.addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const booking = {
+      name: document.getElementById("name").value,
+      email: document.getElementById("email").value,
+      destination: document.getElementById("destination").value,
+      date: document.getElementById("date").value,
+      members: document.getElementById("members").value
+    };
+
+    // Save to Local Storage
+    let bookings = JSON.parse(localStorage.getItem("bookings")) || [];
+    bookings.push(booking);
+    localStorage.setItem("bookings", JSON.stringify(bookings));
+
+    // Show booking
+    showBooking(booking);
+
+    alert("✅ Booking Saved!");
+    tripForm.reset();
+    modal.style.display = "none";
+  });
+
+  function showBooking(booking) {
+    const div = document.createElement("div");
+    div.classList.add("booking-item");
+    div.innerHTML = `
+      <strong>${booking.name}</strong> booked 
+      <em>${booking.destination}</em> on 
+      <em>${booking.date}</em> for 
+      <strong>${booking.members}</strong> members 
+      <br><small>${booking.email}</small>
+    `;
+    bookingsList.appendChild(div);
+  }
+</script>
+
+</body>
+</html>
+
+
+---
+
+⚡ अब Features:
+
+1. जब आप BookTrip पर click करोगे → popup form खुलेगा।
+
+
+2. Form submit करने पर data Local Storage में save होगा।
+
+
+3. नीचे Saved Bookings section में आपकी सभी bookings list में दिखाई देंगी (reload करने पर भी)।
+
+
+
+
+---
+
+क्या आप चाहोगे कि मैं इसमें एक "Delete Booking" button भी डाल दूँ, ताकि user अपनी पुरानी booking को हटा सके?

@@ -1,0 +1,132 @@
+/* =========================================================================================
+File Name  		: cuisineToExplore.css
+Description 	: this page includes all css codes related to  cuisine to explore section
+Author Name 	: Mousumi Nanda
+Date Created	: 05-Dec-2018
+Developed By	: Sabyasachi Badajena
+Developed On	: 04-Dec-2018
+Updated By  	: Mousumi Nanda
+Updated On  	: 02-Jan-2019
+Updated Reason  : removing unnecessary commented lines
+=========================================================================================== */
+
+/*Cuisine Section Start*/
+.explore--cuisine{background:linear-gradient(to top,#638d8d 30%, #87a082 73%);background-size: cover;z-index: 8;}
+.explore--cuisine:before{background:url(../../../../../content/dam/tourism/home/cusines-to-explore/cuisinebg.png);
+background-repeat: no-repeat;content: "";
+position: absolute;left: 0;right: 0;top: -1px;bottom: 0;z-index:-1;background-size: cover;}
+.cuisineslide{position: relative;}
+.explore--cuisine .container{position: relative;}
+.explore--cuisine .carousel-inner img {height: auto;}
+.explore--cuisine .scrollcontent{color:#fff;display: flex;align-items: center;}
+.explore--cuisine .scrollcontent h3{font-size: 2em;font-weight: 600;color: #fff;}
+.explore--cuisine .scrollcontent p{font-size: 1.2em;font-weight: 300;}
+.explore--cuisine .carousel-indicators li {width: 15px;height: 15px;border-radius: 50%;background-color: #b0bbc1;margin: 0 0 0 1em;display: inline-block;}
+.explore--cuisine .carousel-indicators .active {background-color: #ffca70;}
+.explore--cuisine .carousel-indicators{bottom: -30px !important;width: fit-content;left: auto;margin-left: 0;margin-right: 0;bottom: 120px;}
+.explore--cuisine .carousel-control-next, .explore--cuisine .carousel-control-prev,.carousel-control-next, .carousel-control-prev{font-size: 4em;width: auto;height: fit-content; padding: 0px 10px;}
+.carousel-control-next {right: 8%;}
+.carousel-control-prev {left: 8%;}
+.carousel-control-prev, .carousel-control-next {opacity: 0.5;tansition:0.5s;width: auto;height: fit-content;top: 49%;}
+/*Animation*/
+.vertical-scrolling.active .fadeInRight{animation:fadeInRight 1s linear;}
+.vertical-scrolling.active .fadeInRight2s{animation:fadeInRight 1.5s linear;}
+.vertical-scrolling.active .fadeInRight3s{animation:fadeInRight 2s linear;}
+.vertical-scrolling.active .fadeInLeft{animation:fadeInLeft 1s linear}
+.vertical-scrolling.active .fadeInUp{animation:fadeInUp 1s linear}
+
+.carousel-item .active .fadeInRight{animation:fadeInRight 1s linear}
+.carousel-item .active .fadeInLeft{animation:fadeInLeft 1s linear}
+.carousel-item .active .fadeInUp{animation:fadeInUp 1s linear}
+
+@keyframes fadeInRight{
+  0%{-webkit-transform:translate3d(10%,0,0);opacity:0;transform:translate3d(10%,0,0)}
+  to{-webkit-transform:translateZ(0);opacity:1;transform:translateZ(0)}
+}
+@keyframes fadeInUp{
+  0%{-webkit-transform:translate3d(0,15%,0);opacity:0;transform:translate3d(0,15%,0)}
+  to{-webkit-transform:translateZ(0);opacity:1;transform:translateZ(0)}
+}
+@keyframes fadeInLeft{
+  0%{-webkit-transform:translate3d(-10%,0,0);opacity:0;transform:translate3d(-10%,0,0)}
+  to{-webkit-transform:translateZ(0);opacity:1;transform:translateZ(0)}
+}
+/*Cuisine Section End*/
+/*Media Queries*/
+@media (max-width: 1600px){
+.explore--cuisine .carousel-inner img {width: 87%;}
+}
+@media (max-width: 1440px){
+.carousel-control-prev {
+    left: 6%;
+}
+.carousel-control-next {
+    right: 6%;
+}
+}
+@media (max-width :1366px){
+.cuisineslide {
+    width: 75%;
+    margin: auto;
+    padding-top: 3rem;
+}	
+.explore--cuisine .carousel-inner img{width: 80%;}
+.explore--cuisine .carousel-control-next, .explore--cuisine .carousel-control-prev{bottom:auto;font-size: 2em;}
+.explore--cuisine .carousel-indicators {bottom: 30px;}
+.carousel-control-prev, .carousel-control-next{top: 60%;}
+.carousel-control-next {right: -5%;}
+.carousel-control-prev {left: -5%;}
+}
+@media (max-width :1024px){
+ .cuisineslide {width: 80%;margin: auto;}
+.explore--cuisine .carousel-control-next, .explore--cuisine .carousel-control-prev{font-size: 2.5em;}
+.explore--cuisine .carousel-control-prev{left: -5%;}
+.explore--cuisine .carousel-control-next {right: -3%;}  
+.exotic-form__subscription, .exotic-form__enquiry {padding: 1.5em; min-height: 195px;}   
+}
+
+@media (max-width :992px){
+.explore--cuisine {padding: 3em 0;}
+.explore--cuisine .carousel-control-next, .explore--cuisine .carousel-control-prev{font-size: 1.5em;}
+}
+@media (max-width :768px){
+.explore--cuisine .carousel-control-prev, .explore--cuisine .carousel-control-next{display: none;}
+.explore--cuisine .carousel-inner img {width: 100%;}
+.explore--cuisine .carousel-control-prev {left: -8%;font-size: 1.5rem;}
+.explore--cuisine .carousel-control-next {right: -8%;font-size: 1.5rem;}
+.explore--cuisine .scrollcontent h3 {font-size: 1.3em;}
+.explore--cuisine .scrollcontent p {font-size: 1em;font-weight: 300;line-height: 135%;}
+.exotic-form__subscription, .exotic-form__enquiry {margin: 0 0 1em 0;}
+
+}
+@media (max-width :660px){
+   .explore--cuisine .carousel-inner img { width: 100%;}
+   .explore--cuisine .top-attractionheading {top: -47%;}
+   .explore--cuisine .scrollcontent h3 {font-size: 1.2em;}
+   .explore--cuisine .carousel-control-next, .explore--cuisine .carousel-control-prev, .carousel-control-next, .carousel-control-prev {font-size: 1.5em;}
+   .explore--cuisine .scrollcontent p{height: 100px; overflow: hidden;}   
+   .explore--cuisine .carousel-control-prev, .explore--cuisine  .carousel-control-next{font-size: 1.5em;}
+   #cuisine .carousel-indicators{display: block !important;    bottom: -35px;margin: 0 auto;left: 0;padding: 0;}
+   .explore--cuisine .carousel-indicators li { width: 11px; height: 11px; background-color: #b0bbc1; margin: 0 0 0 0.5em;display: inline-block;}
+   .explore--cuisine .carousel-indicators .active {background-color: #ffffff;}
+   .explore--cuisine .carousel-indicators li{background-color: #7fa8bc;}
+   .frm-warning-txt {width: 100%; text-align: center;display: block;}
+}
+@media (max-width :576px){
+.btn-red{
+background: #f6461d !important;
+        color: #fff !important;}
+.cousine-content a.btn{padding: .4rem 1rem;background: none;color: #ffa253;font-size: .9rem;}
+.cousine-content a.btn:before{display: none}
+.cousine-content a.btn:after{content: '\f105';font-family: 'FontAwesome';margin-left: 7px;font-size: 1rem;}
+.cousine-content a.btn:hover{color:#7bd4ff}
+ 
+.upcoming--events .carousel-control-next, .upcoming--events .carousel-control-prev{display: inline-block;line-height: 1;padding: .4rem .5rem;}
+.explore--cuisine .scrollcontent p{height: auto; overflow: auto;}
+.upcoming--events p {text-align: center;}
+.explore--cuisine {background-size: 190%; background-repeat: no-repeat;background:linear-gradient(to top,#4580a1,#4480a2,#869f82) !important;}
+.cousine-content {text-align: center;width: 100%;}
+}
+@media (max-width: 480px){
+.exotic-form__subscription, .exotic-form__enquiry {padding: 1em;min-height: 155px;}
+}

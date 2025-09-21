@@ -1,0 +1,182 @@
+
+var digitalData, hashedUserIdAna = "NA", loginStatusAna = "Guest", visitorTypeAna = "Visitor";
+
+var url = window.location.href;
+var baseUrl = new URL(url).pathname;
+var path = baseUrl.substr(0, baseUrl.indexOf('.html')); 
+var pathNames = path.split('/');
+var pathLength = pathNames.length;
+
+var subCat1 = "NA", subCat2 = "NA", subCat3 = "NA", subCat4 = "NA", pageInfo1 = "", pageInfo2 = "", pageInfo3 = "", pageInfo4 = "";
+/*if (pathLength == 4) {
+	subCat1 = pathNames[3];
+	pageInfo1 = ":homepage";
+} else if (pathLength == 5) {
+	subCat1 = pathNames[4];
+	
+	pageInfo1 = ":"+pathNames[4];
+} else if (pathLength == 6) {
+	subCat1 = pathNames[4];
+	subCat2 = pathNames[5];
+	
+	pageInfo1 = ":"+pathNames[4];
+	pageInfo2 = ":"+pathNames[5];
+} else if (pathLength == 7) {
+	subCat1 = pathNames[4];
+	subCat2 = pathNames[5];
+	subCat3 = pathNames[6];
+	
+	pageInfo1 = ":"+pathNames[4];
+	pageInfo2 = ":"+pathNames[5];
+	pageInfo3 = ":"+pathNames[6];
+} else if (pathLength == 8) {
+	subCat1 = pathNames[4];
+	subCat2 = pathNames[5];
+	subCat3 = pathNames[6];
+	subCat4 = pathNames[7];
+	
+	pageInfo1 = ":"+pathNames[4];
+	pageInfo2 = ":"+pathNames[5];
+	pageInfo3 = ":"+pathNames[6];
+	pageInfo4 = ":"+pathNames[7];
+}*/
+
+//removing /content/tourism from URL
+
+if (pathLength == 2) {
+	subCat1 = pathNames[1];
+	pageInfo1 = ":homepage";
+} else if (pathLength == 3) {
+	subCat1 = pathNames[2];
+	
+	pageInfo1 = ":"+pathNames[2];
+} else if (pathLength == 4) {
+	subCat1 = pathNames[2];
+	subCat2 = pathNames[3];
+	
+	pageInfo1 = ":"+pathNames[2];
+	pageInfo2 = ":"+pathNames[3];
+} else if (pathLength == 5) {
+	subCat1 = pathNames[2];
+	subCat2 = pathNames[3];
+	subCat3 = pathNames[4];
+	
+	pageInfo1 = ":"+pathNames[2];
+	pageInfo2 = ":"+pathNames[3];
+	pageInfo3 = ":"+pathNames[4];
+} else if (pathLength == 6) {
+	subCat1 = pathNames[2];
+	subCat2 = pathNames[3];
+	subCat3 = pathNames[4];
+	subCat4 = pathNames[5];
+	
+	pageInfo1 = ":"+pathNames[2];
+	pageInfo2 = ":"+pathNames[3];
+	pageInfo3 = ":"+pathNames[4];
+	pageInfo4 = ":"+pathNames[5];
+}
+
+digitalData = {
+
+	"page" : {
+		"pageInfo" : {
+			"pageName" : "odishatourism" + pageInfo1 + pageInfo2 + pageInfo3 + pageInfo4,
+		},
+		"category" : {
+			"primaryCategory" : subCat1,
+			"subCategory1" : subCat2,
+			"subCategory2" : subCat3,
+			"subCategory3" : subCat4,
+		},
+		"attributes" : {
+			"country" : "IN",
+			"language" : "en-US"
+		}
+	},
+	"user" : {
+		"hashedUserId" : hashedUserIdAna,	
+		"login" : {
+			"loginStatus" : loginStatusAna,
+			"visitorType" : visitorTypeAna
+		}	
+	}
+};
+//~~~~~~~~~~~~~~~~~Global functions for delete variables from digital data~~~~~~~~~~
+function deleteObject() {
+	delete digitalData.linkClick;
+	delete digitalData.internalSearch;
+	delete digitalData.form;
+	delete digitalData.filter;
+	delete digitalData.error;
+}
+function deleteObjectForError(){
+	delete digitalData.linkClick;
+	delete digitalData.internalSearch;
+	delete digitalData.filter;
+	delete digitalData.error;
+}
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Global functions for linkClick ~~~~~~~~~~~~~~~~~~~~~~~~
+function customLinkClickAnalytics(linkName, linkType) {
+	deleteObject();
+	var linkClick = generateLinkClick(linkName, linkType);
+	$.extend( digitalData, linkClick );
+	_satellite.track('customLinkClick');
+}
+
+function generateLinkClick(linkName, linkType) {
+	var linkClick =  {
+			"linkClick"	:	{
+				"customLinkName":linkName, 
+				"customLinkType":linkType
+				}
+		}
+	return linkClick;
+}
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~Global functions for form ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+function formStartAnalytics(nameOfForm, typeOfForm) {
+	deleteObject();
+	var form = generateFormDetails(nameOfForm, typeOfForm);
+	$.extend( digitalData, form );
+	_satellite.track('formStart');
+}
+
+function formSubmitAnalytics(nameOfForm, typeOfForm) {
+	deleteObject();
+	var form = generateFormDetails(nameOfForm, typeOfForm);
+	$.extend( digitalData, form );
+	_satellite.track('formSubmit');
+}
+
+function formAnalytics(nameOfForm, typeOfForm) {
+	deleteObject();
+	var form = generateFormDetails(nameOfForm, typeOfForm);
+	$.extend( digitalData, form );
+}
+
+function generateFormDetails(nameOfForm, typeOfForm){
+	var form =  {
+			"form"	:	{
+				"formName":nameOfForm, 
+				"formType":typeOfForm
+				}
+		}
+	return form;
+}
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~Global functions for form error~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+function formErrorAnalytics(formErrorType, formErrorMsg) {
+	deleteObjectForError();
+	var error = generateFormError(formErrorType, formErrorMsg);
+	$.extend( digitalData, error );
+	_satellite.track('formError');
+}
+
+function generateFormError(formErrorType, formErrorMsg){
+	var error =  {
+			"error"	:	[{
+				"errorType":formErrorType, 
+				"errorMessage":formErrorMsg
+				},
+			]
+		}
+	return error;
+}

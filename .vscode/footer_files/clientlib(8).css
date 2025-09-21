@@ -1,0 +1,289 @@
+/*<-- =========================================================================================
+File Name            : trailTours.css
+Description          : this page includes all css functions related to trailTour(home) section
+Author Name          : anshuman.mishra
+Date Created         : 01-Apr-2019
+Designed By          : Sabyasachi
+Designed On          : 01-Apr-2019
+Developed By         : Sabyasachi
+Developed On         : 01-Apr-2019
+Updated On           : 
+Updated By           : 
+Updated Reason       : 
+=========================================================================================== -->*/
+/*Trail Tours Start*/
+.trailtour--bg{background: linear-gradient(to bottom, #859e81,#4480a2);margin-top: -1px;}
+.trailtour--bg:before {content: "";position: absolute;left: 0;right: 0;top: 0;bottom: 0;z-index: 0;background: url(../../../../../content/dam/tourism/home/trail-tours/trail-bg.png) no-repeat;background-position: center;}
+.trail-filter-tabs {margin: 1em 0 0 0;float: right;z-index: 1031;}
+.primary-tab{border-bottom: none;justify-content: flex-end;}
+.primary-tab>li.nav-item {width: 120px;text-align: center;}
+.primary-tab .nav-item .nav-link,.secondary-tab .nav-item .nav-link{color: #fff;font-size: .8rem;background: transparent;/* border: 1px solid #c7c7c7; */border-radius: 2px 2px 0 0;}
+.primary-tab .nav-item .nav-link:hover,.primary-tab .nav-item .nav-link:focus,.secondary-tab .nav-item .nav-link:hover,.secondary-tab .nav-item .nav-link:focus{background-color: #108189;border-color: #09747b;color: #fff;}
+.primary-tab .nav-item .nav-link.active{background-color: #108189;border-color: #09747b;color: #ffffff;}
+.secondary-tab{background: #108189;padding: 0 0 0 2em;border: none;justify-content: flex-end;min-height: 37px;border-radius: 2px;}
+.secondary-tab-content {margin: 0.5em 0 0 0;min-height: 535px;position: relative;}
+.secondary-tab-content .btn-view-more {padding: .4rem 2rem;}
+.secondary-tab .nav-item{background: transparent;/* cursor: pointer; */}
+.secondary-tab .nav-item .nav-link{position: relative;border-bottom: 1px solid transparent;cursor: pointer;color: #ffffff;}
+.secondary-tab .nav-item .nav-link.active{border: none;border-bottom: 2px solid #1eabb5;transition: .5s;cursor: pointer;}
+
+/*.trail-destination-slider .owl-nav {position: absolute;top: 45%;left: -5%;z-index: -1;width: 110%;color: #fff;font-size: 2.5rem;line-height: 0;}
+.trail-destination-slider .owl-nav span{display: none;}
+.trail-destination-slider .owl-nav button.owl-prev:before {left: 0;position: absolute;content: "\e900";font-family: icomoon;}
+.trail-destination-slider .owl-nav button.owl-next:before {right: 0;position: absolute;content: "\e901";font-family: icomoon;}
+*/
+.trailtour-item{margin: 0 1.4em 0 0;background: #ffffff;border-radius: 2px;position: relative;}
+
+.trailtour-item:last-child{margin: 0}
+.trailtour-item:hover,.trailtour-item.active{opacity: 1;transition: .2s;}
+
+.trailtour-item__content{padding: 1.6em 1.6em 3em 1.6em;min-height: 295px;}
+.trail__discount {color: #fff;text-shadow: 0px 0px 10px #000;margin: 0 0 0 1rem;}
+.trailtour-item__content p{margin-bottom: 8px;}
+.trailtour-item__content p>label{display:block;margin-bottom: 0;font-size: 1rem}
+.trailtour-item__content p> span {font-size: .8rem;}
+.trailtour-item__content p>.morecount {
+    background: #d0d0d0;
+    color: #000;
+    padding: 3px 5px;
+    margin-left: 7px;
+    font-size: .9em;
+    border-radius: 3px;
+}
+.trailtour-item__media{height: 235px;overflow: hidden;background-color: #776379;position: relative;}
+.trailtour-item__media:after{content: "";position: absolute;bottom: -1px;left: 0px;
+    background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.87) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.87) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.87) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#de000000',GradientType=0 ); /* IE6-9 */
+    z-index: 9;width: 100%;height: 70%;}
+    
+.static-trailhome:after{height: 40% ;}
+.trailtour-item__media img{height: 100%;width: 100%;object-fit: cover;}
+.trailtour-item .btn {position: absolute;left: 16px;border: 1px solid #fff;border-radius: 20px;background: rgba(0, 0, 0, 0.8);padding: 5px 16px;color: #fff;text-transform: uppercase;font-size: 0.7em;z-index: 11;}
+.trailtour-item .btn.btn--interested {top: 16px;}
+.trailtour-item .btn.btn--knowMore {bottom: 16px;left: 17px;}
+.trailtour-item .btn:hover {background-color: #000;}
+.trailtour-item .info-text {position: absolute;left: 26px;top: 160px;z-index: 10;}
+.trailtour-item-static .info-text{top: 185px;}
+.trailtour-item .info-text.hasOffer {}
+.trailtour-item .info-text h5 {color: #fff;font-size: 1.3em;margin: 0px;font-weight: normal;}
+.trailtour-item .info-text p {color: #fff;margin: 0px;font-size: 0.8rem;}
+.trailtour-item .offerbtn {border-radius: 0 5px 0 0;margin: .5rem 0 0 0;display: block;}
+.trailtour-item .offerbtn label{position:relative;background: #1e508b;width: fit-content;padding: 1px 10px;color: #fff;font-size: 12px;padding-left: 30px;border-radius: 3px;left: 0;z-index: 99;margin: 0;box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);}
+.trailtour-item .offerbtn label:after{position:absolute;margin-bottom: 10px;top:0;left: 5px;content:url(../../../../../content/dam/tourism/home/structure/offericon.png);}
+.trailtour-item .btn.btn--knowMore{border-color: #f6461d;padding: .6em 1.5em;}
+.trailtour-item .btn.btn--knowMore:hover,.trailtour-item .btn.btn--knowMore:focus{outline: none;box-shadow: none;}
+.secondary-tab-content  .view-moreTrail{position: absolute;bottom: -5em;left: 0;right: 0;text-align: center;}
+
+
+.trailtour-item__content.static{padding: 1.6em 1.6em 3em 1.6em;min-height: 140px;}
+.trailtour-item__media.static-img{height: 390px;}
+.trailtour-item__media.static-img:after{display: none;}
+.trailtour-item__media:after.static-img{height: 16%;}
+.trailtour-item .info-text.static-offer{top:auto;bottom: 160px;}
+
+/*Trail tour Section Ends*/
+.bg--transparent {
+    background-color: rgba(0, 0, 0, 0.76) !important;
+    color: #ffffff;
+}
+/*Interested Message Start*/
+.interested-message span{font-weight: 600;}
+/*Interested Message End*/
+
+.trailtour .section-heading h2:after { left: 0;}
+
+
+@media (max-width: 1366px){
+.trailtour .section-heading{margin: 0 0 1.5em 0;}	
+.trailtour-container {width: 70%;margin: 0 auto;margin-top: 25px;}/*padding: 3em 0 0 0;*/
+.trailtour--bg:before{background-size: 55%}
+.secondary-tab-content {min-height: 385px;}
+.trail-filter-tabs{margin: 0}
+.item__actionBtn a { padding: .4em 1em;font-size: .6rem;}
+.trailtour-item .info-text {top: 85px;left: 17px;}
+.trailtour-item-static .info-text {top: 115px;}
+.trailtour-item__content {padding: 1em 1em 3.2em 1em;min-height: 225px;}
+.trailtour-item__content p {margin-bottom: 3px;}
+.trailtour-item__media {height: 160px;}
+.item__actionBtn {bottom: 1em;left: 1rem;}
+.trail-destination {width: 80px;}
+.trail-destination:after {width: 110px;}
+.destination__icon {width: 35px;height: 35px;}
+.trail-destination:nth-child(odd) {margin: 3em 0 0 1em;}
+.trail-destination:nth-child(even) {margin: 0 0 0 1em;}
+.trail-destination:nth-child(odd):after {top: -16px;}
+.trail-destination:nth-child(even):after {top: 42px;left: 35px;}
+.destination__img{right: -24%;bottom: -30%;}
+.secondary-tab-content .view-moreTrail{bottom: -3em}
+.trailtour-item .info-text h5{font-size: 1.1em;}
+.trailtour-item__content p> span {font-size: .75rem;}
+.trailtour-item__content p {font-size: .9rem;}
+.trailtour-item__content p>.morecount{font-size: .7em;}
+.trailtour-item .btn.btn--knowMore {
+    border-color: rgba(246, 70, 29, 0.64);
+    padding: .5em 1.2em;
+    font-size: 10px;
+}
+.secondary-tab-content .btn-view-more {
+    padding: .3rem 1.5rem;
+}
+ .trailtour-item__media.static-img { height: 250px;}
+}
+@media (max-width :1024px){
+.trailtour-item {margin: 0 .7em 0 0;}
+.trailtour-item__content {min-height: 235px;}
+.trail-filter-tabs {min-height: auto;}
+}
+@media (max-width: 992px){
+ .trail-destination-map {margin: 3em 0 0 0;height: auto;}
+ .trailtour-container {width: auto;}
+.trailtour--bg:before{background-size: 86%}
+.trail-destination-slider {height: auto;}
+.trailtour-item__media {height: 145px;}
+.trailtour-item .info-text {top: 70px;}
+.trailtour-item__content {min-height: 280px;}
+.trail-destination {width: 75px;}
+.trail-destination:nth-child(odd) {margin: 3em 0 0 0em;}
+.trail-destination:nth-child(even) {margin: 0;}
+.trail-destination:after {width: 75px;}
+.secondary-tab-content .view-moreTrail {position: unset;display: block;margin: 1.5rem 0 0 0;}
+.trailtour-item .info-text h5{font-size: 1.1rem}
+
+}
+@media (max-width: 768px){
+.trailtour-container{padding: 0}
+.trailtour-item {
+    margin: 0 0 1em 0;
+    background: #fff !important;
+    padding: 0 0 1em 0;
+    min-height: 460px;
+    width: 45% !important;
+}
+.trailtour-item .offerbtn {position: absolute;left: 1rem;top: .3rem;}
+.trail__discount{display: block;margin: .3rem 0 0 .3rem;font-size: .9rem;text-shadow: 0 0 3px #000;}
+.trailtour-item__media {
+    height: 220px !important;
+    width: auto;
+    margin: .5rem;
+    border-radius: 4px;
+    float: left;
+}
+.trailtour-item__media:after{display: none}
+.trailtour-item .info-text {
+    position: unset;
+    display: inline-block;
+    width: 100%;
+    padding: 1rem 1rem 0;
+}
+.trailtour-item .info-text h5,.trailtour-item .info-text p{color: #2b2b2b;}
+.trailtour-item__content {min-height: auto;padding: 1em;color: #000;}
+.trailtour-item .btn.btn--interested {
+    background-color: #333;
+    padding: .4em 1em;
+    margin: 0 1em 0 1em;
+    top: auto;
+    bottom: 15px;
+    left: 5px;
+}
+.trailtour-item .btn.btn--knowMore {bottom: 15px;left: auto;right: 15px;border: none;}
+.item__actionBtn a {padding: .5em 2em;font-size: .7rem;}
+.trail-filter-tabs {margin: 1em 0 2em 0;float: none;}
+.trail-destination {width: 70px;}
+.trail-destination-map{padding: 0 2em}
+ .trailtour-container {width: auto;}
+ .trailtour{    padding: 3em 0;}
+ 
+
+}
+@media (max-width: 660px){
+.trailtour-container {margin-top: 0}
+.trailtour-item{width: 70% !important;}
+.secondary-tab{padding: 0}
+.mobile-show {display: block;}
+.trail-destination-slider .owl-item {padding: 0;}
+.trail-destination {width: 50px;}
+.trail-destination:after {width: 55px;}
+.trail-destination:nth-child(odd):after {top: -7px;left: 17px;transform: rotate(-40deg);}
+.trail-destination:nth-child(even):after {top: 40px;left: 32px;transform: rotate(42deg);}
+.trail-destination:nth-child(even) .destination__name {position: absolute;top: -27px;left: -14px;width: 85px;}
+.destination__img {right: -69%;bottom: auto;top: -46px;}
+.tab__content{display: none}
+.tab__buttons {margin: 1em 0 0 0;}
+}
+@media (max-width :576px){
+.secondary-tab-content .btn-view-more:after{content: '\f105';font-family: 'FontAwesome';margin-left: 7px;font-size: 1rem;}
+.secondary-tab-content .btn-view-more:hover{color:#7bd4ff}
+.trailtour--bg{display: block;}
+.trail-filter-tabs {width: auto;}
+.trailtour-item .info-text h5{line-height: 1.4}
+.primary-tab {justify-content: center;}
+.primary-tab .nav-item .nav-link.active {background-color: transparent; border-color: transparent; color: #eaa724;}
+.secondary-tab { justify-content: center;}
+.trailtour-item{width: 65% !important;min-height: 440px;}
+.trailtour-item__content.static{padding: 1.6em 1.6em 0.6em 1.6em; min-height: auto;}
+.trailtour-item.static-trail{min-height: 350px;}
+.trailtour-item__media.static-img { height: 340px;}
+}
+
+@media (max-width: 480px){
+.trailtour-container { width: 100%;}
+.secondary-tab .nav-item .nav-link{padding: .5rem;}
+.trailtour-item {background: linear-gradient(rgba(0, 0, 0, 0.5),#000) !important;padding: 0 0 1.5em 0;min-height: 505px;}
+#trailTour.slideMid {transform: translateX(-27%);}
+#trailTour.slideRight {transform: translateX(-51%);}
+.trailtour-item__media {height: auto;width: 100%;margin: 0;border-radius: 0;float: none;min-height: 175px;}
+.trailtour-item .info-text {width: 100%;padding: 1rem;margin: 0;background: #5a5a5a;}
+.trailtour-item .info-text h5, .trailtour-item .info-text p {color: #fff;}
+.trailtour-item__content {padding: 1rem;color: #fff;}
+.trailtour-item__content p {margin-bottom: .8rem;}
+.trailtour-item .btn.btn--interested {
+    background-color: rgba(51, 51, 51, 0.73);
+    margin: 0;
+    font-size: 0.8em;
+    text-shadow: 1px 1px 3px #000;
+    top: 10px;
+    bottom: auto;
+}
+.trailtour-item .btn.btn--knowMore {position: static;background: none;padding: 0;font-size: .7rem;color: #ffc264;margin-left: 1rem;}
+.trailtour-item .btn.btn--knowMore:before{display: none}
+.trailtour-item .btn.btn--knowMore:hover{color: #d48eff}
+.trailtour-item .btn.btn--knowMore:after{content: '\f105';font-family: 'FontAwesome';position: absolute;right: -11px;top: -2px;font-size: .9rem;}
+.trailtour-item .offerbtn {left: auto;right: 1rem;box-shadow: none;}
+
+}
+
+@media (max-width :430px){
+.primary-tab>li.nav-item {width: auto;}
+.secondary-tab .nav-item .nav-link{padding: .5rem .2rem;}
+#trailTour.slideRight {transform: translateX(-52%);}
+.trailtour-item {
+    width: 100% !important;
+}
+
+}
+
+@media (max-width: 375px){
+.secondary-tab {padding: 0 0 .5rem .5rem;}
+.trailtour-item .info-text h5 {font-size: 1rem;}
+.secondary-tab .nav-item .nav-link{padding: .3rem .5rem;border: 1px solid #b261bd;margin: .5rem .5rem 0 0;}
+.secondary-tab .nav-item .nav-link.active {border: 1px solid #f2c2f9;}
+.trailtour-item {
+    width: 100% !important;
+}
+}
+
+@media (max-width: 320px){
+.heading__counter {font-size: 3rem;}
+.content__heading h3 {font-size: 1rem;}
+.trailtour-item .offerbtn label{font-size: 9px}
+.trailtour-item .offerbtn label {font-size: 10px;padding: 2px 5px;background: #F44336;box-shadow: none;}
+.trailtour-item .offerbtn label:after{content: none;}
+.trailtour-item {/* width: 19%; */}
+.trailtour-item__media{min-height: 150px;}
+#trailTour.slideMid {transform: translateX(-20%);}
+#trailTour.slideRight {transform: translateX(-39%);}
+}
+
+

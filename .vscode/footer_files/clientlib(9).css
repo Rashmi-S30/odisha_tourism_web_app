@@ -1,0 +1,322 @@
+/*Experiences on go" Slide Tabs Start*/
+.tab {
+    position: relative;
+    display: flex;
+    flex-flow: column;
+    flex-direction: column-reverse;
+}
+.tab__buttons {}
+
+@keyframes fadeInSlide {
+    from {opacity:0;transform:translateY(0%);}
+    to {opacity:1;transform:translateY(-89%);}
+}
+.tab__buttons li.nav-item {margin: .4em 0; width: 100px !important;}
+
+.activities__carousel .carousel-item{padding: 0 1rem}
+.exp-arrows {
+    position: absolute;
+    left: -4%;
+    z-index: 0;
+    bottom: 47px;
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    width: 108%;
+}
+.exp-arrows .arrow-next, .exp-arrows .arrow-prev {
+    font-size: 1.8rem;
+    color: #fff;
+    cursor: pointer;
+}
+.exp-arrows div.swiper-button-disabled{
+	opacity: .2;
+	cursor: default;
+}
+
+.tab__item{position: relative;}
+.tab__items {display: none;height: 392px;}
+.tab__items:nth-child(1) {display: block;}
+.current a {color: #fff;background: #FF9800;}
+.activities .nav-item a.nav-link{background: #1b4d52 !important;color: #ffffff; border-bottom: 4px solid #1b4d52;}
+.activities .nav-item.current a.nav-link {
+    background: #ffffff !important;
+    color: #235d63;
+    box-shadow: 0px -1px 8px rgba(0, 0, 0, 0.3);
+    transition: .5s;
+    border-color: #235d63;
+}
+.activities .nav-item.current a.nav-link i{color: #235d63;}
+
+.activities .top-attractionheading h3, .activities .top-attractionheading h4, .dest-short-content{ color: #fff;}
+.activities .bottomline img { width: 44%; margin-left: 75px;}
+.dest-short-content p{font-size: 1.3em;margin: 1em 0 0 0;}
+.activities{background: url(../../../../../content/dam/tourism/home/activities-on-the-go/destinationbg.png);background-repeat: no-repeat;background-position: center;position: relative;background-size: 100%;}
+.activities:before {content: "";position: absolute;left: 0;right: 0;top: -1px;bottom: 0;background: linear-gradient(to top,#286993, #7670b2);z-index: -1;}
+.activities .nav{ margin-top:70px;}
+.activities .nav-item h5 {
+    font-weight: 400;
+    font-size: 0.85em;
+    padding: 0;
+    margin: 0px;
+    text-transform: uppercase;
+}
+.activities .nav-item i{display:block;font-size: 2.5em;margin-bottom: 15px;color: #fff;}
+.activities .nav-pills .nav-link.active  i{background: linear-gradient(to right, #d55ba4 0%, #9a6ed0 100%);-webkit-background-clip: text;-webkit-text-fill-color: transparent;font-weight: 600;}
+.activities .nav-item a{padding: 1.3em .5em;text-align:center;border-radius: 4px; position: relative;}
+.activities .nav-pills .nav-link.active:after{
+    content: '';
+    height: 3px;
+    background-image: linear-gradient(to right, #d55ba4 40%, #9b6dd0 100%) !important;
+    position: absolute;
+    bottom: 0;
+    width:  100%;
+    left: 0;
+    right: 0;
+    border-radius: 0px 0px 4px 4px;
+}
+.activities .nav-pills .nav-link.active, .nav-pills .show>.nav-link{ background:#fff !important; color:#000;}
+
+.cardslider {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    height: 380px;
+}
+.cardslider__cards, .cardslider__dots-nav {
+    margin: 0;
+    padding: 0;
+    list-style: none; }
+.cardslider__cards {
+    width: 100%;
+}
+.destination-data{position: relative;}
+.place-content{margin-top: 35px;}
+
+.cardslider__card {
+    background-repeat: no-repeat;
+    height: 390px;
+    will-change: transform, opacity, background;
+    transition: background 0.5s ease-out, opacity 0.5s;
+    border-radius: 4px;
+}
+.cardslider--direction-down .cardslider__card.active{background-size: 100%;}
+.cardslider--direction-down .cardslider__card.active:before{content: "";position: absolute;bottom: 9px;left: 0;right: 0;height: 7px;/* background: linear-gradient(90deg,#d55ba4,#9a6ed0); */}
+.cardslider--direction-down .cardslider__card.active:after {content: "";box-shadow: 0px 5px 7px rgba(4, 4, 4, 0.25);position: absolute;bottom: 9px;left: 0;right: 0;height: 7px;}
+
+.card--boating .cardslider__card{background-image: url("../../../../../content/dam/tourism/home/activities-on-the-go/boating-event.png");}
+.card--glamCamp .cardslider__card{background-image: url("../../../../../content/dam/tourism/home/activities-on-the-go/glam-camp.png");}
+.card--birdWatching .cardslider__card{background-image: url("../../../../../content/dam/tourism/home/activities-on-the-go/bird-watching-event.png");}
+.card--natureWalk .cardslider__card{background-image: url("../../../../../content/dam/tourism/home/activities-on-the-go/nature-walk.png");}
+.card--music .cardslider__card{background-image: url("../../../../../content/dam/tourism/home/activities-on-the-go/music.png");}
+.card--folk .cardslider__card{background-image: url("../../../../../content/dam/tourism/home/activities-on-the-go/folk-dance.png");}
+.card--dance .cardslider__card{background-image: url("../../../../../content/dam/tourism/home/activities-on-the-go/dance-theater.png");}
+.card--templeWalk .cardslider__card{background-image: url("../../../../../content/dam/tourism/home/activities-on-the-go/heritage-temple-walk.png");}
+.card--handloom .cardslider__card{background-image: url("../../../../../content/dam/tourism/home/activities-on-the-go/handloom.png");}
+.card--festival .cardslider__card{background-image: url("../../../../../content/dam/tourism/home/activities-on-the-go/festival.png");}
+.card--spirituality .cardslider__card{background-image: url("../../../../../content/dam/tourism/home/activities-on-the-go/spirituality.png");}
+.card--streetsFood .cardslider__card{background-image: url("../../../../../content/dam/tourism/home/activities-on-the-go/streets-food.png");}
+.card--odissiDance .cardslider__card{background-image: url("../../../../../content/dam/tourism/home/activities-on-the-go/odissi-dance.png");}
+
+.card__content {
+    position: absolute;
+    right: 0;
+    bottom: 5px;
+    width: 43%;
+    min-height: 270px;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    padding-right: 3rem;
+}
+.card__content a {
+    color: #778e90;
+    position: relative;
+    width: 90px;
+}
+.card__content a:after{content: "\e901";font-family: icomoon;font-size: .8rem;position: absolute;top: 1px;right: -5px;opacity: 0;}
+.card__content a:hover{color: #4d898e;}
+.card__content a:hover:after{opacity: 1;transition: .5s;right: -12px;}
+.card__content .btn--whiteBG{border: 1px solid #235d63;color: #1c4f54;background-color: #fff;}
+.card__content .btn--whiteBG:hover{color: #ffffff;border-color: transparent;}
+.card__content .hvr-rectangle-out:before{background: linear-gradient(90deg,#5da4a8,#235d63);}
+.card__content h4 {
+    font-size: 1.8rem;
+    color: rgb(65, 116, 121);
+    font-weight: 600;
+}
+
+/*Experiences on go Slide Tab Ends*/
+@media (max-width :1366px){
+.tab {margin:0;}
+.activities-section {margin: auto;padding: 3rem 0 0 0;width: 70%;}
+.dest-short-content p {font-size: 1em;}
+.exp-arrows{bottom: 33px;}
+.activities .nav-item i{font-size: 1.5em;margin-bottom: .7rem;}
+.activities .nav-item a{padding: .8em .5em;}
+.tab__content {min-height: 330px;}
+.tab__items {margin: 0;height: 328px;}
+.cardslider__card {height: 330px;}
+.card__content {
+    min-height: 215px;
+    width: 35%;
+    bottom: 0;
+}
+.card__content p {font-size: 13px;}
+.card__content h4 {font-size: 1.3rem;}
+}
+
+@media (max-width :1024px){
+.tab__buttons .tabs {height: 362px;}
+.traveller-experiences {width: 85%;}
+.tab {margin: 1rem 0 0 0;}
+.tab__buttons {width: 95%;}
+.dest-short-content p {font-size: 1.1em;margin: 0;}
+.activities .nav-item i {font-size: 1.8em;}
+.tab__content {width: 68%;}
+.tab__buttons .tabs.slide {transform: translateY(-72%);}
+.card__content h4,.card__content p{display: none;}
+.card__content {min-height: auto;width: auto;bottom: 10px;right: 10px;padding:0}
+.card__content a {color: #d7f8fb;padding: .2rem .7em;background-color: rgba(52, 99, 115, 0.5);border-radius: 3px;display: block;font-size: .9rem;}
+.card__content a:hover {color: #ffffff;background-color: rgba(52, 99, 115, 0.9);}
+.card__content a:hover:after{display: none}
+.activities .nav-item a {padding: 1em .5em;}
+
+}
+@media (max-width :992px){
+.activities__carousel.fp-slide{float: none;}
+.activities__carousel .carousel-indicators{justify-content: center;}
+.tab__buttons {width: 100%;padding: 0;text-align: center;}
+.tab__content {width: 100%;min-height: 295px;}
+.tab__items {height: 255px;}
+.cardslider__card {background-size: 140%;height: 290px;}
+.card__content {min-height: 152px;padding: 0;height: auto;}
+.activities-section {padding: 2.5em 0 3.5em 0;}
+.slide-indicators{display: none}
+.tab__buttons .tabs {height: auto;margin: 2rem 0;}
+.card__content {width: 200px;}
+.card__content h4, .card__content p{display: block;}
+.card__content a {
+    color: #1c3133;
+    padding: 0;
+    background-color: transparent;
+}
+.card__content a:hover{color:#a93a18;background: none}
+.exp-arrows {
+    left: -7%;
+    width: 114%;
+}
+.exp-arrows {
+    bottom: 65px;
+}
+
+
+}
+@media (min-width :768px){
+.activities .nav-item h5 {
+    font-size: 10px;
+  }
+}
+@media (max-width :768px){
+.dest-short-content p{margin: 0;font-size: .8rem;}
+.tab__content {
+    width: 100%;
+    min-height: 300px;
+}   
+.card__content {height: 170px;padding: 20px 0 0 0;}
+.activities-section {
+    padding: 3em 0;
+    width: auto;
+}
+.tab__items {height: 255px;}
+.cardslider__card {
+    background-size: 180%;
+    height: 330px;
+}
+.exp-arrows {
+    left: -4%;
+    width: 108%;
+}
+.card__content {display: none;}
+}
+
+@media (max-width :660px){
+.cardslider{height: 270px;}
+.activities-section{ width: 100%;} 
+.activities .nav {margin-top: 20px;}
+.activities .tab-content {margin-top: 15px;}
+.activities .carousel-control-prev {left: 87%;}
+.activities .bottomline img {margin-left: auto;}
+.activities .nav-item a.nav-link:focus {color: #1b4d52;background-color: #ffffff !important;outline: none;}
+.activities .nav-item a.nav-link:focus i{color: #1b4d52}
+.tab__content{display: none}
+.exp-arrows {
+    left: -6%;
+    width: 112%;
+}
+}
+
+@media (max-width :576px){
+.activities {
+    display: block;
+    height: 315px;
+}
+.exp-arrows {
+    left: 0%;
+    width: 100%;
+    z-index: 999;
+}
+.section-heading{text-align: center;}
+.dest-short-content p {display: none;}
+.section-heading h2:after { left: 40% !important;}
+}
+
+@media (max-width :480px){
+.activities-section {
+    width: 85%;
+}
+.tab__buttons li.nav-item {
+    width: 48% !important;
+}
+.exp-arrows {
+    left: -9%;
+    width: 118%;
+    bottom: 60px;
+}
+
+}
+@media (max-width :430px){
+.tab__buttons li.nav-item {
+    width: 38% !important;
+}
+.exp-arrows {
+    left: -9%;
+    width: 118%;
+}
+.exp-arrows .arrow-next, .exp-arrows .arrow-prev {font-size: 1.5rem;}
+
+}
+@media (max-width: 375px){
+.tab__buttons li.nav-item {
+    width: 41.5% !important;
+}
+.exp-arrows {
+    left: -11%;
+    width: 122%;
+}
+.activities .nav-item a {
+    min-height: 90px;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+}
+
+}
+
+@media (max-width: 320px){
+.tab__buttons li.nav-item {
+    width: 35% !important;
+}
+.tab__buttons .tabs {width: 495px;}
+}

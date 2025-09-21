@@ -1,0 +1,445 @@
+
+
+/*Upcoming Events Section Start*/
+.upcoming--events .fp-slide {float: none;}
+.upcoming--events{
+    position: relative;
+    background: #4480a2;
+    color: #fff;
+    background-size: 20%;
+}
+.upcoming--events:before{
+    content: "";
+    position: absolute;
+    left: 4%;
+    top: 15%;
+    height: 400px;
+    width: 400px;
+    background:
+url(../../../../../content/dam/tourism/home/structure/events-sideimg.png) no-repeat;
+    background-size: 100%;
+    animation: rotateAntiClock 140s infinite linear;
+    z-index: 0;
+}
+.upcoming--events:after{
+    content: "";
+    position: absolute;
+    right: 8%;
+    bottom: 3%;
+    height: 300px;
+    width: 300px;
+    background:
+url(../../../../../content/dam/tourism/home/structure/events-sideimg.png) no-repeat;
+    background-size: 100%;
+    animation: rotateClock 200s infinite linear;
+    z-index: 0;
+}
+.upcoming--events .btn.btn-red {
+    position: absolute;
+    top: 100px;
+    right: 30px;
+}
+@keyframes rotateClock{
+    from{transform: rotate(0);}
+    to{transform: rotate(360deg);}
+}
+
+@keyframes rotateAntiClock{
+    from{transform: rotate(0);}
+    to{transform: rotate(-360deg);}
+}
+.upcoming--events .top-attractionheading{text-align: center;}
+.upcoming--events .carousel-inner {
+    height: 605px;
+    background: #333;
+}
+.upcoming--events .carousel-inner img{width: 100%;}
+
+.traveler--experience .top-attractionheading h4, .upcoming--events
+.top-attractionheading h4{color: #fff;font-size: 2em;font-weight:
+400;}
+.carousel__pop-section {
+    position: absolute;
+    height: 95%;
+    width: 420px;
+    top: 2.5%;
+    left: -7%;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+}
+.carousel__content {all: unset;min-height: 220px;}
+.carousel__content>div {
+    position: absolute;
+    opacity: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    z-index: -1;
+}
+.carousel__content .active{
+background: transparent;
+opacity: 1;
+transition: .2s;
+z-index: 1
+}
+
+.carousel__controls {
+    position: absolute;
+    left: 50%;
+    transform: translate(0);
+    top: 43%;
+    z-index: 1;
+    width: 100%;
+    display: flex;
+    left: 0;
+    justify-content: space-between;
+}
+.carousel__controls a{all: unset;font-size: .8rem;padding: .2rem
+.6rem;color: #fff;background-color: #949494;display:
+inline-block;width: 7px;border-radius: 1px;cursor: pointer;}
+.carousel__controls a:hover{background-color: #585858;transition: .5s}
+
+
+.carousel__pop-sectionBottom, .carousel__pop-sectionTop {
+    min-height: 275px;
+    width: 100%;
+    border-radius: 2px;
+    box-shadow: 0 0 7px rgba(0, 0, 0, 0.51);
+    color: #333;
+    text-align: center;
+    background-color: #fff;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+.carousel__pop-sectionTop{padding: 1.5rem;}
+.carousel__pop-sectionTop:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: -25px;
+    height: 85px;
+    width: 100%;
+    background-color: #fff;
+    z-index: 0;
+    background: url(../../../../../content/dam/tourism/home/structure/blue-motive.png);
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: 35%;
+}
+
+.event-carousel__content{
+}
+.carousel__pop-section .carousel-heading{font-size: 1.3rem;font-weight: 600;}
+.event__date {color: #008dd0;font-weight: 600;}
+.event-carousel__content p {
+    border-top: 1px solid #d6d6d6;
+    margin: .6rem 0 0 0;
+    padding: .6rem 0 0 0;
+}
+.carousel__link {
+    color: var(--web-color3);
+    text-transform: uppercase;
+    font-size: .8rem;
+    position: relative;
+    margin-top: .8rem;
+}
+.carousel__link:after{content: "\e901";font-family: icomoon;font-size:.7rem;
+   position: absolute;
+    top: 0px;right: -5px;opacity: 0;}
+.carousel__link:hover{color: var(--web-color5)}
+.carousel__link:hover:after{right: -10px;transition: .5s;opacity: 1}
+
+
+.carousel__pop-sectionBottom .content-source-logo{margin-top: -25px;}
+.carousel__pop-sectionBottom .content-footer-left{margin-top: -15px;}
+.carousel__pop-sectionBottom .content-control-list .hub-btn{margin:
+0px 8px !important;}
+.carousel__pop-sectionBottom {
+    margin-top: 1rem;
+}
+
+
+
+.carousel__pop-sectionBottom .hub-list .oembed{display: none !important;}
+.hub-modal.modal-content-card .hub-modal-content
+.hub-modal-content-view{margin-top: 130px !important; z-index: 1;}
+.hub-modal .hub-modal-close{top: 98px !important;cursor: pointer !important;}
+[data-lf-package="single-card-component#3.0.10"] .hub-modal
+.hub-modal-close{ z-index: 2!important;}
+[data-lf-package="single-card-component#3.0.10"] .hub-list
+.hub-content-container {
+    -webkit-transition: margin-bottom 1s, opacity 1s !important;
+    -moz-transition: margin-bottom 1s, opacity 1s !important;
+    -ms-transition: margin-bottom 1s, opacity 1s !important;
+    -o-transition: margin-bottom 1s, opacity 1s !important;
+    transition: margin-bottom 1s, opacity 1s !important;
+}
+.carousel__pop-sectionBottom .content.spectrum-content .content-body,
+.carousel__pop-sectionBottom .content.content-default.spectrum-content
+.content-body,
+.carousel__pop-sectionBottom
+.content.content-with-image.spectrum-content .content-body,
+.carousel__pop-sectionBottom
+.content.content-default.content-with-image.spectrum-content
+.content-body
+{ line-height: 22px; padding-top: 22px;}
+
+/*Upcoming Events Section End*/
+@media (max-width :1366px){
+.upcoming--events{padding-top: 2rem;}
+.upcoming--events:before {
+    left: 18%;
+    top: 13%;
+    height: 250px;
+    width: 250px;
+}
+
+.upcoming--events:after {
+    right: 22%;
+    bottom: 2%;
+    height: 150px;
+    width: 150px;
+}
+.upcoming--events .fp-tableCell {
+    display: flex;
+    flex-direction: row-reverse;
+}
+.carousel__pop-sectionBottom {
+    margin-top: 7px;
+}
+.upcoming--events p {font-size: .8em;}
+.upcoming--events .carousel-inner {
+    height: auto;
+    width: 80%;
+}
+.carousel__pop-sectionBottom, .carousel__pop-sectionTop {
+    min-height: 215px;
+}
+
+.carousel__pop-section:before {background:
+url(../../../../../content/dam/tourism/home/structure/blue-motive.png)
+no-repeat;background-position: top,bottom;background-size: 25%;}
+/* .carousel__pop-section {
+    position: unset;
+    width: 497px;
+    margin-right: 10px;
+} */
+.carousel__pop-section{left: 2%;}
+.event-carousel ul.carousel-indicators .carousel-heading {
+    font-size: 1rem;
+}
+
+.carousel__content li{
+min-height: 150px;
+}
+.carousel__pop-sectionBottom {
+    border-top: 1px solid #d6d6d6;
+}
+.carousel__pop-sectionBottom, .carousel__pop-sectionTop {
+    box-shadow: none;
+    min-height: 226px;
+    border-radius: 0;
+}
+.carousel__pop-sectionTop:before {
+    left: -28px;
+    top: -10px;
+    height: 55px;
+    width: 100px;
+    background-position: top left;
+    background-size: 100%;
+    transform: rotateZ(-45deg);
+}
+
+.carousel__controls {
+    margin: 0;
+    bottom: 0px;
+    width: 100%;
+    left: 0;
+    transform: translate(0);
+    display: flex;
+    justify-content: space-between;
+    height:4% !important;
+}
+.carousel__controls a {
+    font-size: .6rem;
+    padding: .5rem .5rem;
+    height: 14px;
+}
+.hub-modal .hub-modal-close {top: 86px !important;}
+.hub-modal.modal-content-card:not(.instagram-content)
+.hub-modal-close{right: calc(5% + 172px) !important;}
+.hub-modal.modal-content-card .hub-modal-content
+.hub-modal-content-view {margin-top: 50px !important;}
+.carousel__pop-sectionBottom .content.spectrum-content .content-body,
+.carousel__pop-sectionBottom .content.content-default.spectrum-content
+.content-body,
+.carousel__pop-sectionBottom
+.content.content-with-image.spectrum-content .content-body,
+.carousel__pop-sectionBottom
+.content.content-default.content-with-image.spectrum-content
+.content-body
+{ line-height: 17px; padding-top: 14px;}
+.carousel__pop-sectionBottom .content.spectrum-content .content-footer,
+.carousel__pop-sectionBottom .content.content-default.spectrum-content
+.content-footer,
+.carousel__pop-sectionBottom
+.content.content-with-image.spectrum-content .content-footer,
+.carousel__pop-sectionBottom
+.content.content-default.content-with-image.spectrum-content
+.content-footer
+{line-height: 13px;padding: 11px;}
+}
+.carousel__controls{
+    height:4% !important;
+    }
+@media (min-width: 360px){
+.carousel__controls {
+    margin: 0;
+    bottom: 0px;
+    width: 100%;
+    left: 0;
+    transform: translate(0);
+    display: flex;
+    justify-content: space-between;
+    height: 4% !important;
+    }}
+@media (max-width :1260px){
+.hub-modal.modal-content-card:not(.instagram-content)
+.hub-modal-close{right: calc(5% + 152px) !important;}
+    .carousel__pop-section .carousel__controls{
+    height:4% !important;
+    }
+}
+@media (max-width :1152px){
+.upcoming--events p {font-size: .9rem}
+.upcoming--events .carousel-inner {height: 450px;width: 90%;margin: 0 0 0 9%;}
+.carousel__controls a {box-shadow: none;}
+.upcoming--events:before {left: 0%;top: 10%;}
+.upcoming--events:after {right: 0%;bottom: 11%;height: 150px;width: 150px;}
+.carousel__pop-section{left: 5%;}
+}
+@media (max-width :1024px){
+.hub-modal.modal-content-card .hub-modal-content
+.hub-modal-content-view { margin-top: 100px !important;}
+.hub-modal .hub-modal-close {top: 108px !important;}
+}
+@media (max-width :992px){
+.upcoming--events{padding: 3rem 0;}
+.upcoming--events .carousel-inner{margin: 0;height: auto;width: auto;}
+.carousel__pop-section{position: relative;left: auto;width:
+auto;border-radius: 0;box-shadow: 0px 2px 4px rgba(0, 0, 0,
+0.4);margin: 0;}
+.carousel__pop-section:before{background: none}
+.carousel__controls {margin: 0rem 0 2rem 0;}
+.carousel__controls a {box-shadow: none;}
+.upcoming--events:before {left: 3%;top: -2%;}
+.upcoming--events:after {right: 8%;bottom: 4%;}
+
+}
+
+@media (max-width :768px){
+.carousel__content {min-height: 245px;}
+.carousel__pop-sectionBottom1 {
+    margin-top: 0;
+}
+}
+
+@media (max-width :660px){
+.upcoming--events:before {left: 0%;top: 8%;height: 150px;width: 150px;}
+.upcoming--events:after {right: 0%;bottom: 5%;}
+}
+
+@media (max-width :576px){
+.event-carousel ul.carousel-indicators .carousel-heading {padding:
+1rem 2rem .5rem 2rem;}
+.upcoming--events .carousel-control-next, .upcoming--events
+.carousel-control-prev{display: inline-block;}
+#about-odisha .btn:after{content: '\f105';font-family:
+'FontAwesome';margin-left: 7px;font-size: 1rem;}
+#about-odisha .btn:hover{color:#7bd4ff}
+.carousel__pop-sectionBottom1{display: none}
+
+}
+@media (max-width :480px){
+.carousel__pop-section{margin: 0;min-height: 191px;}
+.carousel__pop-sectionBottom1{margin-top: 10px;}
+.upcoming--events .carousel-inner {min-width: 92vw;min-height: 150px;}
+.carousel__content li{width: auto;}
+.upcoming--events:after {right: -12%;bottom: 4%;}
+.upcoming--events:before {left: -12%;top: 9%;height: 150px;width: 150px;}
+.event-carousel ul.carousel-indicators .carousel-heading {padding: 0}
+.event__date {margin: 0 0 0.5rem 0;color: #fda337;}
+.carousel__content {min-height: 105px;}
+.upcoming--events .carousel-item {height: 300px;}
+.upcoming--events .carousel-inner img {height: 100%;object-fit:
+cover;object-position: right;}
+.upcoming--events:after {right: 3%;bottom: 11%;height: 85px;width: 85px;}
+.upcoming--events p {
+    font-size: .8rem;
+}
+.carousel__controls {
+    margin: 0;    bottom: initial;top: 50px;
+}
+.carousel__content {min-height: 85px;}
+.carousel__link {text-transform: capitalize;}
+#about-odisha .btn{margin: 35px 0 0 0;}
+
+}
+
+@media (max-width :430px){
+.upcoming--events{margin-top: -1px;}
+}
+
+.carousel__pop-sectionBottom1 {
+    min-height: 275px;
+    width: 100%;
+    border-radius: 2px;
+    box-shadow: 0 0 7px rgba(0, 0, 0, 0.51);
+    color: #333;
+    text-align: center;
+    background-color: #fff;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding:15px;
+   font-family: Helvetica, Arial, sans-serif;
+   margin-top: 15px;
+    display:none;
+}
+.carousel__pop-sectionBottom1 a{color: #1473e6;}
+.carousel__pop-sectionBottom1 p{margin-bottom: 0px;}
+.carousel__pop-sectionBottom1 .content-author-username a{color:
+#b2b2b2;font-size: 0.8rem;}
+.eventslivefyre-twitter-timing{direction: rtl;display: inline-block;
+position: absolute; right: 20px; top: 20px;}
+.eventslivefyre-header, .eventslivefyre-body{padding: 0px 20px 20px
+20px;font-size: 0.9rem;line-height: 140%;}
+.eventslivefyre-footer{padding: 10px 10px 0px 10px;;}
+.eventlivefyredate{font-size: 0.65rem;}
+.eventslivefyre-headtxt{text-align: left;line-height: 120%;}
+.content-author-name{font-weight: bold;}
+.eventslivefyre-twitter-timing i{color: #55acee; font-size:1rem;}
+.content-footer-left{float: left;}
+.eventslivefyre-footer .hub-btn{display: inline-block;margin: 0px 3px;}
+.eventslivefyre-footer .hub-btn a{color: #8e8e8e;}
+.hub-btn.hub-content-action-reply > a:before{content: "\f112";
+font-family: FontAwesome;}
+.hub-btn.hub-content-action-retweet > a:before{content: "\f079";
+font-family: FontAwesome;}
+.hub-btn.hub-content-action-favorite> a:before{content: "\f004";
+font-family: FontAwesome;}
+.content-featured{text-align: center;margin-top: 10px;color: #8e8e8e;}
+.content-footer-right{float: right;}
+
+
+@media (max-width :576px){
+.carousel__pop-sectionBottom1{display: none}
+    .carousel__pop-section{display:block;}
+}
+.carousel__pop-section .carousel__controls{
+    height:4% !important;
+    }

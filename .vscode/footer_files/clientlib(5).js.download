@@ -1,0 +1,752 @@
+/*<-- =========================================================================================
+File Name            : roadTrip.js
+Description          : this page includes all javaScript & j-query required functions related to road trip Home page
+Author Name          : anshuman.mishra
+Date Created         : 10-Aug-2020
+Developed By         : Anshuman Mishra
+Developed On         : 10-Aug-2020
+Updated By           : Anshuman Mishra
+Updated On           : 
+Updated Reason       : 
+=========================================================================================== -->*/
+$(document).ready(function(){
+	getRoadTripHomeDetails();
+});
+//*******************************************create common request for browser support*****************************//
+function createRequest()
+{
+    var ro;
+    var browser = navigator.appName;
+    if(browser == "Microsoft Internet Explorer")
+    {
+        ro = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    else
+    {
+        ro = new XMLHttpRequest();
+    }
+    return ro;
+}
+var httpreqTextc = createRequest();
+var param = "";
+//**********************************common ajax function**********************************************************//
+function callCommonAjaxc(callbackfunction, url, Qstring)
+{
+  var contentType = "application/x-www-form-urlencoded;charset=UTF-8";
+  httpreqTextc.open('POST',url+Qstring,true);
+  httpreqTextc.setRequestHeader("Content-Type", contentType);
+  httpreqTextc.onreadystatechange = callbackfunction;
+  httpreqTextc.send(Qstring);
+}
+//***********analytics code********************************//
+function analyticsRoadTrip(slinkName,slinkType){
+	customLinkClickAnalytics(slinkName, slinkType);
+}
+function getRoadTripHomeDetails(){
+	param = "10";
+	var Qstring="?methodId="+param;
+	callCommonAjaxc(setRoadTripHomeDetails,'/tourism/roadTrip', Qstring);
+}
+//*****************************callback function to load trip detail**********************************************//
+function setRoadTripHomeDetails()
+{
+    if(httpreqTextc.readyState==4)
+     {
+         if(httpreqTextc.status==200)
+         {
+             var rs=httpreqTextc.responseText;
+             if(rs=="sessionOut")
+             {
+                 //window.location.target = "_parent";
+                 //window.location.href="AJAX SESSION OUT PAGE";
+             }else{
+            	 var divElement = document.getElementById("populateData");
+				 var tripList = new Array();
+				 tripList = rs.split("<;;;;>"); 
+				 var dataDetail = new Array();
+				 var str ="";
+				 for(var k=0;k<tripList.length-1;k++)
+				  {
+					 dataDetail=tripList[k].split("<@!!@>");
+					 var path = location.origin+"/content/tourism/en/road-trip-detail.html?url="+dataDetail[8];
+					 var viewAllpath = location.origin+"/content/tourism/en/plan/trip-organizer/find-a-roadtrip.html";
+					 if(k == 0){
+						 str = "<div class='carousel-item active screen-reader'>"; 
+					 }else{
+						 str = "<div class='carousel-item screen-reader'>";  
+					 }
+					  var cnt = 0;
+                      var cnt1 = 0;
+                      var cnt2 = 0;
+                      var cnt3 = 0;
+                      var cnt4 = 0;
+                      if(dataDetail[7] != undefined){
+                          str += "<div class='roadtripbgbox'><div class='roadstrip'>";
+                          var image = dataDetail[7].split(",");
+                          var destTitle = dataDetail[5].split(",");
+                          var destDesc = dataDetail[6].split(",");
+                          var url1 = '';
+                          var url2 = '';
+                          var url3 = '';
+                          var url4 = '';
+                          var url5 = '';
+                          var destTitle1 = ''; 
+                          var destTitle2 = ''; 
+                          var destTitle3 = ''; 
+                          var destTitle4 = ''; 
+                          var destTitle5 = '';
+                          var destDesc1 = ''; 
+                          var destDesc2 = ''; 
+                          var destDesc3 = ''; 
+                          var destDesc4 = ''; 
+                          var destDesc5 = ''; 
+                          if(destTitle[0] != undefined){
+
+
+                        	  if(destTitle[0].split('-')[1] == 1){
+                        		  url1 = "https://apps.odishatourism.gov.in/Application/uploadDocuments/attractions/thumbnail/"+image[0];
+                        	  }else{
+                        		  url1 = location.origin+"/content/dam/tourism/home/road-trip/uploadfiles/other-destination-thumb-image/"+image[0];
+                        	  }
+
+
+
+                              if(destTitle[0].slice(0,-2) ==  'Mangalajodi'){
+                                  image[0] = 'lake-tampara.jpg';
+                                  url1 = location.origin+"/content/dam/tourism/home/road-trip/uploadfiles/other-destination-thumb-image/"+image[0];
+
+                              }
+                              if(destTitle[0].slice(0,-2) ==  'Devkunda Waterfall'){
+                                  image[0] = 'devkunda.jpg';
+                                  url1 = location.origin+"/content/dam/tourism/home/road-trip/uploadfiles/other-destination-thumb-image/"+image[0];
+                              }
+                              if(destTitle[0].slice(0,-2) ==  'Chilika Dhaba'){
+                                  image[0] = 'devkunda.jpg';
+                                  url1 = location.origin+"/content/dam/tourism/home/road-trip/uploadfiles/other-destination-thumb-image/"+image[0];
+                              }
+                              if(destTitle[0].slice(0,-2) ==  'Chilika Nature Camps'){
+                                  image[0] = 'chilika.jpg';
+                                  url1 = location.origin+"/content/dam/tourism/home/road-trip/uploadfiles/other-destination-thumb-image/"+image[0];
+                              }
+                              if(destTitle[0].slice(0,-2) ==  'Gopalpur'){
+                                  url1 = "https://apps.odishatourism.gov.in/Application/uploadDocuments/attractions/thumbnail/1_thumb20181121_124044.jpg";
+                              }
+                              if(destTitle[0].slice(0,-2) ==  'Mandasaru'){
+                                  image[0] = 'Mandasaru.jpg';
+                                  url1 = location.origin+"/content/dam/tourism/home/road-trip/uploadfiles/other-destination-thumb-image/"+image[0];
+                              }
+                              if(destTitle[0].slice(0,-2) ==  'Taptapani'){
+                                  image[0] = 'taptapani.jpg';
+                                  url1 = location.origin+"/content/dam/tourism/home/road-trip/uploadfiles/other-destination-thumb-image/"+image[0];
+                              }
+                              if(destTitle[0].slice(0,-2) ==  'Berhampur City'){
+                                  image[0] = 'BerhampurCity.jpg';
+                                  url1 = location.origin+"/content/dam/tourism/home/road-trip/uploadfiles/other-destination-thumb-image/"+image[0];
+                              }
+                              if(destTitle[0].slice(0,-2) ==  'Chilika Dhaba'){
+                                  image[0] = 'chilikadhaba.jpg';
+                                  url1 = location.origin+"/content/dam/tourism/home/road-trip/uploadfiles/other-destination-thumb-image/"+image[0];
+                              }
+                              if(destTitle[0].slice(0,-2) ==  'Satapada'){
+                                  image[0] = 'satapada.jpg';
+                                  url1 = location.origin+"/content/dam/tourism/home/road-trip/uploadfiles/other-destination-thumb-image/"+image[0];
+                              }
+                              if(destTitle[0].slice(0,-2) ==  'Jirang'){
+                                  image[0] = 'Jirang.jpg';
+                                  url1 = location.origin+"/content/dam/tourism/home/road-trip/uploadfiles/other-destination-thumb-image/"+image[0];
+                              }
+                              if(destTitle[0].slice(0,-2) ==  'Tara Tarini'){
+                                  image[0] = 'taratarini.jpg';
+                                  url1 = location.origin+"/content/dam/tourism/home/road-trip/uploadfiles/other-destination-thumb-image/"+image[0];
+                              }
+                              if(destTitle[0].slice(0,-2) ==  'Khiching'){
+
+                                  url1 = "https://apps.odishatourism.gov.in/Application/uploadDocuments/attractions/thumbnail/1_thumb20181121_163244.jpg";
+                              }
+                               if(destTitle[0].slice(0,-2) ==  'Similipal Nature Camp'){
+
+                                  url1 = "https://apps.odishatourism.gov.in/Application/uploadDocuments/attractions/thumbnail/1_thumb20181205_150535.jpg";
+                              }
+                              if(destTitle[0].slice(0,-2) ==  'Sitakund Waterfall'){
+                                  image[0] = 'sitakund.jpg';
+                                  url1 = location.origin+"/content/dam/tourism/home/road-trip/uploadfiles/other-destination-thumb-image/"+image[0];
+                              }
+                              if(destTitle[0].slice(0,-2) ==  'Devkunda Waterfall'){
+                                  image[0] = 'devkunda.jpg';
+                                  url1 = location.origin+"/content/dam/tourism/home/road-trip/uploadfiles/other-destination-thumb-image/"+image[0];
+                              }
+                              if(destTitle[0].slice(0,-2) ==  'Joranda Waterfall'){
+                                  image[0] = 'joranda.jpg';
+                                  url1 = location.origin+"/content/dam/tourism/home/road-trip/uploadfiles/other-destination-thumb-image/"+image[0];
+                              }
+                              if(destTitle[0].slice(0,-2) ==  'Athara Deula Temple'){
+                                  image[0] = 'athara.jpg';
+                                  url1 = location.origin+"/content/dam/tourism/home/road-trip/uploadfiles/other-destination-thumb-image/"+image[0];
+                              }
+                              if(destTitle[0].slice(0,-2) ==  'Keonjhar'){
+                                  image[0] = 'keonjhar.jpg';
+                                  url1 = location.origin+"/content/dam/tourism/home/road-trip/uploadfiles/other-destination-thumb-image/"+image[0];
+                              }
+                              if(destTitle[0].slice(0,-2) ==  'Duduma Waterfall'){
+                                  image[0] = 'duduma.jpg';
+                                  url1 = location.origin+"/content/dam/tourism/home/road-trip/uploadfiles/other-destination-thumb-image/"+image[0];
+                              }
+                              if(destTitle[0].slice(0,-2) ==  'DARINGBADI (A HILL STATION)'){
+
+                                  url1 = "https://apps.odishatourism.gov.in/Application/uploadDocuments/attractions/thumbnail/1_thumb20181206_121249.jpg";
+                              }
+
+                              if(destTitle[0].slice(0,-2) ==  'Chekaguda'){
+                                  image[0] = 'chekaguda.jpg';
+                                  url1 = location.origin+"/content/dam/tourism/home/road-trip/uploadfiles/other-destination-thumb-image/"+image[0];
+                              }
+                              if(destTitle[0].slice(0,-2) ==  'Chatikona'){
+                                  image[0] = 'chatikona.jpg';
+                                  url1 = location.origin+"/content/dam/tourism/home/road-trip/uploadfiles/other-destination-thumb-image/"+image[0];
+                              }
+                              if(destTitle[0].slice(0,-2) ==  'Kotagad'){
+                                  image[0] = 'kotagad.jpg';
+                                  url1 = location.origin+"/content/dam/tourism/home/road-trip/uploadfiles/other-destination-thumb-image/"+image[0];
+                              }
+                              if(destTitle[0].slice(0,-2) ==  'Rayagada'){
+                                  image[0] = 'rayagada.jpg';
+                                  url1 = location.origin+"/content/dam/tourism/home/road-trip/uploadfiles/other-destination-thumb-image/"+image[0];
+                              }
+
+
+
+
+                              destTitle1 = destTitle[0].split('-')[0];
+                              if(destDesc[0] != undefined)
+                               destDesc1 = destDesc[0];
+                              cnt = 1;
+                          }
+                          if(destTitle[1] != undefined){
+                              destTitle2 = destTitle[1].split('-')[0];
+                              if(destDesc[1] != undefined)
+                              destDesc2 = destDesc[1];
+                              if(destTitle[1].split('-')[1] == 1){
+                        		  url2 = "https://apps.odishatourism.gov.in/Application/uploadDocuments/attractions/thumbnail/"+image[1];
+                        	  }else{
+                        		  url2 = location.origin+"/content/dam/tourism/home/road-trip/uploadfiles/other-destination-thumb-image/"+image[1];
+                        	  }
+
+
+
+                             if(destTitle[1].slice(0,-2) ==  'Mangalajodi'){
+                                  image[1] = 'lake-tampara.jpg';
+                                  url2 = location.origin+"/content/dam/tourism/home/road-trip/uploadfiles/other-destination-thumb-image/"+image[1];
+
+                              }
+                              if(destTitle[1].slice(0,-2) ==  'Devkunda Waterfall'){
+                                  image[1] = 'devkunda.jpg';
+                                  url2 = location.origin+"/content/dam/tourism/home/road-trip/uploadfiles/other-destination-thumb-image/"+image[1];
+                              }
+                              if(destTitle[1].slice(0,-2) ==  'Chilika Dhaba'){
+                                  image[1] = 'devkunda.jpg';
+                                  url2 = location.origin+"/content/dam/tourism/home/road-trip/uploadfiles/other-destination-thumb-image/"+image[1];
+                              }
+                              if(destTitle[1].slice(0,-2) ==  'Chilika Nature Camps'){
+                                  image[1] = 'chilika.jpg';
+                                  url2 = location.origin+"/content/dam/tourism/home/road-trip/uploadfiles/other-destination-thumb-image/"+image[1];
+                              }
+                              if(destTitle[1].slice(0,-2) ==  'Gopalpur'){
+
+                                  url2 = "https://apps.odishatourism.gov.in/Application/uploadDocuments/attractions/thumbnail/1_thumb20181121_124044.jpg";
+                              }
+                              if(destTitle[1].slice(0,-2) ==  'Mandasaru'){
+                                  image[1] = 'Mandasaru.jpg';
+                                  url2 = location.origin+"/content/dam/tourism/home/road-trip/uploadfiles/other-destination-thumb-image/"+image[1];
+                              }
+                              if(destTitle[1].slice(0,-2) ==  'Taptapani'){
+                                  image[1] = 'taptapani.jpg';
+                                  url2 = location.origin+"/content/dam/tourism/home/road-trip/uploadfiles/other-destination-thumb-image/"+image[1];
+                              }
+                              if(destTitle[1].slice(0,-2) ==  'Berhampur City'){
+                                  image[1] = 'BerhampurCity.jpg';
+                                  url2 = location.origin+"/content/dam/tourism/home/road-trip/uploadfiles/other-destination-thumb-image/"+image[1];
+                              }
+                              if(destTitle[1].slice(0,-2) ==  'Chilika Dhaba'){
+                                  image[1] = 'chilikadhaba.jpg';
+                                  url2 = location.origin+"/content/dam/tourism/home/road-trip/uploadfiles/other-destination-thumb-image/"+image[1];
+                              }
+                              if(destTitle[1].slice(0,-2) ==  'Satapada'){
+                                  image[1] = 'satapada.jpg';
+                                  url2 = location.origin+"/content/dam/tourism/home/road-trip/uploadfiles/other-destination-thumb-image/"+image[1];
+                              }
+                              if(destTitle[1].slice(0,-2) ==  'Jirang'){
+                                  image[1] = 'Jirang.jpg';
+                                  url5 = location.origin+"/content/dam/tourism/home/road-trip/uploadfiles/other-destination-thumb-image/"+image[1];
+                              }
+                              if(destTitle[1].slice(0,-2) ==  'Tara Tarini'){
+                                  image[1] = 'taratarini.jpg';
+                                  url5 = location.origin+"/content/dam/tourism/home/road-trip/uploadfiles/other-destination-thumb-image/"+image[1];
+                              }
+                              if(destTitle[1].slice(0,-2) ==  'Khiching'){
+
+                                  url2= "https://apps.odishatourism.gov.in/Application/uploadDocuments/attractions/thumbnail/1_thumb20181121_163244.jpg";
+                              }
+                               if(destTitle[1].slice(0,-2) ==  'Similipal Nature Camp'){
+
+                                  url2 = "https://apps.odishatourism.gov.in/Application/uploadDocuments/attractions/thumbnail/1_thumb20181205_150535.jpg";
+                              }
+                              if(destTitle[1].slice(0,-2) ==  'Sitakund Waterfall'){
+                                  image[1]= 'sitakund.jpg';
+                                  url2 = location.origin+"/content/dam/tourism/home/road-trip/uploadfiles/other-destination-thumb-image/"+image[1];
+                              }
+                              if(destTitle[1].slice(0,-2) ==  'Devkunda Waterfall'){
+                                  image[1]= 'devkunda.jpg';
+                                  url2 = location.origin+"/content/dam/tourism/home/road-trip/uploadfiles/other-destination-thumb-image/"+image[1];
+                              }
+                              if(destTitle[1].slice(0,-2) ==  'Joranda Waterfall'){
+                                  image[1]= 'joranda.jpg';
+                                  url2 = location.origin+"/content/dam/tourism/home/road-trip/uploadfiles/other-destination-thumb-image/"+image[1];
+                              }
+                              if(destTitle[1].slice(0,-2) ==  'Athara Deula Temple'){
+                                  image[1]= 'athara.jpg';
+                                  url2 = location.origin+"/content/dam/tourism/home/road-trip/uploadfiles/other-destination-thumb-image/"+image[1];
+                              }
+                              if(destTitle[1].slice(0,-2) ==  'Keonjhar'){
+                                  image[1]= 'keonjhar.jpg';
+                                  url2 = location.origin+"/content/dam/tourism/home/road-trip/uploadfiles/other-destination-thumb-image/"+image[1];
+                              }
+                              if(destTitle[1].slice(0,-2) ==  'Duduma Waterfall'){
+                                  image[1]='duduma.jpg';
+                                  url2 = location.origin+"/content/dam/tourism/home/road-trip/uploadfiles/other-destination-thumb-image/"+image[1];
+                              }
+                              if(destTitle[1].slice(0,-2) ==  'DARINGBADI (A HILL STATION)'){
+
+                                  url2 = "https://apps.odishatourism.gov.in/Application/uploadDocuments/attractions/thumbnail/1_thumb20181206_121249.jpg";
+                              }
+
+                              if(destTitle[1].slice(0,-2) ==  'Chekaguda'){
+                                  image[1]= 'chekaguda.jpg';
+                                  url2 = location.origin+"/content/dam/tourism/home/road-trip/uploadfiles/other-destination-thumb-image/"+image[1];
+                              }
+                              if(destTitle[1].slice(0,-2) ==  'Chatikona'){
+                                  image[1] = 'chatikona.jpg';
+                                  url2 = location.origin+"/content/dam/tourism/home/road-trip/uploadfiles/other-destination-thumb-image/"+image[1];
+                              }
+                              if(destTitle[1].slice(0,-2) ==  'Kotagad'){
+                                  image[1] = 'kotagad.jpg';
+                                  url2 = location.origin+"/content/dam/tourism/home/road-trip/uploadfiles/other-destination-thumb-image/"+image[1];
+                              }
+                              if(destTitle[1].slice(0,-2) ==  'Rayagada'){
+                                  image[1] = 'rayagada.jpg';
+                                  url2 = location.origin+"/content/dam/tourism/home/road-trip/uploadfiles/other-destination-thumb-image/"+image[1];
+                              }
+
+
+                              cnt1 = 1;
+                          }
+                          if(destTitle[2] != undefined){
+                              destTitle3 = destTitle[2].split('-')[0];
+                              if(destDesc[2] != undefined)
+                              destDesc3 = destDesc[2];
+                              if(destTitle[2].split('-')[1] == 1){
+                            	  url3 = "https://apps.odishatourism.gov.in/Application/uploadDocuments/attractions/thumbnail/"+image[2];
+                        	  }else{
+                        		  url3 = location.origin+"/content/dam/tourism/home/road-trip/uploadfiles/other-destination-thumb-image/"+image[2];
+                        	  }
+
+                              if(destTitle[2].slice(0,-2) ==  'Gopalpur'){
+
+                                  url3 = "https://apps.odishatourism.gov.in/Application/uploadDocuments/attractions/thumbnail/1_thumb20181121_124044.jpg";
+                              }
+
+
+
+                              if(destTitle[2].slice(0,-2) ==  'Mangalajodi'){
+                                  image[2] = 'lake-tampara.jpg';
+                                  url3 = location.origin+"/content/dam/tourism/home/road-trip/uploadfiles/other-destination-thumb-image/"+image[2];
+
+                              }
+                              if(destTitle[2].slice(0,-2) ==  'Devkunda Waterfall'){
+                                  image[2] = 'devkunda.jpg';
+                                  url3 = location.origin+"/content/dam/tourism/home/road-trip/uploadfiles/other-destination-thumb-image/"+image[2];
+                              }
+                              if(destTitle[2].slice(0,-2) ==  'Chilika Dhaba'){
+                                  image[2] = 'devkunda.jpg';
+                                  url3 = location.origin+"/content/dam/tourism/home/road-trip/uploadfiles/other-destination-thumb-image/"+image[2];
+                              }
+                              if(destTitle[2].slice(0,-2) ==  'Chilika Nature Camps'){
+                                  image[2] = 'chilika.jpg';
+                                  url3 = location.origin+"/content/dam/tourism/home/road-trip/uploadfiles/other-destination-thumb-image/"+image[2];
+                              }
+                              if(destTitle[2].slice(0,-2) ==  'Mandasaru'){
+                                  image[2] = 'Mandasaru.jpg';
+                                  url3 = location.origin+"/content/dam/tourism/home/road-trip/uploadfiles/other-destination-thumb-image/"+image[2];
+                              }
+                              if(destTitle[2].slice(0,-2) ==  'Taptapani'){
+                                  image[2] = 'taptapani.jpg';
+                                  url3 = location.origin+"/content/dam/tourism/home/road-trip/uploadfiles/other-destination-thumb-image/"+image[2];
+                              }
+                              if(destTitle[2].slice(0,-2) ==  'Berhampur City'){
+                                  image[2] = 'BerhampurCity.jpg';
+                                  url3 = location.origin+"/content/dam/tourism/home/road-trip/uploadfiles/other-destination-thumb-image/"+image[2];
+                              }
+                              if(destTitle[2].slice(0,-2) ==  'Chilika Dhaba'){
+                                  image[2] = 'chilikadhaba.jpg';
+                                  url3 = location.origin+"/content/dam/tourism/home/road-trip/uploadfiles/other-destination-thumb-image/"+image[2];
+                              }
+                              if(destTitle[2].slice(0,-2) ==  'Satapada'){
+                                  image[2] = 'satapada.jpg';
+                                  url3 = location.origin+"/content/dam/tourism/home/road-trip/uploadfiles/other-destination-thumb-image/"+image[2];
+                              }
+                              if(destTitle[2].slice(0,-2) ==  'Jirang'){
+                                  image[2] = 'Jirang.jpg';
+                                  url3 = location.origin+"/content/dam/tourism/home/road-trip/uploadfiles/other-destination-thumb-image/"+image[2];
+                              }
+                              if(destTitle[2].slice(0,-2) ==  'Tara Tarini'){
+                                  image[2] = 'taratarini.jpg';
+                                  url3 = location.origin+"/content/dam/tourism/home/road-trip/uploadfiles/other-destination-thumb-image/"+image[2];
+                              }
+							 if(destTitle[2].slice(0,-2) ==  'Khiching'){
+
+                                  url3= "https://apps.odishatourism.gov.in/Application/uploadDocuments/attractions/thumbnail/1_thumb20181121_163244.jpg";
+                              }
+                               if(destTitle[2].slice(0,-2) ==  'Similipal Nature Camp'){
+
+                                  url3 = "https://apps.odishatourism.gov.in/Application/uploadDocuments/attractions/thumbnail/1_thumb20181205_150535.jpg";
+                              }
+                              if(destTitle[2].slice(0,-2) ==  'Sitakund Waterfall'){
+                                  image[2]= 'sitakund.jpg';
+                                  url3 = location.origin+"/content/dam/tourism/home/road-trip/uploadfiles/other-destination-thumb-image/"+image[2];
+                              }
+                              if(destTitle[2].slice(0,-2) ==  'Devkunda Waterfall'){
+                                  image[2]= 'devkunda.jpg';
+                                  url3 = location.origin+"/content/dam/tourism/home/road-trip/uploadfiles/other-destination-thumb-image/"+image[2];
+                              }
+                              if(destTitle[2].slice(0,-2) ==  'Joranda Waterfall'){
+                                  image[2]= 'joranda.jpg';
+                                  url3 = location.origin+"/content/dam/tourism/home/road-trip/uploadfiles/other-destination-thumb-image/"+image[2];
+                              }
+                              if(destTitle[2].slice(0,-2) ==  'Athara Deula Temple'){
+                                  image[2]= 'athara.jpg';
+                                  url3 = location.origin+"/content/dam/tourism/home/road-trip/uploadfiles/other-destination-thumb-image/"+image[2];
+                              }
+                              if(destTitle[2].slice(0,-2) ==  'Keonjhar'){
+                                  image[2]= 'keonjhar.jpg';
+                                  url3 = location.origin+"/content/dam/tourism/home/road-trip/uploadfiles/other-destination-thumb-image/"+image[2];
+                              }
+                              if(destTitle[2].slice(0,-2) ==  'Duduma Waterfall'){
+                                  image[2]='duduma.jpg';
+                                  url3 = location.origin+"/content/dam/tourism/home/road-trip/uploadfiles/other-destination-thumb-image/"+image[2];
+                              }
+                              if(destTitle[2].slice(0,-2) ==  'DARINGBADI (A HILL STATION)'){
+
+                                  url3 = "https://apps.odishatourism.gov.in/Application/uploadDocuments/attractions/thumbnail/1_thumb20181206_121249.jpg";
+                              }
+
+                              if(destTitle[2].slice(0,-2) ==  'Chekaguda'){
+                                  image[2]= 'chekaguda.jpg';
+                                  url3 = location.origin+"/content/dam/tourism/home/road-trip/uploadfiles/other-destination-thumb-image/"+image[2];
+                              }
+                              if(destTitle[2].slice(0,-2) ==  'Chatikona'){
+                                  image[2] = 'chatikona.jpg';
+                                  url3 = location.origin+"/content/dam/tourism/home/road-trip/uploadfiles/other-destination-thumb-image/"+image[2];
+                              }
+                              if(destTitle[2].slice(0,-2) ==  'Kotagad'){
+                                  image[2] = 'kotagad.jpg';
+                                  url3 = location.origin+"/content/dam/tourism/home/road-trip/uploadfiles/other-destination-thumb-image/"+image[2];
+                              }
+                              if(destTitle[2].slice(0,-2) ==  'Rayagada'){
+                                  image[2] = 'rayagada.jpg';
+                                  url3 = location.origin+"/content/dam/tourism/home/road-trip/uploadfiles/other-destination-thumb-image/"+image[2];
+                              }
+
+
+
+                              cnt2 = 1;
+                          }
+                          if(destTitle[3] != undefined){
+                              destTitle4 = destTitle[3].split('-')[0];
+                              if(destDesc[3] != undefined)
+                              destDesc4 = destDesc[3];
+                              if(destTitle[3].split('-')[1] == 1){
+                            	  url4 = "https://apps.odishatourism.gov.in/Application/uploadDocuments/attractions/thumbnail/"+image[3];
+                        	  }else{
+                        		  url4 = location.origin+"/content/dam/tourism/home/road-trip/uploadfiles/other-destination-thumb-image/"+image[3];
+                        	  }
+                              if(destTitle[3].slice(0,-2) ==  'Gopalpur'){
+
+                                  url4 = "https://apps.odishatourism.gov.in/Application/uploadDocuments/attractions/thumbnail/1_thumb20181121_124044.jpg";
+                              }
+
+                             if(destTitle[3].slice(0,-2) ==  'Mangalajodi'){
+                                  image[3] = 'lake-tampara.jpg';
+                                  url4 = location.origin+"/content/dam/tourism/home/road-trip/uploadfiles/other-destination-thumb-image/"+image[3];
+
+                              }
+                              if(destTitle[3].slice(0,-2) ==  'Devkunda Waterfall'){
+                                  image[3] = 'devkunda.jpg';
+                                  url4 = location.origin+"/content/dam/tourism/home/road-trip/uploadfiles/other-destination-thumb-image/"+image[3];
+                              }
+                              if(destTitle[3].slice(0,-2) ==  'Chilika Dhaba'){
+                                  image[3] = 'devkunda.jpg';
+                                  url4 = location.origin+"/content/dam/tourism/home/road-trip/uploadfiles/other-destination-thumb-image/"+image[3];
+                              }
+                              if(destTitle[3].slice(0,-2) ==  'Chilika Nature Camps'){
+                                  image[3] = 'chilika.jpg';
+                                  url4 = location.origin+"/content/dam/tourism/home/road-trip/uploadfiles/other-destination-thumb-image/"+image[3];
+                              }
+                              if(destTitle[3].slice(0,-2) ==  'Mandasaru'){
+                                  image[3] = 'Mandasaru.jpg';
+                                  url4 = location.origin+"/content/dam/tourism/home/road-trip/uploadfiles/other-destination-thumb-image/"+image[3];
+                              }
+                              if(destTitle[3].slice(0,-2) ==  'Taptapani'){
+                                  image[3] = 'taptapani.jpg';
+                                  url4 = location.origin+"/content/dam/tourism/home/road-trip/uploadfiles/other-destination-thumb-image/"+image[3];
+                              }
+                              if(destTitle[3].slice(0,-2) ==  'Berhampur City'){
+                                  image[3] = 'BerhampurCity.jpg';
+                                  url4 = location.origin+"/content/dam/tourism/home/road-trip/uploadfiles/other-destination-thumb-image/"+image[3];
+                              }
+                              if(destTitle[3].slice(0,-2) ==  'Chilika Dhaba'){
+                                  image[3] = 'chilikadhaba.jpg';
+                                  url4 = location.origin+"/content/dam/tourism/home/road-trip/uploadfiles/other-destination-thumb-image/"+image[3];
+                              }
+                              if(destTitle[3].slice(0,-2) ==  'Satapada'){
+                                  image[3] = 'satapada.jpg';
+                                  url4 = location.origin+"/content/dam/tourism/home/road-trip/uploadfiles/other-destination-thumb-image/"+image[3];
+                              }
+                              if(destTitle[3].slice(0,-2) ==  'Jirang'){
+                                  image[3] = 'Jirang.jpg';
+                                  url4 = location.origin+"/content/dam/tourism/home/road-trip/uploadfiles/other-destination-thumb-image/"+image[3];
+                              }
+                              if(destTitle[3].slice(0,-2) ==  'Tara Tarini'){
+                                  image[3] = 'taratarini.jpg';
+                                  url4 = location.origin+"/content/dam/tourism/home/road-trip/uploadfiles/other-destination-thumb-image/"+image[3];
+                              }
+
+
+                              if(destTitle[3].slice(0,-2) ==  'Khiching'){
+
+                                  url4= "https://apps.odishatourism.gov.in/Application/uploadDocuments/attractions/thumbnail/1_thumb20181121_163244.jpg";
+                              }
+                               if(destTitle[3].slice(0,-2) ==  'Similipal Nature Camp'){
+
+                                  url4 = "https://apps.odishatourism.gov.in/Application/uploadDocuments/attractions/thumbnail/1_thumb20181205_150535.jpg";
+                              }
+                              if(destTitle[3].slice(0,-2) ==  'Sitakund Waterfall'){
+                                  image[3]= 'sitakund.jpg';
+                                  url4 = location.origin+"/content/dam/tourism/home/road-trip/uploadfiles/other-destination-thumb-image/"+image[3];
+                              }
+                              if(destTitle[3].slice(0,-2) ==  'Devkunda Waterfall'){
+                                  image[3]= 'devkunda.jpg';
+                                  url4 = location.origin+"/content/dam/tourism/home/road-trip/uploadfiles/other-destination-thumb-image/"+image[3];
+                              }
+                              if(destTitle[3].slice(0,-2) ==  'Joranda Waterfall'){
+                                  image[3]= 'joranda.jpg';
+                                  url4 = location.origin+"/content/dam/tourism/home/road-trip/uploadfiles/other-destination-thumb-image/"+image[3];
+                              }
+                              if(destTitle[3].slice(0,-2) ==  'Athara Deula Temple'){
+                                  image[3]= 'athara.jpg';
+                                  url4 = location.origin+"/content/dam/tourism/home/road-trip/uploadfiles/other-destination-thumb-image/"+image[3];
+                              }
+                              if(destTitle[3].slice(0,-2) ==  'Keonjhar'){
+                                  image[3]= 'keonjhar.jpg';
+                                  url4 = location.origin+"/content/dam/tourism/home/road-trip/uploadfiles/other-destination-thumb-image/"+image[3];
+                              }
+                              if(destTitle[3].slice(0,-2) ==  'Duduma Waterfall'){
+                                  image[3]='duduma.jpg';
+                                  url4 = location.origin+"/content/dam/tourism/home/road-trip/uploadfiles/other-destination-thumb-image/"+image[3];
+                              }
+                              if(destTitle[3].slice(0,-2) ==  'DARINGBADI (A HILL STATION)'){
+
+                                  url4 = "https://apps.odishatourism.gov.in/Application/uploadDocuments/attractions/thumbnail/1_thumb20181206_121249.jpg";
+                              }
+
+                              if(destTitle[3].slice(0,-2) ==  'Chekaguda'){
+                                  image[3]= 'chekaguda.jpg';
+                                  url4 = location.origin+"/content/dam/tourism/home/road-trip/uploadfiles/other-destination-thumb-image/"+image[3];
+                              }
+                              if(destTitle[3].slice(0,-2) ==  'Chatikona'){
+                                  image[3] = 'chatikona.jpg';
+                                  url4 = location.origin+"/content/dam/tourism/home/road-trip/uploadfiles/other-destination-thumb-image/"+image[3];
+                              }
+                              if(destTitle[3].slice(0,-2) ==  'Kotagad'){
+                                  image[3] = 'kotagad.jpg';
+                                  url4 = location.origin+"/content/dam/tourism/home/road-trip/uploadfiles/other-destination-thumb-image/"+image[3];
+                              }
+                              if(destTitle[3].slice(0,-2) ==  'Rayagada'){
+                                  image[3] = 'rayagada.jpg';
+                                  url4 = location.origin+"/content/dam/tourism/home/road-trip/uploadfiles/other-destination-thumb-image/"+image[3];
+                              }
+
+                              cnt3 = 1;
+                          }
+                          if(destTitle[4] != undefined){
+                              destTitle5 = destTitle[4].split('-')[0];
+                              if(destDesc[4] != undefined)
+                              destDesc5 = destDesc[4];
+                              if(destTitle[4].split('-')[1] == 1){
+                            	  url5 = "https://apps.odishatourism.gov.in/Application/uploadDocuments/attractions/thumbnail/"+image[4];
+                        	  }else{
+                        		  url5 = location.origin+"/content/dam/tourism/home/road-trip/uploadfiles/other-destination-thumb-image/"+image[4];
+                        	  }
+                             if(destTitle[4].slice(0,-2) ==  'Gopalpur'){
+
+                                  url5 = "https://apps.odishatourism.gov.in/Application/uploadDocuments/attractions/thumbnail/1_thumb20181121_124044.jpg";
+                              }
+
+
+                             if(destTitle[4].slice(0,-2) ==  'Mangalajodi'){
+                                  image[4] = 'lake-tampara.jpg';
+                                  url5 = location.origin+"/content/dam/tourism/home/road-trip/uploadfiles/other-destination-thumb-image/"+image[4];
+
+                              }
+                              if(destTitle[4].slice(0,-2) ==  'Devkunda Waterfall'){
+                                  image[4] = 'devkunda.jpg';
+                                  url5 = location.origin+"/content/dam/tourism/home/road-trip/uploadfiles/other-destination-thumb-image/"+image[4];
+                              }
+                              if(destTitle[4].slice(0,-2) ==  'Chilika Dhaba'){
+                                  image[4] = 'devkunda.jpg';
+                                  url5 = location.origin+"/content/dam/tourism/home/road-trip/uploadfiles/other-destination-thumb-image/"+image[4];
+                              }
+                              if(destTitle[4].slice(0,-2) ==  'Chilika Nature Camps'){
+                                  image[4] = 'chilika.jpg';
+                                  url5 = location.origin+"/content/dam/tourism/home/road-trip/uploadfiles/other-destination-thumb-image/"+image[4];
+                              }
+                              if(destTitle[4].slice(0,-2) ==  'Mandasaru'){
+                                  image[4] = 'Mandasaru.jpg';
+                                  url5 = location.origin+"/content/dam/tourism/home/road-trip/uploadfiles/other-destination-thumb-image/"+image[4];
+                              }
+                              if(destTitle[4].slice(0,-2) ==  'Taptapani'){
+                                  image[4] = 'taptapani.jpg';
+                                  url5 = location.origin+"/content/dam/tourism/home/road-trip/uploadfiles/other-destination-thumb-image/"+image[4];
+                              }
+                              if(destTitle[4].slice(0,-2) ==  'Berhampur City'){
+                                  image[4] = 'BerhampurCity.jpg';
+                                  url5 = location.origin+"/content/dam/tourism/home/road-trip/uploadfiles/other-destination-thumb-image/"+image[4];
+                              }
+                              if(destTitle[4].slice(0,-2) ==  'Chilika Dhaba'){
+                                  image[4] = 'chilikadhaba.jpg';
+                                  url5 = location.origin+"/content/dam/tourism/home/road-trip/uploadfiles/other-destination-thumb-image/"+image[4];
+                              }
+                              if(destTitle[4].slice(0,-2) ==  'Satapada'){
+                                  image[4] = 'satapada.jpg';
+                                  url5 = location.origin+"/content/dam/tourism/home/road-trip/uploadfiles/other-destination-thumb-image/"+image[4];
+                              }
+                              if(destTitle[4].slice(0,-2) ==  'Jirang'){
+                                  image[4] = 'Jirang.jpg';
+                                  url5 = location.origin+"/content/dam/tourism/home/road-trip/uploadfiles/other-destination-thumb-image/"+image[4];
+                              }
+                              if(destTitle[4].slice(0,-2) ==  'Tara Tarini'){
+                                  image[4] = 'taratarini.jpg';
+                                  url5 = location.origin+"/content/dam/tourism/home/road-trip/uploadfiles/other-destination-thumb-image/"+image[4];
+                              }
+
+
+                              if(destTitle[4].slice(0,-2) ==  'Khiching'){
+
+                                  url5= "https://apps.odishatourism.gov.in/Application/uploadDocuments/attractions/thumbnail/1_thumb20181121_163244.jpg";
+                              }
+                               if(destTitle[4].slice(0,-2) ==  'Similipal Nature Camp'){
+
+                                  url5 = "https://apps.odishatourism.gov.in/Application/uploadDocuments/attractions/thumbnail/1_thumb20181205_150535.jpg";
+                              }
+                              if(destTitle[4].slice(0,-2) ==  'Sitakund Waterfall'){
+                                  image[4]= 'sitakund.jpg';
+                                  url5 = location.origin+"/content/dam/tourism/home/road-trip/uploadfiles/other-destination-thumb-image/"+image[4];
+                              }
+                              if(destTitle[4].slice(0,-2) ==  'Devkunda Waterfall'){
+                                  image[4]= 'devkunda.jpg';
+                                  url5 = location.origin+"/content/dam/tourism/home/road-trip/uploadfiles/other-destination-thumb-image/"+image[4];
+                              }
+                              if(destTitle[4].slice(0,-2) ==  'Joranda Waterfall'){
+                                  image[4]= 'joranda.jpg';
+                                  url5 = location.origin+"/content/dam/tourism/home/road-trip/uploadfiles/other-destination-thumb-image/"+image[4];
+                              }
+                              if(destTitle[4].slice(0,-2) ==  'Athara Deula Temple'){
+                                  image[4]= 'athara.jpg';
+                                  url5 = location.origin+"/content/dam/tourism/home/road-trip/uploadfiles/other-destination-thumb-image/"+image[4];
+                              }
+                              if(destTitle[4].slice(0,-2) ==  'Keonjhar'){
+                                  image[4]= 'keonjhar.jpg';
+                                  url5 = location.origin+"/content/dam/tourism/home/road-trip/uploadfiles/other-destination-thumb-image/"+image[4];
+                              }
+                              if(destTitle[4].slice(0,-2) ==  'Duduma Waterfall'){
+                                  image[4]='duduma.jpg';
+                                  url5 = location.origin+"/content/dam/tourism/home/road-trip/uploadfiles/other-destination-thumb-image/"+image[4];
+                              }
+                              if(destTitle[4].slice(0,-2) ==  'DARINGBADI (A HILL STATION)'){
+
+                                  url5 = "https://apps.odishatourism.gov.in/Application/uploadDocuments/attractions/thumbnail/1_thumb20181206_121249.jpg";
+                              }
+
+                              if(destTitle[4].slice(0,-2) ==  'Chekaguda'){
+                                  image[4]= 'chekaguda.jpg';
+                                  url5 = location.origin+"/content/dam/tourism/home/road-trip/uploadfiles/other-destination-thumb-image/"+image[4];
+                              }
+                              if(destTitle[4].slice(0,-2) ==  'Chatikona'){
+                                  image[4] = 'chatikona.jpg';
+                                  url5 = location.origin+"/content/dam/tourism/home/road-trip/uploadfiles/other-destination-thumb-image/"+image[4];
+                              }
+                              if(destTitle[4].slice(0,-2) ==  'Kotagad'){
+                                  image[4] = 'kotagad.jpg';
+                                  url5 = location.origin+"/content/dam/tourism/home/road-trip/uploadfiles/other-destination-thumb-image/"+image[4];
+                              }
+                              if(destTitle[4].slice(0,-2) ==  'Rayagada'){
+                                  image[4] = 'rayagada.jpg';
+                                  url5 = location.origin+"/content/dam/tourism/home/road-trip/uploadfiles/other-destination-thumb-image/"+image[4];
+                              }
+
+
+                              cnt4 = 1;
+                          }
+                          str += '<div class="roadstickbox" id="firstStick'+k+'"><div class="roadstick--photo"><img src='+url1+' loading="lazy" class="screen-reader" alt=""></div><div class="roadstrip--content"><h6 class="screen-reader">'+destTitle1+'</h6><p class="screen-reader">'+destDesc1+'</p></div></div>';
+                          str += '<div class="roadstickbox" id="secondStick'+k+'"><div class="roadstick--photo"><img src='+url5+' loading="lazy" class="screen-reader" alt=""></div><div class="roadstrip--content"><h6 class="screen-reader">'+destTitle5+'</h6><p class="screen-reader">'+destDesc5+'</p></div></div>';
+                          str += '<div class="roadstickbox" id="thirdStick'+k+'"><div class="roadstick--photo"><img src='+url4+' loading="lazy" class="screen-reader" alt=""></div><div class="roadstrip--content"><h6 class="screen-reader">'+destTitle4+'</h6><p class="screen-reader">'+destDesc4+'</p></div></div>';
+                          str +=	'<div class="roadstickbox" id="fourthStick'+k+'"><div class="roadstick--photo"><img src='+url3+' loading="lazy" class="screen-reader" alt=""></div><div class="roadstrip--content"><h6 class="screen-reader">'+destTitle3+'</h6><p class="screen-reader">'+destDesc3+'</p></div></div>';
+                          str +=	'<div class="roadstickbox" id="fiveStick'+k+'"><div class="roadstick--photo"><img src='+url2+' loading="lazy" class="screen-reader" alt=""></div><div class="roadstrip--content"><h6 class="screen-reader">'+destTitle2+'</h6><p class="screen-reader">'+destDesc2+'</p></div></div>';
+                          str += "</div></div>";						 						 						 
+                      }
+					  str += "<div class='tripdatabox'><div class='tripdata'><div class='text-sm-left text-center'><h4 class='screen-reader'>"+dataDetail[9]+"</h4><div class='row'><div class='col-6'>"+
+								"<div class='tripdataitem'><i class='icon-approximate-hours'></i><p class='screen-reader'>Approximate Hours</p><h5 class='screen-reader'>"+Math.round(dataDetail[0])+" Hours</h5></div>"+
+									"</div><div class='col-6 text-sm-left text-center'><div class='tripdataitem'><i class='icon-road-conditionrdtrp'></i><p class='screen-reader'>Road Condition</p>"+
+										"<h5 class='screen-reader'>"+dataDetail[1]+"</h5></div></div><div class='col-6 text-sm-left text-center'><div class='tripdataitem'><i class='icon-rdcdtn--wide'></i><p class='screen-reader'>Highway</p><h5 class='screen-reader'>"+dataDetail[2]+"</h5></div></div> "+
+											"<div class='col-6 text-sm-left text-center'><div class='tripdataitem'><i class='icon-recommeded-start-time'></i><p class='screen-reader'>Start time</p><h5 class='screen-reader'>"+dataDetail[3]+"</h5></div>"+
+												"</div></div><a href="+path+" class='btn btn-red btn-radius hvr-rectangle-out screen-reader' onclick ='analyticsHomeRoad1();'>Read More</a><a href="+viewAllpath+" class='btn btn-red btn-radius hvr-rectangle-out screen-reader' onclick ='analyticsHomeRoad2();'>View All</a> "+              					
+													"</div></div><div class='tripdata'></div></div></div></div></div>";
+
+					  divElement.insertAdjacentHTML("beforeend", str);
+                      $('#firstStick'+k+'').hide();
+                      $('#fiveStick'+k+'').hide();
+                      $('#fourthStick'+k+'').hide();
+                      $('#thirdStick'+k+'').hide();
+                      $('#secondStick'+k+'').hide();	
+                      if(cnt == 1){
+                          $('#firstStick'+k+'').show();					
+                      }
+                      if(cnt1 == 1){
+                          $('#fiveStick'+k+'').show();														 
+                      }
+                      if(cnt2 == 1){
+                          $('#fourthStick'+k+'').show();							 
+                      }
+                      if(cnt3 == 1){
+                          $('#thirdStick'+k+'').show();							
+                      }
+                      if(cnt4 == 1){
+                          $('#secondStick'+k+'').show();							
+                      }
+                  }
+
+             }       
+             rs=null;             
+         }
+         else
+         {
+            //'Error Code should be here';
+         }
+     }
+}
+
+function analyticsHomeRoad1(){
+    customLinkClickAnalytics('Home:Road Trip:Read More', 'Navigation');
+}
+function analyticsHomeRoad2(){
+    customLinkClickAnalytics('Home:Road Trip:View All', 'Navigation');
+
+}

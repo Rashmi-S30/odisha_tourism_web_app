@@ -1,0 +1,3178 @@
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	
+	File Name :			header.js
+	Description :		JS file for header component
+	Author Name :		Swetak Amrutav
+	Date Created :		19-Dec-2018
+	Developed By :		Sabyasachi
+	Developed On :		17-Dec-2018
+	Updated On :		20-Jan-2020
+	Updated By :		Swetak Amrutav
+	Updated Reason :	menu links
+	
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+$(document).ready(function() {
+    var urlParams = new URLSearchParams(window.location.search);
+    var userName = urlParams.get('userName');
+    var password = urlParams.get('password');
+    $("#userName").val(userName);
+    $("#password").val(password);
+});
+
+var currentPage = $("#currentPageName").val();
+if(currentPage == 'en'){
+	currentPage='Home';
+}
+window.onpaint = preLoadFunction();
+$('.headershareicon').hide();
+function pageRestrict (){
+	var url = window.location.href;
+	var discover = url.includes("discover.html");
+	var experience = url.includes("experience.html");
+	var plan = url.includes("plan.html");
+	var aboutOdisha = url.includes("about-odisha.html");
+	var attractions = url.includes("attractions.html");
+	var majorCities = url.includes("major-cities.html");
+	var activities = url.includes("activities.html");
+	var themes = url.includes("themes.html");
+	var tripOrganizer = url.includes("trip-organizer.html");
+	var foodAccommodation = url.includes("food-accommodation.html");
+	var importantInformation = url.includes("Important-Information.html");
+	var shop = url.includes("shopping.html");
+	var onlineStore = url.includes("onlineStore.html");
+	var brickMortarStores = url.includes("brickMortarStores.html");
+	var dot = url.includes("dot.html");
+	var quickLinks = url.includes("quickLinks.html");
+	
+	if (discover || experience || plan 
+			|| aboutOdisha || attractions || majorCities
+			|| activities || themes
+			|| tripOrganizer || foodAccommodation || importantInformation
+			|| shop || onlineStore || brickMortarStores
+			|| dot || quickLinks) {
+		window.location.href = location.origin + "/content/tourism/en.html";
+	}
+}
+
+function preLoadFunction(){
+	if(currentPage == 'Home'){
+		$('.socialCustomIcon').show();
+		$('#toggleHandle').show();
+    }else{
+    	$('.socialCustomIcon').hide();
+    	$('#toggleHandle').hide();
+    }
+	pageRestrict();
+	$("#visitorNameMenu").hide(); //Hide the name bar before load
+	var pageLoadData = {"methodId": "2"};
+	postAjaxUserValidation(pageLoadData);
+}
+
+function checkUserPageLoad(pageLoadJsonResponse){
+	var url = window.location.href;
+	var myProfile = url.includes("myProfile.html");
+	var changePassword = url.includes("changePassword.html");
+	var myContributions = url.includes("myContributions.html");
+	var myNotifications = url.includes("myNotifications.html");
+	var myFavorites = url.includes("myFavorites.html");
+	if(localStorage.LoginType != undefined && localStorage.LoginType == "Website Login"){
+		if (pageLoadJsonResponse.responseStatus == "FAILURE") {
+			if (myProfile || changePassword || myContributions || myNotifications || myFavorites) {
+				window.location.href = location.origin + "/content/tourism/en.html";
+			}
+		}
+	}else{
+		if (myProfile || changePassword || myContributions || myNotifications || myFavorites) {
+			if(localStorage.LoginType == undefined ){
+				window.location.href = location.origin + "/content/tourism/en.html";
+			}
+		}
+	}
+}
+
+
+
+function addCookie() {
+	setCookie("cookie_pop", '1', 30);
+	customLinkClickAnalytics(currentPage+" : Header Cookie : I UnderStand", "Pop Up");
+};
+
+
+
+function getCookie(c_name) {
+    if (document.cookie.length > 0) {
+        c_start = document.cookie.indexOf(c_name + "=");
+        if (c_start != -1) {
+            c_start = c_start + c_name.length + 1;
+            c_end = document.cookie.indexOf(";", c_start);
+            if (c_end == -1) {
+                c_end = document.cookie.length;
+            }
+            return unescape(document.cookie.substring(c_start, c_end));
+        }
+    }
+    return "";
+}
+
+function setCookie(name, value, days) {
+    var expires;
+    if (days) {
+        var date = new Date();
+        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+        expires = "; expires=" + date.toGMTString();
+    }
+    else {
+        expires = "";
+    }
+    document.cookie = name + "=" + value + expires + "; path=/";
+}
+
+$(document).ready(function() {	
+	$('.progress').hide();
+	//for header CSS
+	//var currentPage = $("#currentPageName").val();
+	
+	if (currentPage != 'en') {
+		$("#primaryNav").addClass("nav--small");
+		$(".fixed-section").removeClass("fixed-section-header");
+		$("#footer").addClass("mt-40");
+		$(".fixed-section").addClass("dark-theme");
+	} else {
+		$("#primaryNav").removeClass("nav--small");
+		$(".fixed-section").addClass("fixed-section-header");
+	}
+	if (currentPage == 'Home') {
+		$("#footer").removeClass("mt-40");
+	}
+	if(currentPage == 'Home'){
+		$("#primaryNav").removeClass("nav--small");
+		$(".fixed-section").addClass("fixed-section-header");
+	}
+	if(currentPage == 'Home'){
+		$('.headershareicon').show();
+    }
+	if (currentPage == 'glimpses-of-odisha') {
+		$('.gallary').addClass("mt-40");
+	}
+	
+	if (currentPage == 'rathayatra') {
+		$("#footer").removeClass("mt-40");
+	}
+	if(currentPage == 'en'){
+		currentPage='Home';
+	}
+	
+	/*if (currentPage != 'blog-details') {
+		$('head').append('<meta property="og:url" content="https://odishatourism.gov.in">');
+        $('head').append('<meta property="og:image" content="https://odishatourism.gov.in/content/dam/tourism/home/structure/logo/logo_og.png">');
+        $('head').append('<meta property="og:description" content="Welcome to the official source for information on visiting Odisha, India. Lodging, entertainment, food/drink, sports,attractions & more."/>');
+        $('head').append('<meta property="og:title" content="Odisha Tourism : Visit Odisha | Travel & Tourism | Official Site"/>');
+	}*/
+	
+	//$("#main_menu li:first").addClass("active");
+	$("#main_menu>li:nth-child(1)").addClass("active");
+	
+	//add link to menu
+	$("#get-in-touch").attr("href", "#");
+	//$("#get-in-touchFooter").attr("href", location.origin+"/content/tourism/en.html#simplyExotic");
+	
+	$("#get-in-touch").click(function(){
+		$(".form-widget__content").addClass("show");
+	});
+	
+	//$("#booking").attr("href", location.origin+"/content/tourism/en.html#bookBestDeals");
+	//$("#bookingFooter").attr("href", location.origin+"/content/tourism/en.html#bookBestDeals");
+	
+	//Traveller's Essentials Map Link
+	$('.traveller-essential-cards-design div:last-child .card .card-body a').attr('href', 'https://apps.odishatourism.gov.in/map-view').attr('target', '_blank');
+	
+	/*Check Cookie Start*/
+	$("#cookie-content").hide();
+	var cookie_pop = getCookie('cookie_pop');
+	if(cookie_pop == ''){
+	    $('.cookies-home').removeClass('d-none');
+	    $("#cookie-content").show();
+	}
+	/*Check Cookie End*/
+	
+	//Set the user profile page
+	var serverOrigin = location.origin;
+	$("#myProfile").attr("href", serverOrigin + "/content/tourism/en/myProfile.html");
+	$("#myFavorites").attr("href", serverOrigin + "/content/tourism/en/myFavorites.html");
+	$("#myContributions").attr("href", serverOrigin + "/content/tourism/en/myContributions.html");
+	$("#myNotifications").attr("href", serverOrigin + "/content/tourism/en/myNotifications.html");
+	$("#changePassword").attr("href", serverOrigin + "/content/tourism/en/changePassword.html");
+	
+	$("#widgetId1").attr("href", serverOrigin + "/content/tourism/en/plan/trip-organizer/find-travelAgent.html");
+	$("#widgetId2").attr("href", serverOrigin + "/content/tourism/en/plan/food-accommodation/otdc.html");
+	$("#widgetId3").attr("href", serverOrigin + "/content/tourism/en/plan/trip-organizer/deals-offers.html");
+	
+	//Set the Shop Website Menu
+	$("#shopClothing").attr("href", "https://shop.odishatourism.gov.in/content/tourism/en.html#services").attr("target", "_blank");
+	$("#shopClothingFooter").attr("href", "https://shop.odishatourism.gov.in/content/tourism/en.html#services").attr("target", "_blank");
+	$("#shopDecor").attr("href", "https://shop.odishatourism.gov.in/content/tourism/en.html#decorforyou").attr("target", "_blank");
+	$("#shopDecorFooter").attr("href", "https://shop.odishatourism.gov.in/content/tourism/en.html#decorforyou").attr("target", "_blank");
+	$("#shopJewellery").attr("href", "https://shop.odishatourism.gov.in/content/tourism/en.html#fineryforyou").attr("target", "_blank");
+	$("#shopJewelleryFooter").attr("href", "https://shop.odishatourism.gov.in/content/tourism/en.html#fineryforyou").attr("target", "_blank");
+	$("#shopWebsite").attr("href", "https://shop.odishatourism.gov.in/content/tourism/en.html").attr("target", "_blank");
+	$("#shopWebsiteFooter").attr("href", "https://shop.odishatourism.gov.in/content/tourism/en.html").attr("target", "_blank");
+	$("#shopStoreLocator").attr("href", "https://shop.odishatourism.gov.in/content/tourism/en.html#locatestore").attr("target", "_blank");
+	$("#shopStoreLocatorFooter").attr("href", "https://shop.odishatourism.gov.in/content/tourism/en.html#locatestore").attr("target", "_blank");
+	$("#shopArtisanStories").attr("href", "https://shop.odishatourism.gov.in/content/tourism/en.html#artisanstories").attr("target", "_blank");
+	$("#shopArtisanStoriesFooter").attr("href", "https://shop.odishatourism.gov.in/content/tourism/en.html#artisanstories").attr("target", "_blank");
+	
+	//Set dot website link in menu
+	$("#dotWebsite").attr("href", "https://dot.odisha.gov.in/").attr("target", "_blank");
+    $("#dotContactUs").attr("href", "https://dot.odisha.gov.in/contact-us").attr("target", "_blank");
+	$("#dotWebsiteFooter").attr("href", "https://dot.odisha.gov.in/").attr("target", "_blank");
+		
+	$('[data-toggle = "tooltip"]').tooltip();
+    if ($(window).width() > 960) {
+        var e = $(window).height();
+        if ($(document).height() >= e) {
+            $(".nav-custom-bg").removeClass("fixed"), $(window).scroll(function() {
+                $(this).scrollTop() >= 20 ? ($(".nav-custom-bg").addClass("fixed"), $("#topbg").slideUp()) : ($(".nav-custom-bg").removeClass("fixed"), $("#topbg").slideDown())
+            })
+        }
+    }
+	
+});
+
+ // Start code: Add font size
+    var min = 10;
+    var max = 18;
+    var reset = 16;
+
+    function increaseFontSize() {
+        var p = document.getElementsByTagName('body');
+        for (i = 0; i < p.length; i++) {
+            if (p[i].style.fontSize) {
+                var s = parseInt(p[i].style.fontSize.replace("px", ""));
+            } else {
+                var s = 16;
+            }
+            if (s != max) {
+                s += 1;
+            }
+            p[i].style.fontSize = s + "px"
+        }
+    }
+
+    function decreaseFontSize() {
+        var p = document.getElementsByTagName('body');
+        for (i = 0; i < p.length; i++) {
+            if (p[i].style.fontSize) {
+                var s = parseInt(p[i].style.fontSize.replace("px", ""));
+            } else {
+                var s = 16;
+            }
+            if (s != min) {
+                s -= 1;
+            }
+            p[i].style.fontSize = s + "px"
+        }
+    }
+
+    function reSetFontSize() {
+        var p = document.getElementsByTagName('body');
+        for (i = 0; i < p.length; i++) {
+            if (p[i].style.fontSize) {
+                var s = parseInt(p[i].style.fontSize.replace("px", ""));
+            } else {
+                var s = 16;
+            }
+            if (s != reset) {
+                s = 16;
+            }
+            p[i].style.fontSize = s + "px"
+        }
+    }
+ // End code: Add font size
+
+
+
+ // Material Button (Wave Effect)
+(function(window) {
+    'use strict';
+
+    var Waves = Waves || {};
+    var $$ = document.querySelectorAll.bind(document);
+
+    // Find exact position of element
+    function isWindow(obj) {
+        return obj !== null && obj === obj.window;
+    }
+
+    function getWindow(elem) {
+        return isWindow(elem) ? elem : elem.nodeType === 9 && elem.defaultView;
+    }
+
+    function offset(elem) {
+        var docElem, win,
+            box = {top: 0, left: 0},
+            doc = elem && elem.ownerDocument;
+
+        docElem = doc.documentElement;
+
+        if (typeof elem.getBoundingClientRect !== typeof undefined) {
+            box = elem.getBoundingClientRect();
+        }
+        win = getWindow(doc);
+        return {
+            top: box.top + win.pageYOffset - docElem.clientTop,
+            left: box.left + win.pageXOffset - docElem.clientLeft
+        };
+    }
+
+    function convertStyle(obj) {
+        var style = '';
+
+        for (var a in obj) {
+            if (obj.hasOwnProperty(a)) {
+                style += (a + ':' + obj[a] + ';');
+            }
+        }
+
+        return style;
+    }
+
+    var Effect = {
+
+        // Effect delay
+        duration: 750,
+
+        show: function(e, element) {
+
+            // Disable right click
+            if (e.button === 2) {
+                return false;
+            }
+
+            var el = element || this;
+
+            // Create ripple
+            var ripple = document.createElement('div');
+            ripple.className = 'waves-ripple';
+            el.appendChild(ripple);
+
+            // Get click coordinate and element witdh
+            var pos         = offset(el);
+            var relativeY   = (e.pageY - pos.top);
+            var relativeX   = (e.pageX - pos.left);
+            var scale       = 'scale('+((el.clientWidth / 100) * 10)+')';
+
+            // Support for touch devices
+            if ('touches' in e) {
+              relativeY   = (e.touches[0].pageY - pos.top);
+              relativeX   = (e.touches[0].pageX - pos.left);
+            }
+
+            // Attach data to element
+            ripple.setAttribute('data-hold', Date.now());
+            ripple.setAttribute('data-scale', scale);
+            ripple.setAttribute('data-x', relativeX);
+            ripple.setAttribute('data-y', relativeY);
+
+            // Set ripple position
+            var rippleStyle = {
+                'top': relativeY+'px',
+                'left': relativeX+'px'
+            };
+
+            ripple.className = ripple.className + ' waves-notransition';
+            ripple.setAttribute('style', convertStyle(rippleStyle));
+            ripple.className = ripple.className.replace('waves-notransition', '');
+
+            // Scale the ripple
+            rippleStyle['-webkit-transform'] = scale;
+            rippleStyle['-moz-transform'] = scale;
+            rippleStyle['-ms-transform'] = scale;
+            rippleStyle['-o-transform'] = scale;
+            rippleStyle.transform = scale;
+            rippleStyle.opacity   = '1';
+
+            rippleStyle['-webkit-transition-duration'] = Effect.duration + 'ms';
+            rippleStyle['-moz-transition-duration']    = Effect.duration + 'ms';
+            rippleStyle['-o-transition-duration']      = Effect.duration + 'ms';
+            rippleStyle['transition-duration']         = Effect.duration + 'ms';
+
+            rippleStyle['-webkit-transition-timing-function'] = 'cubic-bezier(0.250, 0.460, 0.450, 0.940)';
+            rippleStyle['-moz-transition-timing-function']    = 'cubic-bezier(0.250, 0.460, 0.450, 0.940)';
+            rippleStyle['-o-transition-timing-function']      = 'cubic-bezier(0.250, 0.460, 0.450, 0.940)';
+            rippleStyle['transition-timing-function']         = 'cubic-bezier(0.250, 0.460, 0.450, 0.940)';
+
+            ripple.setAttribute('style', convertStyle(rippleStyle));
+        },
+
+        hide: function(e) {
+            TouchHandler.touchup(e);
+
+            var el = this;
+            var width = el.clientWidth * 1.4;
+
+            // Get first ripple
+            var ripple = null;
+            var ripples = el.getElementsByClassName('waves-ripple');
+            if (ripples.length > 0) {
+                ripple = ripples[ripples.length - 1];
+            } else {
+                return false;
+            }
+
+            var relativeX   = ripple.getAttribute('data-x');
+            var relativeY   = ripple.getAttribute('data-y');
+            var scale       = ripple.getAttribute('data-scale');
+
+            // Get delay beetween mousedown and mouse leave
+            var diff = Date.now() - Number(ripple.getAttribute('data-hold'));
+            var delay = 350 - diff;
+
+            if (delay < 0) {
+                delay = 0;
+            }
+
+            // Fade out ripple after delay
+            setTimeout(function() {
+                var style = {
+                    'top': relativeY+'px',
+                    'left': relativeX+'px',
+                    'opacity': '0',
+
+                    // Duration
+                    '-webkit-transition-duration': Effect.duration + 'ms',
+                    '-moz-transition-duration': Effect.duration + 'ms',
+                    '-o-transition-duration': Effect.duration + 'ms',
+                    'transition-duration': Effect.duration + 'ms',
+                    '-webkit-transform': scale,
+                    '-moz-transform': scale,
+                    '-ms-transform': scale,
+                    '-o-transform': scale,
+                    'transform': scale,
+                };
+
+                ripple.setAttribute('style', convertStyle(style));
+
+                setTimeout(function() {
+                    try {
+                        el.removeChild(ripple);
+                    } catch(e) {
+                        return false;
+                    }
+                }, Effect.duration);
+            }, delay);
+        },
+
+        // Little hack to make <input> can perform waves effect
+        wrapInput: function(elements) {
+            for (var a = 0; a < elements.length; a++) {
+                var el = elements[a];
+
+                if (el.tagName.toLowerCase() === 'input') {
+                    var parent = el.parentNode;
+
+                    // If input already have parent just pass through
+                    if (parent.tagName.toLowerCase() === 'i' && parent.className.indexOf('waves-effect') !== -1) {
+                        continue;
+                    }
+
+                    // Put element class and style to the specified parent
+                    var wrapper = document.createElement('i');
+                    wrapper.className = el.className + ' waves-input-wrapper';
+
+                    var elementStyle = el.getAttribute('style');
+
+                    if (!elementStyle) {
+                        elementStyle = '';
+                    }
+
+                    wrapper.setAttribute('style', elementStyle);
+
+                    el.className = 'waves-button-input';
+                    el.removeAttribute('style');
+
+                    // Put element as child
+                    parent.replaceChild(wrapper, el);
+                    wrapper.appendChild(el);
+                }
+            }
+        }
+    };
+
+
+    /**
+	 * Disable mousedown event for 500ms during and after touch
+	 */
+    var TouchHandler = {
+        /*
+		 * uses an integer rather than bool so there's no issues with needing to
+		 * clear timeouts if another touch event occurred within the 500ms.
+		 * Cannot mouseup between touchstart and touchend, nor in the 500ms
+		 * after touchend.
+		 */
+        touches: 0,
+        allowEvent: function(e) {
+            var allow = true;
+
+            if (e.type === 'touchstart') {
+                TouchHandler.touches += 1; // push
+            } else if (e.type === 'touchend' || e.type === 'touchcancel') {
+                setTimeout(function() {
+                    if (TouchHandler.touches > 0) {
+                        TouchHandler.touches -= 1; // pop after 500ms
+                    }
+                }, 500);
+            } else if (e.type === 'mousedown' && TouchHandler.touches > 0) {
+                allow = false;
+            }
+
+            return allow;
+        },
+        touchup: function(e) {
+            TouchHandler.allowEvent(e);
+        }
+    };
+
+
+    /**
+	 * Delegated click handler for .waves-effect element. returns null when
+	 * .waves-effect element not in "click tree"
+	 */
+    function getWavesEffectElement(e) {
+        if (TouchHandler.allowEvent(e) === false) {
+            return null;
+        }
+
+        var element = null;
+        var target = e.target || e.srcElement;
+
+        while (target.parentElement !== null) {
+            if (!(target instanceof SVGElement) && target.className.indexOf('waves-effect') !== -1) {
+                element = target;
+                break;
+            } else if (target.classList.contains('waves-effect')) {
+                element = target;
+                break;
+            }
+            target = target.parentElement;
+        }
+
+        return element;
+    }
+
+    /**
+	 * Bubble the click and show effect if .waves-effect elem was found
+	 */
+    function showEffect(e) {
+        var element = getWavesEffectElement(e);
+
+        if (element !== null) {
+            Effect.show(e, element);
+
+            if ('ontouchstart' in window) {
+                element.addEventListener('touchend', Effect.hide, false);
+                element.addEventListener('touchcancel', Effect.hide, false);
+            }
+
+            element.addEventListener('mouseup', Effect.hide, false);
+            element.addEventListener('mouseleave', Effect.hide, false);
+        }
+    }
+
+    Waves.displayEffect = function(options) {
+        options = options || {};
+
+        if ('duration' in options) {
+            Effect.duration = options.duration;
+        }
+
+        // Wrap input inside <i> tag
+        Effect.wrapInput($$('.waves-effect'));
+
+        if ('ontouchstart' in window) {
+            document.body.addEventListener('touchstart', showEffect, false);
+        }
+
+        document.body.addEventListener('mousedown', showEffect, false);
+    };
+
+    /**
+	 * Attach Waves to an input element (or any element which doesn't bubble
+	 * mouseup/mousedown events). Intended to be used with dynamically loaded
+	 * forms/inputs, or where the user doesn't want a delegated click handler.
+	 */
+    Waves.attach = function(element) {
+        // FUTURE: automatically add waves classes and allow users
+        // to specify them with an options param? Eg. light/classic/button
+        if (element.tagName.toLowerCase() === 'input') {
+            Effect.wrapInput([element]);
+            element = element.parentElement;
+        }
+
+        if ('ontouchstart' in window) {
+            element.addEventListener('touchstart', showEffect, false);
+        }
+
+        element.addEventListener('mousedown', showEffect, false);
+    };
+
+    window.Waves = Waves;
+
+    document.addEventListener('DOMContentLoaded', function() {
+        Waves.displayEffect();
+    }, false);
+
+})(window);
+
+
+$(document).ready(function(){       
+    $(".forgotflip").click(function () {
+    	$(".loginfirstbx").slideUp();
+        $(".loginfirstbx").hide();
+        $(".signupbox").hide();
+        $(".forgotpasswordbx").slideDown();
+        $(".forgotheading").show();
+        $(".loginheading").hide();
+        $('#typeOfLogin').addClass('forgot');
+        $('#typeOfLogin').removeClass('login');
+        $(".usertype").show();
+        $(".sociallogin").hide();
+        $(".signupfirstbx").hide();
+        $('#loginError').text('');
+        $(".activateTravelBox").hide();
+        $(".signuptravelagent").hide();
+        $(".signuphotelier").hide();
+ 
+     });
+     $(".backlogin").click(function () {
+    	 $(".forgotpasswordbx").hide();
+         $(".signupbox").hide();
+         $(".loginfirstbx").slideDown();
+         $(".loginfirstbx").show();
+         $(".forgotheading").hide();
+         $(".loginheading").show();
+         $('#typeOfLogin').removeClass('forgot');
+         $('#typeOfLogin').removeClass('signup');
+         $('#typeOfLogin').addClass('login');
+         $(".usertype").show();
+         $(".signupfirstbx").hide();
+         $('#loginError').text('');
+         if($('#Agent').is(':checked')){
+        	 $(".baseline").hide();
+             $(".sociallogin").hide();
+             $(".signuptravelagent").show();
+         }
+         if($('#Hotelier').is(':checked')){
+        	 $(".baseline").hide();
+             $(".sociallogin").hide();
+             $(".signuphotelier").show();
+         }
+         $(".activateTravelBox").hide();
+     });
+     $(".signupflip").click(function () {
+         $('#typeOfLogin').removeClass('login');
+         $('#typeOfLogin').addClass('signup');
+         $(".signupbox").slideDown();
+         $(".loginfirstbx").hide();
+         $(".forgotpasswordbx").hide();
+         $(".usertype").hide();
+         $(".backlogin").show();
+         $(".sociallogin").show();
+         $(".signupfirstbx").show();
+         $('#loginError').text('');
+         $(".activateTravelBox").hide();
+         
+     });
+     $("#Visitor").click(function () {
+		 if( $('.forgotpasswordbx').css('display') == 'none' ) {
+			 $(".baseline").show();
+		 }
+         $(".signuptravelagent").hide();
+         $(".signuphotelier").hide();
+         $(".activateTravelBox").hide();
+         $(".loginWarningModal").hide();
+     });
+     $("#Agent").click(function () {
+    	 if( $('.forgotpasswordbx').css('display') == 'none' ) {
+    		 $(".signuptravelagent").show();
+		 }
+         $(".signuphotelier").hide();
+         $(".activateTravelBox").hide();
+         $(".baseline").hide();
+     });
+     $("#Hotelier").click(function () {
+    	 if( $('.forgotpasswordbx').css('display') == 'none' ) {
+    		 $(".signuphotelier").show();
+		 }
+    	 $(".signuptravelagent").hide();
+         $(".activateTravelBox").hide();
+         $(".baseline").hide();
+         $(".loginWarningModal").hide();
+     });
+     $(".activate--click").click(function () {
+    	 $(".forgotpasswordbx").hide();
+    	 $(".loginfirstbx").hide();
+    	 $(".signupfirstbx").hide();
+         $(".activateTravelBox").show();
+         $(".usertype").hide();
+         $(".signuptravelagent").hide();
+         $(".signuphotelier").hide();
+         $(".baseline").hide();
+     });
+     $("#activateTravelBck").click(function () {
+        $("#signinmodal .modal-content").css("min-height", "580px");
+     });
+     $("#activateTA").click(function () {
+    	 $(".loginWarningModal").hide();
+         $("#signinmodal .modal-content").css("min-height", "450px");
+	});
+});
+
+$(document).ready(function(){
+	//Widget- Get In Touch
+	setTimeout(function(){
+		$("#formWidgetHandle").addClass("showHandle");
+	}, 5000);
+	
+	$("#formWidgetHandle").on("click", function(){
+		$(".form-widget__content").addClass("show");
+	});
+	$("#closeWidgetForm").on("click", function(){
+		$(".form-widget__content").removeClass("show");
+	});
+	$(".icon-close-hide").on("click", function(){
+        console.log("inside hide 2");
+        $(".form-widget__content").removeClass("show");
+	});
+	
+	//FAB widget
+	$("#fabWidgetHandle").on("click", function(){
+		$(this).toggleClass("fab-close");
+		$("body").toggleClass("bg-layer");
+		$("#fabWidgetContent").toggleClass("show");
+		
+		var fab_close = $("#fabWidgetHandle").hasClass("fab-close");
+		if (fab_close) {
+			$(".fab-widget__handle.fab-close").css("background-image", "url(/content/dam/tourism/home/structure/fab-widget/close.png)");
+		} else {
+			var imagePath = "url("+$('#widgetGif').val()+")";
+			 $(".fab-widget__handle").css("background-image", imagePath);
+		}
+		
+		
+	});
+});
+
+//Menu Toggle Icon
+$(".menu-close-icon").click(function() {
+  $(this).toggleClass("cross");
+});
+
+
+$(".menu-toggle-icon").click(function(){	  
+  	var urlPath = window.location.href;
+	
+  	if ((urlPath.includes("/en.html")) 
+  			|| (urlPath.includes("/en/trail-details"))
+  			|| (urlPath.includes("/en/road-trip-detail"))
+  			|| (urlPath.includes("/en/blog-details"))
+  			|| (urlPath.includes("/en/changePassword"))
+  			|| (urlPath.includes("/en/forgotPassword"))
+  			|| (urlPath.includes("/en/myProfile"))
+  			|| (urlPath.includes("/en/myNotifications"))
+  			|| (urlPath.includes("/en/myContributions"))
+  			|| (urlPath.includes("/en/myFavorites"))
+  			|| (urlPath.includes("/en/the-taste-of-odisha"))
+  			|| (urlPath.includes("/en/art-architecture"))
+  			|| (urlPath.includes("/en/history-climate-cities"))
+  			|| (urlPath.includes("/en/cultural-heritage"))
+  			|| (urlPath.includes("/en/travel-advisory"))
+  			|| (urlPath.includes("/en/search"))
+  			|| (urlPath.includes("/en/privacy-policies"))
+  			|| (urlPath.includes("/en/bookingDetails"))
+  			|| (urlPath.includes("/en/affiliate-program"))
+  			|| (urlPath.includes("/en/program-page"))
+  			|| (urlPath.includes("/en/training-program"))
+  			|| (urlPath.includes("/en/gajalaxmi-palace"))
+  			|| (urlPath.includes("/en/Killa-Dalijoda"))
+  			|| (urlPath.includes("/en/dhenkanal_palace"))
+  			|| (urlPath.includes("/en/belgadia-palace"))) {
+		$('.curtain-menu').addClass('showMenu');
+		$('body').addClass('menuActive');
+	} else {
+		$(".main-menu>li").removeClass('active');
+		$('.curtain-menu').removeClass('showMenu');
+		if ((urlPath.includes("/discover/")) || (urlPath.includes("/about-odisha/")) || (urlPath.includes("/attractions/")) || (urlPath.includes("/major-cities/")) || (urlPath.includes("/guideline-for-your-safety"))) {
+			$(".main-menu>li:nth-child(1)").addClass("active");
+			$(".menu-left-section ul li:nth-child(1)").addClass("showMedia");
+			$('.curtain-menu').addClass('showMenu');
+		} else if ((urlPath.includes("/experience/")) || (urlPath.includes("/activities/")) || (urlPath.includes("/themes/"))) {
+			$(".main-menu>li:nth-child(2)").addClass("active");
+			$(".menu-left-section ul li:nth-child(2)").addClass("showMedia");
+			$('.curtain-menu').addClass('showMenu');
+		} else if ((urlPath.includes("/plan/")) || (urlPath.includes("/trip-organizer/")) || (urlPath.includes("/food-accomodation/")) || (urlPath.includes("/important-information/"))) {
+			$(".main-menu>li:nth-child(3)").addClass("active");
+			$(".menu-left-section ul li:nth-child(3)").addClass("showMedia");
+			$('.curtain-menu').addClass('showMenu');
+		} else if ((urlPath.includes("/dot/")) || (urlPath.includes("/quickLinks/"))) {
+			$(".main-menu>li:nth-child(5)").addClass("active");
+			$(".menu-left-section ul li:nth-child(5)").addClass("showMedia");
+			$('.curtain-menu').addClass('showMenu');
+		}
+	}
+
+});
+$(".menu-close-icon").click(function(){
+  $('.curtain-menu').removeClass('showMenu');
+  $('body').removeClass('menuActive');
+});
+
+$(".main-menu>li.menu__theme .menu__dropdown li a").click(function(){
+  $('.curtain-menu').toggleClass('showMenu');
+  $('.menu-toggle-icon').removeClass('cross');
+});
+
+//Main menu item on Hover add active class
+
+//var rightSectionColor = ["#27150b","#251f09","#091c22"];
+
+/*function chnageRightSectionColor(menupos){
+  $(".menu-right-section").css("background-color", rightSectionColor[menupos-1]);
+}
+
+function chnageLeftSectionPhoto(menupos){
+  $(".menu-left-section ul li").removeClass("showMedia");
+  //$(".menu-left-section ul li:nth-child(2)").addClass("showMedia");
+}*/
+
+$(document).ready(function(){
+	//fav-widget BG color
+	 $(".fab-widget__content__item").each(function() {
+		 var widgetColor = $(this).find("#imgBgColor").val();
+			$(this).find(".fab-item__link img").css("background-color", widgetColor);
+	 });
+	 
+	 var imagePath = "url("+$('#widgetGif').val()+")";
+	 $(".fab-widget__handle").css("background-image", imagePath);
+	
+	
+	// Floaing Widget
+	$(".widget-handle a").click(function(){
+	    $(".widget-content").addClass("showSection");
+   });
+
+	$(".widget-close").click(function(){
+	    $(".widget-content").removeClass("showSection");
+	});
+	
+	
+	// Floaing Livefyre carousel
+	$(".floating-carousellivefyre .carousellivefyre-icon a").click(function(){
+	    $(".floating-carousellivefyre .livefyre-div").addClass("showSection");
+   });
+
+	$(".widget-close").click(function(){
+	    $(".floating-carousellivefyre .livefyre-div").removeClass("showSection");
+	});
+	
+
+	// Change BG color on hover
+    $(".main-menu>li:nth-child(1)").hover(function(){
+       $(".menu-right-section").css("background-color", "#27150b");;
+     });
+
+     $(".main-menu>li:nth-child(2)").hover(function(){
+       $(".menu-right-section").css("background-color", "#251f09");;
+     });
+
+     $(".main-menu>li:nth-child(3)").hover(function(){
+       $(".menu-right-section").css("background-color", "#091c22");;
+     });
+     
+     $(".main-menu>li:nth-child(4)").hover(function(){
+	     $(".menu-right-section").css("background-color", "#190f0f");;
+	 });
+     
+     $(".main-menu>li:nth-child(5)").hover(function(){
+         $(".menu-right-section").css("background-color", "#12211e");
+       });
+
+  var viewportWidth = $(window).width();
+  var limit = 576;
+  if(viewportWidth > limit){
+      $(".menu-left-section ul li:nth-child(1)").addClass("showMedia");
+      
+    // Change Leftside IMG on hover
+    
+      // Change Leftside IMG on hover
+      $(".main-menu>li:nth-child(1)").hover(function(){
+        $(".main-menu>li").removeClass('active');
+        $(this).addClass('active');
+        $(".menu-left-section ul li").removeClass("showMedia");
+        $(".menu-left-section ul li:nth-child(1)").addClass("showMedia");
+      });
+
+      $(".main-menu>li:nth-child(2)").hover(function(){
+        $(".main-menu>li").removeClass('active');
+        $(this).addClass('active');
+        $(".menu-left-section ul li").removeClass("showMedia");
+        $(".menu-left-section ul li:nth-child(2)").addClass("showMedia");
+      });
+
+      $(".main-menu>li:nth-child(3)").hover(function(){
+        $(".main-menu>li").removeClass('active');
+        $(this).addClass('active');
+        $(".menu-left-section ul li").removeClass("showMedia");
+        $(".menu-left-section ul li:nth-child(3)").addClass("showMedia");
+      });
+      
+      $(".main-menu>li:nth-child(4)").hover(function(){
+          $(".main-menu>li").removeClass('active');
+          $(this).addClass('active');
+          $(".menu-left-section ul li").removeClass("showMedia");
+          $(".menu-left-section ul li:nth-child(4)").addClass("showMedia");
+        });
+      
+      $(".main-menu>li:nth-child(5)").hover(function(){
+          $(".main-menu>li").removeClass('active');
+          $(this).addClass('active');
+          $(".menu-left-section ul li").removeClass("showMedia");
+          $(".menu-left-section ul li:nth-child(5)").addClass("showMedia");
+        });
+  }
+
+//For Mobile Menu
+  if(viewportWidth < limit){
+      $(".menu__theme").removeClass("active");
+      $(document).on('click',".main-menu .menu__theme",function(){
+          if($(this).hasClass("active")){
+              $(this).removeClass("active");
+          }
+          else{
+              $(".menu__theme").removeClass("active");
+              $(this).addClass("active");
+              $(".menu-right-section").animate({
+                  scrollTop: 0
+              }, 600);
+          }
+      });
+  }    
+
+//About text read more for attractions
+$('#showMoreLess').on('click',function(){
+      if($(this).data('num') == 1){
+          $(this).data('num',2);
+          $(this).text('Read Less');
+          $('#stripedText').hide();
+          $('#allContent').show();
+      }else{
+          $(this).data('num',1);
+          $('#allContent').hide();
+          $('#stripedText').show();
+          $(this).text('Read More');
+      }
+  });
+  
+  
+});
+
+function postAjaxUserValidation(data, callback){
+	$.ajax({
+		type: 'POST',
+		url: '/tourism/auth',
+		data: data,
+		dataType: "json",
+		async: false,
+		success: function(data) {
+			var jsonResponse;
+			
+			if (data == '') {
+				//alert("FORWARD TO ERROR");
+			} else {
+				if (typeof data === 'string') {
+					jsonResponse = JSON.parse(data);
+				} else {
+					jsonResponse = data;
+				}
+			}
+			
+			checkUserPageLoad(jsonResponse);	
+		},
+		error: function (xhr) {
+			console.log(xhr.status);
+			//alert("Technical Error");
+		}
+	});
+}
+$('.hidesearchbar').click(function(){
+	$('#topsearch').removeClass('active');
+})
+        
+$('#txtSearch').keypress(function (e) {
+	var key = e.which;
+	var txtSearchId = $("#txtSearch").val();
+	if(txtSearchId =="trail(s)" || txtSearchId =="trails" || txtSearchId =="package" || txtSearchId =="packages" || txtSearchId =="itinerary" ||txtSearchId =="itineraries"){
+		txtSearchId ="trail";
+	}
+	var data = {
+		"txtSearchId" : txtSearchId
+	};
+	if(key == 13)  // the enter key code
+	{
+		if($('#txtSearch').val()== '') {
+			$('#txtSearch').attr('placeholder', 'Please enter search text...');
+			return false;
+		} else {
+			postAjaxGlobalSerach(data);
+			return true; 
+		}
+	}
+});
+
+$(".searchbtn").click(function(){
+    $("#topsearch").fadeIn();
+    $("#txtSearch").focus();
+});
+    
+$(".hidesearchbar").click(function(){
+    $("#topsearch").fadeOut();
+});
+
+function postAjaxGlobalSerach(keyword) {
+	$.ajax({
+		type : 'POST',
+		url : '/tourism/globalSearch',
+		data : keyword,
+		beforeSend:function() {	$('.progress').show()},
+		success : function(data) {
+			if (data == '') {
+				//alert("FORWARD TO ERROR");
+			} else {
+				if (typeof data === 'string') {
+					localStorage.setItem('result', data);
+					localStorage.setItem('keyword', keyword.txtSearchId);
+					window.location.href = location.origin+"/content/tourism/en/search.html?keyword="+keyword.txtSearchId;
+				} else {
+					localStorage.setItem('result', data);
+					window.location.href = location.origin+"/content/tourism/en/search.html?keyword="+keyword.txtSearchId;
+				}
+			}
+			
+             //console.log(keyword);
+			
+
+		},
+		error : function(xhr) {
+			console.log(xhr.status);
+			//alert("Error");
+		}//,async: false
+	});
+}
+function showSignUp(r){
+    if(r==1)
+    {$('.baseline ').css('display','block');
+     $('.sociallogin ').css('display','block');    }
+else{$('.baseline ').css('display','none');
+     $('.sociallogin').css('display','none');   }
+
+}
+//**************************************Analytics Section Start*************************************
+
+function analyticsHeader1(headerItem1){
+	var typeOfLink = "Navigation";
+	if((headerItem1=='A') || (headerItem1=='A-') || (headerItem1=='A+') || (headerItem1=='Light theme') || (headerItem1=='Dark theme')){
+		 typeOfLink = "Design Change";
+	}
+	if((headerItem1=='Sign In') || (headerItem1=='Forgot Password') || (headerItem1=='Back to Login') || (headerItem1=='Global Search')){
+		 typeOfLink = "Pop Up";
+	}
+	customLinkClickAnalytics(currentPage+': Header : '+headerItem1, typeOfLink);
+}
+
+function analyticsHeader2(){
+	delete digitalData.linkClick;
+	delete digitalData.form;
+	delete digitalData.filter;
+	delete digitalData.error;
+	$("#mainHeaderForm input:text").focus(function () {
+		delete digitalData.linkClick;
+		if(!$("#mainHeaderForm input:text").val()){
+			_satellite.track('login_starts');
+		}
+		});
+}
+
+function analyticsHeader4(){
+	delete digitalData.linkClick;
+	delete digitalData.form;
+	delete digitalData.filter;
+	delete digitalData.error;
+	_satellite.track('registration_starts');
+}
+function analyticsHeader5(title){
+	var nameLink = currentPage+" Header: widget : "+title;
+	customLinkClickAnalytics(nameLink, 'Navigation');
+}
+
+function analyticsLoginStart() {
+		delete digitalData.linkClick;
+		delete digitalData.internalSearch;
+		delete digitalData.form;
+		delete digitalData.filter;
+		delete digitalData.error;
+	    var tlength = $("#userName").val().length;
+	    var plength = $("#password").val().length;
+	    var clength = $("#captcha").val().length;
+
+	    if((tlength == 1 && plength == 0 && clength == 0) || (tlength == 0 && plength == 1 && clength == 0)){
+	     // console.log(tlength);
+	    _satellite.track('login_starts');
+	    }
+}
+
+function analyticsRegistrationStart() {
+	delete digitalData.linkClick;
+	delete digitalData.internalSearch;
+	delete digitalData.form;
+	delete digitalData.filter;
+	delete digitalData.error;
+    var visitorNamelength = $("#visitorName").val().length;
+    var visitorEmailength = $("#visitorEmail").val().length;
+    var visitorPhonelength = $("#visitorPhone").val().length;
+    var captchalength = $("#captcha").val().length;
+
+    if((visitorNamelength == 1 && visitorEmailength == 0 && visitorPhonelength == 0 && captchalength == 0) || (visitorNamelength == 0 && visitorEmailength == 1 && visitorPhonelength == 0  && captchalength == 0) || (visitorNamelength == 0 && visitorEmailength == 0 && visitorPhonelength == 1 && captchalength == 0)){
+    _satellite.track('registration_starts');
+    }
+}
+
+function analyticsForgotPasswordStart() {
+    var visitorEmailengthForgetPass = $("#userEmail").val().length;
+    var captchalength1 = $("#captcha").val().length;
+
+    if((visitorEmailengthForgetPass == 1)){
+    	/*var form =  {
+    			"form"	:	{
+    				"formName":currentPage+" :Header : Forget Password Form", 
+    				"formType":"Forget Password"
+    				}
+    		}
+    	$.extend( digitalData, form );
+     _satellite.track('formStart');  */
+      formStartAnalytics("Forget Password Form","Submit:Forgot PassWord");
+     }
+}
+
+function analyticsFabWidget1(){
+	var fab_closeA = $("#fabWidgetHandle").hasClass("fab-close");
+	if (fab_closeA) {
+		customLinkClickAnalytics("Home:Header:Fab-widget-close", "Pop Up");
+	} else {
+		customLinkClickAnalytics("Home:Header:Fab-widget-Logo", "Pop Up");
+	}
+}
+function analyticsFabWidget2(title){
+	customLinkClickAnalytics("Home:Header:Fab-Widget:"+title, "Navigation");
+}
+
+function analyticsGetInTouch(){
+	customLinkClickAnalytics(currentPage+":Header:Get In Touch", "Pop Up");
+}
+function analyticsGetInTouchClose(){
+	customLinkClickAnalytics(currentPage+":Header:Get In Touch:Cross Icon", "Pop Up");
+}
+//**************************************Analytics Section end*************************************
+
+
+
+//Color-switcher Script Start
+$(document).ready(function(){
+	 var lstorageThemeval = localStorage.getItem("webtheme");
+
+	//alert(lstorageval);
+	if (lstorageThemeval !== "" ) {
+	   
+	$('.theme-list a').removeClass('active');
+	 $('body').addClass(lstorageThemeval);
+	$('#'+lstorageThemeval).addClass('active');
+	}
+
+	if (lstorageThemeval == null ) {
+
+	  localStorage.removeItem('webtheme');
+	}
+
+	 $('.theme-list a').on('click',function(){
+	      $('.theme-list a').removeClass('active');
+	      $(this).addClass('active');
+	      $('body').attr('class','');
+	      var themeid = $(this).attr("id");
+
+	           if (typeof (Storage) !== "undefined") {
+
+	              localStorage.setItem("webtheme",themeid);
+	             var lstorageThemeval = localStorage.getItem("webtheme");
+	             //alert(lstorageThemeval);
+	             $('body').addClass(lstorageThemeval);
+
+	              }
+	    });
+
+	 $('#custom').on('click',function(){
+	   localStorage.removeItem('webtheme');
+	$('body').attr('class','');
+	 })
+});
+//Color-switcher Script End
+
+
+//analytics for linkclick   
+function analyticsSocialIcon(socialItems){
+		var socialLinkName = " Home : Header : Custom Social Icon : "+socialItems;
+		customLinkClickAnalytics(socialLinkName, "Navigation");
+}
+
+/*$("#toggleHandle").click(function(){
+    $(".fixed-sectionr").show();
+    $(".closeIcon").show();
+});
+
+$(".closeIcon").click(function(){
+    $(".fixed-sectionr").hide();
+});
+*/
+
+
+/* code for covid popup close 
+document.addEventListener("DOMContentLoaded", function () {
+    var closeIcon = document.querySelector(".closeIcon");
+    var popup = document.getElementById("covid-popup");
+
+    closeIcon.addEventListener("click", function () {
+        popup.style.display = "none"; // Hides the popup
+    });
+}); */
+
+$(document).on("click","#toggleHandle1",function() {
+    console.log("inside function");
+
+         $("#covid-popup").show();// Show the #covid-popup element
+    	 $("#toggleHandle1").hide();
+
+
+});
+
+$(document).on("click","#covid-close",function() {
+
+
+         $("#covid-popup").hide(); // Show the #covid-popup element
+    	$("#toggleHandle1").show();
+
+});
+
+
+
+//chilika-bird-festival
+
+
+
+if (window.location.href.indexOf("chilika-bird-festival") !== -1) {
+    // Redirect to a new link
+   // window.location.href = 'https://www.bookodisha.com/tourism/ticketing/national-chilika-bird-festival-24';
+}
+var password, encPassword, userType,affiliatedUserType=0;
+var currentPageHeader = $("#currentPageName").val();
+
+$(document).ready(function() {
+	/*Check User Login Session*/
+	var data = {"methodId": "2"};
+	postAjaxLogin(data, checkUser);
+	
+	/*Add value to captcha*/
+	$("#captchaImageLogin").attr('src', location.origin + '/tourism/captcha');
+	
+	/*All Hide elements goes here*/
+	//Loader
+	$("#loaderLogin").hide();
+	$("#loaderEmail").hide();
+	$("#loaderForgetLogin").hide();
+	$('#loaderSignupLogin').hide();
+	$('#loaderSignupLogin').hide();
+	$('#loaderActiveTA').hide();
+	//fa-eye
+	$("#showPassLogin").hide();
+	$("#showPass").hide();
+	
+	//Small Text
+	$("#userNameRequired").hide();
+	$("#passwordRequired").hide();
+	$("#captchaRequired").hide();
+	$("#taEmailRequired").hide();
+	$("#visitorNameRequired").hide();
+	$("#visitorEmailRequired").hide();
+	$("#visitorPhoneRequired").hide();
+	$("#visitorPasswordRequired").hide();
+	$("#visitorConfirmPasswordRequired").hide();
+	$("#termsRequired").hide();
+	$("#userEmailRequired").hide();
+	
+	//Message Modal
+	$(".loginErrorModal").hide();
+	$(".loginWarningModal").hide();
+	$(".loginSuccessModal").hide();
+	
+	userType = $('input[name=loginType]:checked').val();
+	if(userType== "2"){
+		$('#fb-btn').show();
+		$('#gSignIn').show();
+	}else{
+		$('#fb-btn').hide();
+		$('#gSignIn').hide();
+	}
+	
+	/*Block Cut, Copy, Paste on Password*/
+	$('#visitorPassword').on("cut copy paste",function(e) {
+		e.preventDefault();
+	});
+	$('#visitorConfirmPassword').on("cut copy paste",function(e) {
+		e.preventDefault();
+	});
+	$('#password').on("cut copy paste",function(e) {
+		e.preventDefault();
+	});
+	if(currentPageHeader =='approval-form-status' || currentPageHeader == 'finalize-agreement' || currentPageHeader == 'local-partner-trail' || currentPageHeader == 'affiliate-form' ||currentPageHeader == 'program-page' || currentPageHeader == 'training-program' || currentPageHeader == 'affiliate-program' || currentPageHeader == 'odisha-pro-certificate' || currentPageHeader == 'choose-local-partner'){
+		$("#myProfile").closest('li').remove();
+		$("#myFavorites").closest('li').remove();
+		$("#myContributions").closest('li').remove();
+		$("#myNotifications").closest('li').remove();
+		$("#changePassword").closest('li').remove();
+	}
+
+	//***********Facebook Login Javascript SDK Start************//
+	
+	  window.fbAsyncInit = function() {
+	    FB.init({
+	      appId      : '847221036224513',
+	      cookie     : true,
+	      xfbml      : true,
+	      version    : 'v11.0'
+	    });
+	      
+	    FB.getLoginStatus(function(response) {
+	        statusChangeCallback(response);
+	    });
+	      
+	  };
+
+	  (function(d, s, id){
+	     var js, fjs = d.getElementsByTagName(s)[0];
+	     if (d.getElementById(id)) {return;}
+	     js = d.createElement(s); js.id = id;
+	     js.src = "https://connect.facebook.net/en_US/sdk.js";
+	     fjs.parentNode.insertBefore(js, fjs);
+	   }(document, 'script', 'facebook-jssdk'));
+	  
+	//***********Facebook Login Javascript SDK End************//
+	 
+});
+//----hide show functionalities for social login buttons-----//
+function visitorSignup(){
+	$('#fb-btn').hide();
+	$('#gSignIn').hide();
+}
+function visitorBackToLogin(){
+	$('#fb-btn').show();
+	$('#gSignIn').show();
+}
+//facebook callback functions start
+function checkLoginState() {
+  FB.getLoginStatus(function(response) {
+    statusChangeCallback(response);
+  });
+}
+
+function statusChangeCallback(response){
+	if(response.status=="connected"){
+		console.log("Logged in and authenticated");
+		$('#loginType').val("Facebbok");
+		$("#signinmodal").modal('hide');
+		localStorage.LoginType="Facebook";
+		testAPI();
+	}else{
+		console.log("Not authenticated");
+	}
+}
+function testAPI(){
+	FB.api('/me?fields=id,first_name,last_name,email',function(response){
+		if(response && !response.error){
+			
+			localStorage.loginStatus="SUCCESS";
+        	var userName = response.first_name;
+        	var lastName = response.last_name;
+        	var userId = response.id;
+        	var email=response.email;
+        	if (userName.length > 8) {
+        		userName = userName.substr(0,8) + "..";
+        	}
+        	var welcomeText = "Hello " + userName;
+        	$("#visitorNameMenu").show();
+        	$("#visitorNameMenu").css("display", "inline");
+        	$("#visitorNameMenu").text(welcomeText);
+        	$("#userLoginMenu").hide();
+        	$("#captcha").val('');
+        	//Analytics
+        	digitalData.user.hashedUserId = getEncUserId(response.id);
+        	digitalData.user.login.loginStatus = "Logged-In";
+        	_satellite.track('login_completed');
+        	if(localStorage.userName == undefined && localStorage.userId == undefined){
+        		localStorage.setItem("userName",userName+' '+lastName);
+        		localStorage.setItem("userId",userId);
+        	}
+        	if(localStorage.socialLoginEmail == undefined){
+        		localStorage.setItem("socialLoginEmail",email);
+        	}
+        	$("#myProfile").closest('li').remove();
+            $("#myFavorites").closest('li').remove();
+            $("#myNotifications").closest('li').remove();
+            $("#changePassword").closest('li').remove();
+        	saveUserData(response,$('#loginType').val());
+        	
+        	if(localStorage.alreadyEntered==undefined){
+        		localStorage.alreadyEntered="entered";
+        		//localStorage.bredcrumbLikeItem = 'bredLike';
+        		location.reload();
+        	}
+		}
+	})
+}
+//facebook callback functions end
+//google Sign-in success callback
+function onSuccess(googleUser) {
+    // Get the Google profile data (basic)
+	$('#loginType').val("Google");
+	localStorage.LoginType="Google";
+	$("#signinmodal").modal('hide');
+    // Retrieve the Google account data
+    gapi.client.load('oauth2', 'v2', function () {
+        var request = gapi.client.oauth2.userinfo.get({
+            'userId': 'me'
+        });
+        request.execute(function (resp) {
+            // Display the user details
+        	localStorage.loginStatus="SUCCESS";
+        	var userName = resp.given_name;
+        	var lastName = resp.family_name;
+        	var userId = resp.id;
+        	var email=resp.email;
+        	if (userName.length > 8) {
+        		userName = userName.substr(0,8) + "..";
+        	}
+        	var welcomeText = "Hello " + userName;
+        	$("#visitorNameMenu").show();
+        	$("#visitorNameMenu").css("display", "inline");
+        	$("#visitorNameMenu").text(welcomeText);
+        	$("#userLoginMenu").hide();
+        	$("#captcha").val('');
+        	//Analytics
+        	digitalData.user.hashedUserId = getEncUserId(resp.id);
+        	digitalData.user.login.loginStatus = "Logged-In";
+        	_satellite.track('login_completed');
+        	if(localStorage.userName == undefined && localStorage.userId == undefined){
+        		localStorage.setItem("userName",userName+' '+lastName);
+        		localStorage.setItem("userId",userId);
+        	}
+        	if(localStorage.socialLoginEmail == undefined){
+        		localStorage.setItem("socialLoginEmail",email);
+        	}
+        	$("#myProfile").closest('li').remove();
+            $("#myFavorites").closest('li').remove();
+            $("#myNotifications").closest('li').remove();
+            $("#changePassword").closest('li').remove();
+        	saveUserData(resp,$('#loginType').val());
+        	
+        	if(localStorage.alreadyEntered==undefined){
+        		localStorage.alreadyEntered="entered";
+        		//localStorage.bredcrumbLikeItem = 'bredLike';
+        		location.reload();
+        	}
+        });
+    });
+}
+
+//Save user data to the database
+function saveUserData(userData,loginType){
+	if(loginType == "Google"){
+		var data = {"methodId": "20", "oauth_provider":"google", "userData":JSON.stringify(userData)};
+		postAjaxLogin(data, socialDataSave);
+	}else if(loginType == "Facebook"){
+		var data = {"methodId": "21", "oauth_provider":"facebook", "userId":userData.id,"firstName":userData.first_name,"lastName":userData.last_name,"email":userData.email};
+		postAjaxLogin(data, socialDataSave);
+	}
+	
+}
+function  socialDataSave(callbackMsg){
+	
+}
+//google Sign-in failure callback
+function onFailure(error) {
+    //alert(error);
+	$(".loginErrorModal").text("");
+	$(".loginErrorModal").text("Login Failed");
+	$(".loginErrorModal").show().delay(5000).fadeOut();
+}
+
+//onclick onchange for affiliate checkbox
+$('input[type="radio"]').on('click change', function(e) {
+	userType = $('input[name=loginType]:checked').val();
+	if(userType== "4" || userType== "2"){
+		$('.affliateChek').hide();
+		//$('.forgotflip').show();
+	}else if(userType== "1"){
+		$('.affliateChek').show();
+	}
+	if(userType== "2"){
+		$('#fb-btn').show();
+		$('#gSignIn').show();
+	}else{
+		$('#fb-btn').hide();
+		$('#gSignIn').hide();
+	}
+	
+	var affiliateCheck=$('#travelAgentLogin').val();
+	if((userType ==  "1") && (affiliateCheck == "affiliate")){
+		//$('.forgotflip').hide();
+		$('.signuptravelagent').hide();
+	}else{
+		//$('.forgotflip').show();
+	}
+});
+//onclick for affliate checkbox
+ $('#travelAgentLogin').on('change', function() {
+	var affiliateCheck=$('#travelAgentLogin').val();
+	userType = $('input[name=loginType]:checked').val();
+	if((userType ==  "1") && (affiliateCheck == "affiliate")){
+		//$('.forgotflip').hide();
+		$('.signuptravelagent').hide();
+	}else{
+		//$('.forgotflip').show();
+		$('.signuptravelagent').show();
+	}
+});
+/*Callback for Check User Login Session*/
+var checkUser = function checkUser(loginResponseData) {
+	if(loginResponseData.responseStatus == "SUCCESS") {
+		loginSuccess(loginResponseData);
+	} else if(loginResponseData.responseStatus == "FAILURE") {
+		$("#visitorNameMenu").hide();
+		$("#userLoginMenu").show();		
+	}
+}
+
+/*Implementation of password show/hide goes here*/
+$("#password").keyup(function() {
+	var length = $("#password").val().length;
+	if (length > 0) {
+		$("#showPassLogin").show();
+	}
+});
+
+var inputPassLogin = document.getElementById('password');
+inputPassLogin.onkeyup = function() {
+    var key = event.keyCode || event.charCode;
+    if( key == 8 || key == 46 ){
+    	var length = $("#password").val().length;
+    	if (length == 0) {
+    		$("#showPassLogin").hide();
+    	}
+    }
+};
+
+$("#visitorPassword").keyup(function() {
+	var length = $("#visitorPassword").val().length;
+	if (length > 0) {
+		$("#showPass").show();
+	}
+});
+
+var inputPassSignup = document.getElementById('visitorPassword');
+inputPassSignup.onkeyup = function() {
+    var key = event.keyCode || event.charCode;
+    if( key == 8 || key == 46 ){
+    	var length = $("#visitorPassword").val().length;
+    	if (length == 0) {
+    		$("#showPass").hide();
+    	}
+    }
+};
+
+function showPasswordLogin() {
+	var x = document.getElementById("password");
+	if (x.type === "password") {
+		x.type = "text";
+		$("#showPassLogin").removeClass("fa-eye").addClass("fa-eye-slash");
+	} else {
+		x.type = "password";
+		$("#showPassLogin").removeClass("fa-eye-slash").addClass("fa-eye");
+	}
+}
+
+function showPassword() {
+	var x = document.getElementById("visitorPassword");
+	if (x.type === "password") {
+		x.type = "text";
+		$("#showPass").removeClass("fa-eye").addClass("fa-eye-slash");
+	} else {
+		x.type = "password";
+		$("#showPass").removeClass("fa-eye-slash").addClass("fa-eye");
+	}
+}
+
+/*Login Starts*/
+
+function loginUserHome() {
+	$('#loginType').val("Website Login");
+	
+	//Remove earlier cookies
+	delete_cookie('JSESSIONID');
+	//Validate
+	var isValid = validateLoginForm();
+
+	if (isValid) {
+		password = $('#password').val();
+		encPassword = OnEncryptPwd(password);
+		$("#password").val(encPassword);
+		var userName = $("#userName").val();
+		var captcha = $('#captcha').val();
+		userType = $('input[name=loginType]:checked').val();
+		var affiliateCheck=$('#travelAgentLogin').val();
+		
+		if((userType ==  "1") && (affiliateCheck == "affiliate")){
+			affiliatedUserType = 1;
+			var data = {"methodId": "19", "userName":userName, "password":encPassword, "captchaValue":captcha};
+			postAjaxLogin(data, affiliateloginResponse);
+		}else{
+			if (userType ==  "2") { //Visitor
+				var data = {"methodId": "1", "userName":userName,"password":encPassword, "captchaValue":captcha};
+				postAjaxLogin(data, loginResponse);
+			} else if ((userType ==  "1") || (userType ==  "4")) { //Travel Agent & Hotelier
+				var data = {"methodId": "14", "userName":userName, "password":encPassword, "userType" : userType, "captchaValue":captcha};
+				postAjaxLogin(data, agentLogin);
+			}
+		}
+	}
+}
+//Affiliate login callback
+function affiliateloginResponse(loginResponseData){
+$(".loginErrorModal").text("");
+	
+	if(loginResponseData.responseStatus == "FAILURE") {				
+		if (loginResponseData.responseMessage == "INVALID_CAPTCHA") {
+			$(".loginErrorModal").text("! Invalid Captcha");
+			$(".loginErrorModal").show().delay(5000).fadeOut();
+			//Analytics
+			formErrorAnalytics("Field Error", "INVALID_CAPTCHA");
+			
+			$("#password").val('');
+			$("#captcha").val('');
+		} else if (loginResponseData.responseMessage == "INVALID_USERNAME_PASSWORD") {
+			$(".loginErrorModal").text("! Invalid Username or Password");
+			$(".loginErrorModal").show().delay(5000).fadeOut();
+			//Analytics
+			formErrorAnalytics("Field Error", "INVALID_USERNAME_PASSWORD");
+			
+			$("#userName").val('');
+			$("#password").val('');
+			$("#captcha").val('');
+		} else {
+			$(".loginErrorModal").text("! "+loginResponseData.responseMessage);
+			$(".loginErrorModal").show().delay(5000).fadeOut();
+			//Analytics
+			formErrorAnalytics("Field Error", loginResponseData.responseMessage);
+			
+			$("#userName").val('');
+			$("#password").val('');
+			$("#captcha").val('');
+		}
+		//Reload Captcha
+		reloadCaptchaLogin();
+	}
+	if(loginResponseData.responseStatus == "SUCCESS"){
+		//Login Success
+		affiliateloginSuccess(loginResponseData);		
+		//Reload the page
+		//location.reload();
+	}
+}
+function affiliateloginSuccess(loginResponseData){
+	localStorage.loginStatus=loginResponseData.responseStatus;
+	var userName = loginResponseData.userProfile.fullName;
+	var userId = loginResponseData.userProfile.userId;
+	if (userName.length > 8) {
+		userName = userName.substr(0,8) + "..";
+	}
+	var welcomeText = "Hello " + userName;
+	$("#visitorNameMenu").show();
+	$("#visitorNameMenu").css("display", "inline");
+	$("#visitorNameMenu").text(welcomeText);
+	$("#userLoginMenu").hide();
+	$("#captcha").val('');
+		
+	/*0.Program Page 1.Affiliate Registration 2.Training 3.Pro Certificate 4.Afilliate Form 5.Local partner 6.Partnership portal*/
+	
+	var progressStatus = loginResponseData.userProfile.intProgressStatus;
+	if(affiliatedUserType == 1){
+		if(progressStatus == 1){
+			window.location.replace(location.origin +"/content/tourism/en/program-page.html");				
+		}if(progressStatus == 3){
+			window.location.replace(location.origin +"/content/tourism/en/training-program.html");				
+		}if(progressStatus == 4){
+			window.location.replace(location.origin +"/content/tourism/en/odisha-pro-certificate.html");				
+		}if(progressStatus == 5){
+			window.location.replace(location.origin +"/content/tourism/en/affiliate-form.html");				
+		}if(progressStatus == 6){
+			window.location.replace(location.origin +"/content/tourism/en/choose-local-partner.html");
+		}if(progressStatus == 7){
+			window.location.replace(location.origin +"/content/tourism/en/finalize-agreement.html");				
+		}if(progressStatus == 8){
+			location.reload();				
+		}if(progressStatus == 9){
+			location.reload();				
+		}if(progressStatus == 0){
+			location.reload();				
+		}
+	}
+	//location.reload();
+}
+
+//Delete Cookie
+var delete_cookie = function(name) {
+    document.cookie = name + '=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+};
+
+//Login Validation
+function validateLoginForm() {	
+	//Login Form Error Analytics
+	formAnalytics("Log In Form","Submit:Log In");
+	
+	var userName = $("#userName").val();
+	var password = $('#password').val();
+	var captcha = $('#captcha').val();
+	var message;
+	
+	//Blank Check
+	if (userName == '') {
+		message = "Blank Username";
+		$("#userName").focus();
+		$("#userNameRequired").text("* This field is required");
+		$("#userNameRequired").show().delay(5000).fadeOut();
+		//Analytics
+		formErrorAnalytics("Field Error", message);
+		
+		return false;
+	} else if (userName != '') {
+		var isValid = validateEmail(userName);
+		
+		if (!isValid) {
+			message = "Invalid Email";
+			$("#userName").focus();
+			$("#userNameRequired").text("Invalid email format");
+			$("#userNameRequired").show().delay(5000).fadeOut();
+			//Analytics
+			formErrorAnalytics("Field Error", message);
+			
+			return false;
+		} else {
+			$("#userNameRequired").hide();
+			$("#userNameRequired").text("* This field is required");
+		}
+	} 
+	
+	if (password == '') {
+		message="Blank Password";
+		$("#password").focus();
+		$("#passwordRequired").show().delay(5000).fadeOut();
+		//Analytics
+		formErrorAnalytics("Field Error", message);
+
+		return false;
+	} else if (captcha == '') {
+		message="Blank Captcha";
+		$("#captcha").focus();
+		$("#captchaRequired").show().delay(5000).fadeOut();
+		//Analytics
+		formErrorAnalytics("Field Error", message);
+
+		return false;
+	}
+	
+	return true;
+}
+
+//Validate Email on Keyup
+$("#userName").keyup(function() {
+	var userName = $("#userName").val();
+	if (userName != '') {
+		var isValid = validateEmail(userName);
+		
+		if (!isValid) {
+			message = "Invalid Email";
+			$("#userName").focus();
+			$("#userNameRequired").text("Invalid email format");
+			$("#userNameRequired").show().delay(5000).fadeOut();
+		} else {
+			$("#userNameRequired").hide();
+			$("#userNameRequired").text("* This field is required");
+		}
+	}
+});
+
+$("#taEmail").keyup(function() {
+	var taEmail = $("#taEmail").val();
+	if (taEmail != '') {
+		var isValid = validateEmail(taEmail);
+		
+		if (!isValid) {
+			message = "Invalid Email";
+			$("#taEmail").focus();
+			$("#taEmailRequired").text("Invalid email format");
+			$("#taEmailRequired").show().delay(5000).fadeOut();
+		} else {
+			$("#taEmailRequired").hide();
+			$("#taEmailRequired").text("* This field is required");
+		}
+	}
+});
+
+//Callback Visitor Login
+var loginResponse = function loginResponse(loginResponseData) {
+	//Analytics
+	formAnalytics("Log In Form","Submit:Log In");
+	
+	$(".loginErrorModal").text("");
+	
+	if(loginResponseData.responseStatus == "FAILURE") {				
+		if (loginResponseData.responseMessage == "INVALID_CAPTCHA") {
+			$(".loginErrorModal").text("! Invalid Captcha");
+			$(".loginErrorModal").show().delay(5000).fadeOut();
+			//Analytics
+			formErrorAnalytics("Field Error", "INVALID_CAPTCHA");
+			
+			$("#password").val('');
+			$("#captcha").val('');
+		} else if (loginResponseData.responseMessage == "INVALID_USERNAME_PASSWORD") {
+			$(".loginErrorModal").text("! Invalid Username or Password");
+			$(".loginErrorModal").show().delay(5000).fadeOut();
+			//Analytics
+			formErrorAnalytics("Field Error", "INVALID_USERNAME_PASSWORD");
+			
+			$("#userName").val('');
+			$("#password").val('');
+			$("#captcha").val('');
+		} else {
+			$(".loginErrorModal").text("! "+loginResponseData.responseMessage);
+			$(".loginErrorModal").show().delay(5000).fadeOut();
+			//Analytics
+			formErrorAnalytics("Field Error", loginResponseData.responseMessage);
+			
+			$("#userName").val('');
+			$("#password").val('');
+			$("#captcha").val('');
+		}
+		//Reload Captcha
+		reloadCaptchaLogin();
+	}
+	if(loginResponseData.responseStatus == "SUCCESS"){
+		//-----to prevent usercheck on page load for social login in header.js-----//
+		localStorage.setItem("LoginType","Website Login");
+		//Login Success
+		loginSuccess(loginResponseData);
+		
+		if(affiliatedUserType != 1){
+			//Reload the page
+			location.reload();
+		}
+		
+	}
+}
+
+//Visitor Login Success
+function loginSuccess(loginResponseData){
+	localStorage.LoginType="Website Login";
+	localStorage.loginStatus=loginResponseData.responseStatus;
+	var userName = loginResponseData.userProfile.fullName;
+	var userMail = loginResponseData.userProfile.email;
+	var userId = loginResponseData.userProfile.userId;
+	if (userName.length > 8) {
+		userName = userName.substr(0,8) + "..";
+	}
+	var welcomeText = "Hello " + userName;
+	$("#visitorNameMenu").show();
+	$("#visitorNameMenu").css("display", "inline");
+	$("#visitorNameMenu").text(welcomeText);
+	$("#userLoginMenu").hide();
+	$("#captcha").val('');
+	//Analytics
+	digitalData.user.hashedUserId = getEncUserId(loginResponseData.userProfile.userId);
+	digitalData.user.login.loginStatus = "Logged-In";
+	_satellite.track('login_completed');
+	if(localStorage.userName == undefined && localStorage.userId == undefined){
+		localStorage.setItem("userName",userName);
+		localStorage.setItem("userId",userId);		
+	}
+	if(localStorage.socialLoginEmail == undefined){
+		localStorage.setItem("socialLoginEmail",userMail);
+	}
+	if(localStorage.pageName != undefined && localStorage.pageName == "TRAIL"){				
+		var data = {"userId" :userId,"userType" :"2","agentId" :localStorage.agentid,"agentType" :"1","tourId" :localStorage.tourId, "PAGE" :"TRAIL_TOURS", "methodParam":"saveEnquiry","message":localStorage.message};
+		postAjaxAfterSave(data, inquiryData);				
+	}	
+}
+//****************added for trail section
+function postAjaxAfterSave(data, callback){
+	$.ajax({
+		type: 'POST',
+		url: '/tourism/trailtour',
+		data: data,
+		success: function(data) {
+			callback(data);
+		},
+		error: function (xhr) {
+			console.log(xhr.status);
+			//alert("Technical Error");
+		}
+	});
+}
+var inquiryData = function inquiryData(jsonResponse) {
+	if(jsonResponse=='SAVED'){
+		 //location.reload();
+		//$('#alertModalMsg').modal('hide');
+		$('#alertModalTrail').modal('show');
+		setTimeout(function() {
+			localStorage.removeItem("pageName");
+			localStorage.removeItem("agentid");
+			localStorage.removeItem("tourId");
+			localStorage.removeItem("message");
+      }, 200);
+	}
+}
+// Callback TA & Hotelier Login
+var agentLogin = function agentLogin(agentLoginResponse) {
+	//Analytics
+	formAnalytics("Log In Form","Submit:Log In");
+	
+	$(".loginErrorModal").text("");
+	
+	if(agentLoginResponse.responseStatus == "FAILURE") {				
+		if (agentLoginResponse.responseMessage == "INVALID_CAPTCHA") {
+			$(".loginErrorModal").text("! Invalid Captcha");
+			$(".loginErrorModal").show().delay(5000).fadeOut();
+			//Analytics
+			formErrorAnalytics("Field Error", "INVALID_CAPTCHA");
+			
+			$("#password").val('');
+			$("#captcha").val('');
+		} else if (agentLoginResponse.responseMessage == "INVALID_USERNAME_PASSWORD") {
+			$(".loginErrorModal").text("! Invalid Username or Password");
+			$(".loginErrorModal").show().delay(5000).fadeOut();
+			//Analytics
+			formErrorAnalytics("Field Error", "INVALID_USERNAME_PASSWORD");
+			
+			$("#userName").val('');
+			$("#password").val('');
+			$("#captcha").val('');
+		} else if (agentLoginResponse.responseMessage == "USER_INACTIVE") {
+			$(".loginWarningModal").show().delay(15000).fadeOut();
+			//Analytics
+			formErrorAnalytics("Field Error", "USER_INACTIVE");
+			
+			$("#userName").val('');
+			$("#password").val('');
+			$("#captcha").val('');
+		}
+		//Reload Captcha
+		reloadCaptchaLogin();
+	}
+	if(agentLoginResponse.responseStatus == "SUCCESS") {		
+		var queryParam = agentLoginResponse.responseMessage;
+		if (queryParam != undefined) {
+			window.location.href = location.origin + "/tourism/agentLogin?randomLogin="+queryParam;
+		} else {
+			$(".loginErrorModal").text("! Unable to Proceed. Try again later.");
+			$(".loginErrorModal").show().delay(5000).fadeOut();
+			$("#userName").val('');
+			$("#password").val('');
+			$("#captcha").val('');
+			$(".loginErrorModal").text("");
+			//Reload Captcha
+			reloadCaptchaLogin();
+		}
+	}
+}
+
+
+
+/*Login Ends*/
+
+/*Logout Starts*/
+
+function logoutUser(){
+	var socialLoginType=$('#loginType').val();
+
+
+    if(socialLoginType == "Facebook"){
+	    FB.logout(function(response){
+	    	
+	    });
+	 }
+	var logoutData = {"methodId": "4"};
+	postAjaxLogin(logoutData, usrlogout);
+	localStorage.removeItem("userName");
+	localStorage.removeItem("userId");
+	localStorage.removeItem("loginStatus");
+	$('#livefyreComment').val('');
+	
+	var auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(function () {
+        document.getElementById("gSignIn").style.display = "block";
+    });
+    
+    auth2.disconnect();
+    
+    localStorage.removeItem("socialLoginEmail");
+    localStorage.removeItem("LoginType");
+    localStorage.removeItem("alreadyEntered");
+}
+
+//Logout Callback
+var usrlogout = function usrlogout(logoutResponse) {
+	if(logoutResponse.responseStatus == "SUCCESS") {
+		
+		delete_cookie('JSESSIONID');
+		
+		$("#userLoginMenu").show();
+		$("#visitorNameMenu").hide();
+		$("#VisitorList").collapse('hide');
+		//Analytics
+		digitalData.user.hashedUserId = hashedUserIdAna;
+		digitalData.user.login.loginStatus = "Logged-Out";
+		deleteObject();
+		_satellite.track('logouts');
+		
+		if(currentPageHeader == 'local-partner-trail' || currentPageHeader == 'affiliate-form' ||currentPageHeader == 'program-page' || currentPageHeader == 'training-program' || currentPageHeader == 'affiliate-program' || currentPageHeader == 'odisha-pro-certificate' || currentPageHeader == 'choose-local-partner'){
+			setTimeout(function() {
+				window.location.replace(location.origin +"/content/tourism/en/program-page.html");
+	      }, 300);
+		}		
+		location.reload();
+	} else if(logoutResponse.responseStatus == "FAILURE") {		
+		if (logoutResponse.responseMessage == "ACTIVE_USER_SESSION_NO") {
+			
+			delete_cookie('JSESSIONID');
+			
+			$("#userLoginMenu").show();
+			$("#visitorNameMenu").hide();
+			$("#VisitorList").collapse('hide');
+			reloadCaptchaLogin();
+		} else {
+			alert("Unable to proceed. Try again later.");
+			//Analytics
+			formErrorAnalytics("Custom Error","Unable to proceed. Try again later.");
+		}
+	}
+}
+
+/*Logout Ends*/
+
+
+/* Password Encryption */
+
+function OnEncryptPwd(normalPass) {
+	var encPassword = makeid()+btoa(normalPass)+makeid();
+	return encPassword;
+}
+
+function getEncUserId(userId) {
+	var encUserId = btoa(userId);
+	return encUserId;
+}
+
+function makeid() {
+	var text = "";
+	var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+	for (var i = 0; i < 5; i++)
+		text += possible.charAt(Math.floor(Math.random() * possible.length));
+
+	return text;
+}
+
+/* Captcha Reload */
+
+function reloadCaptchaLogin() {
+	//Analytics
+	customLinkClickAnalytics(currentPageHeader+" :Header : Reset Captcha", "Reset");
+	
+	var d=new Date();
+    $('#captchaImageLogin').attr('src', location.origin+'/tourism/captcha?a='+d.getTime());
+    $('#captcha').val('');
+}
+
+/* RegEx Variables */
+var regexPhone = new RegExp(/^(?=.*\d)(?=.*[0-9]).{1,10}$/gm);
+
+/* Email Validation */
+function validateEmail(emailField) {
+    var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+
+    if (reg.test(emailField) == false) {
+        return false;
+    }
+    return true;
+}
+
+/* Phone Validation */
+function validatePhoneNumber(phoneNumber) {
+	if (phoneNumber.match(regexPhone)) {
+		return true;
+	} else {
+		return false;
+	}
+}
+
+/* Password Validation - Min 6, Max 10, Min 1 Alphabet, Min 1 Number, Min 1 Special Character */
+function validatePassword(password){
+	var regularExpression = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,10}$/;
+	return regularExpression.test(password);
+}
+
+/*Sign Up Starts*/
+
+function signupVisitor() {
+	//Analytics
+	delete digitalData.linkClick;
+	delete digitalData.filter;
+	
+	var x = document.getElementById("visitorPassword");
+	if (x.type === "text") {
+		x.type = "password";
+	}
+	
+	//Validate Sign up form
+	var isValid = validateSignUpForm();
+	
+	if (isValid) {
+		var visitorName = $("#visitorName").val();
+		var visitorEmail = $("#visitorEmail").val();
+		var visitorPhone = $("#visitorPhone").val();
+		var visitorPassword = $("#visitorPassword").val();
+		var visitorConfirmPassword = $("#visitorConfirmPassword").val();
+		
+		var encPassword = OnEncryptPwd(visitorPassword);
+		$("#visitorPassword").val(encPassword);
+		var encConfirmPassword = OnEncryptPwd(visitorConfirmPassword);
+		$("#visitorConfirmPassword").val(encConfirmPassword);
+		var captcha = $('#captcha').val();
+		
+		var data = {"methodId": "3", "visitorName":visitorName,"visitorEmail":visitorEmail, "visitorPhone":visitorPhone, "visitorPassword":encPassword, "visitorConfirmPassword":encConfirmPassword, "captchaValue":captcha,"type":"user"};
+		postAjaxLogin(data, signupResponse);
+	}
+}
+
+// Sign Up Validation
+function validateSignUpForm() {
+	//Analytics
+	formAnalytics("Sign Up Form","Submit:Sign Up");
+
+	var visitorName = $("#visitorName").val();
+	var visitorEmail = $("#visitorEmail").val();
+	var visitorPhone = $("#visitorPhone").val();
+	var visitorPassword = $("#visitorPassword").val();
+	var visitorConfirmPassword = $("#visitorConfirmPassword").val();
+	var captcha = $('#captcha').val();
+	var message;
+	
+	// Blank Check
+	if (visitorName == '') {
+		message="Blank Visitor Name";
+		$("#visitorName").focus();
+		$("#visitorNameRequired").text("* This field is required");
+		$("#visitorNameRequired").show().delay(5000).fadeOut();
+        //Analytics
+		formErrorAnalytics("Field Error", message);
+		
+		return false;
+    } else if (visitorEmail == '') {
+    	message="Blank Visitor Email";
+    	$("#visitorEmail").focus();
+		$("#visitorEmailRequired").text("* This field is required");
+		$("#visitorEmailRequired").show().delay(5000).fadeOut();
+        //Analytics
+		formErrorAnalytics("Field Error", message);
+		
+		return false;
+	} else if (visitorEmail != '') {
+		var isValid = validateEmail(visitorEmail);
+		
+		if (!isValid) {
+			message = "Invalid Email";
+			$("#visitorEmail").focus();
+			$("#visitorEmailRequired").text("Invalid email format");
+			$("#visitorEmailRequired").show().delay(5000).fadeOut();
+			//Analytics
+			formErrorAnalytics("Field Error", message);
+			
+			return false;
+		} else {
+			$("#visitorEmailRequired").hide();
+			$("#visitorEmailRequired").text("* This field is required");
+		}
+	} 
+	
+	if (visitorPhone == '') {
+		message="Blank Visitor Phone";
+    	$("#visitorPhone").focus();
+		$("#visitorPhoneRequired").text("* This field is required");
+		$("#visitorPhoneRequired").show().delay(5000).fadeOut();
+        //Analytics
+		formErrorAnalytics("Field Error", message);
+		
+		return false;
+	} 
+	
+	if (visitorPhone != '') {
+		var isValid = validatePhoneNumber(visitorPhone);
+		
+		if (!isValid) {
+			message="Invalid Phone Number";
+	    	$("#visitorPhone").focus();
+			$("#visitorPhoneRequired").text("* Invalid phone number");
+			$("#visitorPhoneRequired").show().delay(5000).fadeOut();
+			//Analytics
+			formErrorAnalytics("Field Error", message);
+			
+			return false;
+		} else {
+			$("#visitorPhoneRequired").hide();
+			$("#visitorPhoneRequired").text("* This field is required");
+		}
+	}
+	
+	if (visitorPassword == '') {
+		message="Blank Visitor Password";
+    	$("#visitorPassword").focus();
+		$("#visitorPasswordRequired").text("* This field is required");
+		$("#visitorPasswordRequired").show().delay(5000).fadeOut();
+        //Analytics
+		formErrorAnalytics("Field Error", message);
+		
+		return false;
+	} else if (visitorConfirmPassword == '') {
+		message="Blank Visitor Confirm Password";
+    	$("#visitorConfirmPassword").focus();
+		$("#visitorConfirmPasswordRequired").text("* This field is required");
+		$("#visitorConfirmPasswordRequired").show().delay(5000).fadeOut();
+        //Analytics
+		formErrorAnalytics("Field Error", message);
+		
+		return false;
+	} else if (captcha == '') {
+		message="Blank Captcha";
+		$("#captcha").focus();
+		$("#captchaRequired").show().delay(5000).fadeOut();
+		//Analytics
+		formErrorAnalytics("Field Error", message);
+
+		return false;
+	}
+	
+	/*if($("#termsCheckbox").prop('checked') == false) {
+		message="Accept Terms & Conditions";
+		$(".required--field").css("top", "55px");
+		$("#termsRequired").show().delay(5000).fadeOut();
+		setTimeout(function() {
+			$(".required--field").css("top", "41px");
+		}, 7000);
+		//Analytics
+		formErrorAnalytics("Field Error", message);
+
+		return false;
+	}*/
+	
+	
+	if (visitorPassword != '') {
+		var isValid = validatePassword(visitorPassword);
+		if (!isValid) {
+			message="Invalid password format";
+			$("#visitorPassword").focus();
+			$("#visitorPasswordRequired").text("* Invalid password format");
+			$("#visitorPasswordRequired").show().delay(5000).fadeOut();
+	        //Analytics
+			formErrorAnalytics("Field Error", message);
+			
+			return false;
+		}
+	}
+	
+	if ((visitorConfirmPassword != '') || (visitorPassword != '')) {
+		if (visitorPassword != visitorConfirmPassword) {
+			message="Password and Confirm Password should be same";
+			$("#visitorConfirmPassword").focus();
+			$("#visitorConfirmPasswordRequired").text("* Passwords do not match");
+			$("#visitorConfirmPasswordRequired").show().delay(5000).fadeOut();
+	        //Analytics
+			formErrorAnalytics("Field Error", message);
+			return false;
+		} else {
+			$("#visitorConfirmPasswordRequired").hide();
+			$("#visitorConfirmPasswordRequired").text("* This field is required");
+		}
+	}
+	
+	return true;
+}
+
+//Email validation key up
+$("#visitorEmail").keyup(function() {
+	var visitorEmail = $("#visitorEmail").val();
+	if (visitorEmail != '') {
+		var isValid = validateEmail(visitorEmail);
+		
+		if (!isValid) {
+			message = "Invalid Email";
+			$("#visitorEmail").focus();
+			$("#visitorEmailRequired").text("Invalid email format");
+			$("#visitorEmailRequired").show().delay(5000).fadeOut();
+		} else {
+			$("#visitorEmailRequired").hide();
+			$("#visitorEmailRequired").text("* This field is required");
+		}
+	}
+});
+
+//Phone Validation Key Up
+$('#visitorPhone').keypress(function(event) {
+	var key = String.fromCharCode(!event.charCode ? event.which : event.charCode);
+	if (!regexPhone.test(key)) {
+        event.preventDefault();
+        return false;
+    }
+});
+
+//Password validation key up
+$("#visitorPassword").keyup(function() {
+	var visitorPassword = $("#visitorPassword").val();
+	if (visitorPassword != '') {
+		var isValid = validatePassword(visitorPassword);
+		
+		if (!isValid) {
+			message="Invalid password format";
+			$("#visitorPassword").focus();
+			$("#visitorPasswordRequired").text("* Invalid password format");
+			$("#visitorPasswordRequired").show().delay(5000).fadeOut();
+		} else {
+			$("#visitorPasswordRequired").hide();
+			$("#visitorPasswordRequired").text("* This field is required");
+		}
+	}
+});
+
+//Confirm password validation key up
+$("#visitorConfirmPassword").keyup(function() {
+	var visitorPassword = $("#visitorPassword").val();
+	var visitorConfirmPassword = $("#visitorConfirmPassword").val();	
+	if (visitorConfirmPassword != '') {
+		if (visitorPassword != visitorConfirmPassword) {
+			message="Password and Confirm Password should be same";
+			$("#visitorConfirmPassword").focus();
+			$("#visitorConfirmPasswordRequired").text("* Passwords do not match");
+			$("#visitorConfirmPasswordRequired").show().delay(5000).fadeOut();
+			return false;
+		} else {
+			$("#visitorConfirmPasswordRequired").hide();
+			$("#visitorConfirmPasswordRequired").text("* This field is required");
+		}
+	}
+});
+
+// Check Duplicate email ID
+$("#visitorEmail").blur(function() {
+	var visitorEmail = $("#visitorEmail").val();
+	
+	if (visitorEmail != '') {
+		$("#loaderEmail").show();
+		var data = {"methodId": "16", "visitorEmail":visitorEmail};
+		
+		setTimeout(function() {
+			$.ajax({
+				type: 'POST',
+				url: '/tourism/auth',
+				data: data,
+				dataType: "json",
+				async: false,
+				success: function(data) {	
+					$("#loaderEmail").hide();
+					var jsonResponse;
+					if (data == '') {
+						//alert("FORWARD TO ERROR");
+					} else {
+						if (typeof data === 'string') {
+							jsonResponse = JSON.parse(data);
+						} else {
+							jsonResponse = data;
+						}
+					}
+					if (jsonResponse.responseStatus == "FAILURE") {
+						$(".loginWarningModal").text("! This Email ID is registered with us. Please Sign In");
+						$(".loginWarningModal").show().delay(5000).fadeOut();
+						//Analytics
+						formAnalytics("Sign Up Form", "Submit:Sign Up");
+						formErrorAnalytics("Custom Error", "This Email ID is registered with us. Please Sign In");
+						
+						$("#visitorEmail").val('');
+						$("#visitorEmail").focus();
+					} else {
+						$(".loginWarningModal").text('');
+					}
+				},
+				error: function (xhr) {
+					console.log(xhr.status);
+					$("#loaderEmail").hide();
+				}
+			});
+		},1000);
+	}	
+});
+
+//Callback for Sign Up
+function signupResponse(signupResponseData) {
+	$("#showPass").hide();
+	if(signupResponseData.responseStatus == "FAILURE") {			
+		if (signupResponseData.responseMessage == "INVALID_CAPTCHA") {
+			$(".loginErrorModal").text("! Invalid Captcha");
+			$(".loginErrorModal").show().delay(5000).fadeOut();
+			//Analytics
+			formErrorAnalytics("Field Error", "INVALID_CAPTCHA");
+			
+			$("#visitorPassword").val('');
+			$("#visitorConfirmPassword").val('');
+			$('#captcha').val('');
+		} else if (signupResponseData.responseMessage == "USER_EXISTS") {
+			$(".loginWarningModal").text("! This Email ID is registered with us. Please Sign In");
+			$(".loginWarningModal").show().delay(5000).fadeOut();
+			//Analytics
+			formErrorAnalytics("Field Error", "USER_EXISTS");
+			
+			$("#visitorName").val('');
+			$("#visitorEmail").val('');
+			$("#visitorPhone").val('');
+			$("#visitorPassword").val('');
+			$("#visitorConfirmPassword").val('');
+			$('#captcha').val('');
+		} else {
+			var message;
+			if (signupResponseData.responseMessage == undefined) {
+				message = " Unable to proceed. Try again later."
+			} else {
+				message = signupResponseData.responseMessage;
+			}
+			
+			$(".loginErrorModal").text("! " + message);
+			$(".loginErrorModal").show().delay(5000).fadeOut();
+			//Analytics
+			formErrorAnalytics("Field Error", message);
+
+			$("#visitorName").val('');
+			$("#visitorEmail").val('');
+			$("#visitorPhone").val('');
+			$("#visitorPassword").val('');
+			$("#visitorConfirmPassword").val('');
+			$('#captcha').val('');
+		}
+		//Reload the captcha
+		reloadCaptchaLogin();
+	}
+	if(signupResponseData.responseStatus == "SUCCESS") {
+		if (signupResponseData.responseMessage == "USER_REGISTER_SUCCESS_WITHOUT_MAIL"){
+			$(".loginSuccessModal").text("Registration Successfull. Unable to verify your email.");
+			$(".loginSuccessModal").show().delay(5000).fadeOut();
+		}
+		$(".loginSuccessModal").text("Registration Successfull. Check your email.");
+		$(".loginSuccessModal").show().delay(5000).fadeOut();
+		//Analytics
+		_satellite.track('registration_completed');
+		_satellite.track('login_starts');
+		
+		setTimeout(function() {
+			//Login the user
+			loginSuccess(signupResponseData);
+		}, 12000);
+		
+		if(localStorage.pageName != undefined && localStorage.pageName == "TRAIL"){				
+			var data = {"userId" :userId,"userType" :"2","agentId" :localStorage.agentid,"agentType" :"1","tourId" :localStorage.tourId, "PAGE" :"TRAIL_TOURS", "methodParam":"saveEnquiry","message":localStorage.message};
+			postAjaxAfterSave(data, inquiryData);				
+		}
+		
+	  if(document.getElementById("livefyreComment").value == 'livefyreActive'){
+		  localStorage.setItem("userName",signupResponseData.userProfile.fullName);
+		  localStorage.setItem("userId",signupResponseData.userProfile.userId);	  
+	  }		
+	  //-----to prevent usercheck on page load for social login in header.js-----//
+	  localStorage.setItem("LoginType","Website Login");
+	  //Reload the page
+	  location.reload();
+	}
+}
+/*Sign Up Ends*/
+
+/* Forgot Password Starts */
+
+function forgotPasswordUser() {
+	var userEmail = $("#userEmail").val();
+	var captcha = $('#captcha').val();
+	var userType = $('input[name=loginType]:checked').val();
+	var affiliateCheck=$('#travelAgentLogin').val();
+	
+	if((userType ==  "1") && (affiliateCheck == "affiliate")){
+		userType=5;
+	}
+	
+	//Validate Form
+	var isValid = validateForgotPasswordForm();
+	if (isValid) {
+		var data = {"methodId": "5", "userEmail" : userEmail, "captchaValue" : captcha, "userType" : userType};
+		postAjaxLogin(data, forgotPasswordMethod);
+	}
+}
+
+function validateForgotPasswordForm() {
+	//Analytics
+	formAnalytics("Forgot PassWord Form", "Submit:Forgot PassWord");
+	
+	var loginType   = $('input[name=loginType]:checked').val();
+	var userEmail = $("#userEmail").val();
+	var captcha = $('#captcha').val();
+	var message;
+	
+	/* Blank Check */
+	
+	if (userEmail == '') {
+    	message="Blank Email";
+    	$("#userEmail").focus();
+		$("#userEmailRequired").text("* This field is required");
+		$("#userEmailRequired").show().delay(5000).fadeOut();
+        //Analytics
+		formErrorAnalytics("Field Error", message);
+		
+		return false;
+	} else if (userEmail != '') {
+		var isValid = validateEmail(userEmail);
+		
+		if (!isValid) {
+			message = "Invalid Email";
+			$("#userEmail").focus();
+			$("#userEmailRequired").text("Invalid email format");
+			$("#userEmailRequired").show().delay(5000).fadeOut();
+			//Analytics
+			formErrorAnalytics("Field Error", message);
+			
+			return false;
+		} else {
+			$("#userEmailRequired").hide();
+			$("#userEmailRequired").text("* This field is required");
+		}
+	} 
+		
+	if (captcha == '') {
+		message="Blank Captcha";
+		$("#captcha").focus();
+		$("#captchaRequired").show().delay(5000).fadeOut();
+		//Analytics
+		formErrorAnalytics("Field Error", message);
+		
+		return false;
+	}
+	
+	return true;
+}
+
+//Email validation key up
+$("#userEmail").keyup(function() {
+	var userEmail = $("#userEmail").val();
+	if (userEmail != '') {
+		var isValid = validateEmail(userEmail);
+		
+		if (!isValid) {
+			message = "Invalid Email";
+			$("#userEmail").focus();
+			$("#userEmailRequired").text("Invalid email format");
+			$("#userEmailRequired").show().delay(5000).fadeOut();
+		} else {
+			$("#userEmailRequired").hide();
+			$("#userEmailRequired").text("* This field is required");
+		}
+	}
+});
+
+//Callback For forgot password
+var forgotPasswordMethod = function forgotPasswordResponse(forgotPasswordResponseData) {
+	if(forgotPasswordResponseData.responseStatus == "SUCCESS") {
+		$(".loginSuccessModal").text(forgotPasswordResponseData.userMessage);
+		$(".loginSuccessModal").show().delay(5000).fadeOut();
+		//Analytics
+		formSubmitAnalytics("Forgot Password Form", "Submit:Forgot Password");
+		
+		$("#captcha").val('');
+		$("#userEmail").val('');
+	} else if(forgotPasswordResponseData.responseStatus == "FAILURE") {
+		if (forgotPasswordResponseData.responseMessage == "INVALID_CAPTCHA") {
+			$(".loginErrorModal").text("! Invalid Captcha");
+			$(".loginErrorModal").show().delay(5000).fadeOut();
+			//Analytics
+			formErrorAnalytics("Field Error", "INVALID_CAPTCHA");
+			
+			$("#captcha").val('');
+		} else {
+			$(".loginErrorModal").text("! " + forgotPasswordResponseData.userMessage);
+			$(".loginErrorModal").show().delay(5000).fadeOut();
+			//Analytics
+			formErrorAnalytics("Field Error", forgotPasswordResponseData.userMessage);
+			
+			$("#captcha").val('');
+			$("#userEmail").val('');
+		}
+	}
+	reloadCaptchaLogin();
+}
+
+/* Forgot Password Ends */
+
+/* Activate Travel Agent Starts */
+
+function activateTA() {
+	var taEmail = $("#taEmail").val();
+	var captcha = $('#captcha').val();
+	var isValid = validateActivationTA();
+	if (isValid) {
+		var data = {"methodId": "13", "taEmail" : taEmail, "captchaValue" : captcha};
+		postAjaxLogin(data, travelAgentActivation);
+	}
+}
+
+function validateActivationTA() {
+	//Analytics
+	formAnalytics("Forgot PassWord Form", "Submit:Activate Travel Agent");
+	
+	var taEmail = $("#taEmail").val();
+	var captcha = $('#captcha').val();
+	var message;
+	
+	/* Blank Check */
+	
+	if (taEmail == '') {
+    	message="Blank Email";
+    	$("#taEmail").focus();
+		$("#taEmailRequired").text("* This field is required");
+		$("#taEmailRequired").show().delay(5000).fadeOut();
+        //Analytics
+		formErrorAnalytics("Field Error", message);
+		
+		return false;
+	} else if (taEmail != '') {
+		var isValid = validateEmail(taEmail);
+		
+		if (!isValid) {
+			message = "Invalid Email";
+			$("#taEmail").focus();
+			$("#taEmailRequired").text("Invalid email format");
+			$("#taEmailRequired").show().delay(5000).fadeOut();
+			//Analytics
+			formErrorAnalytics("Field Error", message);
+			
+			return false;
+		} else {
+			$("#taEmailRequired").hide();
+			$("#taEmailRequired").text("* This field is required");
+		}
+	} 
+		
+	if (captcha == '') {
+		message="Blank Captcha";
+		$("#captcha").focus();
+		$("#captchaRequired").show().delay(5000).fadeOut();
+		//Analytics
+		formErrorAnalytics("Field Error", message);
+		
+		return false;
+	}
+	
+	return true;
+}
+
+//Email validation key up
+$("#taEmail").keyup(function() {
+	var taEmail = $("#taEmail").val();
+	if (taEmail != '') {
+		var isValid = validateEmail(taEmail);
+		
+		if (!isValid) {
+			message = "Invalid Email";
+			$("#taEmail").focus();
+			$("#taEmailRequired").text("Invalid email format");
+			$("#taEmailRequired").show().delay(5000).fadeOut();
+		} else {
+			$("#taEmailRequired").hide();
+			$("#taEmailRequired").text("* This field is required");
+		}
+	}
+});
+
+//Callback for activateTA
+function travelAgentActivation(activationResponseData) {
+	if(activationResponseData.responseStatus == "SUCCESS") {
+		$(".loginSuccessModal").text(activationResponseData.userMessage);
+		$(".loginSuccessModal").show().delay(5000).fadeOut();
+		//Analytics
+		formSubmitAnalytics("Travel Agent Activation Form", "Submit:Activate Travel Agent");
+		
+		$("#captcha").val('');
+		$("#taEmail").val('');
+	} else if(activationResponseData.responseStatus == "FAILURE") {
+		if (activationResponseData.responseMessage == "INVALID_CAPTCHA") {
+			$(".loginErrorModal").text("! Invalid Captcha");
+			$(".loginErrorModal").show().delay(5000).fadeOut();
+			//Analytics
+			formErrorAnalytics("Field Error", "INVALID_CAPTCHA");
+			
+			$("#captcha").val('');
+		} else {
+			$(".loginErrorModal").text("! " + activationResponseData.userMessage);
+			$(".loginErrorModal").show().delay(5000).fadeOut();
+			//Analytics
+			formErrorAnalytics("Field Error", activationResponseData.userMessage);
+			
+			$("#captcha").val('');
+			$("#taEmail").val('');
+		}
+	}
+	reloadCaptchaLogin();
+}
+
+/* Activate Travel Agent Ends */
+
+/* Common AJAX goes here */
+function postAjaxLogin(data, callback) {
+	$("#loaderLogin").show();
+	$("#loaderForgetLogin").show();
+	$("#loaderSignupLogin").show();
+	$("#btnLogin").addClass("disabled");
+	$("#btnForgotPassword").addClass("disabled");
+	$("#btnSignUp").addClass("disabled");
+	
+	setTimeout(function() {
+		$.ajax({
+			type: 'POST',
+			url: '/tourism/auth',
+			data: data,
+			dataType: "json",
+			async: false,
+			success: function(data) {	
+				$("#loaderLogin").hide();
+				$("#loaderForgetLogin").hide();
+				$('#loaderSignupLogin').hide();
+				$("#btnLogin").removeClass("disabled");
+				$("#btnForgotPassword").removeClass("disabled");
+				$("#btnSignUp").removeClass("disabled");
+				
+				var jsonResponse;
+				
+				if (data == '') {
+					//alert("FORWARD TO ERROR");
+				} else {
+					if (typeof data === 'string') {
+						jsonResponse = JSON.parse(data);
+					} else {
+						jsonResponse = data;
+					}
+				}
+				callback(jsonResponse);
+			},
+			error: function (xhr) {
+				console.log(xhr.status);
+				$("#loaderLogin").hide();
+				$("#loaderForgetLogin").hide();
+				$('#loaderSignupLogin').hide();
+				$("#btnLogin").removeClass("disabled");
+				$("#btnForgotPassword").removeClass("disabled");
+				$("#btnSignUp").removeClass("disabled");
+			}
+		});
+	}, 100);
+	
+}
+
+$(document).ready(function () {
+    $("#headerShareIcon").click(function () {
+        $('.headersharing1').toggle()
+    });
+
+    
+    $(".headersharing1").each(function() {
+		$(this).jsSocials({
+			url : $(this).data('url'),
+			text : $(this).data('heading'),
+			shares : [ {
+				share : "twitter",
+				via : "odisha_tourism"
+			}, "facebook", "linkedin" ,"pinterest" ],
+			showLabel : false,
+			showCount : "inside",
+			shareIn : "popup"
+		});
+		
+	});
+    
+   
+});
+! function(a, b, c) {
+    function d(a, c) {
+        var d = b(a);
+        d.data(f, this), this._$element = d, this.shares = [], this._init(c), this._render()
+    }
+    var e = "JSSocials",
+        f = e,
+        g = function(a, c) {
+            return b.isFunction(a) ? a.apply(c, b.makeArray(arguments).slice(2)) : a
+        },
+        h = /(\.(jpeg|png|gif|bmp|svg)$|^data:image\/(jpeg|png|gif|bmp|svg\+xml);base64)/i,
+        i = /(&?[a-zA-Z0-9]+=)?\{([a-zA-Z0-9]+)\}/g,
+        j = {
+            G: 1e9,
+            M: 1e6,
+            K: 1e3
+        },
+        k = {};
+    var queryStr = window.location.search.substring(1);
+    var sURLVariables = queryStr.split('?');
+    var suburl = "?"+sURLVariables;
+
+    d.prototype = {
+        url: "",
+        text: "",
+        shareIn: "blank",
+        showLabel: function(a) {
+            return this.showCount === !1 ? a > this.smallScreenWidth : a >= this.largeScreenWidth
+        },
+        showCount: function(a) {
+            return a <= this.smallScreenWidth ? "inside" : !0
+        },
+        smallScreenWidth: 640,
+        largeScreenWidth: 1024,
+        resizeTimeout: 200,
+        elementClass: "jssocials",
+        sharesClass: "jssocials-shares",
+        shareClass: "jssocials-share",
+        shareButtonClass: "jssocials-share-button",
+        shareLinkClass: "jssocials-share-link",
+        shareLogoClass: "jssocials-share-logo",
+        shareLabelClass: "jssocials-share-label",
+        shareLinkCountClass: "jssocials-share-link-count",
+        shareCountBoxClass: "jssocials-share-count-box",
+        shareCountClass: "jssocials-share-count",
+        shareZeroCountClass: "jssocials-share-no-count",
+        _init: function(a) {
+            this._initDefaults(), b.extend(this, a), this._initShares(), this._attachWindowResizeCallback()
+        },
+        _initDefaults: function() {
+            this.url = a.location.href, this.text = b.trim(b("meta[name=description]").attr("content") || b("title").text() )
+        },
+        _initShares: function() {
+            this.shares = b.map(this.shares, b.proxy(function(a) {
+                "string" == typeof a && (a = {
+                    share: a
+                });
+                var c = a.share && k[a.share];
+                if (!c && !a.renderer) throw Error("Share '" + a.share + "' is not found");
+                return b.extend({
+                    url: this.url+suburl,
+                    text: this.text
+                }, c, a)
+            }, this))
+        },
+        _attachWindowResizeCallback: function() {
+            b(a).on("resize", b.proxy(this._windowResizeHandler, this))
+        },
+        _detachWindowResizeCallback: function() {
+            b(a).off("resize", this._windowResizeHandler)
+        },
+        _windowResizeHandler: function() {
+            (b.isFunction(this.showLabel) || b.isFunction(this.showCount)) && (a.clearTimeout(this._resizeTimer), this._resizeTimer = setTimeout(b.proxy(this.refresh, this), this.resizeTimeout))
+        },
+        _render: function() {
+            this._clear(), this._defineOptionsByScreen(), this._$element.addClass(this.elementClass), this._$shares = b("<div>").addClass(this.sharesClass).appendTo(this._$element), this._renderShares()
+        },
+        _defineOptionsByScreen: function() {
+            this._screenWidth = b(a).width(), this._showLabel = g(this.showLabel, this, this._screenWidth), this._showCount = g(this.showCount, this, this._screenWidth)
+        },
+        _renderShares: function() {
+            b.each(this.shares, b.proxy(function(a, b) {
+                this._renderShare(b)
+            }, this))
+        },
+        _renderShare: function(a) {
+            var c;
+            c = b.isFunction(a.renderer) ? b(a.renderer()) : this._createShare(a), c.addClass(this.shareClass).addClass(a.share ? "jssocials-share-" + a.share : "").addClass(a.css).appendTo(this._$shares)
+        },
+        _createShare: function(a) {
+            var c = b("<div>"),
+                d = this._createShareLink(a).appendTo(c);
+            if (this._showCount) {
+                var e = "inside" === this._showCount,
+                    f = e ? d : b("<div>").addClass(this.shareCountBoxClass).appendTo(c);
+                f.addClass(e ? this.shareLinkCountClass : this.shareCountBoxClass), this._renderShareCount(a, f)
+            }
+            return c
+        },
+        _createShareLink: function(a) {
+            var c = this._getShareStrategy(a),
+                d = c.call(a, {
+                    shareUrl: this._getShareUrl(a)
+                });
+            return d.addClass(this.shareLinkClass).append(this._createShareLogo(a)), this._showLabel && d.append(this._createShareLabel(a)), b.each(this.on || {}, function(c, e) {
+                b.isFunction(e) && d.on(c, b.proxy(e, a))
+            }), d
+        },
+        _getShareStrategy: function(a) {
+            var b = m[a.shareIn || this.shareIn];
+            if (!b) throw Error("Share strategy '" + this.shareIn + "' not found");
+            return b
+        },
+        _getShareUrl: function(a) {
+            var b = g(a.shareUrl, a);
+            return this._formatShareUrl(b, a)
+        },
+        _createShareLogo: function(a) {
+            var c = a.logo,
+                d = h.test(c) ? b("<img>").attr("src", a.logo) : b("<i>").addClass(c);
+            return d.addClass(this.shareLogoClass), d //
+        },
+        _createShareLabel: function(a) {
+            return b("<span>").addClass(this.shareLabelClass).text(a.label)
+        },
+        _renderShareCount: function(a, c) {
+            var d = b("<span>").addClass(this.shareCountClass);
+            c.addClass(this.shareZeroCountClass).append(d), this._loadCount(a).done(b.proxy(function(a) {
+                a && (c.removeClass(this.shareZeroCountClass), d.text(a))
+            }, this))
+        },
+        _loadCount: function(a) {
+            var c = b.Deferred(),
+                d = this._getCountUrl(a);
+            if (!d) return c.resolve(0).promise();
+            var e = b.proxy(function(b) {
+                c.resolve(this._getCountValue(b, a))
+            }, this);
+            return b.getJSON(d).done(e).fail(function() {
+                b.get(d).done(e).fail(function() {
+                    c.resolve(0)
+                })
+            }), c.promise()
+        },
+        _getCountUrl: function(a) {
+            var b = g(a.countUrl, a);
+            return this._formatShareUrl(b, a)
+        },
+        _getCountValue: function(a, c) {
+            var d = (b.isFunction(c.getCount) ? c.getCount(a) : a) || 0;
+            return "string" == typeof d ? d : this._formatNumber(d)
+        },
+        _formatNumber: function(a) {
+            return b.each(j, function(b, c) {
+                return a >= c ? (a = parseFloat((a / c).toFixed(2)) + b, !1) : void 0
+            }), a
+        },
+        _formatShareUrl: function(b, c) {
+            return b.replace(i, function(b, d, e) {
+                var f = c[e] || "";
+                return f ? (d || "") + a.encodeURIComponent(f) : ""
+            })
+        },
+        _clear: function() {
+            a.clearTimeout(this._resizeTimer), this._$element.empty()
+        },
+        _passOptionToShares: function(a, c) {
+            var d = this.shares;
+            b.each(["url", "text"], function(e, f) {
+                f === a && b.each(d, function(b, d) {
+                    d[a] = c
+                })
+            })
+        },
+        _normalizeShare: function(a) {
+            return b.isNumeric(a) ? this.shares[a] : "string" == typeof a ? b.grep(this.shares, function(b) {
+                return b.share === a
+            })[0] : a
+        },
+        refresh: function() {
+            this._render()
+        },
+        destroy: function() {
+            this._clear(), this._detachWindowResizeCallback(), this._$element.removeClass(this.elementClass).removeData(f)
+        },
+        option: function(a, b) {
+            return 1 === arguments.length ? this[a] : (this[a] = b, this._passOptionToShares(a, b), void this.refresh())
+        },
+        shareOption: function(a, b, c) {
+            return a = this._normalizeShare(a), 2 === arguments.length ? a[b] : (a[b] = c, void this.refresh())
+        }
+    }, b.fn.jsSocials = function(a) {
+        var e = b.makeArray(arguments),
+            g = e.slice(1),
+            h = this;
+        return this.each(function() {
+            var e, i = b(this),
+                j = i.data(f);
+            if (j)
+                if ("string" == typeof a) {
+                    if (e = j[a].apply(j, g), e !== c && e !== j) return h = e, !1
+                } else j._detachWindowResizeCallback(), j._init(a), j._render();
+            else new d(i, a)
+        }), h
+    };
+    var l = function(a) {
+            var c;
+            b.isPlainObject(a) ? c = d.prototype : (c = k[a], a = arguments[1] || {}), b.extend(c, a)
+        },
+        m = {
+            popup: function(c) {
+                return b("<a>").attr("href", "#").on("click", function() {
+                    return a.open(c.shareUrl, null, "width=600, height=400, location=0, menubar=0, resizeable=0, scrollbars=0, status=0, titlebar=0, toolbar=0"), !1
+                })
+            },
+            blank: function(a) {
+                return b("<a>").attr({
+                    target: "_blank",
+                    href: a.shareUrl
+                })
+            },
+            self: function(a) {
+                return b("<a>").attr({
+                    target: "_self",
+                    href: a.shareUrl
+                })
+            }
+        };
+    a.jsSocials = {
+        Socials: d,
+        shares: k,
+        shareStrategies: m,
+        setDefaults: l
+    }
+}(window, jQuery),
+function(a, b, c) {
+    b.extend(c.shares, {
+        email: {
+            label: "E-mail",
+            logo: "fa fa-at",
+            shareUrl: "mailto:{to}?subject={text}&body={url}",
+            countUrl: "",
+            shareIn: "self"
+        },
+        twitter: {
+            label: "Tweet",
+            logo: "fa fa-twitter",
+            shareUrl: "https://twitter.com/share?text={text}&url={url}&via={via}&hashtags={hashtags}",
+            countUrl: ""
+        },
+        facebook: {
+            label: "Like",
+            logo: "fa fa-facebook",
+            shareUrl: "https://facebook.com/sharer/sharer.php?u={url}",//"'+suburl+'"
+            countUrl: "https://graph.facebook.com/?id={url}",
+            getCount: function(a) {
+                return a.share && a.share.share_count || 0
+            }
+        },
+        vkontakte: {
+            label: "Like",
+            logo: "fa fa-vk",
+            shareUrl: "https://vk.com/share.php?url={url}&title={title}&description={text}",
+            countUrl: "https://vk.com/share.php?act=count&index=1&url={url}",
+            getCount: function(a) {
+                return parseInt(a.slice(15, -2).split(", ")[1])
+            }
+        },
+        googleplus: {
+            label: "+1",
+            logo: "fa fa-google",
+            shareUrl: "https://plus.google.com/share?url={url}",
+            countUrl: ""
+        },
+        linkedin: {
+            label: "Share",
+            logo: "fa fa-linkedin",
+            shareUrl: "https://www.linkedin.com/shareArticle?mini=true&url={url}",
+            countUrl: "https://www.linkedin.com/countserv/count/share?format=jsonp&url={url}&callback=?",
+            getCount: function(a) {
+                return a.count
+            }
+        },
+        pinterest: {
+            label: "Pin it",
+            logo: "fa fa-pinterest",
+            shareUrl: "https://pinterest.com/pin/create/bookmarklet/?media={media}&url={url}&description={text}",
+            countUrl: "https://api.pinterest.com/v1/urls/count.json?&url={url}&callback=?",
+            getCount: function(a) {
+                return a.count
+            }
+        },
+        stumbleupon: {
+            label: "Share",
+            logo: "fa fa-stumbleupon",
+            shareUrl: "http://www.stumbleupon.com/submit?url={url}&title={title}",
+            countUrl: "https://cors-anywhere.herokuapp.com/https://www.stumbleupon.com/services/1.01/badge.getinfo?url={url}",
+            getCount: function(a) {
+                return a.result.views
+            }
+        },
+        telegram: {
+            label: "Telegram",
+            logo: "fa fa-paper-plane",
+            shareUrl: "tg://msg?text={url} {text}",
+            countUrl: "",
+            shareIn: "self"
+        },
+        whatsapp: {
+            label: "WhatsApp",
+            logo: "fa fa-whatsapp",
+            shareUrl: "whatsapp://send?text={url} {text}",
+            countUrl: "",
+            shareIn: "self"
+        },
+        line: {
+            label: "LINE",
+            logo: "fa fa-comment",
+            shareUrl: "http://line.me/R/msg/text/?{text} {url}",
+            countUrl: ""
+        },
+        viber: {
+            label: "Viber",
+            logo: "fa fa-volume-control-phone",
+            shareUrl: "viber://forward?text={url} {text}",
+            countUrl: "",
+            shareIn: "self"
+        },
+        pocket: {
+            label: "Pocket",
+            logo: "fa fa-get-pocket",
+            shareUrl: "https://getpocket.com/save?url={url}&title={title}",
+            countUrl: ""
+        },
+        messenger: {
+            label: "Share",
+            logo: "fa fa-commenting",
+            shareUrl: "fb-messenger://share?link={url}",
+            countUrl: "",
+            shareIn: "self"
+        }
+    })
+}(window, jQuery, window.jsSocials);
